@@ -1,0 +1,1 @@
+{"name":"ec-cube\/AdminSupportCustomerLogin","version":"1.0.0","description":"\u4ee3\u308f\u308a\u306b\u30ed\u30b0\u30a4\u30f3","type":"eccube-plugin","require":{"ec-cube\/plugin-installer":"~0.0.4"},"extra":{"code":"AdminSupportCustomerLogin","id":1845}}

@@ -1,0 +1,13 @@
+{
+  "name": "ec-cube/IplPeriodicPurchase",
+  "version": "1.0.3",
+  "description": "リピートキューブ",
+  "type": "eccube-plugin",
+  "require": {
+    "ec-cube/plugin-installer": "~0.0.7",
+    "azuyalabs/yasumi": "2.1.0"
+  },
+  "extra": {
+    "code": "IplPeriodicPurchase"
+  }
+}

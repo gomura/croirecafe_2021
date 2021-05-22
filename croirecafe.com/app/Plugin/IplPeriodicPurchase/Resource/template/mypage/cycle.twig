@@ -1,0 +1,317 @@
+{#
+RepeatCube for EC-CUBE4
+Copyright(c) 2019 IPLOGIC CO.,LTD. All Rights Reserved.
+
+http://www.iplogic.co.jp/
+
+This program is not free software.
+It applies to terms of service.
+#}
+{% extends 'default_frame.twig' %}
+
+{% set mypageno = 'IplPeriodicPurchase' %}
+
+{% form_theme form 'Form/form_div_layout.twig' %}
+
+{% block javascript %}
+    <script>
+        $(function() {
+            // 初期表示
+            createDelivData(getSelectedCycle());
+
+            $('#cycle_form').submit(function () {
+                if (!getSelectedCycle()) {
+                    alert('※ お届け頻度が選択されていません。');
+                    // function.jsから追加されるオーバーレイ用のdivを消す
+                    $('.bg-load-overlay').remove();
+                    return false;
+                }
+            });
+
+            $('#checkShippingDate').click(function () {
+                data = getSelectedCycle();
+
+                if (!data) {
+                    alert('※ お届け頻度が選択されていません。');
+                    return;
+                }
+
+                createDelivData(data);
+            });
+
+            function getSelectedCycle() {
+                isSelected = false;
+                cycle_type = $('[id^=select_cycle_cycle_type_]:checked').val();
+                cycle = [];
+
+                if (cycle_type == {{ cycle_type_dayofweek }}) {
+                    isSelected = $("#select_cycle_cycle_dayofweek").val() !== '' 
+                                && $("#select_cycle_cycle_week").val() !== '';
+
+                    cycle = {
+                        'cycle_day': $("#select_cycle_cycle_dayofweek").val(),
+                        'cycle_week': $("#select_cycle_cycle_week").val()
+                            };
+                } else {
+                    isSelected = $("#select_cycle_cycle_" + cycle_type).val() ? true : false;
+
+                    cycle = {'cycle_id': $("#select_cycle_cycle_" + cycle_type).val()};
+                }
+
+                if (!isSelected) {
+                    return false;
+                }
+
+                return cycle;
+            }
+
+            function createDelivData(data) {
+                data.shipping_date = {{ shipping_date }};
+                data.is_mypage_action = true;
+
+                $.ajax({
+                    url: '{{ url('periodic_shopping_shipping_date') }}',
+                    type: 'POST',
+                    data: data,
+                    dataType: 'json',
+                }).done(function(data) {
+                    if (data.shipping_date) {
+                        $("#first_shipping_date").text("次回のお届け日は"+data.shipping_date+"です。");
+                        $("#second_shipping_date").text("次々回のお届け日は"+data.next_shipping_date+"です。");
+                    }
+
+                    // カレンダー生成関数を呼ぶ
+                    generateDelivCalendar(data);
+
+                }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+                    console.log("textStatus     : " + textStatus);
+                    console.log("errorThrown    : " + errorThrown.message);
+                    alert('{{ 'カートへの追加に失敗しました。'|trans }}');
+                });
+            }
+
+            function generateDelivCalendar(data) {
+                $('.deliv_calendar').empty();
+
+                $('.deliv_calendar').append('<span style="color:#ffbf7f;">■</span>…本日<br />');
+                $('.deliv_calendar').append('<span style="color:#ffff7f;">■</span>…次回お届け予定日<br />');
+                $('.deliv_calendar').append('<span style="color:#7fbfff;">■</span>…次々回以降のお届け予定日<br />');
+
+                //loop
+                for(var i in data.arrCalendar) {
+                    //loop
+                    for(var j in data.arrCalendar[i]) {
+                        //first
+                        if(j == 0) {
+                            var table = $('<table>');
+                            var caption = $('<caption>');
+                            var thead = $('<thead>');
+                            var tbody = $('<tbody>');
+
+                            table.addClass('calendar');
+                            caption.addClass('month');
+                            caption.append(data.arrCalendar[i][j].year + '年' + data.arrCalendar[i][j].month + '月');
+                            caption.appendTo(table);
+                            thead.append('<tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>');
+                            thead.appendTo(table);
+                        }
+
+                        //first tr
+                        if(data.arrCalendar[i][j].first) {
+                            var tr = $('<tr />');
+                        }
+
+                        var td = $('<td />');
+
+
+                        if(data.arrCalendar[i][j].in_month) {
+                            //if first_deliv_day
+                            if(data.arrCalendar[i][j].first_deliv_day) {
+                                td.addClass('first_deliv');
+
+                            //if deliv_day
+                            }else if(data.arrCalendar[i][j].deliv_day) {
+                                td.addClass('deliv');
+
+                            //if holiday
+                            }else if(data.arrCalendar[i][j].holiday) {
+                                td.addClass('off');
+
+                            //if today
+                            }else if(data.arrCalendar[i][j].today) {
+                                td.addClass('today');
+
+                            }
+
+                            td.append(data.arrCalendar[i][j].day);
+                        }
+
+                        td.appendTo(tr);
+                        tr.appendTo(tbody);
+
+                        //if last
+                        if(data.arrCalendar[i][j].last) {
+                            //tableを追加
+                            tbody.appendTo(table);
+                            $('.deliv_calendar').append(table);
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+{% endblock %}
+
+{% block stylesheet %}
+<style type="text/css">
+@media screen and (min-width: 769px){
+    .ec-borderedDefs > dl > dt{
+        width: 30%;
+    }
+    .ec-borderedDefs > dl > dd{
+        width: 35%;
+    }
+}
+@media screen and (max-width: 768px){
+    .ec-borderedDefs > dl > dt{
+        width: 100%;
+    }
+    .ec-borderedDefs > dl > dd{
+        width: 50%;
+    }
+}
+
+#checkShippingDateDiv{
+    text-align: center;
+}
+
+/* カレンダーのCSS */
+.deliv_calendar{
+    margin-bottom: 20px;
+}
+.calendar{
+    border: 1px solid #d3d3d3;
+    text-align: center;
+    width: 100%;
+}
+.calendar caption{
+    font-size: 20px;
+    margin:15px 0px;
+    text-align: center;
+}
+.calendar th{
+    padding: 5px;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+.calendar td{
+    padding: 5px;
+    border: 1px solid #d3d3d3;
+}
+.first_deliv{
+    background-color: #ffff7f;
+}
+.deliv{
+    background-color: #7fbfff;
+}
+.today {
+    background-color: #ffbf7f;
+}
+.off {
+    background-color: #ff9999;
+}
+</style>
+{% endblock %}
+
+{% block main %}
+    <div class="ec-layoutRole__main">
+        <div class="ec-mypageRole">
+            <div class="ec-pageHeader">
+                <h1>{{ 'マイページ'|trans }}/{{ 'お届け頻度変更'|trans }}</h1>
+            </div>
+            {% include 'Mypage/navi.twig' %}
+        </div>
+
+        {% include '@IplPeriodicPurchase/mypage/periodic_navi.twig' %}
+
+        <div class="ec-mypageRole">
+            <div class="ec-editRole">
+                <div class="ec-off1Grid">
+                    <div class="ec-off1Grid__cell">
+                        <form method="post" action="{{ url('ipl_periodic_purchase_cycle', {'periodic_purchase_id': PeriodicPurchase.id}) }}" novalidate id="cycle_form" class="h-adr">
+                            {{ form_widget(form._token) }}
+                            <div class="ec-borderedDefs">
+                                <dl>
+                                    <dt>
+                                        {{ form_label(form.cycle_type, 'お届け頻度', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                    </dt>
+                                    <dd>
+                                        {% for key, child in form.cycle_type %}
+                                            <div class="">
+                                                {{ form_widget(child, { 'attr': { 'data-trigger': 'change' }}) }}
+                                            </div>
+                                        {% endfor %}
+                                    </dd>
+                                    <dd>
+                                        {% for key, child in form.cycle_type %}
+                                            {% set key_name = 'cycle_'~form.cycle_type.vars.choices[key].data %}
+                                            {% if cycle_type_dayofweek != form.cycle_type.vars.choices[key].data %}
+                                                <div class="ec-select{{ has_errors(attribute(form, key_name)) ? ' error'}}" style="margin-bottom: 0px;">
+                                                    {{ form_widget(attribute(form, key_name), { 'attr': { 'data-trigger': 'change' }}) }}
+                                                </div>
+                                            {% else %}
+                                                {# レンダリングの必要があるため #}
+                                                <div class="ec-select" style="display: none;">
+                                                    {{ form_widget(attribute(form, key_name), { 'attr': { 'data-trigger': 'change' }}) }}
+                                                </div>
+                                                <div class="ec-select{{ has_errors(attribute(form, key_name)) ? ' error'}}" style="margin-bottom: 0px;">
+                                                    毎月
+                                                    {{ form_widget(form.cycle_week, { 'attr': { 'data-trigger': 'change' }}) }}
+                                                    {{ form_widget(form.cycle_dayofweek, { 'attr': { 'data-trigger': 'change' }}) }}
+                                                    にお届け
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </dd>
+                                </dl>
+                            </div>
+
+                            <div id="checkShippingDateDiv">
+                                <button type="button" class="ec-inlineBtn" id="checkShippingDate">お届け日を確認する</button>
+                            </div>
+
+                            <div class="ec-orderPayment" id="periodic_shipping_date">
+                                <div class="ec-rectHeading">
+                                    <h2>{{ 'お届け日の確認'|trans }}</h2>
+                                </div>
+                                <div class="ec-input">
+                                    <p id="first_shipping_date">次回のお届け日はです。</p>
+                                    <p id="second_shipping_date">次々回のお届け日はです。</p>
+                                </div>
+                            </div>
+
+                            <div class="ec-orderPayment" id="periodic_shipping_deliv_calendar">
+                                <div class="ec-rectHeading">
+                                    <h2>{{ '直近3ヶ月のお届け日'|trans }}</h2>
+                                </div>
+                                <div class="deliv_calendar">
+                                </div>
+                            </div>
+
+                            <div class="ec-RegisterRole__actions">
+                                <div class="ec-off4Grid">
+                                    <div class="ec-off4Grid__cell">
+                                        <button type="submit"
+                                                class="ec-blockBtn--cancel">{{ '登録する'|trans }}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

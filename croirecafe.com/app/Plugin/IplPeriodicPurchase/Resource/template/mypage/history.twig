@@ -1,0 +1,176 @@
+{#
+RepeatCube for EC-CUBE4
+Copyright(c) 2019 IPLOGIC CO.,LTD. All Rights Reserved.
+
+http://www.iplogic.co.jp/
+
+This program is not free software.
+It applies to terms of service.
+#}
+{% extends 'default_frame.twig' %}
+
+{% set mypageno = 'IplPeriodicPurchase' %}
+
+{% set body_class = 'mypage' %}
+
+{% block main %}
+    <div class="ec-layoutRole__main">
+        <div class="ec-mypageRole">
+            <div class="ec-pageHeader">
+                <h1>{{ 'マイページ'|trans }}/{{ '定期購入履歴詳細'|trans }}</h1>
+            </div>
+            {% include 'Mypage/navi.twig' %}
+        </div>
+
+        {% include '@IplPeriodicPurchase/mypage/periodic_navi.twig' %}
+
+        {% set remessage = false %}
+
+        <div class="ec-orderRole">
+            <div class="ec-orderRole__detail">
+                <div class="ec-orderOrder">
+                    <div class="ec-definitions">
+                        <dt>{{ 'ご注文日時'|trans }}</dt>
+                        <dd>{{ PeriodicPurchase.create_date|date_sec }}</dd>
+                    </div>
+                    <div class="ec-definitions">
+                        <dt>{{ 'ご注文番号'|trans }}</dt>
+                        <dd>{{ PeriodicPurchase.id }}</dd>
+                    </div>
+                    <div class="ec-definitions">
+                        <dt>{{ 'ご注文状況'|trans }}</dt>
+                        <dd>{{ PeriodicPurchase.PeriodicStatus }}</dd>
+                    </div>
+                    <div class="ec-definitions">
+                        <dt>{{ '定期回数'|trans }}</dt>
+                        <dd>{{ PeriodicPurchase.periodic_purchase_count }}</dd>
+                    </div>
+                    <div class="ec-definitions">
+                        <dt>{{ 'お届け頻度'|trans }}</dt>
+                        <dd>{{ cycle_disp_name }}</dd>
+                    </div>
+                    <div class="ec-definitions">
+                        <dt>{{ '発送予定日・お届け時間'|trans }}</dt>
+                        <dd>
+                            {{ PeriodicPurchase.shipping_date|date_day_with_weekday }}
+                            {{ PeriodicPurchase.shipping_delivery_time|default('指定なし'|trans) }}
+                        </dd>
+                    </div>
+                    <div class="ec-definitions">
+                        <dt>{{ '次回発送予定日・お届け時間'|trans }}</dt>
+                        <dd>
+                            {% if PeriodicPurchase.PeriodicStatus != PeriodicStatusSuspend %}
+                                {{ PeriodicPurchase.next_shipping_date|date_day_with_weekday }}
+                                {{ PeriodicPurchase.next_shipping_delivery_time|default('指定なし'|trans) }}
+                            {% else %}
+                                再開待ち
+                            {% endif %}
+                        </dd>
+                    </div>
+                </div>
+                <div class="ec-orderDelivery">
+                    <div class="ec-rectHeading">
+                        <h2>{{ '配送情報'|trans }}</h2>
+                    </div>
+                        <div class="ec-orderDelivery__title">{{ 'お届け先'|trans }}</div>
+                        {% for orderItem in PeriodicPurchase.PeriodicPurchaseShipping.productPeriodicItems %}
+                            <div class="ec-orderDelivery__item">
+                                <div class="ec-imageGrid">
+                                    <div class="ec-imageGrid__img">
+                                        {% if orderItem.product is null %}
+                                            <img src="{{ asset(''|no_image_product, 'save_image') }}"/>
+                                        {% else %}
+                                            <img src="{{ asset(orderItem.Product.MainListImage|no_image_product, 'save_image') }}"
+                                                 alt="{{ orderItem.productName }}"/>
+                                        {% endif %}
+                                    </div>
+                                    <div class="ec-imageGrid__content">
+                                        <p>
+                                            {% if orderItem.Product is not null and orderItem.Product.Status.id == constant('Eccube\\Entity\\Master\\ProductStatus::DISPLAY_SHOW') %}
+                                                <a href="{{ url('product_detail', {'id': orderItem.Product.id}) }}">{{ orderItem.productName }}</a>
+                                            {% else %}
+                                                {{ orderItem.productName }}
+                                            {% endif %} ×{{ orderItem.quantity }}
+                                        </p>
+                                        {% if orderItem.ProductClass is not null %}
+                                            {% if orderItem.ProductClass.ClassCategory1 is not null %}
+                                                {{ orderItem.productClass.classCategory1.className.name }}：{{ orderItem.productClass.classCategory1 }}
+                                            {% endif %}
+                                            {% if orderItem.ProductClass.ClassCategory2 %}
+                                                <br>{{ orderItem.productClass.classCategory2.className.name }}：{{ orderItem.productClass.classCategory2 }}
+                                            {% endif %}
+                                        {% endif %}
+                                        <p>{{ orderItem.price_inc_tax|price }}
+                                            × {{ orderItem.quantity|number_format }}</p>
+                                        {% if orderItem.product and orderItem.price_inc_tax != orderItem.productClass.price02IncTax %}
+                                            <p class="ec-color-accent">
+                                                {{ '【現在価格】'|trans }}{{ orderItem.productClass.price02IncTax|price }}</p>
+                                            {% set remessage = true %}
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="ec-orderDelivery__address">
+                            <p>{{ PeriodicPurchase.PeriodicPurchaseShipping.name01 }}&nbsp;{{ PeriodicPurchase.PeriodicPurchaseShipping.name02 }}&nbsp;
+                                ({{ PeriodicPurchase.PeriodicPurchaseShipping.kana01 }}&nbsp;{{ PeriodicPurchase.PeriodicPurchaseShipping.kana02 }})</p>
+                            <p>{{ '〒'|trans }}{{ PeriodicPurchase.PeriodicPurchaseShipping.postal_code }} {{ PeriodicPurchase.PeriodicPurchaseShipping.Pref }}{{ PeriodicPurchase.PeriodicPurchaseShipping.addr01 }}{{ PeriodicPurchase.PeriodicPurchaseShipping.addr02 }}</p>
+                            <p>{{ PeriodicPurchase.PeriodicPurchaseShipping.phone_number }}</p>
+                        </div>
+                        <div class="ec-definitions--soft">
+                            <dt>{{ '配送方法'|trans }} :</dt>
+                            <dd>{{ PeriodicPurchase.PeriodicPurchaseShipping.shipping_delivery_name }}</dd>
+                        </div>
+                </div>
+                <div class="ec-orderPayment">
+                    <div class="ec-rectHeading">
+                        <h2>{{ 'お支払い情報'|trans }}</h2>
+                    </div>
+                    <p>{{ 'お支払い方法'|trans }} : {{ PeriodicPurchase.PaymentMethod }}</p>
+                </div>
+                <div class="ec-orderConfirm">
+                    <div class="ec-rectHeading">
+                        <h2>{{ 'お問い合わせ'|trans }}</h2>
+                    </div>
+                    <div class="ec-orderMail">
+                        <p>{{ PeriodicPurchase.message|nl2br|default('記載なし'|trans) }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ec-orderRole__summary">
+                <div class="ec-totalBox">
+                    <dl class="ec-totalBox__spec">
+                        <dt>{{ '小計'|trans }}</dt>
+                        <dd>{{ PeriodicPurchase.subtotal|price }}</dd>
+                    </dl>
+                    <dl class="ec-totalBox__spec">
+                        <dt>{{ '手数料'|trans }}</dt>
+                        <dd>{{ PeriodicPurchase.charge|price }}</dd>
+                    </dl>
+                    <dl class="ec-totalBox__spec">
+                        <dt>{{ '送料'|trans }}</dt>
+                        <dd>{{ PeriodicPurchase.delivery_fee_total|price }}</dd>
+                    </dl>
+                    {% if PeriodicPurchase.discount > 0 %}
+                        <dl class="ec-totalBox__spec">
+                            <dt>{{ '値引き'|trans }}</dt>
+                            <dd>{{ (0 - PeriodicPurchase.discount)|price }}</dd>
+                        </dl>
+                    {% endif %}
+                    <div class="ec-totalBox__total">{{ '合計'|trans }}<span
+                                class="ec-totalBox__price">{{ PeriodicPurchase.payment_total|price }}</span><span
+                                class="ec-totalBox__taxLabel">{{ '税込'|trans }}</span></div>
+                </div>
+                {% if remessage %}
+                    <p class="ec-color-accent">
+                        <strong>{{ '※金額が変更されている商品があるため、再注文時はご注意ください。'|trans }}</strong>
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="ec-role">
+            <a href="{{ url('mypage') }}" class="ec-inlineBtn">{{ '戻る'|trans }}</a>
+        </div>
+    </div>
+{% endblock %}

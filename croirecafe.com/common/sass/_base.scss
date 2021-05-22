@@ -1,0 +1,270 @@
+$base:#947848;
+$base-lite:#EFEBE4;
+$gold:#947F28;
+$silver:#727171;
+$copper:#955E29;
+$bronze:#8AA3D4;
+$blue:#00B9EE;
+$lite-blue:#26B7BC;
+$pink:#e4007f;
+$pink2:#EE869A;
+$text:#3e3a39;
+$gray-lite:#F8F6F2;
+$line:#BDBAB9;
+$gray:#333333;
+$gray2:#9FA0A0;
+$red:#df002d;
+$red-price:#B81C22;
+$ruge:#AF1E24;
+$orange:#EA5532;
+$p:4.7vw;
+
+$px : 0.267vw;
+
+
+$ease1:  cubic-bezier(0, 0.74, 0.38, 0.96);
+
+body.showBlk *,
+body.showBlk *:after,
+body.showBlk *:before {
+	background: rgba(48, 210, 222, 0.13);
+}
+
+@mixin flex{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+@mixin flex-centering{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+@mixin flex-start{
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: center;
+}
+
+@mixin flex-end{
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+@mixin fitW($w:$m){
+	margin-left: -$w !important;
+	width: 100vw !important;
+}
+
+@mixin flex-centering{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+@mixin pfix($gap){
+	$em:$gap/2;
+	margin-top: -$em;
+	margin-bottom: -$em;
+}
+
+@mixin note($pl:1.4em){
+	padding-left: $pl;
+	position: relative;
+	i{
+		font-style: normal;
+		position: absolute;
+		top: 0;left: 0;
+	}
+}
+
+@mixin sp {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin pc {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+//@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+//@import url(https://fonts.googleapis.com/css?family=Hind:400,300);
+//@import url(https://fonts.googleapis.com/css?family=Abel);
+//@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,500,600');
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
+@import url("https://use.typekit.net/qne7ppa.css");
+@mixin ropa{
+	font-family: 'Ropa Sans', sans-serif;
+}
+
+@mixin din{
+	font-family: urw-din-semi-condensed, sans-serif;
+}
+
+@import url(../fonts/icomoon/style.css);
+
+@mixin minchou{
+	//font-family: Georgia,游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
+	font-family: "游明朝", "YuMincho Medium", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ＭＳ 明朝", serif !important;
+}
+
+@mixin gothic{
+	font-family:"Hiragino Kaku Gothic ProN","YuGothic",Meiryo,"メイリオ",sans-serif !important;
+}
+
+
+@mixin transition($arg){
+	-webkit-transition:$arg;
+	-moz-transition:$arg;
+	-ms-transition:$arg;
+	-o-transition:$arg;
+	//filter:$arg;
+}
+
+
+@mixin filter($arg){
+	-webkit-filter:$arg;
+	-moz-filter:$arg;
+	-ms-filter:$arg;
+	-o-filter:$arg;
+	filter:$arg;
+}
+
+@mixin transform($arg){
+	-webkit-transform:$arg;
+	-moz-transform:$arg;
+	-ms-transform:$arg;
+	-o-transform:$arg;
+	transform:$arg;
+}
+
+@mixin brend($color){
+	background-blend-mode: exclusion;
+	background-color: $color ;
+}
+
+@mixin webfont($fw:600){
+		//font-family: 'Ropa Sans', sans-serif;
+		font-family: 'Roboto Slab', serif !important;
+		font-weight: $fw;
+	}
+
+@mixin header-icon-shadow(){
+	-webkit-filter:drop-shadow(rgba(0,0,0,0.8) 1px 1px 2px);
+}
+
+@mixin a-cover{
+	position: absolute;
+	display: block;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width:100%;
+	height:100%;
+}
+
+@mixin centering{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	@include transform(translate(-50%, -50%));
+}
+
+@mixin side-kakko{
+	position: relative;
+	&:before{
+		content: "";
+		position: absolute;
+		top: 0;left: 0;
+		border: 1px solid #666;
+		border-right-width: 0;
+	}
+	&:before{
+		content: "";
+		position: absolute;
+		top: 0;left: 0;
+		border: 1px solid #666;
+		border-right-width: 0;
+		height: 100%;
+		width: 15px;
+	}
+	&:after{
+		content: "";
+		position: absolute;
+		top: 0;right: 0;
+		border: 1px solid #666;
+		border-left-width: 0;
+		height: 100%;
+		width: 15px;
+	}
+}
+
+@mixin bar($color){
+	content: "";
+	width: 50px;
+	height: 5px;
+	background:$color ;
+	display:block;
+	margin: 0 auto;
+}
+
+@mixin bg-img($url,$size:100% 100%,$position:center center,$repeat:no-repeat){
+	background-image: $url;
+	background-repeat: $repeat;
+	-webkit-background-size:$size ;
+	background-size:$size ;
+	background-position:$position;
+}
+
+@mixin anchor($color:#000,$size:8px,$Bw:1px,$left:auto,$right:10px){
+	display: block;
+	position: absolute;
+	top: 50%;left:$left;right:$right;
+	content: "";
+	width: $size;height: $size;
+	border: 1px solid  $color;
+	border-width: 0 $Bw $Bw 0;
+	@include transform(rotate(-45deg) translateY(-50%));
+	transform-origin: center center;
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  } 
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($animation-name) {
+  -webkit-animation: $animation-name;
+  -moz-animation: $animation-name;
+  animation: $animation-name;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+

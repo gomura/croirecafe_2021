@@ -1,0 +1,377 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'front_page' %}
+
+{% block stylesheet %}
+    <style>
+        .slick-slider {
+            margin-bottom: 30px;
+        }
+
+        .slick-dots {
+            position: absolute;
+            bottom: -45px;
+            display: block;
+            width: 100%;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        .slick-dots li {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 5px;
+            padding: 0;
+
+            cursor: pointer;
+        }
+
+        .slick-dots li button {
+            font-size: 0;
+            line-height: 0;
+            display: block;
+            width: 20px;
+            height: 20px;
+            padding: 5px;
+            cursor: pointer;
+            color: transparent;
+            border: 0;
+            outline: none;
+            background: transparent;
+        }
+
+        .slick-dots li button:hover,
+        .slick-dots li button:focus {
+            outline: none;
+        }
+
+        .slick-dots li button:hover:before,
+        .slick-dots li button:focus:before {
+            opacity: 1;
+        }
+
+        .slick-dots li button:before {
+            content: " ";
+            line-height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            text-align: center;
+            opacity: .25;
+            background-color: black;
+            border-radius: 50%;
+
+        }
+
+        .slick-dots li.slick-active button:before {
+            opacity: .75;
+            background-color: black;
+        }
+
+        .slick-dots li button.thumbnail img {
+            width: 0;
+            height: 0;
+        }
+    </style>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(function() {
+            $('.main_visual').slick({
+                dots: true,
+                arrows: false,
+                autoplay: true,
+                speed: 300
+            });
+        });
+    </script>
+{% endblock javascript %}
+
+{% block main %}
+    <!-- !! スライド -->
+	<div class="main_visual">
+        <div class="item">
+          <picture>
+          	<source media="(max-width: 767px)" srcset="/img/top2020/SLD1_sp.jpg">
+          	<img src="/img/top2020/SLD1.jpg" alt="SLD1" >
+          </picture>
+        </div>
+        <div class="item">
+         	<a  href="/user_data/course#_2"><picture>
+          		<source media="(max-width: 767px)" srcset="/img/top2020/SLD2_sp.jpg">
+          		<img src="/img/top2020/SLD2.jpg" alt="SLD1" >
+          	</picture></a>
+        </div>
+        <div class="item">
+         	<a class="" href="/user_data/course#_1"><picture>
+         		<source media="(max-width: 767px)" srcset="/img/top2020/SLD3_sp_2020.jpg">
+         		<img src="/img/top2020/SLD3_2020.jpg" alt="SLD1" >
+         	</picture></a>
+        </div>
+    </div>	
+<!-- !!  	<div id="cp_bnr_wrap">
+		<picture>
+			<source media="(max-width: 767px)" srcset="/common/img/cp_GW/cp_GW_bnr_sp.png">
+			<img src="/common/img/cp_GW/cp_GW_bnr.png" alt="cp_GW_bnr" width="" height="" >
+		</picture>
+		<p>※クーポン1枚につきお1人様1回のみ利用可能 <br />※定期購入の初回ご購入利用可能 <br />※クーポンBは定期購入への利用不可</p>
+	</div>
+   
+    
+    <div class="top-info holiday "><div class="inner">
+	    <h2>ゴールデンウィーク休業のお知らせ</h2>
+	    <p class="date">休業日：2021年5月1日から2021年5月5日</p>
+	    <p>
+		    上記期間は休業日とさせていただいております。ネット注文は承っておりますが、発送業務はお休みとさせていただきます。<br />
+			休業期間中にご注文いただいた商品につきましては、2021年5月6日より随時発送いたしますのでご了承ください。
+		</p>
+	    <p>尚、2021年4月30日13時までのご注文につきましては、当日発送可能でございます。</p>
+
+    </div></div>
+    			
+ -->
+<!-- !! 
+	<div class="top-info tax">
+		
+		<div class="inner">
+			<h2>10月1日以降、一部商品の<br class="sp">消費税率変更のご案内</h2>
+				
+			<p>2019年10月1日(火)より消費税率が8％から10％に変更となり、軽減税率制度が実施されます。<br />
+			消費税率10％に該当するものは、<b>クロワールコート・ワハハ歯ブラシ</b>と、<b>お客様ご負担の送料・手数料</b>です。<br />
+			サプリメント・食品は、軽減税率対象商品のため消費税率は8%のままです。</p>
+			<!-- !!  
+			<p>現在の税率でのお届けは、下記のお時間の注文完了分までとさせていただきます。</p>
+			<p class="cen"><strong>ご注文締切：9月30日（月）13：00<br class="sp">ご注文完了分まで</strong></p>
+				
+			<p class="note"><i>※</i>9月30日（月）13：00以降のご注文完了分は10月1日（火）の発送となり、<br class="pc">変更後の税率になりますこと、ご了承ください。</p>
+			
+		</div>
+	
+	</div>
+-->
+<!-- !! 
+	<div id="top-info">
+		平素よりクロワールカフェを御愛顧いただき、誠にありがとうございます。<br />
+		2019年8月19日のサイトリニューアルに伴い、ポイントの付与は終了させていただきました。<br />
+		長らくご利用いただき、誠にありがとうございました。<br />
+		現在お持ちのポイントについては、ご使用いただけますのでご安心ください。
+	</div>
+ -->
+
+	<!-- !! メイン -->
+	<main class="product">
+				
+		
+		<!-- !! ランキング -->
+{#
+		<section id="ranking">
+			
+			<h2>
+				<i>RANKING</i><br />
+				売り上げランキング
+			</h2>
+			
+			<ul class="rank">
+				<li>
+					<span class="number">No.1</span>
+					<div class="img">
+						<img src="img/top/lurein.jpg" alt="lurein" width="400" height="400">
+					</div>
+					<div class="ttl">ルテイン+<br />ゼアキサンチンゼリー</div>
+					<div class="price teiki">
+						<span>定期価格</span>
+						<b>初回</b><i>1,575</i>円（税込）
+					</div>
+					<div class="price">
+						<span>通常価格</span>
+						<i>3,150</i>円（税込）
+					</div>
+					<a href="/products/detail/7" class="detail">詳しくはこちら</a>
+				</li>
+				<li>
+					<span class="number">No.2</span>
+					<div class="img">
+						<img src="/img/top/lurein.jpg" alt="lurein" width="400" height="400">
+					</div>
+					<div class="ttl">ルテイン+<br />ゼアキサンチンゼリー</div>
+					<div class="price teiki">
+						<span>定期価格</span>
+						<b>初回</b><i>1,575</i>円（税込）
+					</div>
+					<div class="price">
+						<span>通常価格</span>
+						<i>3,150</i>円（税込）
+					</div>
+					<a href="#" class="detail">詳しくはこちら</a>
+				</li>
+				<li>
+					<span class="number">No.3</span>
+					<div class="img">
+						<img src="/img/top/lurein.jpg" alt="lurein" width="400" height="400">
+					</div>
+					<div class="ttl">ルテイン+<br />ゼアキサンチンゼリー</div>
+					<div class="price teiki">
+						<span>定期価格</span>
+						<b>初回</b><i>1,575</i>円（税込）
+					</div>
+					<div class="price">
+						<span>通常価格</span>
+						<i>3,150</i>円（税込）
+					</div>
+					<a href="#" class="detail">詳しくはこちら</a>
+				</li>
+				<li>
+					<span class="number">No.4</span>
+					<div class="img">
+						<img src="/img/top/lurein.jpg" alt="lurein" width="400" height="400">
+					</div>
+					<div class="ttl">ルテイン+<br />ゼアキサンチンゼリー</div>
+					<div class="price teiki">
+						<span>定期価格</span>
+						<b>初回</b><i>1,575</i>円（税込）
+					</div>
+					<div class="price">
+						<span>通常価格</span>
+						<i>3,150</i>円（税込）
+					</div>
+					<a href="#" class="detail">詳しくはこちら</a>
+				</li>
+			</ul>
+		
+		</section>
+#}
+		<!-- /#ranking -->	
+			                               
+	
+	
+		<!-- !! クロワールシリーズ -->
+		<section>
+			
+			<h2>
+				<i>PRODUCTS</i><br />
+				クロワール
+			</h2>
+			
+			<div id="croire-list" class="croire"></div>
+			
+		</section>
+	
+	
+		<!-- !! クロ割 -->
+		<section id="crowari">
+			
+			
+			<h2 class="live">
+				<picture>
+					<source media="(max-width: 767px)" srcset="/img/top/bnr-crowari_2020_sp.jpg">
+					<img src="/img/top/bnr-crowari_2020.jpg" alt="便利で断然お得な定期お届けコース　ウェルカムクロ割" width="2732" height="700">
+				</picture>
+			</h2>
+			
+			
+			<ul class="live">
+				<li>
+					<img src="/img/top2020/cw1.png" alt="cw1" width="200" height="200">
+				</li>
+				<li>
+					<img src="/img/top2020/cw2.png" alt="cw1" width="200" height="200">
+				</li>
+				<li>
+					<img src="/img/top2020/cw3.png" alt="cw1" width="200" height="200">
+				</li>
+				<li>
+					<img src="/img/top2020/cw4.png" alt="cw1" width="200" height="200">
+				</li>
+			</ul>
+			
+			<a href="/user_data/course" class="btn-more">詳しくはこちら</a>
+			
+		</section>
+	
+		
+		
+
+		<section id="magazine">
+			
+			<h2>
+				<i>MAGAZINE</i><br />週刊柏﨑
+			</h2>
+			
+			<ul class="magazine">
+				
+				<li>
+					<a href="https://blog.al-japan.com/wp-admin/5856" target="_blank"></a>
+					<div class="img"><img src="https://blog.al-japan.com/wp-content/uploads/2019/09/香港_1568360080-500x250.jpg"></div>
+					<div class="ttl">週刊柏﨑　第792回　ヤオハン和田一夫氏逝く</div>
+					<div class="date">2019年9月13日</div>
+				</li>
+				
+				<li>
+					<a href="https://blog.al-japan.com/weekly-kashiwazaki/5851" target="_blank"></a>
+					<div class="img"><img src="https://blog.al-japan.com/wp-content/uploads/2019/09/1567471505-500x250-1567471627.jpg"></div>
+					<div class="ttl">週刊柏﨑　第791回　良く効く薬は恐ろしい</div>
+					<div class="date">2019年9月3日</div>
+				</li>
+				
+				<li>
+					<a href="https://blog.al-japan.com/weekly-kashiwazaki/5846" target="_blank"></a>
+					<div class="img"><img src="https://blog.al-japan.com/wp-content/uploads/2019/08/120d0d21d1b65ab6193c98ac19006289_m-1-500x250.jpg"></div>
+					<div class="ttl">週刊柏﨑　第790回　孤独死にならない為に</div>
+					<div class="date">2019年8月27日</div>
+				</li>
+																
+			</ul>
+			
+			<a href="https://blog.al-japan.com/" target="_blank" class="btn-more">一覧はこちら</a>
+			
+			
+		</section>
+
+
+
+		<!-- !! ニュース&トピックス -->
+		<section id="news">
+			
+			<h2><i>NEWS & TOPICS</i><br />ニュース&トピックス</h2>
+			
+			<ul class="news">
+				<li>
+					<div class="date">2019.08.19</div>
+					<div class="cat">ニュース</div>
+					<div class="ttl">オンラインショップをリニューアルいたしました</div>
+					<div class="desc">お客様によりわかりやすくご購入いただけるようオンラインショップをリニューアルいたしました</div>
+				</li>
+			</ul>
+			
+			<!-- <a href="#" class="btn-more">一覧はこちら</a> -->
+			
+		</section>
+	
+
+	
+	</main>                              
+
+
+
+
+
+        </div>
+    </div>
+
+{% endblock %}

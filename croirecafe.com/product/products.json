@@ -1,0 +1,208 @@
+[
+     {
+	    "pcode":"3101558",
+	    "pid":"121",
+	    "slug":"Q",
+        "thumb_url": "/product/img/Q.png",
+        "img_pos":"right",
+        "name": "クロワールアイ・Q",
+        "cont":"1袋・30粒入（1日１粒目安）",
+        "desc": "目と脳の2つの機能性を持つ、機能性表示食品",
+        "disc_txt":"",
+        "banner":"",
+        "price": {
+            "base": "3,980",
+            "teiki1": "2,786",
+            "teiki2": "3,383",
+            "try": "3,582"
+        },
+        "url": {
+            "base": "/products/detail/87",
+            "teiki": "/products/detail/121",
+            "try": "/products/detail/88",
+            "try_direct":false
+        }
+    },
+    {
+	    "pcode":"3101561",
+	    "pid" : "120",
+	    "slug":"premiun-croire",
+        "thumb_url": "/product/img/croire.png",
+        "img_pos":"left",
+        "name": "プレミアムクロワール茶",
+        "cont":"1袋・25包入 / 1袋・10包入",
+        "desc": "紅茶カテキン自然含有、19年以上の販売実績！飲みやすくておいしいカフェインレス健康茶",
+        "price": {
+            "base": "2,786",
+            "base2": "1,188",
+            "teiki1": "1,950",
+            "teiki2": "2,368",
+            "try": "2,507",
+            "comm1":"※25包",
+            "comm2":"※10包"
+        },
+        "url": {
+            "base": "/products/detail/56",
+            "base2": "/products/detail/28",
+            "teiki": "/products/detail/120",
+            "try": "/products/detail/21"
+        }
+    },
+    {
+	    "pcode":"3101561",
+	    "slug":"probiotics12",
+	    "pid" : "122",
+        "thumb_url": "/product/img/PB12.png",
+        "img_pos":"right",
+        "img_label":"/product/PB12/img/PB12_label1.png",
+        "name": "クロワールプロバイオティクス12",
+        "cont":"1本60粒入・1日1粒目安（約2ヵ月分）",
+        "desc": "8種類の生きた乳酸菌と4種類の生きたビフィズス菌、全12種類100億個の善玉菌が1粒に！！",
+        "disc_txt":"",
+        "banner":"",
+        "price": {
+            "base": "5,554",
+            "base2": "",
+            "teiki1": "3,054",
+            "teiki2": "3.888",
+            "try": "4,998",
+            "teiki_icon1_img":"45"
+        },
+        "url": {
+            "base": "/products/detail/58",
+            "teiki": "/products/detail/122",
+            "try": "/products/detail/59",
+            "try_direct":false
+        }
+    },
+   {
+	    "pcode":"3101569",
+	    "pid":"118",
+	    "slug":"dhaepa",
+	    "img_pos":"left",
+        "thumb_url": "/product/img/dhaepa.png",
+        "name": "緑のDHA&EPA+ゴールデンユーグレナ",
+        "cont":"１袋・90粒入（1日3～4粒目安）",
+        "desc": "時代は魚由来から植物性へ <br />“ユーグレナ”配合でバージョンアップ！！オメガ3・オメガ9も含有",
+		"disc_txt":"",
+        "banner":"",
+		"price": {
+            "base": "2,700",
+            "teiki1": "1,890",
+            "teiki2": "2,295",
+            "try": "2,430"
+        },
+        "url": {
+            "base": "/products/detail/26",
+            "teiki": "/products/detail/118",
+            "try": "/products/detail/22",
+            "try_direct":false
+        }
+    },
+    {
+	    "pcode":"3101570",
+	    "pid":"117",
+	    "slug":"na",
+        "thumb_url": "/product/img/na.png",
+        "img_pos":"right",
+        "name": "Nアセチルグルコサミンロコモディ+B",
+        "cont":"1袋・90粒入（1日3粒目安）",
+        "desc": "Nアセチルグルコサミンが690mg！<br />さらにビタミンD3とB1・B2・B６・葉酸が加わり、パワーアップしました！！",
+        "price": {
+            "base": "3,780",
+            "teiki1": "2,646",
+            "teiki2": "3,213",
+            "try": "3, 402"
+        },
+        "url": {
+            "base": "/products/detail/29",
+            "teiki": "/products/detail/117",
+            "try": "/products/detail/36",
+            "try_direct": false
+        }
+    },
+    {
+	    "pcode":"3101554",
+	    "slug":"q10",
+	    "pid":"116",
+        "thumb_url": "/product/img/q10.png",
+        "img_pos":"left",
+        "name": "クロワール 還元型コエンザイムQ10",
+        "desc": "カネカの還元型コエンザイムQ10を100mg配合！",
+        "cont":"１袋・30粒入（1日1粒目安）",
+        "price": {
+            "base": "3,402",
+            "teiki1": "2,381",
+            "teiki2": "2,891",
+            "try": "3,061"
+        },
+        "url": {
+            "base": "/products/detail/34",
+            "teiki": "/products/detail/116",
+            "try": "/products/detail/35"
+        }
+    },
+    {
+	    "pcode":"3101526",
+	    "slug":"gold",
+	    "pid":"119",
+        "thumb_url": "/product/img/gold.png",
+        "img_pos":"right",
+        "name": "クロワールゴールド",
+        "desc": "免疫力・抗酸化力アップにはこの1粒",
+        "cont":"1袋・30粒入（1日2～4粒目安）",
+        "price": {
+            "base": "3,456",
+            "teiki1": "2,419",
+            "teiki2": "2,937",
+            "try": "3,110"
+        },
+        "url": {
+            "base": "/products/detail/25",
+            "teiki": "/products/detail/119",
+            "try": "/products/detail/27"
+        }
+    },
+    {
+	    "pcode":"3103518",
+	    "slug":"wahaha",
+	    "pid":"115",
+        "thumb_url": "/product/img/wahaha.png",
+        "img_pos":"left",
+        "name": "魔法のワハハ歯ブラシ（3本セット）",
+        "desc": "歯の専門家、歯科医自ら考案 磨き残しゼロを目指した歯ブラシ",
+        "cont":"",
+        "price": {
+            "base": "1,650",
+            "teiki1": "",
+            "teiki2": "",
+            "try": "1,485"
+        },
+        "url": {
+            "base": "/products/detail/20",
+            "teiki": "/products/detail/115",
+            "try": "/products/detail/43"
+        }
+    },
+    {
+	    "pcode":"3101535",
+	    "slug":"croire-coat",
+	    "img_pos":"right",
+        "thumb_url": "https://croirecafe.com/html/upload/save_image/0429122301_608a2695004af.jpg",
+        "name": "薬用はみがき　クロワールコート65g",
+        "desc": "発泡剤・研磨剤不使用。1本で約130回分！",
+        "cont":"",
+        "price": {
+            "base": "3,850",
+            "teiki1": "",
+            "teiki2": "",
+            "try": "3,850"
+        },
+        "url": {
+            "base": "/products/detail/42",
+            "teiki": "",
+            "try": ""
+        }
+    }
+   
+]

@@ -1,0 +1,982 @@
+{#
+RepeatCube for EC-CUBE4
+Copyright(c) 2019 IPLOGIC CO.,LTD. All Rights Reserved.
+
+http://www.iplogic.co.jp/
+
+This program is not free software.
+It applies to terms of service.
+#}
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['periodic_purchase', 'periodic_admin_order'] %}
+
+{% block title %}{{ 'ipl_periodic_purchase.admin.order.edit_title'|trans }}{% endblock %}
+{% block sub_title %}{{ 'ipl_periodic_purchase.admin.order.sub_title'|trans }}{% endblock %}
+
+{% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+{% form_theme cycleForm '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+{% form_theme searchProductModalForm '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block javascript %}
+<script>
+    $(function() {
+
+        // お届け頻度の選択肢表示
+        var cycle_cheack = $("input[name='select_cycle[cycle_type]']:checked");
+        SelectCycleType(cycle_cheack.val());
+
+        // requiredを取り除く
+        $("select[id^='select_cycle_cycle_']").removeAttr('required');
+
+        $('.form-check').on('change', function() {
+            var cycle_cheack = $("input[name='select_cycle[cycle_type]']:checked");
+            SelectCycleType(cycle_cheack.val());
+        });
+
+        // 項目数が多く、入力している項目によってEnter押下時に期待する動作が変わるので、いったん禁止
+        $('input').on('keydown', function (e) {
+            if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+                return false;
+            } else {
+                return true;
+            }
+        });
+
+        // novalidateが残っている場合消去
+        $('#form1').removeAttr('novalidate');
+
+        // 商品検索
+        $('#searchProductModalButton').on('click', function() {
+            var list = $('#searchProductModalList');
+            list.children().remove();
+
+            $.ajax({
+                url: '{{ url('admin_order_search_product') }}',
+                type: 'POST',
+                dataType: 'html',
+                data: {
+                    'id': $('#admin_search_product_id').val(),
+                    'category_id': $('#admin_search_product_category_id').val()
+                }
+            }).done(function(data) {
+                $('#searchProductModalList').html(data);
+            }).fail(function(data) {
+                alert('search product failed.');
+            });
+        });
+
+        // 商品追加
+        $collectionHolder = $('#table-form-field');
+        index = $collectionHolder.find('tbody > tr').length;
+        formIdPrefix = '#periodic_purchase_PeriodicPurchaseItems_';
+
+        $(document).on('click', '.delete', function(e) {
+            // 商品削除
+            $(this).parents('tr').remove();
+            index--;
+            $("#calculate").trigger('click');
+        });
+
+        // 計算結果の更新が押されたらページ内リンクさせる
+        $('.btn').click(function() {
+            var data = $(this).data();
+            if (data.link) {
+                $('#form1').attr('action', '#' + data.link).submit();
+                return false;
+            }
+        });
+
+        // その他明細
+        $('#addOrderItemType').on('show.bs.modal', function(e) {
+            var list = $('#searchOrderItemTypeList');
+            list.children().remove();
+
+            $.ajax({
+                url: '{{ url('admin_order_search_order_item_type') }}',
+                type: 'POST',
+                dataType: 'html'
+            }).done(function(data) {
+                $('#searchOrderItemTypeList').html(data);
+            }).fail(function(data) {
+                alert('search order item type failed.');
+            });
+        });
+
+        // 注文者情報をコピー
+        $('.copy-customer').on('click', function() {
+            $('#periodic_purchase_PeriodicPurchaseShipping_name_name01').val($('#periodic_purchase_name_name01').val());
+            $('#periodic_purchase_PeriodicPurchaseShipping_name_name02').val($('#periodic_purchase_name_name02').val());
+            $('#periodic_purchase_PeriodicPurchaseShipping_kana_kana01').val($('#periodic_purchase_kana_kana01').val());
+            $('#periodic_purchase_PeriodicPurchaseShipping_kana_kana02').val($('#periodic_purchase_kana_kana02').val());
+            $('#periodic_purchase_PeriodicPurchaseShipping_postal_code').val($('#periodic_purchase_postal_code').val());
+            $('#periodic_purchase_PeriodicPurchaseShipping_address_pref').val($('#periodic_purchase_address_pref').val());
+            $('#periodic_purchase_PeriodicPurchaseShipping_address_addr01').val($('#periodic_purchase_address_addr01').val());
+            $('#periodic_purchase_PeriodicPurchaseShipping_address_addr02').val($('#periodic_purchase_address_addr02').val());
+            $('#periodic_purchase_PeriodicPurchaseShipping_email').val($('#periodic_purchase_email').val());
+            $('#periodic_purchase_PeriodicPurchaseShipping_phone_number').val($('#periodic_purchase_phone_number').val());
+            $('#periodic_purchase_PeriodicPurchaseShipping_company_name').val($('#periodic_purchase_company_name').val());
+        });
+
+        {# ポイント機能が有効かつ会員の場合のみポイントの割引金額を変更する #}
+        {% if BaseInfo.isOptionPoint %}
+            // 再計算時のポイントの割引金額の更新
+            function updatePointItem() {
+                // ポイント換算レート
+                var pointConversionRate = {{ BaseInfo.point_conversion_rate }};
+                // 利用ポイント
+                var usePoint = $('#order_use_point').val();
+
+                // 利用ポイントが数値以外の時は割引金額を更新しない
+                if (isNaN(usePoint)) return;
+
+                // 割引金額を計算
+                var discountPrice = (-1) * pointConversionRate * usePoint;
+
+                // ポイント明細の金額の要素を取得
+                var $pointPrice = $('.pointPrice');
+
+                // ポイント明細の金額の要素がある場合はポイントの更新
+                if ($pointPrice.length) {
+                    $pointPrice.val(discountPrice);
+                }
+            }
+        {% endif %}
+
+        function SelectCycleType(cycle_type) {
+            $("select[id^='select_cycle_cycle_']").parent().hide();
+            if (cycle_type >= 1 && cycle_type <= 4) {
+                $('select#select_cycle_cycle_'+cycle_type).parent().show();
+            } else if (cycle_type == 5) {
+                $('select#select_cycle_cycle_week').parent().show();
+            }
+        }
+
+        function getSelectedCycle() {
+                isSelected = false;
+                cycle_type = $('[id^=select_cycle_cycle_type_]:checked').val();
+                cycle = [];
+
+                if (cycle_type == {{ cycle_type_dayofweek }}) {
+                    isSelected = $("#select_cycle_cycle_dayofweek").val() !== ''
+                                && $("#select_cycle_cycle_week").val() !== '';
+
+                    cycle = {
+                        'cycle_day': $("#select_cycle_cycle_dayofweek").val(),
+                        'cycle_week': $("#select_cycle_cycle_week").val()
+                            };
+                } else {
+                    isSelected = $("#select_cycle_cycle_" + cycle_type).val() ? true : false;
+
+                    cycle = {'cycle_id': $("#select_cycle_cycle_" + cycle_type).val()};
+                }
+
+                if (!isSelected) {
+                    return false;
+                }
+
+                return cycle;
+        }
+
+        var confirmFormChange = function(form, target, modal) {
+            var saveBtn = modal.find('button[data-action="save"]'),
+                cancelBtn = modal.find('a[data-action="cancel"]');
+            modal.on('hidden.bs.modal', function() {
+                $('#form1').removeAttr('novalidate');
+            });
+            saveBtn.on('click', function() {
+                $('#form1').attr('novalidate', 'novalidate');
+                form.submit();
+            });
+            target.on('click', function() {
+                if ($(this).is('.cycle_button') && !getSelectedCycle()) {
+                    alert('※ お届け頻度が選択されていません。');
+
+                    return false;
+                }
+                modal.find('.modal-body .screen-name').html($(this).attr('data-body'));
+                modal.modal('show');
+                $('input[name="change_status_type"]').val($(this).data('value'));
+                saveBtn.text($(this).text());
+                saveBtn.attr('value', $(this).attr('value'));
+                cancelBtn.attr('href', $(this).attr('href'));
+                return false;
+            });
+        };
+        confirmFormChange($('#form1'), $('button[data-action="action_button"]'), $('#confirmFormChangeModal'))
+});
+</script>
+{% endblock %}
+
+{% block main %}
+<link rel="stylesheet" href="/common/css/admin.css" type="text/css">
+<form name="form1" id="form1" method="post" action="?">
+    {{ form_widget(form._token) }}
+    {{ form_widget(cycleForm._token) }}
+    {{ form_widget(form.return_link) }}
+    <input type="hidden" name="change_status_type" value="" />
+
+    <!-- 移動確認モーダル-->
+    <div class="modal fade" id="confirmFormChangeModal" tabindex="-1" role="dialog"
+         aria-labelledby="confirmFormChangeModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{ 'ipl_periodic_purchase.admin.order.edit_modal_title'|trans }}</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="screen-name"></p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-ec-conversion" data-action="save" name="mode" value="">
+                    </button>
+                    <a class="btn btn-ec-sub" class="close" data-dismiss="modal" aria-label="Close">
+                        {{ 'admin.common.cancel'|trans }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                <div class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8">
+                                <span class="card-title" data-tooltip="true" data-placement="top" title="定期情報の確認が出来ます。">{{ 'ipl_periodic_purchase.admin.order.periodic_title'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></span>
+                            </div>
+                            <div class="col-4 text-right"><a data-toggle="collapse" href="#periodicPurchaseInfo" aria-expanded="false" aria-controls="periodicPurchaseInfo"><i class="fa fa-angle-up fa-lg"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="collapse show ec-cardCollapse" id="periodicPurchaseInfo">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="row mb-3">
+                                        <div class="col-4">{{ 'ipl_periodic_purchase.admin.order.periodic_id'|trans }}</div>
+                                        <div class="col">{{ PeriodicPurchase.id }}</div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4">{{ 'ipl_periodic_purchase.admin.order.periodic_purchase_count'|trans }}</div>
+                                        <div class="col">{{ 'ipl_periodic_purchase.admin.order.total_number'|trans({ "%val%" : PeriodicPurchase.periodic_purchase_count }) }}</div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4">{{ 'ipl_periodic_purchase.admin.order.periodic_status'|trans }}</div>
+                                        <div class="col">{{ PeriodicPurchase.PeriodicStatus }}</div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4">{{ 'admin.common.payment_method'|trans }}</div>
+                                        <div class="col">{{ PeriodicPurchase.payment_method }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row mb-3">
+                                        <div class="col-4"><i class="fa fa-inbox fa-fw mr-1" aria-hidden="true"></i>{{ 'ipl_periodic_purchase.admin.order.create_date'|trans }}</div>
+                                        <div class="col">{{ PeriodicPurchase.create_date ? PeriodicPurchase.payment_date|date_sec : '' }}</div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4"><i class="fa fa-refresh fa-fw mr-1" aria-hidden="true"></i>{{ 'ipl_periodic_purchase.admin.order.update_date'|trans }}</div>
+                                        <div class="col">{{ PeriodicPurchase.update_date ? PeriodicPurchase.update_date|date_sec : '' }}</div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4"><i class="fa fa-truck fa-fw mr-1" aria-hidden="true"></i>{{ 'ipl_periodic_purchase.admin.order.last_shipping_date'|trans }}</div>
+                                        <div class="col">{{ PeriodicPurchase.shipping_date ? PeriodicPurchase.shipping_date|date_day : '' }}</div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4"><i class="fa fa-clock-o fa-fw mr-1" aria-hidden="true"></i>{{ 'ipl_periodic_purchase.admin.order.last_shipping_delivery_time'|trans }}</div>
+                                        <div class="col">{{ PeriodicPurchase.shipping_delivery_time ? PeriodicPurchase.shipping_delivery_time : '指定無し'  }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <hr>
+                            </div>
+                            <div class="row">
+                                <div id="cycle_form" class="col-6">
+                                    <div class="row mb-3">
+                                        <div class="col-4">{{ 'ipl_periodic_purchase.admin.order.periodic_cycle'|trans }}</div>
+                                        <div class="col">
+                                            {% if arrAllowList.cycle %}
+                                                <dl>
+                                                    <dd>
+                                                        {% for key, child in cycleForm.cycle_type %}
+                                                            <div class="">
+                                                                {{ form_widget(child, { 'attr': { 'data-trigger': 'change' }}) }}
+                                                            </div>
+                                                        {% endfor %}
+                                                    </dd>
+                                                    <dd>
+                                                        {% for key, child in cycleForm.cycle_type %}
+                                                            {% set key_name = 'cycle_'~cycleForm.cycle_type.vars.choices[key].data %}
+                                                            {% if cycle_type_dayofweek != cycleForm.cycle_type.vars.choices[key].data %}
+                                                                <div class="ec-select{{ has_errors(attribute(cycleForm, key_name)) ? ' error'}}" style="margin-bottom: 0px;">
+                                                                    {{ form_widget(attribute(cycleForm, key_name), { 'attr': { 'data-trigger': 'change' }}) }}
+                                                                    {{ form_errors(attribute(cycleForm, key_name), { 'attr': { 'data-trigger': 'change' }}) }}
+                                                                </div>
+                                                            {% else %}
+                                                                {# レンダリングの必要があるため #}
+                                                                <div class="ec-select" style="display: none;">
+                                                                    {{ form_widget(attribute(cycleForm, key_name), { 'attr': { 'data-trigger': 'change' }}) }}
+                                                                    {{ form_errors(attribute(cycleForm, key_name), { 'attr': { 'data-trigger': 'change' }}) }}
+                                                                </div>
+                                                                <div class="ec-select{{ has_errors(attribute(cycleForm, key_name)) ? ' error'}}" style="margin-bottom: 0px;">
+                                                                    毎月
+                                                                    {{ form_widget(cycleForm.cycle_week, { 'attr': { 'data-trigger': 'change' }}) }}
+                                                                    {{ form_errors(cycleForm.cycle_week, { 'attr': { 'data-trigger': 'change' }}) }}
+                                                                    {{ form_widget(cycleForm.cycle_dayofweek, { 'attr': { 'data-trigger': 'change' }}) }}
+                                                                    {{ form_errors(cycleForm.cycle_dayofweek, { 'attr': { 'data-trigger': 'change' }}) }}
+                                                                    にお届け
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </dd>
+                                                </dl>
+                                                <button type="button" class="btn btn-ec-conversion px-3 ladda-button cycle_button" name="mode" value="regist_cycle" data-action="action_button" data-value="" data-body="{{ 'ipl_periodic_purchase.admin.order.edit_modal_cycle'|trans|nl2br }}">
+                                                    <span class="ladda-label">{{ 'ipl_periodic_purchase.admin.order.change_cycle'|trans }}</span>
+                                                </button>
+                                            {% else %}
+                                                {{ cycle_disp_name }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row mb-3">
+                                        <div class="col-4"><i class="fa fa-edit fa-fw mr-1" aria-hidden="true"></i>{{ 'ipl_periodic_purchase.admin.order.change_status'|trans }}</div>
+                                        <div class="col">
+                                            {% if arrAllowList.suspend %}
+                                                <button type="button" class="btn btn-ec-conversion px-3 ladda-button change_button" name="mode" value="change_status" data-action="action_button" data-value="suspend" data-body="{{ 'ipl_periodic_purchase.admin.order.edit_modal_change_status'|trans({ "%status%" : 'ipl_periodic_purchase.admin.order.change_status.suspend'|trans })|nl2br }}">
+                                                    <span class="ladda-label">{{ 'ipl_periodic_purchase.admin.order.change_status.suspend'|trans }}</span>
+                                                </button>
+                                            {% endif %}
+                                            {% if arrAllowList.resume %}
+                                                <button type="button" class="btn btn-ec-conversion px-3 ladda-button change_button" name="mode" value="change_status" data-action="action_button" data-value="resume" data-body="{{ 'ipl_periodic_purchase.admin.order.edit_modal_change_status'|trans({ "%status%" : 'ipl_periodic_purchase.admin.order.change_status.resume'|trans })|nl2br }}">
+                                                    <span class="ladda-label">{{ 'ipl_periodic_purchase.admin.order.change_status.resume'|trans }}</span>
+                                                </button>
+                                            {% endif %}
+                                            {% if arrAllowList.cancel %}
+                                                <button type="button" class="btn btn-ec-conversion px-3 ladda-button change_button" name="mode" value="change_status" data-action="action_button" data-value="cancel" data-body="{{ 'ipl_periodic_purchase.admin.order.edit_modal_change_status'|trans({ "%status%" : 'ipl_periodic_purchase.admin.order.change_status.cancel'|trans })|nl2br }}">
+                                                    <span class="ladda-label">{{ 'ipl_periodic_purchase.admin.order.change_status.cancel'|trans }}</span>
+                                                </button>
+                                            {% endif %}
+                                            {% if arrAllowList.resettlement %}
+                                                <button type="button" class="btn btn-ec-conversion px-3 ladda-button change_button" name="mode" value="change_status" data-action="action_button" data-value="resettlement" data-body="{{ 'ipl_periodic_purchase.admin.order.edit_modal_change_status_resettlement'|trans({ "%status%" : 'ipl_periodic_purchase.admin.order.change_status.resettlement'|trans })|nl2br }}">
+                                                    <span class="ladda-label">{{ 'ipl_periodic_purchase.admin.order.change_status.resettlement'|trans }}</span>
+                                                </button>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+	                                    
+                                        <div class="col-4">
+	                                        <i class="fa fa-calendar-check-o fa-fw mr-1" aria-hidden="true"></i>
+	                                        {{ 'ipl_periodic_purchase.admin.order.next_shipping_date'|trans }}
+	                                        {% if PeriodicPurchase.skip_flg > 0 %}<span class="order-skip">購入者スキップあり</span>{% endif %}
+	                                    </div>
+                                        <div class="col">
+                                            {% if arrAllowList.next_shipping %}
+                                                {{ form_widget(form.next_shipping_date) }}
+                                                {{ form_errors(form.next_shipping_date) }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4"><i class="fa fa-clock-o fa-fw mr-1" aria-hidden="true"></i> {{ 'ipl_periodic_purchase.admin.order.next_shipping_delivery_time'|trans }}</div>
+                                        <div class="col">
+                                            {% if arrAllowList.next_shipping %}
+                                                {{ form_widget(form.DeliveryTime) }}
+                                                {{ form_errors(form.DeliveryTime) }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="d-inline-block"><span class="card-title">{{ 'admin.order.orderer'|trans }}</span></div>
+                            </div>
+                            <div class="col">{% if id %}<span class="mr-5">{% if form.Customer.vars.value is empty %}{{ 'admin.order.non_member'|trans }}{% else %}<a href="{{ url('admin_customer_edit', {'id': form.Customer.vars.value}) }}">{{ form.Customer.vars.value }}</a>{% endif %}</span>{{ PeriodicPurchase.full_name }} ({{ PeriodicPurchase.full_name_kana }}) 〒{{ PeriodicPurchase.postal_code }} {{ PeriodicPurchase.pref }}{{ PeriodicPurchase.addr01 }}{{ PeriodicPurchase.addr02 }} {{ PeriodicPurchase.email }}{% endif %}</div>
+                            <div class="col-1 text-right"><a class="d-block" data-toggle="collapse" href="#ordererInfo" aria-expanded="false" aria-controls="ordererInfo"><i class="fa {{ id ? 'fa-angle-down' : 'fa-angle-up' }} fa-lg"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="collapse {{ id ? '' : 'show' }} ec-cardCollapse h-adr" id="ordererInfo">
+                        <span class="p-country-name" style="display:none;">Japan</span>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="row">
+                                        <label class="col-3 col-form-label" data-tooltip="true" data-placement="top" title="{{ 'tooltip.order.customer_id'|trans }}">{{ 'admin.customer.customer_id'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <div class="col">
+                                            <p id="periodicPurchaseCustomerId"><a href="{{ url('admin_customer_edit', {'id': form.Customer.vars.value}) }}">{{ form.Customer.vars.value }}</a></p>
+                                            {{ form_widget(form.Customer) }}
+                                            {{ form_errors(form.Customer) }}
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-3 col-form-label">{{ 'admin.common.name'|trans }}<span class="badge badge-primary ml-1">{{ 'admin.common.required'|trans }}</span></label>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col">
+                                                    {{ form_widget(form.name.name01) }}
+                                                    {{ form_errors(form.name.name01) }}
+                                                </div>
+                                                <div class="col">
+                                                    {{ form_widget(form.name.name02) }}
+                                                    {{ form_errors(form.name.name02) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-3 col-form-label">{{ 'admin.common.kana'|trans }}<span class="badge badge-primary ml-1">{{ 'admin.common.required'|trans }}</span></label>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col">
+                                                    {{ form_widget(form.kana.kana01) }}
+                                                    {{ form_errors(form.kana.kana01) }}
+                                                </div>
+                                                <div class="col">
+                                                    {{ form_widget(form.kana.kana02) }}
+                                                    {{ form_errors(form.kana.kana02) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-3 col-form-label">{{ 'admin.common.address'|trans }}<span class="badge badge-primary ml-1">{{ 'admin.common.required'|trans }}</span></label>
+                                        <div class="col">
+                                            <div class="row mb-3">
+                                                <div class="col form-inline">
+                                                    {{ 'admin.common.postal_symbol'|trans }}
+                                                    {{ form_widget(form.postal_code) }}
+                                                    {{ form_errors(form.postal_code) }}
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col">
+                                                    {{ form_widget(form.address.pref) }}
+                                                    {{ form_errors(form.address.pref) }}
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col">
+                                                    {{ form_widget(form.address.addr01) }}
+                                                    {{ form_errors(form.address.addr01) }}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    {{ form_widget(form.address.addr02) }}
+                                                    {{ form_errors(form.address.addr02) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="row form-group">
+                                        <label class="col-3 col-form-label">{{ 'admin.common.mail_address'|trans }}<span class="badge badge-primary ml-1">{{ 'admin.common.required'|trans }}</span></label>
+                                        <div class="col">
+                                            {{ form_widget(form.email) }}
+                                            {{ form_errors(form.email) }}
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-3 col-form-label">{{ 'admin.common.phone_number'|trans }}<span class="badge badge-primary ml-1">{{ 'admin.common.required'|trans }}</span></label>
+                                        <div class="col">
+                                            {{ form_widget(form.phone_number) }}
+                                            {{ form_errors(form.phone_number) }}
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-3 col-form-label">{{ 'admin.common.company_name'|trans }}</label>
+                                        <div class="col">
+                                            {{ form_widget(form.company_name) }}
+                                            {{ form_errors(form.company_name) }}
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-3 col-form-label">{{ 'admin.order.message'|trans }}</label>
+                                        <div class="col">
+                                            {{ form_widget(form.message, { attr : {'rows': 8 }}) }}
+                                            {{ form_errors(form.message) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div><!-- .card.rounded -->
+                <div class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'ipl_periodic_purchase.admin.order.shipping_info'|trans }}"><span class="card-title">{{ 'admin.order.shipping_info'|trans }}</span><i class="fa fa-question-circle fa-lg ml-1"></i></div>
+                            </div>
+                            <div class="col-4 text-right"><a data-toggle="collapse" href="#shippingInfo" aria-expanded="false" aria-controls="shippingInfo"><i class="fa fa-angle-up fa-lg"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="collapse show ec-cardCollapse" id="shippingInfo">
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-ec-regular copy-customer">{{ 'admin.order.copy_orderer'|trans }}</button>
+                                </div>
+                            </div>
+                            <div class="row h-adr">
+                                <span class="p-country-name" style="display:none;">Japan</span>
+                                <div class="col-6">
+                                    <div class="row form-group">
+                                        <label class="col-3 col-form-label">{{ 'admin.common.name'|trans }}<span class="badge badge-primary ml-1">{{ 'admin.common.required'|trans }}</span></label>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col">
+                                                    {{ form_widget(form.PeriodicPurchaseShipping.name.name01) }}
+                                                    {{ form_errors(form.PeriodicPurchaseShipping.name.name01) }}
+                                                </div>
+                                                <div class="col">
+                                                    {{ form_widget(form.PeriodicPurchaseShipping.name.name02) }}
+                                                    {{ form_errors(form.PeriodicPurchaseShipping.name.name02) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-3 col-form-label">{{ 'admin.common.kana'|trans }}<span class="badge badge-primary ml-1">{{ 'admin.common.required'|trans }}</span></label>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col">
+                                                    {{ form_widget(form.PeriodicPurchaseShipping.kana.kana01) }}
+                                                    {{ form_errors(form.PeriodicPurchaseShipping.kana.kana01) }}
+                                                </div>
+                                                <div class="col">
+                                                    {{ form_widget(form.PeriodicPurchaseShipping.kana.kana02) }}
+                                                    {{ form_errors(form.PeriodicPurchaseShipping.kana.kana02) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-3 col-form-label">{{ 'admin.common.address'|trans }}<span class="badge badge-primary ml-1">{{ 'admin.common.required'|trans }}</span></label>
+                                        <div class="col">
+                                            <div class="row mb-3">
+                                                <div class="col form-inline">
+                                                    {{ 'admin.common.postal_symbol'|trans }}
+                                                    {{ form_widget(form.PeriodicPurchaseShipping.postal_code) }}
+                                                    {{ form_errors(form.PeriodicPurchaseShipping.postal_code) }}
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col">
+                                                    {{ form_widget(form.PeriodicPurchaseShipping.address.pref) }}
+                                                    {{ form_errors(form.PeriodicPurchaseShipping.address.pref) }}
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col">
+                                                    {{ form_widget(form.PeriodicPurchaseShipping.address.addr01) }}
+                                                    {{ form_errors(form.PeriodicPurchaseShipping.address.addr01) }}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    {{ form_widget(form.PeriodicPurchaseShipping.address.addr02) }}
+                                                    {{ form_errors(form.PeriodicPurchaseShipping.address.addr02) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row form-group">
+                                        <label class="col-3 col-form-label">{{ 'admin.common.phone_number'|trans }}<span class="badge badge-primary ml-1">{{ 'admin.common.required'|trans }}</span></label>
+                                        <div class="col">
+                                            {{ form_widget(form.PeriodicPurchaseShipping.phone_number) }}
+                                            {{ form_errors(form.PeriodicPurchaseShipping.phone_number) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <label class="col-3 col-form-label">{{ 'admin.common.company_name'|trans }}</label>
+                                        <div class="col">
+                                            {{ form_widget(form.PeriodicPurchaseShipping.company_name) }}
+                                            {{ form_errors(form.PeriodicPurchaseShipping.company_name) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .card.rounded -->
+                <div id="periodic-purchase-product" class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'tooltip.order.product_info'|trans }}"><span class="card-title">{{ 'admin.order.product_info'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></span></div>
+                            </div>
+                            <div class="col-4 text-right"><a data-toggle="collapse" href="#orderItem" aria-expanded="false" aria-controls="orderItem"><i class="fa fa-angle-up fa-lg"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="collapse show ec-cardCollapse" id="orderItem">
+                        <div class="card-body">
+                            <div class="row justify-content-between mb-2">
+                                <div class="col-6">
+                                    <a class="btn btn-ec-regular mr-2 add" data-toggle="modal" data-target="#addProduct">{{ 'admin.order.add_product_item'|trans }}</a>
+                                    <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="addProduct" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">{{ 'admin.order.add_product_item'|trans }}</h5>
+                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    {{ form_widget(searchProductModalForm.id, { attr : {'class': 'mb-3', 'placeholder': 'admin.product.multi_search_label' }}) }}
+                                                    {{ form_widget(searchProductModalForm.category_id) }}
+                                                    <button type="button" id="searchProductModalButton" class="btn btn-ec-conversion px-5 mb-4 mt-2">{{ 'admin.common.search'|trans }}</button>
+                                                    <div id="searchProductModalList"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="btn btn-ec-regular mr-2" data-toggle="modal" data-target="#addOrderItemType">{{ 'admin.order.add_other_item'|trans }}</a>
+                                    <div class="modal fade" id="addOrderItemType" tabindex="-1" role="dialog" aria-labelledby="addOrderItemType" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">{{ 'admin.order.add_other_item'|trans }}</h5>
+                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div id="searchOrderItemTypeList"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ form_errors(form.PeriodicPurchaseItemsErrors) }}
+                                </div>
+                                <div class="col-5 text-right">
+                                    <button type="submit" class="btn btn-ec-regular mr-2" name="mode" value="calc" data-link="periodic-purchase-product" id="calculate">{{ 'admin.order.update_calculation_results'|trans }}</button>
+                                </div>
+                            </div>
+                            <table id="table-form-field" class="table table-striped table-sm mb-0"
+                                   data-prototype="{% filter escape %}{{ include('@IplPeriodicPurchase/admin/periodic_purchase_item_prototype.twig', {'productPeriodicItemForm': form.PeriodicPurchaseItems.vars.prototype}) }}{% endfilter %}">
+                                <thead class="table-active">
+                                <tr class="text-nowrap">
+                                    <th class="pt-2 pb-2 pl-3">{{ 'admin.product.product_name_and_code'|trans }}</th>
+                                    <th class="pt-2 pb-2">
+                                        <div class="col-8">定期回数</div>
+                                    </th>
+                                    <th class="pt-2 pb-2">
+                                        <div class="col-8">{{ 'admin.order.amount'|trans }}</div>
+                                    </th>
+                                    <th class="pt-2 pb-2">
+                                        <div class="col-8">{{ 'admin.order.quantity'|trans }}</div>
+                                    </th>
+                                    <th class="pt-2 pb-2">
+                                        <div class="col-8">{{ 'admin.order.tax_rate'|trans }}</div>
+                                    </th>
+                                    <th class="pt-2 pb-2">
+                                        <div class="col-8">{{ 'admin.order.tax_type'|trans }}</div>
+                                    </th>
+                                    <th class="pt-2 pb-2">
+                                        <div class="col-8">{{ 'admin.order.subtotal'|trans }}</div>
+                                    </th>
+                                    <th class="pt-2 pb-2 pr-3"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for periodicPurchaseItemForm in form.PeriodicPurchaseItems %}
+                                    {% set PeriodicPurchaseItem = periodicPurchaseItemForm.vars.data %}
+                                    <tr>
+                                        {# hidden values #}
+                                        {{ form_widget(periodicPurchaseItemForm.ProductClass) }}
+                                        {{ form_widget(periodicPurchaseItemForm.order_item_type) }}
+                                        <!-- 商品名 -->
+                                        <td class="align-middle w-25 pl-3 PeriodicPurchaseItem">	                                        
+                                            <p class="mb-0 font-weight-bold">
+                                                {# 商品とポイント値引きは名前変更できない #}
+                                                {% if PeriodicPurchaseItem.isProduct or PeriodicPurchaseItem.isPoint %}
+                                                	<span class="PeriodicPurchaseItemId">定期購入商品ID : {{ PeriodicPurchaseItem.id }}</span><br />
+                                                    {% if PeriodicPurchaseItem.isProduct %}
+                                                        <a href="{{ url('admin_product_product_edit', {id: PeriodicPurchaseItem.ProductClass.Product.id}) }}" target="_blank">
+                                                            {{ PeriodicPurchaseItem.product_name }}
+                                                        </a>
+                                                    {% else %}
+                                                        {{ PeriodicPurchaseItem.product_name }}
+                                                    {% endif %}
+                                                    {{ form_widget(periodicPurchaseItemForm.product_name, { 'type': 'hidden' }) }}
+                                                {% else %}
+                                                    {{ form_widget(periodicPurchaseItemForm.product_name) }}
+                                                {% endif %}
+                                            </p>
+                                            <span>
+                                                    {{ PeriodicPurchaseItem.product_code }}
+                                                {% if PeriodicPurchaseItem.class_category_name1 is not empty %}
+                                                    / (
+                                                    {{ PeriodicPurchaseItem.class_name1 }}：
+                                                    {{ PeriodicPurchaseItem.class_category_name1 }}
+                                                    {% if PeriodicPurchaseItem.class_category_name2 is not empty %}
+                                                        /
+                                                        {{ PeriodicPurchaseItem.class_name2 }}：
+                                                        {{ PeriodicPurchaseItem.class_category_name2 }}
+                                                    {% endif %}
+                                                    )
+                                                {% endif %}
+                                            </span>
+                                            {{ form_errors(periodicPurchaseItemForm.product_name) }}
+                                        </td>
+                                        <!-- 定期回数 -->
+                                        <td class="align-middle">
+                                            <div class="col mt-3">
+                                                {% if PeriodicPurchaseItem.isProduct %}
+                                                    {{ form_widget(periodicPurchaseItemForm.periodic_purchase_count_by_item) }}
+                                                {% else %}
+                                                    {{ form_widget(periodicPurchaseItemForm.periodic_purchase_count_by_item, {'attr': { 'readonly': 'readonly', 'class': 'pointPrice' } }) }}
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                        <!-- 金額 -->
+                                        <td class="align-middle">
+                                            <div class="col mt-3">
+                                                {# ポイント値引きは価格変更できない #}
+                                                {% if PeriodicPurchaseItem.isPoint %}
+                                                    {{ form_widget(periodicPurchaseItemForm.price, {'attr': { 'readonly': 'readonly', 'class': 'pointPrice' } }) }}
+                                                {% else %}
+                                                    {{ form_widget(periodicPurchaseItemForm.price) }}
+                                                {% endif %}
+                                                <div class="text-right small">({{ PeriodicPurchaseItem.TaxDisplayType }})</div>
+                                                {{ form_errors(periodicPurchaseItemForm.price) }}
+                                            </div>
+                                        </td>
+                                        <!-- 数量 -->
+                                        <td class="align-middle">
+                                            <div class="col-12 col-xl-8">
+                                                {# ポイントの場合個数を変更できない #}
+                                                {% if PeriodicPurchaseItem.isPoint %}
+                                                    {{ form_widget(periodicPurchaseItemForm.quantity, { 'attr': { 'readonly': 'readonly' } }) }}
+                                                {% else %}
+                                                    {{ form_widget(periodicPurchaseItemForm.quantity) }}
+                                                {% endif %}
+                                                {{ form_errors(periodicPurchaseItemForm.quantity) }}
+                                            </div>
+                                        </td>
+                                        <!-- 税率 -->
+                                        <td class="align-middle">
+                                            <div class="col">
+                                                {{ PeriodicPurchaseItem.tax_rate }}%
+                                            </div>
+                                        </td>
+                                        <!-- 課税区分 -->
+                                        <td class="align-middle">
+                                            <div class="col">
+                                                {{ PeriodicPurchaseItem.tax_type }}
+                                            </div>
+                                        </td>
+                                        <!-- 小計 -->
+                                        <td class="align-middle">
+                                            <div class="col">
+                                                <span>{{ PeriodicPurchaseItem.total_price|price }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle text-right pr-3">
+                                            <div class="row justify-content-end">
+                                                {% if PeriodicPurchaseItem.isPoint %}
+                                                    <div class="col-auto text-center">
+                                                        <div class="d-inline-block mr-3" data-tooltip="true"
+                                                             data-placement="top" title="{{ 'admin.common.delete'|trans }}">
+                                                            <a class="btn btn-ec-actionIcon disabled">
+                                                                <i class="fa fa-close fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                {% else %}
+                                                    <div class="col-auto text-center">
+                                                        <div class="d-inline-block mr-3" data-tooltip="true"
+                                                             data-placement="top" title="{{ 'admin.common.delete'|trans }}">
+                                                            <a class="btn btn-ec-actionIcon" data-toggle="modal" data-target="#delete_{{ periodicPurchaseItemForm.vars.id }}">
+                                                                <i class="fa fa-close fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <!-- 明細の削除確認モーダル -->
+                                                        <div class="modal fade" id="delete_{{ periodicPurchaseItemForm.vars.id }}" tabindex="-1" role="dialog" aria-labelledby="delete_{{ periodicPurchaseItemForm.vars.id }}" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title font-weight-bold">{{ 'admin.common.delete_modal__title'|trans }}</h5>
+                                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">×</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body text-left">
+                                                                        <p class="text-left">{{ 'admin.order.delete_item__confirm_message'|trans({ '%name%' : PeriodicPurchaseItem.product_name }) }}</p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button class="btn btn-ec-sub" type="button" data-dismiss="modal">{{ 'admin.common.cancel'|trans }}</button>
+                                                                        <a href="#periodic-purchase-product" class="btn delete btn-ec-delete">{{ 'admin.common.delete'|trans }}</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <hr class="mt-0">
+                            <!-- 小計 -->
+                            <div class="row justify-content-end mb-3">
+                                <div class="col-auto"><span class="align-middle">{{ 'admin.order.subtotal'|trans }}</span></div>
+                                <div class="col-2 text-right"><span class="h4 align-middle font-weight-normal">{{ PeriodicPurchase.subtotal|price }}</span></div>
+                            </div>
+                            <!-- 内値引き -->
+                            <div class="row justify-content-end mb-3">
+                                <div class="col-auto"><span class="align-middle">{{ 'admin.order.discount'|trans }}</span></div>
+                                <div class="col-2 text-right"><span class="h4 align-middle text-danger font-weight-normal">{{ (0 - PeriodicPurchase.discount)|price }}</span></div>
+                            </div>
+                            <!-- 内送料 -->
+                            <div class="row justify-content-end mb-3">
+                                <div class="col-auto"><span class="align-middle">{{ 'admin.order.delivery_fee'|trans }}</span></div>
+                                <div class="col-2 text-right"><span class="h4 align-middle font-weight-normal">{{ PeriodicPurchase.delivery_fee_total|price }}</span></div>
+                            </div>
+                            <!-- 内手数料 -->
+                            <div class="row justify-content-end mb-3">
+                                <div class="col-auto"><span class="align-middle">{{ 'admin.common.charge'|trans }}</span></div>
+                                <div class="col-2 text-right"><span class="h4 align-middle font-weight-normal">{{ PeriodicPurchase.charge|price }}</span></div>
+                            </div>
+
+                            <hr>
+                            <!-- 小計 -->
+                            <div class="row justify-content-end mb-3">
+                                <div class="col-auto"><span class="align-middle">{{ 'admin.order.total'|trans }}</span></div>
+                                <div class="col-2 text-right"><span class="h4 align-middle font-weight-normal">{{ PeriodicPurchase.total|price }}</span></div>
+                            </div>
+                            <!-- 合計 -->
+                            <div class="row justify-content-end mb-3">
+                                <div class="col-auto"><span class="align-middle">{{ 'admin.order.payment_total'|trans }}</span></div>
+                                <div class="col-2 text-right"><span class="h4 align-middle font-weight-normal">{{ PeriodicPurchase.payment_total|price }}</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .card.rounded -->
+                <!-- メモ欄 -->
+                <div class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'ipl_periodic_purchase.admin.order.memo_info'|trans }}"><span class="card-title">{{ 'ipl_periodic_purchase.admin.order.memo'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></span></div>
+                            </div>
+                            <div class="col-4 text-right"><a data-toggle="collapse" href="#freeArea" aria-expanded="false" aria-controls="freeArea"><i class="fa fa-angle-up fa-lg"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="collapse show ec-cardCollapse" id="freeArea">
+                        <div class="card-body">
+                            {{ form_widget(form.note, {'attr': {'rows': 8}}) }}
+                        </div>
+                    </div>
+                </div><!-- .card.rounded -->
+                <div class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'ipl_periodic_purchase.admin.order.history_info'|trans }}"><span class="card-title">{{ 'ipl_periodic_purchase.admin.order.history'|trans }}</span><i class="fa fa-question-circle fa-lg ml-1"></i></div>
+                            </div>
+                            <div class="col-4 text-right"><a data-toggle="collapse" href="#orderHistory" aria-expanded="false" aria-controls="orderHistory"><i class="fa fa-angle-up fa-lg"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="collapse show ec-cardCollapse" id="orderHistory">
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead class="table-active">
+                                <tr>
+                                    <th class="pt-2 pb-2 pr-3">{{ 'ipl_periodic_purchase.admin.order.count'|trans }}</th>
+                                    <th class="pt-2 pb-2 pr-3">{{ 'ipl_periodic_purchase.admin.order.order_no'|trans }}</th>
+									<th class="pt-2 pb-2 pl-3"></th>
+                                    <th class="pt-2 pb-2 pl-3">{{ 'ipl_periodic_purchase.admin.order.create_date'|trans }}</th>
+                                    <th class="pt-2 pb-2 pl-3">発送予定日</th>
+                                    
+                                    <th class="pt-2 pb-2 pl-3">{{ 'ipl_periodic_purchase.admin.order.update_date'|trans }}</th>
+                                    <th class="pt-2 pb-2 pl-3">{{ 'ipl_periodic_purchase.admin.order.payment_date'|trans }}</th>
+                                    <th class="pt-2 pb-2 pl-3">{{ 'ipl_periodic_purchase.admin.order.shipping_date'|trans }}</th>
+                                    <th class="pt-2 pb-2 pl-3">{{ 'ipl_periodic_purchase.admin.order.payment_method'|trans }}</th>
+                                    <th class="pt-2 pb-2 pl-3">{{ 'ipl_periodic_purchase.admin.order.order_status'|trans }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for Order in PeriodicPurchaseOrders %}
+                                    <tr class="periodic_orderhistory">
+                                        <td class="pr-3 flxc">
+	                                        {{ 'ipl_periodic_purchase.admin.order.count_number' |trans({ "%val%" : loop.revindex + ( PeriodicPurchase.periodic_purchase_count - loop.length)  }) }}
+	                                    </td>
+                                        <td class="pr-3 flxc">
+                                            <a class="action-edit" href="{{ url('admin_order_edit', { id : Order.id }) }}" target="_blank">{{ Order.order_no }}</a>
+                                        </td>
+                                        <td>
+	                                        <ul class="order-index-itemlist ">
+												{% for OrderItem in Order.OrderItems %}
+													{% if OrderItem.product_code %}
+														<li  data-product_code="{{OrderItem.product_code}}" data-quantity="{{OrderItem.quantity}}">
+															{{ OrderItem.product_name }}
+															<i>{{OrderItem.quantity}}</i>
+														</li>
+													{% elseif OrderItem.product_name == "定期割引"  %}
+														<li data-product_code="{{OrderItem.product_code}}" data-quantity="0">
+															{{ OrderItem.product_name }}：{{ OrderItem.price }}円
+															<i>{{OrderItem.quantity}}</i>
+														</li>
+													{% endif %}
+												{% endfor %}
+											</ul>
+                                        </td>
+                                        <td class="pl-3">{{ Order.create_date|date_min }}</td>
+                                        <td class="pl-3">{{ Order.Shippings|first.shipping_delivery_date|date_day }}</td>
+                                        <td class="pl-3">{{ Order.update_date|date_min }}</td>
+                                        <td class="pl-3">{{ Order.payment_date|date_day }}</td>
+                                        <td class="pl-3">{{ Order.Shippings|first.shipping_date|date_day }}</td>
+                                        <td class="pl-3">{{ Order.payment_method }}</td>
+                                        <td class="pl-3"><span class="badge badge-ec-blue" style="background-color: #fff; color: {{ Order.OrderStatusColor }}; border-color: {{ Order.OrderStatusColor }}">{{ Order.OrderStatus }}</span></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div><!-- .card.rounded -->
+            </div>
+        </div>
+        <!-- コンバージョンエリア -->
+        <div class="c-conversionArea">
+            <div class="c-conversionArea__container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-6">
+                        <div class="c-conversionArea__leftBlockItem">
+                            <a class="c-baseLink" href="{{ url('periodic_admin_order', { 'resume': 1 }) }}"><i class="fa fa-backward" aria-hidden="true"></i><span>{{ 'ipl_periodic_purchase.admin.order.periodic_list'|trans }}</span></a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row align-items-center justify-content-end">
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-ec-conversion px-5" name="mode" value="register">{{ 'admin.common.registration'|trans }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
