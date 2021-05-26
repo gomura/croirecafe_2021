@@ -66,12 +66,12 @@ file that was distributed with this source code.
     <link rel="stylesheet" href="{{ asset('assets/css/customize.css', 'user_data') }}">
 
 	<!-- !! add -->
-	<link rel="stylesheet" href="/common_113/css/products.css" type="text/css">
-	<link rel="stylesheet" href="/common_113/css/main.css" type="text/css">
-	<script src="/common_113/js/user.js"></script>
-	<script src="/common_113/js/cart_custom.js"></script>
-	<script src="/common_113/js/mypage_custom.js"></script>
-	<script src="/common_113/js/jquery.inview.js"></script>
+	<link rel="stylesheet" href="/common/css/products.css" type="text/css">
+	<link rel="stylesheet" href="/common/css/main.css" type="text/css">
+	<script src="/common/js/user.js"></script>
+	<script src="/common/js/cart_custom.js"></script>
+	<script src="/common/js/mypage_custom.js"></script>
+	<script src="/common/js/jquery.inview.js"></script>
 	
 	<!-- LINE Tag Base Code -->
 	<!-- Do Not Modify -->
@@ -282,7 +282,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'jip7amx',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
 
 </body>
 </html>

@@ -4,6 +4,7 @@
 
 $font01 : 'DIN','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','YuGothic', 'Yu Gothic','游ゴシック','メイリオ','Meiryo',sans-serif;
 
+
 * , :before , :after {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -86,7 +87,7 @@ select {
 p{
 	line-height: 1.6;
 	//@include gothic;
-	font-size: 16px;
+	font-size: 6px;
 	text-align: justify;
 }
 
@@ -162,40 +163,309 @@ body{
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-size-adjust: 100%;
 	@include gothic;
+	padding-top: 120px;
 }
 
 main{
 	@include gothic;
-	>section{
-		padding-top: 100px;
+	position: relative;
+}
+
+
+.ec-cartNavi__price{
+	@include BILO;
+}
+
+
+/* !! 見出し */
+h2.sec{
+	margin-top: 100px;
+	margin-bottom: 60px;
+	text-align: center;
+	span{
+		font-size: 32px;
+		letter-spacing: .1em;
+		color: $brown;
+		font-weight: bold;
+		line-height: 1;
+		&:after{
+			content: "";
+			width: 50px;
+			background: $yellow;	
+			display: block;
+			height: 5px;
+			border-radius: 10px;
+			margin: 15px auto 0;			
+		}
+	}
+	.ja{
+		font-size: 16px;
+		margin-top: 15px;
+		letter-spacing: .1em;
+	}
+}
+
+
+/* !! - - -  */
+/* !! 背景色 */
+.img.bg{
+	position: relative;
+}
+.img.bg:before{
+	content: "";
+	display: block;
+	width:100%;
+	height:100%;
+	z-index: 0;
+	position: absolute;
+	top: 0;left: 0;
+}
+.img.bg[data-pid='3101561']:before{@include bg_3101561;}
+.img.bg[data-pid='3101572']:before{@include bg_3101572;}
+.img.bg[data-pid='3101581']:before{@include bg_3101581;}
+.img.bg[data-pid='3101569']:before{@include bg_3101569;}
+.img.bg[data-pid='3101570']:before{@include bg_3101570;}
+.img.bg[data-pid='3101526']:before{@include bg_3101526;}
+.img.bg[data-pid='3101554']:before{@include bg_3101554;}
+
+/* !! - - -  */
+/* !! ボタン */
+%btn_L{
+	width: 100%;
+	height: 54px;
+	@include shadow02;
+	border-radius: 50px;
+	background: #eee;
+	
+}
+.btn.more{
+	width: 100%; 
+	height: 40px;
+	border-radius: 50px;
+	@include flex-centering;
+	background: #fff;
+	font-size: 15px;
+	font-weight: bold;
+	letter-spacing: .1em;
+	@include shadow02;
+	&:active{
+		//@include shadow02A;
+	}
+	span{
+		line-height: 1;
+		
 	}
 }
 
 /* !!------------------------------------ */
 /* !! ヘッダー */
-.ec-headerTitle__title{
+
+
+
+.ec-headerNaviRole{
+	position: fixed;
+	z-index: 10;
+	top: 0;left: 0;
+	background: #fff;
+	max-width: 100%;
+	height: 80px;
+	padding: 0;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0);
+	transition: 300ms;
+	//.moved & {
+		box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+	//}
+	.inner{
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 30px;
+		max-width: 1350px;
+		position: relative;
+	}
+}
+//!! ロゴ
+.logo-pc{
+	height: 100%;
+	position: absolute;
+	top: 0;left: 30px !important;
+	line-height: 1;
+	@include flex-centering;
+	@include GG;
+	color: #453d00;
 	a{
-		display: block !important;
+		display: block;
+		text-decoration: none !important;
+		&:hover{
+			text-decoration: none;
+		}
+	}
+	p{
+		font-size: 10px !important;
+		line-height: 1;
+		margin-bottom: 4px;
+		letter-spacing: .1em;
+	}
+	strong{
+		font-size: 30px;
+		letter-spacing: .05em;
+		font-weight: bold;
 	}
 	span{
-		font-size: 1.1rem !important;
-		display: block!important;
+		font-size: 12px;
 		letter-spacing: .1em;
-		font-weight: normal;
+		font-weight: bold;
 	}
-	img{
-		width: 294px;
-		height: auto;
-		display: block;
-		margin: 10px auto;
-		vertical-align: middle;
-		display: block;
+}
+
+//メニュー右
+.ec-headerNaviRole__right{
+	width: auto !important;
+	.ec-headerNav{
+		@include flex;
+		.header-item,.ec-headerNav__item{
+			margin: 0 10px;
+			a{
+				@include flex-centering;
+				i{
+					margin: 0;
+					margin-bottom: 6px;
+					font-size: 20px !important;
+				}
+				span{
+					font-size: 14px;
+					font-weight: bold;
+					letter-spacing: .05em;
+					margin: 0;
+					
+				}
+			}
+		}
+	}
+	
+	
+}
+
+/* !! - - -  */
+/* !! カートウィンドウ*/
+.ec-headerRole__cart{
+	line-height: 1;
+	.ec-cartNavi{
+		@include flex;
+		align-content: center;
+		font-size: 16px !important;
+		>a{
+			display: none !important;
+		}
+
+	}
+	.txt{
+		display: none !important;
+	}
+	.ec-cartNavi__icon{
+		font-size: 15px;
+		@include flex;
+		align-items: center;
+		color: $pink;
+		&:before{
+					font-size: 18px;
+				}
+
+		.ec-cartNavi__badge{
+			margin-left: 5px;
+			background: $pink;
+			@include flex-centering;
+			font-size: 10px;
+		}
+	}
+	.ec-cartNavi__price{
+		font-size: 16px !important;
+	}
+	.ec-cartNavi__badge{
+		width: 20px;
+		height: 20px;
+		@include flex;
+		display: -webkit-inline-flex;
+		display: -moz-inline-flex;
+		display: -ms-inline-flex;
+		display: -o-inline-flex;
+		display: inline-flex;
 	}
 	i{
-		display: block;
-		font-size: 1.4rem;
-		vertical-align: middle;
-		margin-top: 15px;
+		font-size: 15px;
+	}
+}
+
+//!!詳細
+.ec-cartNaviIsset{
+	box-shadow: 0px 3px 8px rgba(0, 0, 0, .3);
+	border-radius: 12px;
+	width: 360px;
+	max-width: 1000px !important;
+	border: 4px solid #e4007f82;
+
+	&:before{
+		content: "";
+		top: -16px;
+		right: 99px;
+		border-width: 0 8.5px 12px 8.5px;
+		border-color: transparent transparent #e4007f82 transparent !important;					
+	}
+	
+	.ec-cartNaviIsset__cartImage{
+		width: 60px;
+		margin-right: 10px;
+	}
+	.ec-cartNaviIsset__cartContent{
+		width: auto;
+		float: none;
+	}
+	.ec-cartNaviIsset__cartContentTitle{
+		font-size: 14px;
+		line-height: 1.3;
+		letter-spacing: .05em;
+		@include GG;
+		font-weight: bold;
+	}
+	.ec-cartNaviIsset__cartContentPrice{
+		@include BILO;
+		font-size: 1.3em;
+		font-weight: 500;
+	}
+	.ec-cartNaviIsset__cartContentNumber{
+		background: $pink;
+		display: inline-block;
+		height: 20px;
+		@include flex-centering;
+		display: -webkit-inline-flex;
+		display: -moz-inline-flex;
+		display: -ms-inline-flex;
+		display: -o-inline-flex;
+		display: inline-flex;
+		border-radius: 30px;
+		font-size: 12px;
+		font-weight: bold;
+		color: #fff;
+		 line-height: 1;
+		font-weight: bold;
+		padding: 0 10px;
+		margin-top: 10px;
+	}
+	
+	.ec-cartNaviIsset__action{
+		@include flex;
+		a{
+			border-radius: 50px;
+			@include flex-centering;
+			line-height: 1;
+			letter-spacing: .1em;
+			width: calc(50% - 5px);
+			font-size: 16px;
+			margin-bottom: 0 !important;
+			height: 48px;
+		}
+		.ec-blockBtn--action{
+			background: $pink;
+		}
 	}
 }
 
@@ -243,26 +513,288 @@ ul.category-nav{
 	overflow: hidden;
 }
 
+
+/* !! - - -  */
+/* !! サイドメニュー */
+#top-side{
+	position: fixed;
+	//background: #EEE;
+	width: 300px;
+	z-index: 1;
+	left: 50%;
+	margin-left: 345px;
+	.disp-user-name{
+		height: 80px;
+		border: 2px solid #ddd;
+		border-radius: 12px;
+		@include flex-centering;
+		p{
+			font-size: 15px;
+			white-space: nowrap;
+			text-align: center;
+			letter-spacing: .1em;
+		}
+	}
+	
+	.side-item{
+		margin-top: 15px;
+		>a{
+			display: block;
+			@include flex;
+			justify-content: center;
+			align-items: center;
+			@extend %btn_L;
+			font-size: 16px;
+			letter-spacing: .1em;
+			text-decoration: none !important;
+			background: #c7e0f7;
+			border: 2px solid #fff;
+			font-weight: bold;
+			i{
+				margin-right: 5px;
+			}
+			&.login{
+				@include bg_orange;
+				border: 2px solid #fff;
+				color: #FFF;
+				font-weight: bold;
+				letter-spacing: .1em;
+			}
+		}
+	}
+	
+	//カート
+	.ec-cartNaviWrap{
+		margin-top: 15px;
+		position: relative;
+		
+		.ec-cartNavi{
+			color: $pink;
+			height: 54px;
+			border-radius: 50px;
+			padding: 0 20px;
+			@include shadow02;
+			@include flex;
+			align-items: center;
+			line-height: 1;
+			border: 3px solid $pink;
+			position: relative;
+			flex-wrap: nowrap;
+			>a{
+				@include a-cover;
+			}
+			.ec-cartNavi__icon{
+				@include flex;
+				align-items: center;
+				margin-left: auto;
+				margin-right: 6px;
+				flex-wrap: nowrap;
+				&:before{
+					font-size: 18px;
+				}
+				.ec-cartNavi__badge{
+					margin-left: 5px;
+					background: $pink;
+					@include flex-centering;
+					font-size: 10px;
+				}
+			}
+			.ec-cartNavi__badge{
+				width: 20px;
+				height: 20px;
+				@include flex;
+				display: -webkit-inline-flex;
+				display: -moz-inline-flex;
+				display: -ms-inline-flex;
+				display: -o-inline-flex;
+				display: inline-flex;
+			}
+			i{
+				font-size: 15px;
+			}
+		}
+		.ec-cartNavi__price{
+			@include BILO;
+			font-weight: 500;
+			font-size: 1.5em;
+		}
+		.ec-cartNaviIsset{
+			display: none !important;
+		}
+	}
+	
+	//!!　送料について
+	.about-delivery{
+		padding: 20px 0;
+		text-align: center;
+		p{
+			font-size: 16px;
+			text-align: center;
+			letter-spacing: .05em;
+			line-height: 1.4;
+			.price{
+				font-size: 1.6em;
+				@include BILO;
+				font-weight: 700;
+			}
+			b{
+				font-size: 1.3em;
+			}
+		}
+		a{
+			text-decoration: underline;
+			line-height: 1;
+			padding: 15px 0;
+			display: block;
+		}
+	}
+
+}
+
 /* !!------------------------------------ */
 /* !! トップページ */
-.main_visual .slick-slide  img{
-	width: 100% !important;
-	height: auto !important;
-}
 
 
-h1.hd,
-h2{
-	font-size: 14px;
-	@include gothic;
-	text-align: center;
-	margin-bottom: 30px;
-	i{
-		font-size: 32px;
-		@include din;
-		font-weight: 300;
+
+//!!　メインコンテンツ
+.ec-layoutRole__contents{
+	width:  1020px !important;
+	padding: 0 30px;
+	overflow: hidden;
+	max-width: 2000px !important;
+	#page_homepage & {
+		width: 1350px !important;
+	}
+	
+	.ec-layoutRole__main{
+		width: 960px;
+		//overflow: hidden;
 	}
 }
+
+/* !! - - -  */
+/* !! スライド */
+
+.main_visual{
+	//background: #eee;
+	.slick-list{
+		overflow: hidden;
+		border-radius: 12px;
+		position: relative;
+		.slick-current{
+			&:before{
+				content:"";
+				opacity: .5;
+			}
+		}
+	}
+	.item{
+		height: 480px;
+		@include flex-centering;
+		&:before{
+			content:"";
+			position: absolute;
+			top: 0;left: 0;
+			z-index: 0;
+			width:100%;
+			height:100%;
+			opacity: 0;
+			transition: 1000ms;
+			background: #eee;
+			&.slick-current{
+				&:before{
+					content:"";
+					opacity: .5;
+				}
+			}
+		}
+		&[data-pid='3101561']{@include bg_3101561;}
+		&[data-pid='3101572']{@include bg_3101572;}
+		&[data-pid='3101581']{@include bg_3101581;}
+		&[data-pid='3101569']{@include bg_3101569;}
+		&[data-pid='3101570']{@include bg_3101570;}
+		&[data-pid='3101526']{@include bg_3101526;}
+		&[data-pid='3101554']{@include bg_3101554;}
+		
+		&._1{
+			//background: #ccc;
+		}
+	}
+
+	
+
+}
+
+
+.slick-slider{
+	margin-bottom: 10px !important;
+}
+
+
+
+.main_visual_nav{
+
+
+	.item_thumb{
+		width: calc((960px - 80px)/9) !important;
+		margin-right: 10px;
+		position: relative;
+		outline: none;
+		margin-bottom: 1px;
+		i{
+			position: absolute;
+			top: 0;left: 0;
+			width:100%;
+			height:100%;
+			@include flex-centering;
+		}
+		&:before{
+			display: block;
+			content: "";
+			width: 100%;
+			padding-top: 100%;
+			border-radius: 12px;
+			opacity: .1;		
+		}
+		&:after{
+			content: "";
+			position: absolute;
+			top: 0;left: 0;
+			width:100%;
+			height:100%;
+			border-radius: 12px;
+			border: 0px solid #ccc;
+			transition: 600ms;
+			opacity: 1;
+			
+		}
+		&.slick-current:before{
+			opacity: .5;
+		}
+		&.slick-current:after{
+			opacity: 1;
+			border-width: 4px;
+		}
+		&[data-pid='3101561']:before{@include bg_3101561;}
+		&[data-pid='3101572']:before{@include bg_3101572;}
+		&[data-pid='3101581']:before{@include bg_3101581;}
+		&[data-pid='3101569']:before{@include bg_3101569;}
+		&[data-pid='3101570']:before{@include bg_3101570;}
+		&[data-pid='3101526']:before{@include bg_3101526;}
+		&[data-pid='3101554']:before{@include bg_3101554;}
+		
+		&[data-pid='3101561']:after{border-color: #fdd33c;}
+		&[data-pid='3101572']:after{border-color: #00b7a8;}
+		&[data-pid='3101581']:after{border-color: #fdb33c;}
+		&[data-pid='3101569']:after{border-color: #0eb95b;}
+		&[data-pid='3101570']:after{border-color: #fdd33c;}
+		&[data-pid='3101526']:after{border-color: #fdd33c;}
+		&[data-pid='3101554']:after{border-color: #fdd33c;}
+
+
+	}
+}
+
 
 #top-info{
 	border: 1px solid #000;
@@ -454,712 +986,55 @@ ul.rank{
 
 
 /* !! - - -  */
-/* !! クロワール */
+/* !! クロワールシリーズ一覧 */
 
-
-//!! 特罰割引バナー
-%banner{
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-	position: absolute;
-	font-size: 14px;
-	letter-spacing: .05em;
-	font-weight: bold;
-	top: 0;
-	right: 0;
-	text-align: center;
-	padding: 5px;
-	transition-delay: 100ms;
-	&:hover{
-		transition: 400ms cubic-bezier(0, 1.57, 0.63, 0.99);
-		top: 3px;
-	}
-	transition: 1800ms cubic-bezier(0, 1.57, 0.63, 0.99);
-	@include transform(translate(20px,-85%));
-	&.left{
-		@include pc{
-			right: auto;
-			left: 0 !important;
-			@include transform(translate(10px,-80%));	
-		}//@pc
-		
-	}
-	@include sp{
-		right: 50%;
-		@include transform(translate(50%,-100%));	
-		padding: 10px 15px;
-		line-height: 1;
-		width: 100%;
-	}//@sp
-	background: $red;
-	color: #fff;
-	>a{
-		position: absolute;
-		top: 0;left: 0;
-		z-index: 1;
-		background: #eee;
-		width:100%;
-		height:100%;
-		opacity: 0;
-	}
-	&.inv{
-		opacity: 0;
-		@include transform(translate(20px,-140%));
-		@include sp{
-			opacity: 1;
-			@include transform(translate(50%,-120%));	
-		}//@sp
-		
-	}
-	&:after{
-		content: "▼";
-		color: $red;
-		position: absolute;
-		bottom: 0;left: 50%;
-		@include transform(translate(-50%,105%));
-		line-height: 0.5;
-		font-size: 16px;
-	}
-	.date{
+.products-list{
+	@include flex;
+	>li{
+		width: 300px;
 		background: #fff;
-		color: $red;
-		padding: 5px;
-		text-align: justify;
-		font-size: 15px;
-		text-align: center;
-		@include sp{
-			font-size: 12px;
-			white-space: nowrap;
-		}//@sp
-		i{
-			display: block;
-			text-align: center;
-			font-size: 14px;
-			white-space: nowrap;
-			@include sp{
-				margin-top: 5px;
-				//display: inline;
-			}//@sp
-			&:after{
-				//content: "";
-				width: 100%;
-				display: inline-block;
-				height: 0;
-								
-			}
-		}
-	}
-	//!! - price
-	.price-row{
-		margin-top: 5px;
-		display: block;
-		font-size: 12px;
-		line-height: 1.2;
-		white-space: nowrap;
-		font-weight: bold;
-		margin: 15px 0;
-		margin-bottom: 5px;
-		@include flex;
-		max-width: 360px;
-		justify-content: center;
-		align-items: center;
-		@include pc{
-			
-			
-		}//@pc
-		@include sp{
-			margin: 0px 0;
-			font-size: 12px;
-			line-height: 1;
-			
-			br{
-				display: block;
-			}
-		}//@sp
-		.hd{
-			width: 100%;
-			font-weight: bold;
-			margin-bottom: 10px;
-			display: block;
-			@include sp{
-				margin-top: 10px;
-				margin-bottom: 5px;	
-			}//@sp
-		}
-		i{
-			@include din;
-			font-size: 4em;
-			margin: 10px 0;
-			&.en{
-				font-size: 2em;
-				font-weight: bold;
-				position: relative;
-				top: -1px;
-			}
-			@include sp{
-				font-size: 3em;
-				&.en{
-					font-size: 1.6em;
-					top: 0;
-				}	
-			}//@sp
-		}
-		.box{
-			line-height: 1.2;
-			border: 2px solid #FFF;
-			display: block;
+		margin-bottom: 60px;
+
+		.inner{
+			overflow: hidden;
+			border-radius: 12px;
+			border-radius: 12px;
+			@include shadow01;
 			height: 100%;
-			padding:3px 10px;
-			font-size: 14px;
-			list-style: 1.3;
-			margin-left: 10px;
-			white-space: nowrap;
-			margin-bottom: 0;
-			@include sp{
-				//@include flex;
-				justify-content: center;
-				align-items: center;
-				font-size: 1em;
-				padding:5px;
-				margin: 5px;
-				margin-right: 0;
-				margin-left: 15px;
-				line-height: 1;
-				i{
-					margin: 0;
-				}
-				//br{display: none;}
-			}//@sp
-			i{
-				font-size: 1.3em;
-				&.en{
-					font-size: 1em;
-					margin: 0;
-					margin-right: 10px;
-				}
-			}
 		}
-	}
-}
-
-
-.btn2,.btn2_D{
-	background: $orange;
-	display: block;
-	height: 36px;
-	@include flex-centering;
-	border-radius: 18px;
-	box-shadow: 0 2px 0px darken($orange,15%);
-	color: #FFF !important;
-	width: 160px;
-	font-size: 14px;
-	font-weight: 600;
-	letter-spacing: .1em;
-	margin: 0 auto;
-	margin-top: 15px !important;
-	position: relative;
-	transition: 100ms;
-	&:hover{
-		box-shadow: 0 1px 0px darken($orange,15%);
-		top: 1px;
-		color: #Fff;
-	}
-	&:after{
-		
-		content: "";
-		@include anchor(#fff,10px,1px);//$color,$size,$Bw,$left,$right
-	}
-}
-
-%cell{
-	position: relative;
-	transition:300ms $ease1;
-	>a.cover{
-		@include a-cover;
-	}
-	&.na{
-		display: block !important;
-	}
-	&.pro{
-		display: none;
-	}
-	&#probiotics12{
 		.img{
-			&:after{
-				//content: "60粒入・1日1粒目安";
-				position: absolute;
-				bottom: -10px;
-				left: 0;
-				width: 100%;
-				text-align: center;
-				@include transform(translateY(100%));
-				letter-spacing: .1em;
-				@include sp{
-					font-size: 12px;
-					bottom: 0;
-					@include transform(translateY(0%));	
-				}//@sp
+			width: 100%;
+			height: 222px;
+			&:before{
+				content:"";
+				opacity: .5;
 			}
 		}
-		.test & {
-			display: block;
-		}
-		//display: none;
-		.base_price{
-			p{
-				//color: $red;
-				@include sp{
-					span{
-						margin-bottom: 20px;
-					}	
-				}//@sp
-			}
-			i{
-				position: relative;
-				&:after{
-					content: "約2ヶ月分";
-					display: block;
-					position: absolute;
-					top: -5px;left: 0;
-					line-height: 1;
-					font-size: 12px;
-					text-align: center;
-					width: 100%;
-					background: rgba(255, 255, 0, 0.7);
-					line-height: .8;
-					@include transform(translateY(-100%));
-					letter-spacing: .1em;
-					font-weight: bold !important;
-					color: $gray;
-				}
-			}
-		}
-		.price{
-			i{
-				position: relative;
-				&:after{
-					content: "約2ヶ月分";
-					display: block;
-					position: absolute;
-					top:5px;left: 0;
-					color: $gray;
-					font-size: 12px;
-					text-align: center;
-					width: 100%;
-					background: rgba(255, 255, 0, 0.7);
-					line-height: .8;
-					//@include transform(translateY(-100%));
-					letter-spacing: .1em;
-					font-weight: bold !important;
-					white-space: nowrap;
-				}
-			}
-			&:after{
-				content: "1ヶ月あたり約1,944円(税込)";
-				color: $gray;	
-				font-weight: bold;
-				text-align: center;	
-				display: inline-block;
-				line-height: .8;
-				background: rgba(255, 255, 0, 0.7);
-				@include transform(translateY(10px));		
-			}
-		}
-		.onestop{
-			.price{
-				&:after{
-					content: "1ヶ月あたり約2,499円(税込)";
-										
-				}
-			}
-		}
-	}
-	&.croire-coat{
-		p._2{
-			img{
-				display: none;
-			}
-		}
-		.price{
-			@include pc{
-				position: relative;
-				top: -17px;
-			}//@pc
-		}
-	}
-	position: relative;
-	#page_user_data &#probiotics12{
-		.pb12{
-			display: block ;
-			padding-top: 12px;
-			font-size: 13px;
-		}
-	}
-	.pb12{
-		display: none;
-	}
-	.inner{
-		.pb12{
-			//display: none;
-		}
-		position: relative;
-		padding-left: 220px;
-		width: auto;
-		top: 50%;
-		
-		//PBラベル
-		
-		@include transform(translateY(-50%));
-		.img{
-			width: 180px;
-			position: absolute;
-			left: 0;
-			top: 50%;
-			@include transform(translateY(-50%));
-			&.img_labeled{
-				background: none !important;
-			}
-			a{
-				display: block;
-				position: relative;
-			}
-			img{
-				width: 100% !important;
-				height: auto !important;
-				&.probiotics12{
-					position: relative;
-					bottom: -30px;
-					@include sp{
-						bottom: -10px;	
-					}//@sp
-				}
-			}
-			.img_label{
-				position: absolute;
-				width: 80px !important;
-				height: 80px !important;
-				top: -10px;right: -10px;
-				@include sp{
-					top: 10%;
-					right: -60%;	
-				}//@sp
-			}
-		}
-	}
-	width: 100%;
-	height: 350px;
-	display: inline-block;
-	position: relative;
-	padding: 40px;
-	>img{
-		width: 100% !important;
-		height: auto !important;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100% !important;
-		height: auto !important;
-	}
-	
-	.ttl{
-		font-size: 24px;
-		font-weight: bold;
-		text-align: left;
-		line-height: 1;
-		i.cont{
-			font-size: 0.67em;
-			display: inline-block;
-			margin-left: 10px;
-			@include sp{
-				display: block;
-				margin-left: 0;
-			}//@sp
-		}
-		span{
-			font-size: 14px;
-			margin: 8px 0;
-			font-weight: normal;
-			display: block;
-			line-height: 1.5;
-		}
-	}
-	
-	.base_price p{
-		font-size: 12px;
-		@include sp{
-			display: block !important;
-			span{
-				display: block;
-				width: 100%;
-				margin-bottom: 6px;
-			}	
-		}//sp
-		font-weight: bold;
-		vertical-align: middle;
-		display: -webkit-flex;
-		display: -moz-flex;
-		display: -ms-flex;
-		display: -o-flex;
-		display: flex;
-		align-items: center;
-		line-height: 1;
-		margin: 20px 0;
-		i{
-			font-size: 22px;
-			padding: 0 5px;
-			@include sp{
-				padding: 0;	
-			}//sp
-		}
-	}
-	
-	ul{
-		display: -webkit-flex;
-		display: -moz-flex;
-		display: -ms-flex;
-		display: -o-flex;
-		display: flex;
-		@include sp{
-			display: -webkit-flex !important;
-			display: -moz-flex !important;
-			display: -ms-flex !important;
-			display: -o-flex !important;
-			display: flex !important;
-			flex-wrap: wrap !important;
-			>li{
-				width: 100% !important;
-			}
-			&.sp-rev{
-				.teiki{
-					order:2;
-				}
-				.onestop{
-					order: 1;
-				}
-			}
-		}//@sp
-		li{
-			position: relative;
-			width: 300px;
-			padding-bottom: 15px;
+		.txt{
 			
-			&.red{
-				border-bottom-color: $red !important;
-				.hd{
-					background: $red !important;
-				}
-			}
-			.hd{
-				line-height: 30px !important;
+			.pname{
+				font-weight: bold;
 				text-align: center;
-				background: $lite-blue;
-				color: #fff;
-				font-size: 16px;
-				font-weight: bold;
-				letter-spacing: .1em;
-			}
-			.txt{
-				padding: 15px;
-				font-size: 14px;
-				font-weight: bold;
-				color: $red-price;
-				text-align: center;
-				position: relative;
-				&.disc{
-					span{
-						position: absolute;
-						top: 0;left: 0;
-						width: 100%;
-						height: auto;
-						color: $red;
-						background:none;
-						line-height: 1.4;
-						font-size: 13px;
-						white-space: nowrap;
-						padding: 6px 0;
-						margin-top:5px;
-						
-						b{
-							font-size: 18px;
-						}
-						br{
-							display: none;
-						}
-					}
-					&.show{
-						visibility: visible;
-						@include sp{
-							padding-bottom: 0;
-						}//@pc
-						span{
-							position: relative; 
-							font-size: 14px;
-							letter-spacing: .05em;
-							@include pc{
-								top: -6px;
-							}//@pc
-							i{
-								@include din;
-								font-size: 1.6em;
-							}
-						}
-					}
-				}
-			}
-			a.btn2{
-				
-			}
-			.price{
-				padding:0px;
-				white-space: nowrap;
-				text-align: center;
-				b.en{
-					position: relative;
-					top: 8px;
-				}
-				p{
-					display: -webkit-flex;
-					display: -moz-flex;
-					display: -ms-flex;
-					display: -o-flex;
-					display: flex;
-					white-space: nowrap;
-					//height:30px;
-					align-items: center;
-					justify-content: center;
-					height: 28px;
-					img{
-						margin-right: 10px;
-						height: auto;
-					}
-				}
-			}
-			p._1{
-				font-size: 13px;
-				font-weight: bold;
-				i{
-					font-size: 1.5em;
-				}
-				b.en{
-					position: relative;
-					top: 8px;
-				}
-			}
-			p._2{
-				
-				font-size: 18px;
-				font-weight: bold;
-				color: $red-price;
-				vertical-align: top;
-				position: relative;
-				top: -3px;
-
-				&.sale{
-					color: $red;
-				}
-				i{
-					@include din;
-					font-size: 40px;
-				}
-				img{
-					height: auto;
-					width: auto;
-				}
-				.label{
-					font-size: 11px;
-					text-align: center;
-					padding: 5px 10px;
-					background: $red;
-					color: #fff;
-					line-height: 1.1;
-					@include flex-centering;
-					border-radius: 3px;
-					position: relative;
-					top: 2px;
-					margin-right: 5px;
+				height: 100px;
+				font-size: 24px;
+				@include flex-centering;
+				letter-spacing: .05em;
+				span{
+					line-height: 1.4;
+					@include GG;
 					font-weight: bold;
 				}
-				b.en{
-					position: relative;
-					top: 8px;
-				}
 			}
-			
-			&.teiki{
-				border-bottom: 4px solid $lite-blue;
-			}
-			&.onestop,&.try{
-				border-bottom: 4px solid #9fa0a0;
-				.hd{
-					background: #9fa0a0;
-				}
-			}
-		}
-	}
-	
-	//!! 特罰割引バナー
-	.banner{
-		@extend %banner;
-		
-	}
-	
-
-
-}
-
-section#product{
-	.slide{
-		text-align: center;
-		margin: 0 auto;
-		margin-top: 50px;
-		max-width: 960px;
-		//background: #eee;
-		//border: 1px solid #bbb;
-		.slick-prev,.slick-next{
-			position: absolute;
-			z-index: 1;
-			top: 50%;
-			left: -50px;
-			width: 80px;
-			height: 80px;
-			background: #000;
-			border:none;
-			font-size: 0;
-			appearance: none;
-			background: none;
-			box-shadow: none;
-			@include transform(translateY(-50%));
-			&:after{
-				content: "";
-				display: block;
-				width: 30px;
-				height: 30px;
-				border: 7px solid #ccc;					
-				border-width: 0 0 7px 7px;
-				@include centering;
-				@include transform(translate(-50%,-50%) rotate(45deg));
-			}
-		}
-		.slick-next{
-			left: auto;
-			right: -50px;
-			&:after{
-				content: "";
-				border-width: 7px 7px 0 0;
-			}
-		}
-		.cell{
-			@extend %cell;
-			&:hover{
-				@include transform(scale(1.02));
-			}
-
-			ul a{
-				display: none !important;
+			.desc{
+				padding: 0px 20px;
+				padding-bottom: 20px;
+				font-size: 16px;
+				@include pfix(.5em);
+				
 			}
 		}
 	}
 }
-
 
 
 /* !! - - -  */
@@ -1208,7 +1083,7 @@ section#product{
 
 
 /* !! - - -  */
-/* !! マガジン */
+/* !! 週間柏﨑 */
 ul.magazine{
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -1221,29 +1096,23 @@ ul.magazine{
 	margin: 50px auto;
 	position: relative;
 	margin-bottom: 100px;
-	&:after{
-		width: 100vw;
-		content: "";
-		height: 250px;
-		position: absolute;
-		z-index: 0;
-		bottom: -50px;
-		left: 50%;
-		@include transform(translateX(-50%));
-		background: #F5F3F2;
-	}
+	
 	li{
+		@include shadow01;
 		width: 300px;
+		border-radius: 12px;
+		overflow: hidden;
 		position: relative;
 		z-index: 1;
 		background: #fff;
-		padding-bottom: 30px;
+		padding-bottom: 60px;
 		a{
 			@include a-cover;
 		}
 		.img{
 			height: auto;
 			background: #eee;
+			position: relative;
 			img{
 				width: 100% !important;
 				height: auto !important;
@@ -1273,9 +1142,10 @@ ul.magazine{
 /* !! - - -  */
 /* !! ニュース */
 ul.news{
-	padding: 60px 100px;
+	padding: 30px 30px;
 	border: 1px solid #ccc;
 	margin: 50px auto;
+	border-radius: 12px;
 	li{
 		position: relative;
 		padding-left: 248px;
@@ -1284,6 +1154,8 @@ ul.news{
 		margin-bottom: 20px;
 		&:last-of-type{
 			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: 0;
 		}
 	}
 	.date{
@@ -1298,6 +1170,7 @@ ul.news{
 		width: 100px;
 		line-height: 30px;
 		text-align: center;
+		border-radius: 50px;
 	}
 	.ttl{
 		font-size: 18px;
@@ -1309,6 +1182,48 @@ ul.news{
 		font-size: 14px;
 		line-height: 1.6;
 		@include pfix(.6em);
+	}
+}
+
+
+
+/* !! - - -  */
+/* !! 送料・お支払い方法について */
+ul.payment-delivery{
+	@include flex;
+	li{
+		background: #fff;
+		width: 300px;
+		border-radius: 12px;
+		padding: 20px;
+		@include flex-centering;
+		justify-content: flex-start;
+		border: 2px solid #ddd;
+		.img{
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background: #ddd;
+			margin: 0 auto 20px auto;
+		}
+		h3{
+			font-size: 18px;
+			white-space: nowrap;
+			font-weight: bold;
+			text-align: center;
+			line-height: 1.6;
+		}
+		p{
+			font-size: 16px;
+			text-align: justify;
+			margin: 15px 0 !important;
+			
+		}
+		.btn{
+			margin-top: auto;
+			margin-bottom: 0;
+			background: rgba($yellow,0.3);
+		}
 	}
 }
 
@@ -1858,329 +1773,6 @@ main.payment{
 
 
 
-main.product{
-	//width: 950px;
-	//display: flex;
-	//justify-content: space-between;
-	.main_visual{
-		display: none;
-		.item{
-			img{
-				width: 100% !important;
-				height: auto !important;
-			}
-		}
-	}
-	
-	
-	.mv{
-		background: none;
-		//background: #eee;
-		height: 400px;
-		position: relative;
-		margin-top: -30px;
-		p{
-			width: 90% !important;
-			//background: #000;
-			height: 188px;
-		}
-	}
-	
-	#croire-list.croire{
-		width: 1118px;
-		margin: 0 auto;
-		display: -webkit-flex;
-		display: -moz-flex;
-		display: -ms-flex;
-		display: -o-flex;
-		display: flex;
-		-webkit-flex-wrap: wrap;
-		-moz-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
-		-o-flex-wrap: wrap;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		.cell{
-			padding: 0 !important;
-			.idx{
-				margin-top: 0 !important;
-			}
-			.inner{
-				z-index: 1;
-				position: relative;
-				//background-color: #F5F4F6;
-				height: 100%;
-				background-size: 100% auto !important;
-				background-position: top right !important;
-				.img{
-					left: 30px !important;
-				}
-			}
-			&:after{
-				content: "";
-				width: 100%;
-				height: 100%;
-				background-color: #F5F4F6;
-				position: absolute;
-				z-index: 0;	
-				top: 0;left: 0;		
-			}
-			&:before{
-				display: none;
-				content:"";
-				position: absolute;
-				bottom: -10px;
-				right: -10px;
-				width: 100%;
-				height: 100%;
-				z-index: 0;
-				background-image: linear-gradient(135deg, #a4d7ef 25%, #7dc6e8 25%, #7dc6e8 50%, #a4d7ef 50%, #a4d7ef 75%, #7dc6e8 75%, #7dc6e8 100%);
-				background-size: 14.14px 14.14px;
-			}
-		}
-		
-		//!! - クロワールプロバイオティクス12
-		.probiotics12 {
-			.inner{
-				@include sp{
-					&:after{
-						content: "";
-						background-size:200% auto !important;					
-					}
-							
-				}//@sp
-				.ttl{
-					span{
-						margin-bottom: 20px;
-					}
-				}
-			}
-			.teiki {
-				.hd{
-					position: relative;
-					@include pc{
-						//padding-right: 65px;	
-					}//@pc
-					
-					@include sp{
-						//padding-left: 40*$px;	
-						white-space: nowrap;
-					}//@sp
-					&:after{
-						content: none;
-						display: block;
-						width: 90px;
-						height: 90px;
-						position: absolute;
-						top: 50%;
-						right: -35px;
-						@include transform(translateY(-50%));
-						//@include bg-img(url(../../product/img/pb12_label1@2x.png)); //$url,$size,$position,$repeat
-						@include sp{
-							width: 80*$px;
-							height: 80*$px;
-							left: -15px;
-							right: auto;	
-						}//@sp				
-					}
-				}
-				.btn2{
-					//display: none;
-				}
-				.txt{
-					//visibility: hidden;
-					padding-bottom: 20px;
-					//margin-bottom: 10px;
-					text-align: center;
-				}
-			}
-			.onestop{
-				.txt{
-					visibility: hidden;
-					//padding-bottom: 0;
-				}
-				&.red{
-					.hd{
-						background: $red;
-					}
-					border-bottom-color: $red;
-				}
-				.hd{
-					position: relative;
-					@include pc{
-						//padding-right: 65px;	
-					}//@pc
-					
-					@include sp{
-						padding-left: 30*$px;	
-					}//@sp
-					&:after{
-						content: "";
-						content: "";
-						display: block;
-						width: 90px;
-						height: 90px;
-						position: absolute;
-						top: 50%;
-						right: -35px;
-						@include transform(translateY(-50%));
-						//@include bg-img(url(../../product/img/pb12_label2@2x.png)); //$url,$size,$position,$repeat	
-						@include sp{
-							width: 80*$px;
-							height: 80*$px;
-							left: -15px;
-							right: auto;	
-						}//@sp				
-					}
-				}
-				}
-		}
-		.cell{
-			@extend %cell;
-			
-			.ttl span{
-				white-space: nowrap;
-				br{
-					//display: none;
-				}
-			}
-			.inner{
-				padding: 30px;
-				padding-left: 240px !important;
-				ul.idx{
-					width: 100%;
-					justify-content: space-between;
-				}
-			}
-			
-			.base_price p{
-				margin: 10px 0;
-				
-			}
-			
-			@media screen and (min-width: 768px) {
-				&.right{
-					.inner{
-						margin-left: 0 !important;
-						padding-right: 240px !important;
-						.img{
-							left: auto !important;
-							right: 30px !important;
-						}
-					}
-					.ttl{
-						text-align: right;
-					}
-					.base_price p{
-						justify-content: flex-end;
-						
-					}
-					ul.idx{
-						margin-left: auto;
-						margin-right: 0 !important;
-					}
-				}
-				
-			}
-			
-			
-			order: 1;
-			margin-bottom: 50px;
-			a{
-				text-align: center;
-			}
-			ul{
-				max-width: 640px;
-			}
-			
-		}
-		.na{
-			display: block !important;
-		}
-		//!! - 背景
-		.probiotics12:after{
-			background-color: #fff;
-			@include bg-img(url(/img/croire/pb12-bg.jpg),auto 100%,right bottom); //$url,$size,$position,$repeat
-		}
-		.probiotics12.right:after{
-			@include bg-img(url(/img/croire/pb12-bg-2.jpg),auto 100%,right bottom); //$url,$size,$position,$repeat
-		}
-		.premiun-croire:after{
-			@include bg-img(url(/img/croire/cloire@2x.jpg)); //$url,$size,$position,$repeat
-		}
-		.premiun-croire.right:after{
-			@include bg-img(url(/img/croire/cloire-2@2x.jpg)); //$url,$size,$position,$repeat
-		}
-		.lutein:after{
-			@include bg-img(url(/img/croire/lutein@2x.jpg),100%); //$url,$size,$position,$repeat
-		}
-		.Q:after{
-			@include bg-img(url(/img/croire/bg_q.jpg)); //$url,$size,$position,$repeat
-		}
-		.Q.right:after{
-			@include bg-img(url(/img/croire/bg_q-3.jpg)); //$url,$size,$position,$repeat
-		}
-
-		.pro:after{
-			transform: rotateY(180deg);
-			@include bg-img(url(/img/croire/eye@2x.jpg),auto 200%,top right); //$url,$size,$position,$repeat
-		}
-		
-		.dhaepa:after{
-			@include bg-img(url(/img/croire/dha@2x.jpg),50% auto,bottom right); //$url,$size,$position,$repeat
-		}
-		.dhaepa.right:after{
-			@include bg-img(url(/img/croire/dha2@2x.jpg),50% auto,bottom left); //$url,$size,$position,$repeat
-		}
-		
-		.na:after{
-			transform: rotateY(180deg);
-			@include bg-img(url(/img/croire/na@2x.jpg),auto 180%,bottom right); //$url,$size,$position,$repeat
-		}
-		
-		.q10:after{
-			@include bg-img(url(/img/croire/q10@2x.jpg),auto 150%,top right); //$url,$size,$position,$repeat
-		}
-		
-		.gold:after{
-			transform: rotateY(180deg);
-			@include bg-img(url(/img/croire/gold@2x.jpg),auto 180%,center right); //$url,$size,$position,$repeat
-		}
-	
-		.wahaha:after{
-			@include bg-img(url(/img/croire/wahaha@2x.jpg),auto 280%,top right); //$url,$size,$position,$repeat
-		}
-		
-		//!! クロワールコート
-		.croire-coat{
-			&:after{
-				content: "";
-				@include bg-img(url(../../img/croire/croiire-coat@2x.jpg)); //$url,$size,$position,$repeat					
-			}
-			@include pc{
-				.idx{
-					justify-content: flex-end !important;
-					.onestop{
-						height: 180px;
-						.price,.btn2{
-							top: -20px;
-							position: relative;
-						}
-					}
-				}	
-			}//@pc
-			p._2{
-				img{
-					display: none;
-				}
-			}
-
-		}
-		
-	}//#croire-list
-	
-	
-}//main.product
 
 
 
@@ -2652,29 +2244,6 @@ main.product{
 	
 }
 
-.ec-productRole__title .banner{
-	@extend %banner;
-	position: relative;
-	top: 0;right: 0;
-	transform: none;
-	max-width: 400px;
-	margin-bottom: 15px;
-	.price-row{
-		max-width: 1000px;
-	}
-	&:after{
-		content: "";
-		display: none;					
-	}
-	@include sp{
-		margin-top: 5px;
-		max-width: 100%;	
-		width: 100%;
-		.date{
-			margin-bottom: 10px;
-		}
-	}//@sp
-}
 
 
 /* !! 特別クーポン */

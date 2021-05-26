@@ -94,263 +94,198 @@ file that was distributed with this source code.
     <script>
         $(function() {
             $('.main_visual').slick({
-                dots: true,
+                fade:true,
+                dots: false,
                 arrows: false,
                 autoplay: true,
-                speed: 300
+                speed: 500,
+                asNavFor: '.main_visual_nav',
             });
+            
+			//$('.main_visual').on('beforeChange', function(event, { slideCount: count }, currentSlide, nextSlide){
+			//  	var pid = $('.main_visual .item').eq(nextSlide).data('pid');
+			//  	$('.main_visual').attr('data-pid',pid);
+			//});
+            
+	        $('.main_visual_nav').slick({
+				slidesToShow: 9,
+				//slidesToScroll: 3,
+				asNavFor: '.main_visual',
+				dots:  false,
+				//centerMode: true,
+				focusOnSelect: true,
+				variableWidth:true,
+			});
+	
         });
+        
     </script>
 {% endblock javascript %}
 
-{% block main %}
-    <!-- !! スライド -->
-	<div class="main_visual">
-        <div class="item">
-          <picture>
-          	<source media="(max-width: 767px)" srcset="/img/top2020/SLD1_sp.jpg">
-          	<img src="/img/top2020/SLD1.jpg" alt="SLD1" >
-          </picture>
-        </div>
-        <div class="item">
-         	<a  href="/user_data/course#_2"><picture>
-          		<source media="(max-width: 767px)" srcset="/img/top2020/SLD2_sp.jpg">
-          		<img src="/img/top2020/SLD2.jpg" alt="SLD1" >
-          	</picture></a>
-        </div>
-        <div class="item">
-         	<a class="" href="/user_data/course#_1"><picture>
-         		<source media="(max-width: 767px)" srcset="/img/top2020/SLD3_sp_2020.jpg">
-         		<img src="/img/top2020/SLD3_2020.jpg" alt="SLD1" >
-         	</picture></a>
-        </div>
-    </div>	
-<!-- !!  	<div id="cp_bnr_wrap">
-		<picture>
-			<source media="(max-width: 767px)" srcset="/common/img/cp_GW/cp_GW_bnr_sp.png">
-			<img src="/common/img/cp_GW/cp_GW_bnr.png" alt="cp_GW_bnr" width="" height="" >
-		</picture>
-		<p>※クーポン1枚につきお1人様1回のみ利用可能 <br />※定期購入の初回ご購入利用可能 <br />※クーポンBは定期購入への利用不可</p>
-	</div>
-   
-    
-    <div class="top-info holiday "><div class="inner">
-	    <h2>ゴールデンウィーク休業のお知らせ</h2>
-	    <p class="date">休業日：2021年5月1日から2021年5月5日</p>
-	    <p>
-		    上記期間は休業日とさせていただいております。ネット注文は承っておりますが、発送業務はお休みとさせていただきます。<br />
-			休業期間中にご注文いただいた商品につきましては、2021年5月6日より随時発送いたしますのでご了承ください。
-		</p>
-	    <p>尚、2021年4月30日13時までのご注文につきましては、当日発送可能でございます。</p>
 
-    </div></div>
-    			
- -->
-<!-- !! 
-	<div class="top-info tax">
-		
-		<div class="inner">
-			<h2>10月1日以降、一部商品の<br class="sp">消費税率変更のご案内</h2>
-				
-			<p>2019年10月1日(火)より消費税率が8％から10％に変更となり、軽減税率制度が実施されます。<br />
-			消費税率10％に該当するものは、<b>クロワールコート・ワハハ歯ブラシ</b>と、<b>お客様ご負担の送料・手数料</b>です。<br />
-			サプリメント・食品は、軽減税率対象商品のため消費税率は8%のままです。</p>
-			<!-- !!  
-			<p>現在の税率でのお届けは、下記のお時間の注文完了分までとさせていただきます。</p>
-			<p class="cen"><strong>ご注文締切：9月30日（月）13：00<br class="sp">ご注文完了分まで</strong></p>
-				
-			<p class="note"><i>※</i>9月30日（月）13：00以降のご注文完了分は10月1日（火）の発送となり、<br class="pc">変更後の税率になりますこと、ご了承ください。</p>
-			
-		</div>
+
+{% block main %}
+
+
 	
-	</div>
--->
-<!-- !! 
-	<div id="top-info">
-		平素よりクロワールカフェを御愛顧いただき、誠にありがとうございます。<br />
-		2019年8月19日のサイトリニューアルに伴い、ポイントの付与は終了させていただきました。<br />
-		長らくご利用いただき、誠にありがとうございました。<br />
-		現在お持ちのポイントについては、ご使用いただけますのでご安心ください。
-	</div>
- -->
+	{{ include('Block/top_side.twig') }}
+    
+    <!-- !! スライド -->
+	<section id="mv-slide">
+		<div class="main_visual" data-pid="3101561">
+	       <div class="item" data-pid="3101561"><i>1</i></div>
+	       <div class="item" data-pid="3101572"><i>2</i></div>
+	       <div class="item" data-pid="3101581"><i>3</i></div>
+	       <div class="item" data-pid="3101569"><i>4</i></div>
+	       <div class="item" data-pid="3101570"><i>5</i></div>
+	       <div class="item" data-pid="3101526"><i>6</i></div>
+	       <div class="item" data-pid="3101554"><i>7</i></div>
+	       <div class="item" data-pid="3101535"><i>8</i></div>
+	       <div class="item" data-pid="3103518"><i>9</i></div>
+	    </div>	
+		
+	<div class="main_visual_nav">
+			<div class="item_thumb" data-pid="3101561"><i>1</i></div>
+			<div class="item_thumb" data-pid="3101572"><i>2</i></div>
+			<div class="item_thumb" data-pid="3101581"><i>3</i></div>
+			<div class="item_thumb" data-pid="3101569"><i>4</i></div>
+			<div class="item_thumb" data-pid="3101570"><i>5</i></div>
+			<div class="item_thumb" data-pid="3101526"><i>6</i></div>
+			<div class="item_thumb" data-pid="3101554"><i>7</i></div>
+			<div class="item_thumb" data-pid="3101535"><i>8</i></div>
+			<div class="item_thumb" data-pid="3103518"><i>9</i></div>
+		</div>
+	</section>
+	
+
+
+
 
 	<!-- !! メイン -->
-	<main class="product">
+	<main class="top">
+		
+		
 				
-		
-		<!-- !! ランキング -->
-{#
-		<section id="ranking">
-			
-			<h2>
-				<i>RANKING</i><br />
-				売り上げランキング
-			</h2>
-			
-			<ul class="rank">
-				<li>
-					<span class="number">No.1</span>
-					<div class="img">
-						<img src="img/top/lurein.jpg" alt="lurein" width="400" height="400">
-					</div>
-					<div class="ttl">ルテイン+<br />ゼアキサンチンゼリー</div>
-					<div class="price teiki">
-						<span>定期価格</span>
-						<b>初回</b><i>1,575</i>円（税込）
-					</div>
-					<div class="price">
-						<span>通常価格</span>
-						<i>3,150</i>円（税込）
-					</div>
-					<a href="/products/detail/7" class="detail">詳しくはこちら</a>
-				</li>
-				<li>
-					<span class="number">No.2</span>
-					<div class="img">
-						<img src="/img/top/lurein.jpg" alt="lurein" width="400" height="400">
-					</div>
-					<div class="ttl">ルテイン+<br />ゼアキサンチンゼリー</div>
-					<div class="price teiki">
-						<span>定期価格</span>
-						<b>初回</b><i>1,575</i>円（税込）
-					</div>
-					<div class="price">
-						<span>通常価格</span>
-						<i>3,150</i>円（税込）
-					</div>
-					<a href="#" class="detail">詳しくはこちら</a>
-				</li>
-				<li>
-					<span class="number">No.3</span>
-					<div class="img">
-						<img src="/img/top/lurein.jpg" alt="lurein" width="400" height="400">
-					</div>
-					<div class="ttl">ルテイン+<br />ゼアキサンチンゼリー</div>
-					<div class="price teiki">
-						<span>定期価格</span>
-						<b>初回</b><i>1,575</i>円（税込）
-					</div>
-					<div class="price">
-						<span>通常価格</span>
-						<i>3,150</i>円（税込）
-					</div>
-					<a href="#" class="detail">詳しくはこちら</a>
-				</li>
-				<li>
-					<span class="number">No.4</span>
-					<div class="img">
-						<img src="/img/top/lurein.jpg" alt="lurein" width="400" height="400">
-					</div>
-					<div class="ttl">ルテイン+<br />ゼアキサンチンゼリー</div>
-					<div class="price teiki">
-						<span>定期価格</span>
-						<b>初回</b><i>1,575</i>円（税込）
-					</div>
-					<div class="price">
-						<span>通常価格</span>
-						<i>3,150</i>円（税込）
-					</div>
-					<a href="#" class="detail">詳しくはこちら</a>
-				</li>
-			</ul>
-		
-		</section>
-#}
-		<!-- /#ranking -->	
-			                               
-	
-	
 		<!-- !! クロワールシリーズ -->
-		<section>
+		<section id="products-list">
 			
-			<h2>
-				<i>PRODUCTS</i><br />
-				クロワール
+			<h2 class="sec">
+				<span>取扱商品一覧</span>
 			</h2>
 			
-			<div id="croire-list" class="croire"></div>
-			
-		</section>
-	
-	
-		<!-- !! クロ割 -->
-		<section id="crowari">
-			
-			
-			<h2 class="live">
-				<picture>
-					<source media="(max-width: 767px)" srcset="/img/top/bnr-crowari_2020_sp.jpg">
-					<img src="/img/top/bnr-crowari_2020.jpg" alt="便利で断然お得な定期お届けコース　ウェルカムクロ割" width="2732" height="700">
-				</picture>
-			</h2>
-			
-			
-			<ul class="live">
+			<ul class="products-list top" data-column="3">
+				
 				<li>
-					<img src="/img/top2020/cw1.png" alt="cw1" width="200" height="200">
+					<a href="#"></a>
+					<div class="inner">
+						<div class="img bg" data-pid="3101561"></div>
+						<div class="txt">
+							<h3 class="pname"><span>プレミアムクロワール茶</span></h3>
+							<p class="desc">紅茶カテキン自然含有、20年以上の販売実績！飲みやすくておいしいカフェインレス健康茶</p>
+						</div>
+					</div>
 				</li>
+				
 				<li>
-					<img src="/img/top2020/cw2.png" alt="cw1" width="200" height="200">
+					<a href="#"></a>
+					<div class="inner">
+						<div class="img bg" data-pid="3101572"></div>
+						<div class="txt">
+							<h3 class="pname"><span>クロワール<br />プロバイオティクス12</span></h3>
+							<p class="desc">〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇</p>
+						</div>
+					</div>
 				</li>
+				
 				<li>
-					<img src="/img/top2020/cw3.png" alt="cw1" width="200" height="200">
+					<a href="#"></a>
+					<div class="inner">
+						<div class="img bg" data-pid="3101561"></div>
+						<div class="txt">
+							<h3 class="pname"><span>プレミアムクロワール茶</span></h3>
+							<p class="desc">紅茶カテキン自然含有、20年以上の販売実績！飲みやすくておいしいカフェインレス健康茶</p>
+						</div>
+					</div>
 				</li>
+				
 				<li>
-					<img src="/img/top2020/cw4.png" alt="cw1" width="200" height="200">
+					<a href="#"></a>
+					<div class="inner">
+						<div class="img bg" data-pid="3101572"></div>
+						<div class="txt">
+							<h3 class="pname"><span>クロワール<br />プロバイオティクス12</span></h3>
+							<p class="desc">〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇</p>
+						</div>
+					</div>
 				</li>
+
+				<li>
+					<a href="#"></a>
+					<div class="inner">
+						<div class="img bg" data-pid="3101561"></div>
+						<div class="txt">
+							<h3 class="pname"><span>プレミアムクロワール茶</span></h3>
+							<p class="desc">紅茶カテキン自然含有、20年以上の販売実績！飲みやすくておいしいカフェインレス健康茶</p>
+						</div>
+					</div>
+				</li>
+				
+				<li>
+					<a href="#"></a>
+					<div class="inner">
+						<div class="img bg" data-pid="3101572"></div>
+						<div class="txt">
+							<h3 class="pname"><span>クロワール<br />プロバイオティクス12</span></h3>
+							<p class="desc">〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇</p>
+						</div>
+					</div>
+				</li>
+				
+				<li>
+					<a href="#"></a>
+					<div class="inner">
+						<div class="img bg" data-pid="3101561"></div>
+						<div class="txt">
+							<h3 class="pname"><span>プレミアムクロワール茶</span></h3>
+							<p class="desc">紅茶カテキン自然含有、20年以上の販売実績！飲みやすくておいしいカフェインレス健康茶</p>
+						</div>
+					</div>
+				</li>
+				
+				<li>
+					<a href="#"></a>
+					<div class="inner">
+						<div class="img bg" data-pid="3101572"></div>
+						<div class="txt">
+							<h3 class="pname"><span>クロワール<br />プロバイオティクス12</span></h3>
+							<p class="desc">〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇</p>
+						</div>
+					</div>
+				</li>
+
+
+				
 			</ul>
 			
-			<a href="/user_data/course" class="btn-more">詳しくはこちら</a>
 			
 		</section>
+		<!-- /#products-top -->
 	
-		
-		
-
-		<section id="magazine">
-			
-			<h2>
-				<i>MAGAZINE</i><br />週刊柏﨑
-			</h2>
-			
-			<ul class="magazine">
-				
-				<li>
-					<a href="https://blog.al-japan.com/wp-admin/5856" target="_blank"></a>
-					<div class="img"><img src="https://blog.al-japan.com/wp-content/uploads/2019/09/香港_1568360080-500x250.jpg"></div>
-					<div class="ttl">週刊柏﨑　第792回　ヤオハン和田一夫氏逝く</div>
-					<div class="date">2019年9月13日</div>
-				</li>
-				
-				<li>
-					<a href="https://blog.al-japan.com/weekly-kashiwazaki/5851" target="_blank"></a>
-					<div class="img"><img src="https://blog.al-japan.com/wp-content/uploads/2019/09/1567471505-500x250-1567471627.jpg"></div>
-					<div class="ttl">週刊柏﨑　第791回　良く効く薬は恐ろしい</div>
-					<div class="date">2019年9月3日</div>
-				</li>
-				
-				<li>
-					<a href="https://blog.al-japan.com/weekly-kashiwazaki/5846" target="_blank"></a>
-					<div class="img"><img src="https://blog.al-japan.com/wp-content/uploads/2019/08/120d0d21d1b65ab6193c98ac19006289_m-1-500x250.jpg"></div>
-					<div class="ttl">週刊柏﨑　第790回　孤独死にならない為に</div>
-					<div class="date">2019年8月27日</div>
-				</li>
-																
-			</ul>
-			
-			<a href="https://blog.al-japan.com/" target="_blank" class="btn-more">一覧はこちら</a>
-			
-			
-		</section>
-
-
-
-		<!-- !! ニュース&トピックス -->
+	
+		<!-- !! 新着情報 -->
 		<section id="news">
 			
-			<h2><i>NEWS & TOPICS</i><br />ニュース&トピックス</h2>
+			<h2 class="sec">
+				<span>新着情報</span>
+			</h2>
 			
 			<ul class="news">
+				<li>
+					<div class="date">2019.08.19</div>
+					<div class="cat">ニュース</div>
+					<div class="ttl">オンラインショップをリニューアルいたしました</div>
+					<div class="desc">お客様によりわかりやすくご購入いただけるようオンラインショップをリニューアルいたしました</div>
+				</li>
 				<li>
 					<div class="date">2019.08.19</div>
 					<div class="cat">ニュース</div>
@@ -362,6 +297,63 @@ file that was distributed with this source code.
 			<!-- <a href="#" class="btn-more">一覧はこちら</a> -->
 			
 		</section>
+		
+
+
+		<!-- !! 送料・お支払い方法について -->
+		<section id="payment-delivery">
+			
+			<h2 class="sec">
+				<span>送料・お支払い方法について</span>
+			</h2>
+			
+			<ul class="payment-delivery">
+				<li>
+					<div class="img"></div>
+					<h3><span>13時までのご注文で、<br />即日発送</span></h3>
+					<p>
+						ご注文商品は、通常2営業日以内に発送いたします。※1<br />
+						当日出荷をご希望の方は、13時までにご注文ください。<br />
+						定期購入の場合は毎月1日・15日に発送いたします。※2
+					</p>
+					<a class="btn more"><span>さらに詳しく</span></a>
+				</li>
+				
+				<li>
+					<div class="img"></div>
+					<h3><span> ご購入金額7,000円（税込）<br />以上で<b>送料無料</b></span></h3>
+					<p>5,000円（税抜）以上のお買い物で送料無料！<br />定期お届けコースでご注文いただくと、毎回送料無料です。</p>
+					<a href="" class="btn more"><span>さらに詳しく</span></a>
+				</li>
+				
+				<li>
+					<div class="img"></div>
+					<h3><span>お支払い方法は<br />クレジットカード・コンビニ後払い</span></h3>
+					<p>お支払い方法は、クレジットカードまたはコンビニ後払いがお選びいただけます。</p>
+					<a href="" class="btn more"><span>さらに詳しく</span></a>
+				</li>
+			</ul>
+			
+			
+		</section>
+		<!-- /#payment-delivery -->
+
+	
+
+		<section id="magazine">
+			
+			<h2 class="sec">
+				<span>週間柏﨑</span>
+				<div class="ja">弊社代表柏﨑が、日々の思いを綴ります。</div>
+			</h2>
+			
+			<ul class="magazine"></ul>
+			
+			<a href="https://blog.al-japan.com/" target="_blank" class="btn-more">一覧はこちら</a>
+			
+			
+		</section>
+
 	
 
 	

@@ -13,12 +13,12 @@ file that was distributed with this source code.
 {% set totalQuantity = get_carts_total_quantity() %}
 <div class="ec-cartNaviWrap">
     <div class="ec-cartNavi">
+	    <a href="{{ url('cart') }}"></a>
+        <i class="txt">カートの中身を見る</i>
         <i class="ec-cartNavi__icon fas fa-shopping-cart">
             <span class="ec-cartNavi__badge">{{ totalQuantity|number_format }}</span>
         </i>
-        <div class="ec-cartNavi__label">
-            <div class="ec-cartNavi__price">{{ totalPrice|price }}</div>
-        </div>
+        <div class="ec-cartNavi__label"><div class="ec-cartNavi__price">{{ totalPrice|price }}</div></div>
     </div>
     {% if totalQuantity > 0 %}
         <div class="ec-cartNaviIsset">

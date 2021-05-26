@@ -6,7 +6,7 @@ $copper:#955E29;
 $bronze:#8AA3D4;
 $blue:#00B9EE;
 $lite-blue:#26B7BC;
-$pink:#e4007f;
+$pink:#E4007F;
 $pink2:#EE869A;
 $text:#3e3a39;
 $gray-lite:#F8F6F2;
@@ -17,6 +17,8 @@ $red:#df002d;
 $red-price:#B81C22;
 $ruge:#AF1E24;
 $orange:#EA5532;
+$yellow:#FABE00;
+$brown:#824621;
 $p:4.7vw;
 
 $px : 0.267vw;
@@ -29,6 +31,103 @@ body.showBlk *:after,
 body.showBlk *:before {
 	background: rgba(48, 210, 222, 0.13);
 }
+
+/* !! - - -  */
+/* !! グラデーション */
+@mixin bg_3101561{
+  background : -moz-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(255, 232, 90, 1) 100%);
+  background : -webkit-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(255, 232, 90, 1) 100%);
+  background : -webkit-gradient(radial,50% 50% ,0 , 50% 50%, 64 ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(1,rgba(255, 232, 90, 1) ));
+  background : -o-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(255, 232, 90, 1) 100%);
+  background : -ms-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(255, 232, 90, 1) 100%);
+}
+
+@mixin bg_3101572{
+  background : -moz-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(65, 182, 155, 1) 100%);
+  background : -webkit-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(65, 182, 155, 1) 100%);
+  background : -webkit-gradient(radial,50% 50% ,0 , 50% 50%, 131.87 ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(1,rgba(65, 182, 155, 1) ));
+  background : -o-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(65, 182, 155, 1) 100%);
+  background : -ms-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(65, 182, 155, 1) 100%);
+}
+
+@mixin bg_3101581{
+  background : -moz-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(255, 135, 0, 1) 100%);
+  background : -webkit-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(255, 135, 0, 1) 100%);
+  background : -webkit-gradient(radial,50% 50% ,0 , 50% 50%, 64 ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(1,rgba(255, 135, 0, 1) ));
+  background : -o-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(255, 135, 0, 1) 100%);
+  background : -ms-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(255, 135, 0, 1) 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Stlye=2);"
+}
+
+@mixin bg_3101569{
+  background : -moz-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(0, 165, 71, 1) 100%);
+  background : -webkit-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(0, 165, 71, 1) 100%);
+  background : -webkit-gradient(radial,50% 50% ,0 , 50% 50%, 64 ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(1,rgba(0, 165, 71, 1) ));
+  background : -o-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(0, 165, 71, 1) 100%);
+  background : -ms-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(0, 165, 71, 1) 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Stlye=2);"
+}
+
+
+
+@mixin bg_3101570{
+  background : -moz-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(0, 132, 207, 1) 100%);
+  background : -webkit-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(0, 132, 207, 1) 100%);
+  background : -webkit-gradient(radial,50% 50% ,0 , 50% 50%, 64 ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(1,rgba(0, 132, 207, 1) ));
+  background : -o-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(0, 132, 207, 1) 100%);
+  background : -ms-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(0, 132, 207, 1) 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Stlye=2);"
+}
+
+@mixin bg_3101526{
+  background : -moz-linear-gradient(-7.04% 89.94% 35deg,rgba(132, 95, 10, 1) 0%,rgba(255, 255, 255, 1) 28.21%,rgba(255, 253, 249, 1) 31.33%,rgba(254, 249, 233, 1) 35.34%,rgba(253, 241, 207, 1) 39.84%,rgba(251, 230, 170, 1) 44.7%,rgba(249, 216, 122, 1) 49.86%,rgba(246, 200, 65, 1) 55.19%,rgba(243, 181, 0, 1) 60.51%,rgba(238, 177, 0, 1) 62.11%,rgba(181, 133, 6, 1) 79.82%,rgba(145, 105, 9, 1) 92.96%,rgba(132, 95, 10, 1) 100%);
+  background : -webkit-linear-gradient(35deg, rgba(132, 95, 10, 1) 0%, rgba(255, 255, 255, 1) 28.21%, rgba(255, 253, 249, 1) 31.33%, rgba(254, 249, 233, 1) 35.34%, rgba(253, 241, 207, 1) 39.84%, rgba(251, 230, 170, 1) 44.7%, rgba(249, 216, 122, 1) 49.86%, rgba(246, 200, 65, 1) 55.19%, rgba(243, 181, 0, 1) 60.51%, rgba(238, 177, 0, 1) 62.11%, rgba(181, 133, 6, 1) 79.82%, rgba(145, 105, 9, 1) 92.96%, rgba(132, 95, 10, 1) 100%);
+  background : -webkit-gradient(linear,-7.04% 89.94% ,107.04% 10.06% ,color-stop(0,rgba(132, 95, 10, 1) ),color-stop(0.2821,rgba(255, 255, 255, 1) ),color-stop(0.3133,rgba(255, 253, 249, 1) ),color-stop(0.3534,rgba(254, 249, 233, 1) ),color-stop(0.3984,rgba(253, 241, 207, 1) ),color-stop(0.447,rgba(251, 230, 170, 1) ),color-stop(0.4986,rgba(249, 216, 122, 1) ),color-stop(0.5519,rgba(246, 200, 65, 1) ),color-stop(0.6051,rgba(243, 181, 0, 1) ),color-stop(0.6211,rgba(238, 177, 0, 1) ),color-stop(0.7982,rgba(181, 133, 6, 1) ),color-stop(0.9296,rgba(145, 105, 9, 1) ),color-stop(1,rgba(132, 95, 10, 1) ));
+  background : -o-linear-gradient(35deg, rgba(132, 95, 10, 1) 0%, rgba(255, 255, 255, 1) 28.21%, rgba(255, 253, 249, 1) 31.33%, rgba(254, 249, 233, 1) 35.34%, rgba(253, 241, 207, 1) 39.84%, rgba(251, 230, 170, 1) 44.7%, rgba(249, 216, 122, 1) 49.86%, rgba(246, 200, 65, 1) 55.19%, rgba(243, 181, 0, 1) 60.51%, rgba(238, 177, 0, 1) 62.11%, rgba(181, 133, 6, 1) 79.82%, rgba(145, 105, 9, 1) 92.96%, rgba(132, 95, 10, 1) 100%);
+  background : -ms-linear-gradient(35deg, rgba(132, 95, 10, 1) 0%, rgba(255, 255, 255, 1) 28.21%, rgba(255, 253, 249, 1) 31.33%, rgba(254, 249, 233, 1) 35.34%, rgba(253, 241, 207, 1) 39.84%, rgba(251, 230, 170, 1) 44.7%, rgba(249, 216, 122, 1) 49.86%, rgba(246, 200, 65, 1) 55.19%, rgba(243, 181, 0, 1) 60.51%, rgba(238, 177, 0, 1) 62.11%, rgba(181, 133, 6, 1) 79.82%, rgba(145, 105, 9, 1) 92.96%, rgba(132, 95, 10, 1) 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#845F0A', endColorstr='#845F0A' ,GradientType=0)";
+}
+
+@mixin bg_3101554{
+  background : -moz-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(182, 104, 72, 1) 100%);
+  background : -webkit-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(182, 104, 72, 1) 100%);
+  background : -webkit-gradient(radial,50% 50% ,0 , 50% 50%, 64 ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(1,rgba(182, 104, 72, 1) ));
+  background : -o-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(182, 104, 72, 1) 100%);
+  background : -ms-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(182, 104, 72, 1) 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Stlye=2);"
+}
+
+
+@mixin bg_orange{
+  background : -moz-linear-gradient(0% 50% 0deg,rgba(241, 150, 0, 1) 0%,rgba(232, 85, 4, 1) 100%);
+  background : -webkit-linear-gradient(0deg, rgba(241, 150, 0, 1) 0%, rgba(232, 85, 4, 1) 100%);
+  background : -webkit-gradient(linear,0% 50% ,100% 50% ,color-stop(0,rgba(241, 150, 0, 1) ),color-stop(1,rgba(232, 85, 4, 1) ));
+  background : -o-linear-gradient(0deg, rgba(241, 150, 0, 1) 0%, rgba(232, 85, 4, 1) 100%);
+  background : -ms-linear-gradient(0deg, rgba(241, 150, 0, 1) 0%, rgba(232, 85, 4, 1) 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#F19600', endColorstr='#E85504' ,GradientType=0)";
+}
+
+/* !! - - -  */
+/* !! 描画 */
+@mixin shadow01{
+	box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+@mixin shadow02{
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+	transition: 100ms;
+	&:hover{
+		box-shadow: 0px 2px 3px rgba(0, 0, 0, .4);
+	}
+	&:active{
+		box-shadow: 0px 1px 2px rgba(0, 0, 0, .3);
+	}
+}
+
+
+
+/* !! - - -  */
+/* !! 構造 */
 
 @mixin flex{
 	display: -webkit-flex;
@@ -129,6 +228,23 @@ body.showBlk *:before {
 
 @mixin gothic{
 	font-family:"Hiragino Kaku Gothic ProN","YuGothic",Meiryo,"メイリオ",sans-serif !important;
+}
+
+@mixin GG{
+	font-family: source-han-sans-japanese, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	//opacity: 0;
+	transition: 100ms;
+	.wf-active &{
+		//opacity: 1;
+	}
+}
+
+@mixin BILO{
+	font-family: bilo, sans-serif;
+	font-weight: 500;
+	font-style: normal;
 }
 
 

@@ -43,8 +43,73 @@ $(function(){
 	if(url.match("test")){
 		$("html").addClass("test");
 	} 
+});
+
+/* !!------------------------------------ */
+/* !! スクロールイベント */
+
+$(function(){
+	
+	$(window).scroll(function () {
+	  	
+	  	var scroll = $(this).scrollTop(); 
+	  	var winH = $(window).innerHeight();
+	  	
+	  	if( scroll > 0 ){ 
+		  	$("body").addClass('moved'); 
+	  	}
+	  	
+	  	else{ 
+		  	$("body").removeClass("moved");
+	  	}
+	  	
+	  	if(scroll >= winH){
+		  	$("body").addClass("fv_passed")
+	  	}else{
+		  	$("body").removeClass("fv_passed")
+	  	}
+	  	
+/*
+		(function(){
+
+		  	var footH = $("#footer").offset().top;
+		  	if( scroll > footH - winH ){
+			  	$("body").addClass("foot_inview");
+		  	}else{
+			  	$("body").removeClass("foot_inview");
+		  	}
+		  	
+	  	}());
+*/
+	  	
+	});
+
+});
+	
+
+//!!  一覧のliを埋める
+$(function(){
+	
+	var fill = $("*[data-column]");
+	
+	if(fill[0] && !is_mobile){
+		fill.each(function(){
+			var This = $(this);
+			var column = This.data("column");
+			var len = This.data("column") - This.find(" > li").length % column;
+			if(len == column){
+				return;
+			}
+			for (var p = 0; p < len; p += 1) {
+				This.append('<li class="nh"></li>');
+			}//for
+			
+		});
+	}
+	
 	
 });
+
 
 
 /* !! CSStransitionの終了をイベントを検知する。 */
