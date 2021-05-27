@@ -220,13 +220,13 @@ h2.sec{
 	position: absolute;
 	top: 0;left: 0;
 }
-.img.bg[data-pid='3101561']:before{@include bg_3101561;}
-.img.bg[data-pid='3101572']:before{@include bg_3101572;}
-.img.bg[data-pid='3101581']:before{@include bg_3101581;}
-.img.bg[data-pid='3101569']:before{@include bg_3101569;}
-.img.bg[data-pid='3101570']:before{@include bg_3101570;}
-.img.bg[data-pid='3101526']:before{@include bg_3101526;}
-.img.bg[data-pid='3101554']:before{@include bg_3101554;}
+.img.bg[data-pcode='3101561']:before{@include bg_3101561;}
+.img.bg[data-pcode='3101572']:before{@include bg_3101572;}
+.img.bg[data-pcode='3101581']:before{@include bg_3101581;}
+.img.bg[data-pcode='3101569']:before{@include bg_3101569;}
+.img.bg[data-pcode='3101570']:before{@include bg_3101570;}
+.img.bg[data-pcode='3101526']:before{@include bg_3101526;}
+.img.bg[data-pcode='3101554']:before{@include bg_3101554;}
 
 /* !! - - -  */
 /* !! ボタン */
@@ -247,6 +247,7 @@ h2.sec{
 	font-size: 15px;
 	font-weight: bold;
 	letter-spacing: .1em;
+	background: #eee;
 	@include shadow02;
 	&:active{
 		//@include shadow02A;
@@ -254,6 +255,13 @@ h2.sec{
 	span{
 		line-height: 1;
 		
+	}
+	&.L{
+		height: 54px;
+		font-size: 16px;
+		max-width: 360px;
+		margin: 0 auto;
+		margin-bottom: 10px;
 	}
 }
 
@@ -396,13 +404,29 @@ h2.sec{
 }
 
 //!!詳細
-.ec-cartNaviIsset{
+.ec-cartNaviIsset,.ec-cartNaviNull{
 	box-shadow: 0px 3px 8px rgba(0, 0, 0, .3);
 	border-radius: 12px;
 	width: 360px;
 	max-width: 1000px !important;
 	border: 4px solid #e4007f82;
-
+	background: #fff !important;
+	.ec-cartNaviIsset__cart{
+		margin-bottom: 15px !important;
+		padding-bottom: 12px !important;
+	}
+	.ec-cartNaviNull__message{
+		background: #FFF;
+		color: #222;
+		text-align: center !important;
+		padding: 0 !important;
+		
+		p{
+			text-align: center;
+			border: none !important;
+			font-size: 14px !important;
+		}
+	}
 	&:before{
 		content: "";
 		top: -16px;
@@ -459,9 +483,9 @@ h2.sec{
 			line-height: 1;
 			letter-spacing: .1em;
 			width: calc(50% - 5px);
-			font-size: 16px;
+			font-size: 14px;
 			margin-bottom: 0 !important;
-			height: 48px;
+			height: 36px;
 		}
 		.ec-blockBtn--action{
 			background: $pink;
@@ -517,12 +541,12 @@ ul.category-nav{
 /* !! - - -  */
 /* !! サイドメニュー */
 #top-side{
-	position: fixed;
+	//position: fixed;
 	//background: #EEE;
+	position: absolute;
 	width: 300px;
 	z-index: 1;
-	left: 50%;
-	margin-left: 345px;
+	right: 30px;
 	.disp-user-name{
 		height: 80px;
 		border: 2px solid #ddd;
@@ -580,6 +604,7 @@ ul.category-nav{
 			border: 3px solid $pink;
 			position: relative;
 			flex-wrap: nowrap;
+			background: #fff !important;
 			>a{
 				@include a-cover;
 			}
@@ -618,12 +643,12 @@ ul.category-nav{
 			font-weight: 500;
 			font-size: 1.5em;
 		}
-		.ec-cartNaviIsset{
+		.ec-cartNaviIsset,.ec-cartNaviNull {
 			display: none !important;
 		}
 	}
 	
-	//!!　送料について
+	//!! - 送料について
 	.about-delivery{
 		padding: 20px 0;
 		text-align: center;
@@ -648,6 +673,27 @@ ul.category-nav{
 			display: block;
 		}
 	}
+	
+	
+	//!! - 便利でお得な定期購入コース
+	.about-subscription{
+		background: #eee;
+		border-radius: 12px;
+		padding: 20px;
+		h3{
+			text-align: center;
+			font-size: 18px;
+			line-height: 1.5;
+			font-weight: bold;
+			letter-spacing: .1em;
+			margin-bottom: 15px;
+		}
+		p{
+			height: 400px;
+			border: 1px solid #999;
+			@include flex-centering;
+		}
+	}
 
 }
 
@@ -662,6 +708,7 @@ ul.category-nav{
 	padding: 0 30px;
 	overflow: hidden;
 	max-width: 2000px !important;
+	position: relative;
 	#page_homepage & {
 		width: 1350px !important;
 	}
@@ -708,13 +755,13 @@ ul.category-nav{
 				}
 			}
 		}
-		&[data-pid='3101561']{@include bg_3101561;}
-		&[data-pid='3101572']{@include bg_3101572;}
-		&[data-pid='3101581']{@include bg_3101581;}
-		&[data-pid='3101569']{@include bg_3101569;}
-		&[data-pid='3101570']{@include bg_3101570;}
-		&[data-pid='3101526']{@include bg_3101526;}
-		&[data-pid='3101554']{@include bg_3101554;}
+		&[data-pcode='3101561']{@include bg_3101561;}
+		&[data-pcode='3101572']{@include bg_3101572;}
+		&[data-pcode='3101581']{@include bg_3101581;}
+		&[data-pcode='3101569']{@include bg_3101569;}
+		&[data-pcode='3101570']{@include bg_3101570;}
+		&[data-pcode='3101526']{@include bg_3101526;}
+		&[data-pcode='3101554']{@include bg_3101554;}
 		
 		&._1{
 			//background: #ccc;
@@ -775,21 +822,21 @@ ul.category-nav{
 			opacity: 1;
 			border-width: 4px;
 		}
-		&[data-pid='3101561']:before{@include bg_3101561;}
-		&[data-pid='3101572']:before{@include bg_3101572;}
-		&[data-pid='3101581']:before{@include bg_3101581;}
-		&[data-pid='3101569']:before{@include bg_3101569;}
-		&[data-pid='3101570']:before{@include bg_3101570;}
-		&[data-pid='3101526']:before{@include bg_3101526;}
-		&[data-pid='3101554']:before{@include bg_3101554;}
+		&[data-pcode='3101561']:before{@include bg_3101561;}
+		&[data-pcode='3101572']:before{@include bg_3101572;}
+		&[data-pcode='3101581']:before{@include bg_3101581;}
+		&[data-pcode='3101569']:before{@include bg_3101569;}
+		&[data-pcode='3101570']:before{@include bg_3101570;}
+		&[data-pcode='3101526']:before{@include bg_3101526;}
+		&[data-pcode='3101554']:before{@include bg_3101554;}
 		
-		&[data-pid='3101561']:after{border-color: #fdd33c;}
-		&[data-pid='3101572']:after{border-color: #00b7a8;}
-		&[data-pid='3101581']:after{border-color: #fdb33c;}
-		&[data-pid='3101569']:after{border-color: #0eb95b;}
-		&[data-pid='3101570']:after{border-color: #fdd33c;}
-		&[data-pid='3101526']:after{border-color: #fdd33c;}
-		&[data-pid='3101554']:after{border-color: #fdd33c;}
+		&[data-pcode='3101561']:after{border-color: #fdd33c;}
+		&[data-pcode='3101572']:after{border-color: #00b7a8;}
+		&[data-pcode='3101581']:after{border-color: #fdb33c;}
+		&[data-pcode='3101569']:after{border-color: #0eb95b;}
+		&[data-pcode='3101570']:after{border-color: #fdd33c;}
+		&[data-pcode='3101526']:after{border-color: #fdd33c;}
+		&[data-pcode='3101554']:after{border-color: #fdd33c;}
 
 
 	}
@@ -1005,6 +1052,13 @@ ul.rank{
 		.img{
 			width: 100%;
 			height: 222px;
+			@include flex-centering;
+			img{
+				height: 145px;
+				width: auto;
+				position: relative;
+				z-index: 1;
+			}
 			&:before{
 				content:"";
 				opacity: .5;
@@ -1016,13 +1070,16 @@ ul.rank{
 				font-weight: bold;
 				text-align: center;
 				height: 100px;
-				font-size: 24px;
+				font-size: 20px;
 				@include flex-centering;
 				letter-spacing: .05em;
 				span{
 					line-height: 1.4;
 					@include GG;
 					font-weight: bold;
+					i{
+						font-size: .8em;
+					}
 				}
 			}
 			.desc{
@@ -1095,7 +1152,7 @@ ul.magazine{
 	width: 100%;
 	margin: 50px auto;
 	position: relative;
-	margin-bottom: 100px;
+	margin-bottom: 60px;
 	
 	li{
 		@include shadow01;
@@ -1243,13 +1300,15 @@ ul.payment-delivery{
 }
 #page-footer{
 	display: flex;
-	justify-content: space-between;
-	max-width: 1118px;
+	justify-content: center;
+	background: rgba($yellow,0.3);
+	padding: 100px 50px;
 	margin: 0 auto;
 		margin-top: 100px;
 
 	>div{
 		width: 264px;
+		margin: 0 10px;
 		border-bottom: 1px dotted #ccc;
 		&.nb{
 			border-bottom: 0 !important;
@@ -1342,6 +1401,7 @@ ul.payment-delivery{
 	background: #F8F8F8;
 	color: #333;
 	border-top: 0;
+	margin-top: 0;
 	a{
 		color: #333 !important;
 	}
@@ -2756,7 +2816,7 @@ body.has_f-bnr{
 	& +.ec-price__tax{
 		font-weight: bold;
 	}
-	&[data-pid="122"]:before{
+	&[data-pcode="122"]:before{
 		content: "初回45%OFF ";
 		font-size: 2.2rem;
 	}
