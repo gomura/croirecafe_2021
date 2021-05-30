@@ -68,7 +68,7 @@ gulp.task('browserSync', function () {
 
 gulp.task('default',["browserSync"], function() {
    	gulp.watch(path.join(assetsPath, './**/*.scss'),['sass']);
-	gulp.watch(['./**/*.html','./**/croirecafe2020/**/*.twig','./common/js/*.json','./common/js/*.js']).on('change', function() {
+	gulp.watch(['./**/*.html','./**/croirecafe2020/**/*.twig','./product/*.json','./common/js/*.js']).on('change', function() {
       browserSync.reload()
     });
 });

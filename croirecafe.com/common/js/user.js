@@ -88,7 +88,7 @@ $(function(){
 	
 
 //!!  一覧のliを埋める
-$(function(){
+function fillColumn(){
 	
 	var fill = $("*[data-column]");
 	
@@ -108,7 +108,7 @@ $(function(){
 	}
 	
 	
-});
+}
 
 
 
@@ -332,8 +332,15 @@ var generateList =( function generateList(data) {
 
 		var item = data[p];
 		
-		html += '<li><a href="'+item.url.teiki+'"></a><div class="inner">';
-		html += '<div class="img bg" data-pcode="'+item.pcode+'"><img src="'+item.thumb_url+'" /></div>';
+		var $url = item.url.teiki[0] ? item.url.teiki : item.url.base ;
+		
+		html += '<li><div class="inner"><a href="'+$url+'"></a>';
+		html += '<div class="img bg" data-pcode="'+item.pcode+'">';
+		if(item.label_url[0]){
+			html += '<div class="label"><img src="'+item.label_url+'"/></div>';
+		}
+		html += '<img src="'+item.thumb_url+'" />';
+		html += '</div>';
 		html += '<div class="txt">';
 		html += '<h3 class="pname"><span>'+item.name_disp+'</span></h3>';
 		html += '<p class="desc">'+item.desc_long+'</p>';
@@ -343,7 +350,7 @@ var generateList =( function generateList(data) {
 	}//for
 	
 	wrap.append(html);
-	
+	fillColumn();
 });
 
 $(function(){
@@ -447,6 +454,213 @@ $(function(){
 
 /* !!------------------------------------ */
 /* !! 商品詳細ページ */
+
+/* !! カート表示部切り替え */
+$(function(){
+	if($('.product-cart-header')[0]){
+		$('body').on('click','.product-cart-header > li',function(){
+			var This = $(this),
+				type = This.data('type');
+			$('body').attr('data-type',type);
+			return false;
+		});
+	}
+});
+
+/* !! カート表示部読み込み */
+
+var generateProdInfo =( function generateProdInfo(data) {
+
+	var ttl = $("title").text();
+	var pcode = "";
+	if(ttl.match("プレミアムクロワール茶")){
+		pcode = "3101561";
+	}
+	else if(ttl.match("クロワールプロバイオティクス12")){
+		pcode = "3101572";
+	}
+	else if(ttl.match("クロワールアイ・Q")){
+		pcode = "3101581";
+	}
+	else if(ttl.match("緑のDHA&EPA")){
+		pcode = "3101569";
+	}
+	else if(ttl.match("Nアセチルグルコサミンロコモディ")){
+		pcode = "3101570";
+	}
+	else if(ttl.match("還元型コエンザイム")){
+		pcode = "3101554";
+	}
+	else if(ttl.match("クロワールゴールド")){
+		pcode = "3101526";
+	}
+	else if(ttl.match("魔法のワハハ歯ブラシ")){
+		pcode = "3103518";
+	}
+	else if(ttl.match("クロワールコート")){
+		pcode = "3101535";
+	}
+	
+	//alert(pcode);
+	var filtered = []		
+	filtered = $.grep(data, // 配列
+		function(elem, index) {
+		// プロパティの値でフィルター
+		return (elem.pcode == pcode);
+	});
+	
+	var html = "";
+	
+	for (var j = 0; j < filtered.length; j += 1) {
+
+		var item = filtered[j];
+		
+		var $url = item.url.teiki[0] ? item.url.teiki : item.url.base ;
+		
+		
+		//title
+		$(".cart-title").html(item.name);
+		if(item.tag[0]){
+			html += '<ul class="tag">';
+			for (var p = 0; p < item.tag.length; p += 1) {
+				html += '<li class="'+item.tag[p].color+'">'+item.tag[p].txt+'</li>';
+			}//for
+			html += '</ul>';
+		}
+		html += '<h1 class="ttl">';
+		html += '<strong>'+item.name+'</strong>';
+		html += '<span class="desc-short">'+item.desc_short+'</span>';
+		html += '</h1>';
+		$("#product-header").append(html);
+		
+		//画像
+		html = "";
+		if(item.label_url[0]){
+			html += '<div class="label"><img src="'+item.label_url+'"/></div>';
+		}
+		html += '<img src="'+item.thumb_url+'" />';
+		$('.product-img').attr('data-pcode',item.pcode).append(html);
+		
+		//カートヘッダー
+		html = "";
+		var type = "onestop";
+		if(item.price.teiki1[0]){
+			type = "subscription";
+			html += '<li class="subscription" data-type="subscription">';
+			if(item.price.diff[0]){
+				html += '<div class="comment">年間<b>'+item.price.diff+'</b>円お得！</div>';
+			}
+			html += '<span>定期購入コース</span>';
+			html += '</li>';
+		}
+		html += '<li class="onestop" data-type="onestop"><span>1回のみお届けコース</span></li>';
+		$("body").attr("data-type",type);
+		$(".product-cart-header").append(html);
+		
+		//定期購入
+		html = "";
+		$(".cart-base-price").html(item.price.base);
+		if(item.price.teiki1[0]){
+			$(".disc-rate1").html(item.disc_rate[0]);
+			$(".disc-rate2").html(item.disc_rate[1]);
+			$(".cart-price-teiki1").html(item.price.teiki1);
+			$(".cart-price-teiki2").html(item.price.teiki2);
+		}
+		//１回のみお届け
+		if(item.delivery_fee[0]){
+			$(".cart-delivery-fee").html(item.delivery_fee);
+		}
+		
+		$(".cart-price-try").html(item.price.try);
+		if(item.coupon_code[0]){
+			$(".cart-coupon-code").html(item.coupon_code);
+		}
+	}//for
+	
+});
+
+
+
+$(function(){
+	if(!$('body.product_page')[0]){
+		return false;
+	}
+	
+
+	$.ajax({
+	    url: "/product/products.json",
+	}).then(generateProdInfo).then(function(){
+		
+	}).then(function(){
+		if(is_mobile){
+			$(".cell .img").each(function(){
+				var This = $(this);
+				This.find("img").on("load",function(){
+					//setHeightTittle(This);
+				})
+			    
+			});
+		}
+	});
+		
+});
+
+
+/* !! 外部カートボタン読み込み */
+
+function loadCartBtn(elem,tgtUrl){
+
+
+	$.ajax({
+		url:'/common/lib/get.php?url='+tgtUrl,
+		type: 'GET',
+		dataType: 'html',
+		cache: false,
+	    success: function(data){
+
+			var htmlstr = "";
+			//アイテムの調整
+			var tgt = $(data);
+			var count = 0;		
+			var form1 = tgt.find("#form1");
+			
+			
+			//挿入する
+			elem.append(form1)//.append(form2);
+	     }
+	});
+
+/*
+	$.ajax({
+		url:'/products/detail/'+id,
+		type: 'GET',
+		dataType: 'html',
+		cache: false,
+	    success: function(data){
+
+			var htmlstr = "";
+			//アイテムの調整
+			var blog = $(data);
+			var form1 = blog.find("#form1").html();
+			var form2 = blog.find("#form2").html();
+			elem.append(form1).append(form2);
+	     }
+	});
+*/
+
+}
+
+$(function(){
+	
+	if($(".cart-in-section")[0]){
+		$(".cart-in-section").each(function(){
+			var This = $(this);
+			loadBlogData(This,This.data("url"));
+		});
+	} 
+});
+
+
 
 //!! iframeの追加
 

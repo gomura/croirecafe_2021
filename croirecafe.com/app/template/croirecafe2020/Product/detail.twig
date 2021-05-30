@@ -10,7 +10,7 @@ file that was distributed with this source code.
 #}
 {% extends 'default_frame.twig' %}
 
-{% set body_class = 'product_page ' %}
+{% set body_class = 'product_page pid_'~Product.id %}
 
 {% block stylesheet %}
     <style>
@@ -210,7 +210,198 @@ file that was distributed with this source code.
 
 {% block main %}
     <div class="ec-productRole pid_{{Product.id}}" data-pid="{{Product.id}}">
-        <div class="ec-grid2">
+        
+        <div id="product-header"></div>
+        <!-- /.product-header -->
+        
+        <div id="product-wrap">
+	        
+	        <div class="product-img">
+	        </div>
+	        
+			<div class="product-cart-wrap">
+				
+				<ul class="product-cart-header"></ul>
+				
+				<div class="product-cart-inner">
+					<!-- !! 定期購入 -->
+					<div class="product-cart-teiki">
+						<div class="row-base-price">
+							<p>メーカー希望価格<i class="cart-base-price">3,980</i>円（税込）</p>
+						</div>
+						<div class="row-sbsc-price1">
+							<div class="label">
+								<p>初回購入<br /><span class="price"><i class="disc-rate1">30</i>%OFF</span></p>
+								<p><span>送料<br />無料</span></p>
+							</div>
+							<div class="price">
+								<p><i class="teiki1 cart-price-teiki1">2,786</i>円（税込）</p>
+							</div>
+						</div>
+						<div class="row-sbsc-price2">
+							<ul>
+								<li>
+									<div class="label-tag">2回目以降<div class="price"><i class="disc-rate2">15</i>%OFF</div></div>
+									<p><i class="teiki2 cart-price-teiki2">3,383</i>円（税込）</p>
+								</li>
+								<li>
+									<div class="label-tag">4回購入毎<div class="price"><i class="disc-rate1">30</i>%OFF</div></div>
+									<p><i class="teiki1 cart-price-teiki1">2,786</i>円（税込）</p>
+								</li>
+							</ul>
+						</div>
+						<div class="row-banner">
+							<div class="teiki-banner">定期購入バナー</div>
+						</div>
+						<div class="row-cart-setion">
+							
+							<div class="cart-in-section" data-url="/products/add_cart/121">
+								<form action="//localhost:3000/products/add_cart/121" method="post" id="form1" name="form1">
+										<div class="ec-productRole__actions">
+										<div class="ec-numberInput"><span>数量</span>
+										<input type="number" id="quantity" name="quantity" required="required" min="1" maxlength="" class="form-control" value="1">
+										</div>
+										</div>
+										<div class="ec-productRole__btn">
+										<button type="submit" class="ec-blockBtn--action add-cart">カートに入れる</button>
+										</div>
+										
+										<input type="hidden" id="product_id" name="product_id" value="121">
+										<input type="hidden" id="ProductClass" name="ProductClass" value="121">
+										<input type="hidden" id="_token" name="_token" value="fW2fx4afp_EZloG-LcADrzXcdE9TX44OM0Ay9zpw_D8">
+			                    </form>
+							</div>
+						</div>
+						
+						<div class="row-checkbox">
+							<input type="checkbox"><a href="#">定期購入についてのご注意</a>を確認しました。
+						</div>
+					</div>
+					<!-- /.product-cart-teiki -->
+					
+					<!-- !! 1回のみお届け -->
+					<div class="product-cart-onestop">
+						
+						<!-- !! 通常購入 -->
+						<div class="base-price-wrap">
+							<div class="row-base-price">
+								<div class="label">
+									<div class="label-tag">通常購入</div>
+								</div>
+								<div class="price">
+									<p><span>メーカー希望価格</span><i class="base cart-base-price">3,980</i>円（税込）</p>
+								</div>
+							</div>
+							<div class="row-cart-setion">								
+								<div class="cart-in-section" data-url="/products/add_cart/121">
+									<form action="//localhost:3000/products/add_cart/121" method="post" id="form1" name="form1">
+											<div class="ec-productRole__actions">
+											<div class="ec-numberInput"><span>数量</span>
+											<input type="number" id="quantity" name="quantity" required="required" min="1" maxlength="" class="form-control" value="1">
+											
+											</div>
+											</div>
+											<div class="ec-productRole__btn">
+											<button type="submit" class="ec-blockBtn--action add-cart">
+											カートに入れる
+											</button>
+											</div>
+											
+											<input type="hidden" id="product_id" name="product_id" value="121">
+											<input type="hidden" id="ProductClass" name="ProductClass" value="121">
+											<input type="hidden" id="_token" name="_token" value="fW2fx4afp_EZloG-LcADrzXcdE9TX44OM0Ay9zpw_D8">
+				                    </form>
+								</div>
+							</div>
+							<div class="row-info">
+								<p>別途送料<i class="delivery-fee cart-delivery-fee">231</i>円</p>
+								<p>ご購入7,000円以上で送料無料</p>
+							</div>
+						</div><!-- /.base-price-wrap -->
+						
+						<!-- !! お試し購入 -->
+						<div class="try-price-wrap">
+							<div class="row-base-price">
+								<div class="price">
+									<p><span>メーカー希望価格</span><i class="base cart-base-price">3,980</i>円（税込）</p>
+								</div>
+							</div>
+							
+							<div class="row-try-price">
+								<div class="label">
+									<div class="label-tag">お試し購入</div>
+									<p><span>クーポン<br />ご利用で</span></p>
+								</div>
+								<div class="price">
+									<p><i class="try cart-price-try">1,990</i>円（税込）</p>
+								</div>
+							</div>
+				
+							
+							<div class="row-coupon-code">
+								<div class="coupon">
+									<p>お試し購入クーポンコード<i>※購入画面にて入力してください。</i></p>
+									<div class="code"><span class="cart-coupon-code">0581</span></div>
+								</div>
+							</div>
+							
+							<div class="row-cart-setion">
+								<div class="cart-in-section" data-url="/products/add_cart/121">
+									<form action="//localhost:3000/products/add_cart/121" method="post" id="form1" name="form1">
+											<div class="ec-productRole__actions">
+											<div class="ec-numberInput"><span>数量</span>
+											<input type="number" id="quantity" name="quantity" required="required" min="1" maxlength="" class="form-control" value="1">
+											
+											</div>
+											</div>
+											<div class="productRole__btn">
+											<button type="submit" class="ec-blockBtn--action add-cart">
+											カートに入れる
+											</button>
+											</div>
+											
+											<input type="hidden" id="product_id" name="product_id" value="121">
+											<input type="hidden" id="ProductClass" name="ProductClass" value="121">
+											<input type="hidden" id="_token" name="_token" value="fW2fx4afp_EZloG-LcADrzXcdE9TX44OM0Ay9zpw_D8">
+									</form>
+								</div>
+							</div>
+						</div><!-- /.try-price-wrap -->
+						
+					</div>
+					<!-- /.product-cart-onstop -->
+					<p class="note onestop"><i>※</i>お試し購入クーポンのご利用は、各商品ともお1家族様1回のみとなります。</p>
+				
+				</div>
+				<!-- /.product-cart-inner -->				
+				
+			</div>
+			<!-- /.cart-wrap -->
+			
+        </div>
+        <!-- /.product-wrap -->
+        
+        
+     <div class="ec-modal">
+        <input type="checkbox" id="ec-modal-checkbox" class="checkbox">
+        <div class="ec-modal-overlay">
+            <label for="ec-modal-checkbox" class="ec-modal-overlay-close"></label>
+            <div class="ec-modal-wrap">
+                <label for="ec-modal-checkbox" class="ec-modal-close"><span class="ec-icon"><img src="{{ asset('assets/icon/cross-dark.svg') }}" alt=""/></span></label>
+                <div id="ec-modal-header" class="text-center">{{ 'カートに追加しました。'|trans }}</div>
+                <div class="ec-modal-box">
+                    <div class="ec-role">
+                        <label for="ec-modal-checkbox" class="ec-inlineBtn--cancel">{{ 'お買い物を続ける'|trans }}</label>
+                        <a href="{{ url('cart') }}" class="ec-inlineBtn--action">{{ 'カートへ進む'|trans }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+       
+        
+        
+        <div class="ec-grid2 cart-origin">
             <div class="ec-grid2__cell">
                 <div class="ec-sliderItemRole">
 
@@ -362,22 +553,6 @@ file that was distributed with this source code.
 
                     
                     
-                    <div class="ec-modal">
-                        <input type="checkbox" id="ec-modal-checkbox" class="checkbox">
-                        <div class="ec-modal-overlay">
-                            <label for="ec-modal-checkbox" class="ec-modal-overlay-close"></label>
-                            <div class="ec-modal-wrap">
-                                <label for="ec-modal-checkbox" class="ec-modal-close"><span class="ec-icon"><img src="{{ asset('assets/icon/cross-dark.svg') }}" alt=""/></span></label>
-                                <div id="ec-modal-header" class="text-center">{{ 'カートに追加しました。'|trans }}</div>
-                                <div class="ec-modal-box">
-                                    <div class="ec-role">
-                                        <label for="ec-modal-checkbox" class="ec-inlineBtn--cancel">{{ 'お買い物を続ける'|trans }}</label>
-                                        <a href="{{ url('cart') }}" class="ec-inlineBtn--action">{{ 'カートへ進む'|trans }}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     {% if BaseInfo.option_favorite_product %}
                         <form action="{{ url('product_add_favorite', {id:Product.id}) }}" method="post">
                             <div class="ec-productRole__btn">

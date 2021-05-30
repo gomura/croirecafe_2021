@@ -1,140 +1,319 @@
 [
-  {
-    "pcode": "3101561",
-    "pid": "120",
-    "slug": "premium-croiretea",
-    "slide_url": {
-      "pc": "",
-      "sp": ""
-    },
-    "thumb_url": "/product/img/thumbnail/croiretea.png",
-    "label_url": "/product/img/label/labe_croiretea.png",
-    "name": "プレミアムクロワール茶",
-    "name_disp": "プレミアムクロワール茶",
-    "desc_short": "20年以上の販売実績！紅茶カテキン自然含有",
-    "desc_long": "20年以上の販売実績！紅茶カテキン自然含有、飲みやすくておいしいカフェインレス健康茶",
-    "tag": [
-      {
-        "txt": "1袋25包入",
-        "color": "light"
-      }
-    ],
-    "price": {
-      "base": "2,786",
-      "teiki1": "1,950",
-      "teiki2": "2,368",
-      "try": "1,990",
-      "diff": "9,999"
-    },
-    "url": {
-      "base": "/products/detail/56",
-      "teiki": "/products/detail/120",
-      "try": "/products/detail/21"
-    }
-  },
-  {
-    "pcode": "3101572",
-    "pid": "122",
-    "slug": "probiotics12",
-    "slide_url": {
-      "pc": "",
-      "sp": ""
-    },
-    "thumb_url": "/product/img/thumbnail/pb12.png",
-    "label_url": "/product/img/label/labe_pb12.png",
-    "name": "クロワールプロバイオティクス12",
-    "name_disp": "クロワール<br />プロバイオティクス12",
-    "desc_short": "〇〇〇〇〇〇〇〇〇〇〇〇",
-    "desc_long": "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇",
-    "tag": [
-      {
-        "txt": "1本60包入",
-        "color": "light"
-      },
-      {
-        "txt": "約2ヶ月分",
-        "color": "light"
-      }
-    ],
-    "price": {
-      "base": "5,544",
-      "teiki1": "3,888",
-      "teiki2": "3,888",
-      "try": "9,990",
-      "diff": "9,999"
-    },
-    "url": {
-      "base": "/products/detail/58",
-      "teiki": "/products/detail/122",
-      "try": "/products/detail/59"
-    }
-  },
-  {
-    "pcode": "3101581",
-    "pid": "121",
-    "slug": "",
-    "slide_url": {
-      "pc": "",
-      "sp": ""
-    },
-    "thumb_url": "/product/img/thumbnail/eye-q.png",
-    "label_url": "",
-    "name": "クロワールアイ・Q",
-    "name_disp": "クロワールアイ・Q",
-    "desc_short": "〇〇〇〇〇〇〇〇〇〇〇〇",
-    "desc_long": "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇",
-    "tag": [
-      {
-        "txt": "機能性表示食品",
-        "color": "heavy"
-      },
-      {
-        "txt": "1日1粒目安",
-        "color": "light"
-      }
-    ],
-    "price": {
-      "base": "3,980",
-      "teiki1": "2,786",
-      "teiki2": "3,383",
-      "try": "9,999"
-    },
-    "url": {
-      "base": "/products/detail/87",
-      "teiki": "/products/detail/121",
-      "try": "/products/detail/88"
-    }
-  },
-  {
-    "pcode": "3101569",
-    "pid": "118",
-    "slug": "midori-no-dhaepa",
-    "slide_url": {
-      "pc": "",
-      "sp": ""
-    },
-    "thumb_url": "/product/img/thumbnail/pb12.png",
-    "label_url": "",
-    "name": "緑のDHA&EPA+ゴールデンユーグレナ",
-    "name_disp": "緑のDHA&EPA<br /><i>+ゴールデンユーグレナ</i>",
-    "desc_short": "〇〇〇〇〇〇〇〇〇〇〇〇",
-    "desc_long": "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇",
-    "tag": [
-      {
-        "txt": "〇〇",
-        "color": "light"
-      }
-    ],
-    "price": {
-      "base": "2,700",
-      "teiki1": "1,890",
-      "teiki2": "2,295",
-      "try": "9,999"
-    },
-    "url": {
-      "base": "/products/detail/26",
-      "teiki": "/products/detail/118",
-      "try": "/products/detail/22"
-    }
-  }
+	{
+		"pcode": "3101561",
+		"pid": "120",
+		"slug": "premium-croiretea",
+		"slide_url": {
+			"pc": "",
+			"sp": ""
+		},
+		"thumb_url": "/product/img/thumbnail/croiretea.png",
+		"label_url": "/product/img/label/label-croiretea.png",
+		"name": "プレミアムクロワール茶",
+		"name_disp": "プレミアムクロワール茶",
+		"desc_short": "20年以上の販売実績！紅茶カテキン自然含有",
+		"desc_long": "20年以上の販売実績！紅茶カテキン自然含有、飲みやすくておいしいカフェインレス健康茶",
+		"tag": [
+			{
+				"txt": "1袋25包入",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "2,786",
+			"teiki1": "1,950",
+			"teiki2": "2,368",
+			"try": "1,990",
+			"diff": "9,999"
+		},
+		"disc_rate":["30","15"],
+		"coupon_code":"0561",
+		"url": {
+			"base": "/products/detail/56",
+			"teiki": "/products/detail/120",
+			"try": "/products/detail/21"
+		}
+	},
+	{
+		"pcode": "3101572",
+		"pid": "122",
+		"slug": "probiotics12",
+		"slide_url": {
+			"pc": "",
+			"sp": ""
+		},
+		"thumb_url": "/product/img/thumbnail/pb12.png",
+		"label_url": "/product/img/label/label-pb12.png",
+		"name": "クロワールプロバイオティクス12",
+		"name_disp": "クロワール<br />プロバイオティクス12",
+		"desc_short": "〇〇〇〇〇〇〇〇〇〇〇〇",
+		"desc_long": "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇",
+		"tag": [
+			{
+				"txt": "1本60包入",
+				"color": "light"
+			},
+			{
+				"txt": "約2ヶ月分",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "5,554",
+			"teiki1": "3,054",
+			"teiki2": "3,888",
+			"try": "9,990",
+			"diff": "9,999"
+		},
+		"disc_rate":["45","30"],
+		"coupon_code":"0572",
+		"url": {
+			"base": "/products/detail/58",
+			"teiki": "/products/detail/122",
+			"try": "/products/detail/59"
+		},
+		"delivery_fee":"660"
+	},
+	{
+		"pcode": "3101581",
+		"pid": "121",
+		"slug": "",
+		"slide_url": {
+			"pc": "",
+			"sp": ""
+		},
+		"thumb_url": "/product/img/thumbnail/eye-q.png",
+		"label_url": "/product/img/label/label-eye-q.png",
+		"name": "クロワールアイ・Q",
+		"name_disp": "クロワールアイ・Q",
+		"desc_short": "〇〇〇〇〇〇〇〇〇〇〇〇",
+		"desc_long": "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇",
+		"tag": [
+			{
+				"txt": "機能性表示食品",
+				"color": "heavy"
+			},
+			{
+				"txt": "1日1粒目安",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "3,980",
+			"teiki1": "2,786",
+			"teiki2": "3,383",
+			"try": "9,999",
+			"diff": "9,999"
+		},
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/87",
+			"teiki": "/products/detail/121",
+			"try": "/products/detail/88"
+		}
+	},
+	{
+		"pcode": "3101569",
+		"pid": "118",
+		"slug": "midori-no-dhaepa",
+		"slide_url": {
+			"pc": "",
+			"sp": ""
+		},
+		"thumb_url": "/product/img/thumbnail/midori.png",
+		"label_url": "",
+		"name": "緑のDHA&EPA+ゴールデンユーグレナ",
+		"name_disp": "緑のDHA&EPA<br /><i>+ゴールデンユーグレナ</i>",
+		"desc_short": "〇〇〇〇〇〇〇〇〇〇〇〇",
+		"desc_long": "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇",
+		"tag": [
+			{
+				"txt": "〇〇",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "2,700",
+			"teiki1": "1,890",
+			"teiki2": "2,295",
+			"try": "9,999",
+			"diff": "9,999"
+		},
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/26",
+			"teiki": "/products/detail/118",
+			"try": "/products/detail/22"
+		}
+	},
+	{
+		"pcode": "3101570",
+		"pid": "117",
+		"slug": "na",
+		"slide_url": {
+			"pc": "",
+			"sp": ""
+		},
+		"thumb_url": "/product/img/thumbnail/na.png",
+		"label_url": "",
+		"name": "Nアセチルグルコサミンロコモディ+B",
+		"name_disp": "Nアセチルグルコサミン<br />ロコモディ+B",
+		"desc_short": "〇〇〇〇〇〇〇〇〇〇〇〇",
+		"desc_long": "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇",
+		"tag": [
+			{
+				"txt": "〇〇",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "3,402",
+			"teiki1": "2,381",
+			"teiki2": "2,891",
+			"try": "3,061",
+			"diff": "9,999"
+		},
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/29",
+			"teiki": "/products/detail/117",
+			"try": "/products/detail/36"
+		}
+	},
+	{
+		"pcode": "3101554",
+		"pid": "118",
+		"slug": "q10",
+		"slide_url": {
+			"pc": "",
+			"sp": ""
+		},
+		"thumb_url": "/product/img/thumbnail/q10.png",
+		"label_url": "",
+		"name": "クロワール 還元型コエンザイムQ10",
+		"name_disp": "クロワール<br />還元型コエンザイムQ10",
+		"desc_short": "〇〇〇〇〇〇〇〇〇〇〇〇",
+		"desc_long": "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇",
+		"tag": [
+			{
+				"txt": "〇〇",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "2,700",
+			"teiki1": "1,890",
+			"teiki2": "2,295",
+			"try": "9,999",
+			"diff": "9,999"
+		},
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/34",
+			"teiki": "/products/detail/116",
+			"try": "/products/detail/35"
+		}
+	},
+	{
+		"pcode": "3101526",
+		"pid": "119",
+		"slug": "gold",
+		"slide_url": {
+			"pc": "",
+			"sp": ""
+		},
+		"thumb_url": "/product/img/thumbnail/gold.png",
+		"label_url": "",
+		"name": "クロワールゴールド",
+		"name_disp": "クロワールゴールド",
+		"desc_short": "〇〇〇〇〇〇〇〇〇〇〇〇",
+		"desc_long": "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇",
+		"tag": [
+			{
+				"txt": "〇〇",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "3,456",
+			"teiki1": "2,419",
+			"teiki2": "2,937",
+			"try": "3,110",
+			"diff": "9,999"
+		},
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/25",
+			"teiki": "/products/detail/119",
+			"try": "/products/detail/27"
+		}
+	},
+	{
+		"pcode": "3103518",
+		"pid": "20",
+		"slug": "wahaha",
+		"slide_url": {
+			"pc": "",
+			"sp": ""
+		},
+		"thumb_url": "/product/img/thumbnail/wahaha.png",
+		"label_url": "",
+		"name": "魔法のワハハ歯ブラシ（3本セット）",
+		"name_disp": "魔法のワハハ歯ブラシ<br /><i>（3本セット）</i>",
+		"desc_short": "〇〇〇〇〇〇〇〇〇〇〇〇",
+		"desc_long": "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇",
+		"tag": [
+			{
+				"txt": "〇〇",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "1,650",
+			"teiki1": "",
+			"teiki2": "",
+			"try": "9,999",
+			"diff": "9,999"
+		},
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/20",
+			"teiki": "",
+			"try": ""
+		}
+	},
+	{
+		"pcode": "3101535",
+		"pid": "42",
+		"slug": "croire-coat",
+		"slide_url": {
+			"pc": "",
+			"sp": ""
+		},
+		"thumb_url": "/product/img/thumbnail/coat65.png",
+		"label_url": "",
+		"name": "薬用はみがきクロワールコート65g",
+		"name_disp": "薬用はみがき<br />クロワールコート65g",
+		"desc_short": "〇〇〇〇〇〇〇〇〇〇〇〇",
+		"desc_long": "〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇",
+		"tag": [
+			{
+				"txt": "〇〇",
+				"color": "light"
+			}
+		],
+		"disc_rate":["30","15"],
+		"price": {
+			"base": "3,850",
+			"teiki1": "",
+			"teiki2": "",
+			"try": "9,999",
+			"diff": "9,999"
+		},
+		"url": {
+			"base": "/products/detail/42",
+			"teiki": "",
+			"try": ""
+		}
+	}
 ]
