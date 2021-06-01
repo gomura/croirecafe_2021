@@ -1152,6 +1152,11 @@ ul.rank{
 				img{
 					width: 150%;
 					height: auto;
+					display: block;
+					flex-shrink: 0; //これを指定すると縦横比が維持される
+					.ie & {
+						@include transform(translateY(-25%));
+					}
 				}
 			}
 			>img{
@@ -2502,6 +2507,11 @@ main.payment{
 				@include transform(translateY(-100%));
 				line-height: 1;
 				color: #000;
+				opacity: 1;
+				@include cart-trns;
+				body[data-type="onestop"] & {
+					opacity: 0;
+				}
 				b{
 					font-size: 1.8em;
 					@include BILO;

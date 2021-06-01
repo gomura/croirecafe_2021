@@ -7,6 +7,49 @@ $.ajaxSetup({
 	cache: false
 });
 
+/* !!------------------------------------ */
+/* !! ブラウザ判別 */
+
+var ua, verArr, version, ieVer, ie, chrome, firefox, opera, safari;
+ua = navigator.userAgent;
+
+console.log(ua);
+ 
+// IEかそれ以外かどうかを判定
+if (ua.match(/msie/i) || ua.match(/trident/i)) {
+    // IEの場合はバージョンを判定
+    verArr = /(msie|rv:?)\s?([\d\.]+)/i.exec(ua);
+    version = (verArr) ? verArr[2] : '';
+    version = version.replace('.', '_');
+    //ieVer = "ie"+version;
+    //ieVer = "ie"+version;
+    ieVer = "ie";
+ 
+    // "ie11_0"等を付与
+    $("html").addClass(ieVer);
+
+} else {
+    
+    if (ua.match(/Edge/i)) {
+        // Edge
+        $("html").addClass('edge');
+    } else if (ua.match(/chrome/i)) {
+        // chrome
+        $("html").addClass('chrome');
+    } else if(ua.match(/firefox/i)) {
+        // firefox
+        $("html").addClass('firefox');
+    } else if(ua.match(/opera/i)) {
+        // opera
+        $("html").addClass('opera');
+    } else if(ua.match(/safari/i)) {
+        // safari
+        $("html").addClass('safari');
+    }
+}
+
+/* !!------------------------------------ */
+
 
 if(!is_mobile){
 	$("meta[name='viewport']").attr('content', 'width=1400,user-scalable=yes');
@@ -467,6 +510,14 @@ $(function(){
 	}
 });
 
+/* !! 外部カートボタン読み込み */
+
+function loadCartBtn(elem,tgtUrl){
+	elem.load(tgtUrl+" #form1")
+	console.log("done");
+}
+
+
 /* !! カート表示部読み込み */
 
 var generateProdInfo =( function generateProdInfo(data) {
@@ -566,18 +617,36 @@ var generateProdInfo =( function generateProdInfo(data) {
 			$(".cart-price-teiki1").html(item.price.teiki1);
 			$(".cart-price-teiki2").html(item.price.teiki2);
 		}
+		if(item.url.teiki[0]){
+			$(".cart-url-teiki").attr("data-url",item.url.teiki);
+		}
 		//１回のみお届け
-		if(item.delivery_fee[0]){
+		if(!item.delivery_fee[0]){
+			//$(".cart-delivery-fee").html(item.delivery_fee);
+		}else{
 			$(".cart-delivery-fee").html(item.delivery_fee);
 		}
-		
+		if(item.url.base[0]){
+			$(".cart-url-base").attr("data-url",item.url.base);
+		}
 		$(".cart-price-try").html(item.price.try);
 		if(item.coupon_code[0]){
 			$(".cart-coupon-code").html(item.coupon_code);
 		}
+		if(item.url.try[0]){
+			$(".cart-url-try").attr("data-url",item.url.try);
+		}
 	}//for
+
+	if($(".cart-in-section")[0]){
+		$(".cart-in-section").each(function(){
+			var This = $(this);
+			loadCartBtn(This,This.data("url"));
+		});
+	} 
 	
 });
+
 
 
 
@@ -606,59 +675,6 @@ $(function(){
 });
 
 
-/* !! 外部カートボタン読み込み */
-
-function loadCartBtn(elem,tgtUrl){
-
-
-	$.ajax({
-		url:'/common/lib/get.php?url='+tgtUrl,
-		type: 'GET',
-		dataType: 'html',
-		cache: false,
-	    success: function(data){
-
-			var htmlstr = "";
-			//アイテムの調整
-			var tgt = $(data);
-			var count = 0;		
-			var form1 = tgt.find("#form1");
-			
-			
-			//挿入する
-			elem.append(form1)//.append(form2);
-	     }
-	});
-
-/*
-	$.ajax({
-		url:'/products/detail/'+id,
-		type: 'GET',
-		dataType: 'html',
-		cache: false,
-	    success: function(data){
-
-			var htmlstr = "";
-			//アイテムの調整
-			var blog = $(data);
-			var form1 = blog.find("#form1").html();
-			var form2 = blog.find("#form2").html();
-			elem.append(form1).append(form2);
-	     }
-	});
-*/
-
-}
-
-$(function(){
-	
-	if($(".cart-in-section")[0]){
-		$(".cart-in-section").each(function(){
-			var This = $(this);
-			loadBlogData(This,This.data("url"));
-		});
-	} 
-});
 
 
 
