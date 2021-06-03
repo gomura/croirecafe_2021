@@ -42,6 +42,8 @@ form {
 
 img {
 	vertical-align:bottom;
+	flex-shrink: 0; //これを指定すると縦横比が維持される
+	backface-visibility: hidden;
 }
 
 .na{
@@ -298,9 +300,9 @@ h2.sec{
 	padding: 0;
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0);
 	transition: 300ms;
-	//.moved & {
+	.moved & {
 		box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-	//}
+	}
 	.inner{
 		width: 100%;
 		margin: 0 auto;
@@ -796,12 +798,13 @@ ul.category-nav{
 		.slick-current{
 			&:before{
 				content:"";
-				opacity: .5;
+				//opacity: .5;
 			}
+			
 		}
 	}
 	.item{
-		height: 480px;
+		height: 460px;
 		@include flex-centering;
 		&:before{
 			content:"";
@@ -820,9 +823,9 @@ ul.category-nav{
 				}
 			}
 		}
-		&[data-pcode='3101561']{@include bg_3101561;}
-		&[data-pcode='3101572']{@include bg_3101572;}
-		&[data-pcode='3101581']{@include bg_3101581;}
+		//&[data-pcode='3101561']{@include bg_3101561;}
+		//&[data-pcode='3101572']{@include bg_3101572;}
+		//&[data-pcode='3101581']{@include bg_3101581;}
 		&[data-pcode='3101569']{@include bg_3101569;}
 		&[data-pcode='3101570']{@include bg_3101570;}
 		&[data-pcode='3101526']{@include bg_3101526;}
@@ -849,16 +852,20 @@ ul.category-nav{
 
 	.item_thumb{
 		width: calc((960px - 80px)/9) !important;
+		height: calc((960px - 80px)/9) !important;
 		margin-right: 10px;
 		position: relative;
 		outline: none;
-		margin-bottom: 1px;
 		i{
 			position: absolute;
 			top: 0;left: 0;
 			width:100%;
 			height:100%;
 			@include flex-centering;
+			img{
+				height: 80%;
+				width: auto;
+			}
 		}
 		&:before{
 			display: block;
@@ -1196,6 +1203,9 @@ ul.rank{
 				padding-bottom: 20px;
 				font-size: 16px;
 				@include pfix(.5em);
+				strong{
+					font-weight: bold;
+				}
 				
 			}
 		}

@@ -347,7 +347,69 @@ $(function(){
 });
 
 
+/* !! - - -  */
+/* !! スライド */
 
+var generateMVslide =( function generateMVslide(data) {
+    
+    var MV = $("#mv-slide .main_visual");
+    var nav = $("#mv-slide .main_visual_nav");
+	var html = "";
+	var html2 = "";
+	for (var p = 0; p < data.length; p += 1) {
+		var item = data[p];
+		html += '<div class="item" data-pcode="'+item.pcode+'">';
+		html += '<picture>';
+		html += '<source media="(max-width: 767px)" srcset="">';
+		html += '<img src="'+item.slide_url.pc+'" width="960" height="460" alt="'+item.slide_url.alt+'" />';
+		html += '</picture>';
+		html += '</div>';
+		html2 += '<div class="item_thumb" data-pcode="'+item.pcode+'">';
+		html2 += '<i><img src="'+item.thumb_url+'" /></i></div>';
+	}
+    MV.html(html);
+    nav.html(html2);
+
+});
+
+$(function(){
+	$.ajax({
+	    url: "/product/products.json",
+	}).then(generateMVslide).then(function(){
+	    $('.main_visual').slick({
+	        fade:true,
+	        dots: false,
+	        arrows: false,
+	        autoplay: true,
+	        autoplaySpeed: 8000,
+	        speed: 800,
+	        asNavFor: '.main_visual_nav',
+	    });
+	        
+	    $('.main_visual_nav').slick({
+			slidesToShow: 9,
+			//slidesToScroll: 3,
+			asNavFor: '.main_visual',
+			dots:  false,
+			//centerMode: true,
+			focusOnSelect: true,
+			variableWidth:true,
+		});
+	}).then(function(){
+		if(is_mobile){
+			$(".cell .img").each(function(){
+				var This = $(this);
+				This.find("img").on("load",function(){
+					//setHeightTittle(This);
+				})
+			    
+			});
+		}
+	});
+});
+
+
+        
 
 /* !!------------------------------------ */
 /* !! クロワール一覧リスト生成 */

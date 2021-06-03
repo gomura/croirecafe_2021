@@ -90,37 +90,7 @@ file that was distributed with this source code.
     </style>
 {% endblock %}
 
-{% block javascript %}
-    <script>
-        $(function() {
-            $('.main_visual').slick({
-                fade:true,
-                dots: false,
-                arrows: false,
-                autoplay: true,
-                speed: 500,
-                asNavFor: '.main_visual_nav',
-            });
-            
-			//$('.main_visual').on('beforeChange', function(event, { slideCount: count }, currentSlide, nextSlide){
-			//  	var pid = $('.main_visual .item').eq(nextSlide).data('pid');
-			//  	$('.main_visual').attr('data-pcode',pid);
-			//});
-            
-	        $('.main_visual_nav').slick({
-				slidesToShow: 9,
-				//slidesToScroll: 3,
-				asNavFor: '.main_visual',
-				dots:  false,
-				//centerMode: true,
-				focusOnSelect: true,
-				variableWidth:true,
-			});
-	
-        });
-        
-    </script>
-{% endblock javascript %}
+{% block javascript %}{% endblock javascript %}
 
 
 
@@ -132,6 +102,7 @@ file that was distributed with this source code.
     
     <!-- !! スライド -->
 	<section id="mv-slide">
+		
 		<div class="main_visual" data-pcode="3101561">
 	       <div class="item" data-pcode="3101561"><i>1</i></div>
 	       <div class="item" data-pcode="3101572"><i>2</i></div>
@@ -144,7 +115,7 @@ file that was distributed with this source code.
 	       <div class="item" data-pcode="3103518"><i>9</i></div>
 	    </div>	
 		
-	<div class="main_visual_nav">
+		<div class="main_visual_nav">
 			<div class="item_thumb" data-pcode="3101561"><i>1</i></div>
 			<div class="item_thumb" data-pcode="3101572"><i>2</i></div>
 			<div class="item_thumb" data-pcode="3101581"><i>3</i></div>
