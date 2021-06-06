@@ -325,6 +325,16 @@ $(function(){
 });
 
 
+/* !!------------------------------------ */
+/* !! SPナビゲ */
+$(function(){
+	$("#btn-toggle-menu").on("click",function(){
+		$("body").toggleClass("sp-menu-shown");
+	})
+});
+
+
+
 
 /* !!------------------------------------ */
 /* !! トップページ */
@@ -356,11 +366,15 @@ var generateMVslide =( function generateMVslide(data) {
     var nav = $("#mv-slide .main_visual_nav");
 	var html = "";
 	var html2 = "";
+	
+	
 	for (var p = 0; p < data.length; p += 1) {
 		var item = data[p];
+		var $url = item.url.teiki[0] ? item.url.teiki : item.url.base ;
 		html += '<div class="item" data-pcode="'+item.pcode+'">';
+		html += '<a href="'+$url+'"></a>';
 		html += '<picture>';
-		html += '<source media="(max-width: 767px)" srcset="">';
+		html += '<source media="(max-width: 767px)" srcset="'+item.slide_url.sp+'">';
 		html += '<img src="'+item.slide_url.pc+'" width="960" height="460" alt="'+item.slide_url.alt+'" />';
 		html += '</picture>';
 		html += '</div>';
@@ -394,6 +408,19 @@ $(function(){
 			//centerMode: true,
 			focusOnSelect: true,
 			variableWidth:true,
+			arrows:false,
+			responsive: [
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 3,
+						infinite: true,
+						swipeToSlide:true,
+						centerMode: true
+					}
+				}
+			]	
 		});
 	}).then(function(){
 		if(is_mobile){

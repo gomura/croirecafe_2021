@@ -12,8 +12,8 @@
 		"label_url": "/product/img/label/label-croiretea.png",
 		"name": "プレミアムクロワール茶",
 		"name_disp": "プレミアムクロワール茶",
-		"desc_short": "20年以上の販売実績！紅茶カテキン自然含有",
-		"desc_long": "20年以上の販売実績！<strong>紅茶カテキン自然含有</strong>、飲みやすくておいしい<strong>カフェインレス健康茶</strong>",
+		"desc_short": "お子様からご年配の方までご安心して飲める健康茶。",
+		"desc_long": "驚きの活性酸除去酵素を含有。こだわり厳選された4種の茶葉をブレンド。",
 		"tag": [
 			{
 				"txt": "1袋25包入",
@@ -49,8 +49,8 @@
 		"label_url": "/product/img/label/label-pb12.png",
 		"name": "クロワールプロバイオティクス12",
 		"name_disp": "クロワール<br />プロバイオティクス12",
-		"desc_short": "1粒に250億個の生きた善玉菌",
-		"desc_long": "1粒で小腸と大腸の健康をサポート!<strong>8種類の乳酸菌・4種類のビフィズス菌を『生きたまま』届けます。</strong>",
+		"desc_short": "全12種類の生きた善玉菌を1粒に250億個配合",
+		"desc_long": "乳酸菌8種類とビフィズス菌4種類　250億個を1粒に配合！<strong>独自製法</strong>で小腸・大腸まで生きたまま届く。",
 		"tag": [
 			{
 				"txt": "1本60包入",
@@ -94,8 +94,8 @@
 		"label_url": "/product/img/label/label-eye-q.png",
 		"name": "クロワールアイ・Q",
 		"name_disp": "クロワールアイ・Q",
-		"desc_short": "目と脳の健康をサポート！機能性表示食品。",
-		"desc_long": "1粒で目と脳の健康をサポート！体内と同じ形の<strong>ルテイン10㎎ ゼアキサンチン2㎎</strong>を配合した機能性表示食品。",
+		"desc_short": "目と脳の健康をWサポートする機能性表示食品。",
+		"desc_long": "１粒で目のかすみやぼやけの改善と注意力や思考の柔軟性の維持をWサポート",
 		"tag": [
 			{
 				"txt": "機能性表示食品",
@@ -136,11 +136,11 @@
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/midori.png",
-		"label_url": "",
+		"label_url": "/product/img/label/label-midori.png",
 		"name": "緑のDHA&EPA+ゴールデンユーグレナ",
 		"name_disp": "緑のDHA&EPA<br /><i>+ゴールデンユーグレナ</i>",
-		"desc_short": "宇宙開発から生まれた、植物性（藻由来）DHA・EPA。",
-		"desc_long": "宇宙開発から生まれた、植物性（藻由来）DHA・EPA。魚油に比べて1.6倍濃いピュアさ。タンク密閉培養で安心安全の品質。",
+		"desc_short": "時代は魚由来から植物由来へ。",
+		"desc_long": "NASAの開発から生まれた植物性のDHA・EPA。こだわりの製法で作った安全安心の品質。",
 		"tag": [
 			{
 				"txt": "1袋90粒入",
@@ -177,11 +177,11 @@
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/na.png",
-		"label_url": "",
+		"label_url": "/product/img/label/label-n-ase.png",
 		"name": "Nアセチルグルコサミンロコモディ+B",
 		"name_disp": "Nアセチルグルコサミン<br />ロコモディ+B",
-		"desc_short": "体内と同じ形のNアセチルグルコサミン",
-		"desc_long": "体内と同じ形のNアセチルグルコサミンでダイレクトに吸収。筋肉成分も配合した、関節・筋肉・骨のためのサプリメントです。",
+		"desc_short": "関節成分と筋肉成分を配合。",
+		"desc_long": "通常のグルコサミンの3倍吸収率。関節成分と筋肉成分を配合した、関節・筋肉・骨のためのサプリメント。",
 		"tag": [
 			{
 				"txt": "1袋90粒入",
@@ -218,11 +218,11 @@
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/q10.png",
-		"label_url": "",
+		"label_url": "/product/img/label/label-q10.png",
 		"name": "クロワール 還元型コエンザイムQ10",
 		"name_disp": "クロワール<br />還元型コエンザイムQ10",
-		"desc_short": "疲労感の軽減をサポート",
-		"desc_long": "美肌効果やダイエットのサポート、疲労回復に！体内に存在するものと同じ”還元型”のコエンザイムQ10使用でより高い吸収率！",
+		"desc_short": "1粒に5つの元気成分をぎゅっと凝縮。",
+		"desc_long": "通常のコエンザイムQ10の3倍吸収率。1粒に5つの元気成分を贅沢に配合。",
 		"tag": [
 			{
 				"txt": "1袋30粒入",
@@ -259,11 +259,11 @@
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/gold.png",
-		"label_url": "",
+		"label_url": "/product/img/label/label-gold.png",
 		"name": "クロワールゴールド",
 		"name_disp": "クロワールゴールド",
 		"desc_short": "アフリカ紅茶とメシマコブを1粒に凝縮",
-		"desc_long": "SOD値とβ-グルカンが豊富なアフリカ紅茶とメシマコブを1粒に凝縮。抗酸化力と免疫力を力強くサポートします。",
+		"desc_long": "<strong>高い抗酸化力</strong>と<strong>豊富なβ-グルカン</strong>を1粒にギュッと凝縮。免疫力をサポート。",
 		"tag": [
 			{
 				"txt": "1袋30粒入",
@@ -300,11 +300,11 @@
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/wahaha.png",
-		"label_url": "",
+		"label_url": "/product/img/label/label-wahaha.png",
 		"name": "魔法のワハハ歯ブラシ（3本セット）",
 		"name_disp": "魔法のワハハ歯ブラシ<br /><i>（3本セット）</i>",
-		"desc_short": "歯科医自ら考案",
-		"desc_long": "歯の専門家、歯科医自ら考案 磨き残しゼロを目指した歯ブラシ",
+		"desc_short": "磨き残しゼロを目指した歯ブラシ。",
+		"desc_long": "1本で４つの働き。ピラミッド構造でコンパクトなヘッド形状が歯の隙間の汚れを逃さない！",
 		"tag": [
 			{
 				"txt": "1袋30粒入",
@@ -337,11 +337,11 @@
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/coat65.png",
-		"label_url": "",
+		"label_url": "/product/img/label/label-coat.png",
 		"name": "薬用はみがきクロワールコート65g",
 		"name_disp": "薬用はみがき<br />クロワールコート65g",
 		"desc_short": "発泡剤・研磨剤不使用。",
-		"desc_long": "発泡剤・研磨剤不使用。1本で約130回分！",
+		"desc_long": "全身の様々な病気と関係があるといわれている歯周病。3つの有効成分で口腔内をケア。",
 		"tag": [
 			{
 				"txt": "1本約130回分",

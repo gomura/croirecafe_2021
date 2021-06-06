@@ -22,7 +22,9 @@ file that was distributed with this source code.
     </div>
     {% if totalQuantity > 0 %}
         <div class="ec-cartNaviIsset">
+	        <div class="ec-cartNaviIsset__cart-wrap">
             {% for Cart in Carts %}
+            
                 {% for CartItem in Cart.CartItems %}
                     {% set ProductClass = CartItem.ProductClass %}
                     {% set Product = ProductClass.Product %}
@@ -49,7 +51,9 @@ file that was distributed with this source code.
                         </div>
                     </div>
                 {% endfor %}
+             
             {% endfor %}
+			</div>
             <div class="ec-cartNaviIsset__action">
                 <a class="ec-blockBtn--action" href="{{ url('cart') }}">{{ 'カートへ進む'|trans }}</a>
                 <a class="ec-blockBtn ec-cartNavi--cancel">{{ 'キャンセル'|trans }}</a>

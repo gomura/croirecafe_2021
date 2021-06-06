@@ -25,7 +25,7 @@ gulp.task('sass', function() {
         //.pipe(sourcemaps.write({includeContent: false}))
 		//.pipe(sourcemaps.init({loadMaps: true}))
 		.pipe(autoprefixer(['last 3 versions', 'ie >= 8', 'Android >= 4', 'iOS >= 8']))
-		//.pipe(sourcemaps.write())
+		.pipe(sourcemaps.write('../css'))
 		.pipe(gulp.dest(path.join(assetsPath, 'css/')))
 		.pipe(browserSync.stream({match: '**/*.css'}));
 	
@@ -38,7 +38,7 @@ gulp.task('sass', function() {
         //.pipe(sourcemaps.write({includeContent: false}))
 		//.pipe(sourcemaps.init({loadMaps: true}))
 		.pipe(autoprefixer(['last 3 versions', 'ie >= 8', 'Android >= 4', 'iOS >= 8']))
-		.pipe(sourcemaps.write())
+		.pipe(sourcemaps.write('../css'))
 		.pipe(gulp.dest(path.join(assetsPath, 'css/')))
 		.pipe(browserSync.stream({match: '**/*.css'}));
     

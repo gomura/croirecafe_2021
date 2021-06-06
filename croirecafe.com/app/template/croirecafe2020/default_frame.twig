@@ -118,7 +118,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	</ul>
 </div>
 
+
+
 <div class="ec-layoutRole">
+	
     {# Layout: HEADER #}
     {% if Layout.Header %}
         <div class="ec-layoutRole__header">
@@ -134,6 +137,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% endif %}
 
     <div class="ec-layoutRole__contents">
+	    {{ include('Block/top_side.twig') }}
         {# Layout: SIDE_LEFT #}
         {% if Layout.SideLeft %}
             <div class="ec-layoutRole__left">
