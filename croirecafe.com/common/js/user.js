@@ -88,6 +88,25 @@ $(function(){
 	} 
 });
 
+
+/* !!------------------------------------ */
+/* !! リサイズイベント */
+$(function(){
+	
+	$(window).on("resize", function () {
+	  	
+	  	var inH = window.innerHeight;
+	  	
+
+	  	$(".ec-cartNaviIsset").css("max-height",inH - 80);
+	  	$(".ec-cartNaviIsset__cart-wrap").css("max-height",inH - 120);
+	  	
+	});
+
+});
+
+
+
 /* !!------------------------------------ */
 /* !! スクロールイベント */
 
@@ -97,6 +116,7 @@ $(function(){
 	  	
 	  	var scroll = $(this).scrollTop(); 
 	  	var winH = $(window).innerHeight();
+	  	var inH = window.innerHeight;
 	  	
 	  	if( scroll > 0 ){ 
 		  	$("body").addClass('moved'); 
@@ -112,6 +132,8 @@ $(function(){
 		  	$("body").removeClass("fv_passed")
 	  	}
 	  	
+	  	$(".ec-cartNaviIsset").css("max-height",inH - 80);
+	  	$(".ec-cartNaviIsset__cart-wrap").css("max-height",inH - 120);
 /*
 		(function(){
 
@@ -124,6 +146,7 @@ $(function(){
 		  	
 	  	}());
 */
+	  	
 	  	
 	});
 

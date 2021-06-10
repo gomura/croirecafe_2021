@@ -4,8 +4,8 @@
 		"pid": "120",
 		"slug": "premium-croiretea",
 		"slide_url": {
-			"pc": "/product/img/MV/561.jpg",
-			"sp": "/product/img/MV/561_sp.jpg",
+			"pc": "/product/img/slide/561.jpg",
+			"sp": "/product/img/slide/561_sp.jpg",
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/croiretea.png",
@@ -41,8 +41,8 @@
 		"pid": "122",
 		"slug": "probiotics12",
 		"slide_url": {
-			"pc": "/product/img/MV/572.jpg",
-			"sp": "/product/img/MV/572_sp.jpg",
+			"pc": "/product/img/slide/572.jpg",
+			"sp": "/product/img/slide/572_sp.jpg",
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/pb12.png",
@@ -86,8 +86,8 @@
 		"pid": "121",
 		"slug": "",
 		"slide_url": {
-			"pc": "/product/img/MV/581.jpg",
-			"sp": "/product/img/MV/581_sp.jpg",
+			"pc": "/product/img/slide/581.jpg",
+			"sp": "/product/img/slide/581_sp.jpg",
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/eye-q.png",
@@ -131,8 +131,8 @@
 		"pid": "118",
 		"slug": "midori-no-dhaepa",
 		"slide_url": {
-			"pc": "/product/img/MV/569.jpg",
-			"sp": "/product/img/MV/569_sp.jpg",
+			"pc": "/product/img/slide/569.jpg",
+			"sp": "/product/img/slide/569_sp.jpg",
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/midori.png",
@@ -172,8 +172,8 @@
 		"pid": "117",
 		"slug": "na",
 		"slide_url": {
-			"pc": "/product/img/MV/570.jpg",
-			"sp": "/product/img/MV/570_sp.jpg",
+			"pc": "/product/img/slide/570.jpg",
+			"sp": "/product/img/slide/570_sp.jpg",
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/na.png",
@@ -213,8 +213,8 @@
 		"pid": "118",
 		"slug": "q10",
 		"slide_url": {
-			"pc": "/product/img/MV/554.jpg",
-			"sp": "/product/img/MV/554_sp.jpg",
+			"pc": "/product/img/slide/554.jpg",
+			"sp": "/product/img/slide/554_sp.jpg",
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/q10.png",
@@ -254,8 +254,8 @@
 		"pid": "119",
 		"slug": "gold",
 		"slide_url": {
-			"pc": "/product/img/MV/526.jpg",
-			"sp": "/product/img/MV/526_sp.jpg",
+			"pc": "/product/img/slide/526.jpg",
+			"sp": "/product/img/slide/526_sp.jpg",
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/gold.png",
@@ -295,8 +295,8 @@
 		"pid": "20",
 		"slug": "wahaha",
 		"slide_url": {
-			"pc": "/product/img/MV/518.jpg",
-			"sp": "/product/img/MV/518_sp.jpg",
+			"pc": "/product/img/slide/518.jpg",
+			"sp": "/product/img/slide/518_sp.jpg",
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/wahaha.png",
@@ -332,8 +332,8 @@
 		"pid": "42",
 		"slug": "croire-coat",
 		"slide_url": {
-			"pc": "/product/img/MV/535.jpg",
-			"sp": "/product/img/MV/535_sp.jpg",
+			"pc": "/product/img/slide/535.jpg",
+			"sp": "/product/img/slide/535_sp.jpg",
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/coat65.png",

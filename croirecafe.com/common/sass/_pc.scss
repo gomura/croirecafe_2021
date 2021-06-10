@@ -13,6 +13,11 @@ $font01 : 'DIN','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','YuGothic
 	box-sizing: border-box;
 }
 
+*{
+	backface-visibility: hidden;/* animation時のにじみ防止 */
+	-webkit-backface-visibility: hidden;/* animation時のにじみ防止 */
+	-webkit-font-smoothing: antialiased/* animation時の文字にじみ防止 */
+}
 a {
 	color:inherit;
 	text-decoration: none;
@@ -297,7 +302,9 @@ h2.sec{
 	}
 }
 
-
+.ec-blockTopBtn{
+	display: none !important;
+}
 
 /* !!------------------------------------ */
 /* !! ヘッダー */
@@ -613,14 +620,14 @@ h2.sec{
 		width: auto;
 		margin: 0 10*$px;
 		margin-top: 23px;
-		max-height: calc(100vh - 70px - #{10*$px})
+		max-height: calc(100vh - 70px - 10px)
 	}//@sp
 	.ec-cartNaviIsset__cart-wrap{
 		overflow: scroll;
 		max-height: calc(100vh - 90px - 67px);
 		padding-bottom: 40px;
 		@include sp{
-			max-height: calc(100vh - 70px - #{10*$px} - 40px)	
+			max-height: calc(100vh - 70px - 10px - 40px)	
 		}//@sp
 		
 	}
@@ -1411,8 +1418,9 @@ ul.rank{
 			position: relative;
 			perspective: 800px;
 			&:hover{
-				@include transform(translateZ(10px));
-				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+				//@include transform(translateZ(10px));
+				//@include transform(scale(1.02));
+				box-shadow: 0 4px 12px rgba(60, 147, 253, 0.4);
 				.label{
 					@include transform(translateZ(20px));
 				}
@@ -1499,7 +1507,7 @@ ul.rank{
 				font-size: 16px;
 				@include pfix(.5em);
 				strong{
-					font-weight: bold;
+					font-weight: normal;
 				}
 				@include sp{
 					padding: 0 10*$px;	
@@ -1700,7 +1708,7 @@ ul.payment-delivery{
 			}//@sp
 		}
 		h3{
-			font-size: 18px;
+			font-size: 16px;
 			white-space: nowrap;
 			font-weight: bold;
 			text-align: center;
@@ -1715,9 +1723,11 @@ ul.payment-delivery{
 			}//@sp
 		}
 		p{
-			font-size: 16px;
+			font-size: 15px;
 			text-align: justify;
+			white-space: normal;
 			margin: 15px 0 !important;
+			width: 100%;
 			@include sp{
 				font-size: 12px;	
 			}//@sp
