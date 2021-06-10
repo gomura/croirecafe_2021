@@ -664,6 +664,8 @@ var generateProdInfo =( function generateProdInfo(data) {
 		pcode = "3101535";
 	}
 	
+	$("body").attr("data-pcode",pcode);
+	
 	//alert(pcode);
 	var filtered = []		
 	filtered = $.grep(data, // 配列
