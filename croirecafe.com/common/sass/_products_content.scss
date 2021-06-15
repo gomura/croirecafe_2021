@@ -15,8 +15,8 @@ $gray:#333333;
 $gray2:#9FA0A0;
 $red:#FF0000;
 $red-price:#B81C22;
-$ruge:#AF1E24;
-$orange:#EA5532;
+$ruge:#C10F23;
+$orange:#E75613;
 $yellow:#FABE00;
 $lite-yellow:#FDF894;
 $brown:#824621;
@@ -94,7 +94,7 @@ h2.index{
 		display: block;
 		@include flex-centering;
 		position: relative;
-		padding: 0 15px;
+		padding: 0 20px;
 		height: 100%;
 		i{
 			white-space: nowrap;
@@ -104,6 +104,11 @@ h2.index{
 			line-height: 1;
 			font-size: 32px;
 	
+		}
+		.num{
+			@include PD;
+			font-size: 2em;
+			line-height: .1;
 		}
 		&:before{
 			content:"";
@@ -126,7 +131,10 @@ h2.index{
 			transform: skew(25deg);
 		}
 		
-		&:before,&:after{
+		&:before{
+			background: rgba($yellow,0.6) !important;
+		}
+		&:after{
 			background: $yellow !important;
 		}
 	}
@@ -284,11 +292,32 @@ section.sec{
 		margin: 0 auto;
 		max-width: 960px;
 	}
-	
+	&:nth-of-type(2n){
+		background: #efefef;
+	}
+
+	div[class^="about-"]{
+		background: #fff;
+		position: relative;
+		padding: 30px;
+		border-radius: 12px;
+		max-width: 960px;
+		margin: 0 auto;
+		margin-top: 50px;
+		.inner{
+			padding: 0 !important;
+			margin-top: 30px !important;
+		}
+	}
+
+
 	h3{
 		margin: 0;
 		@include pfix(.5em);
-		font-weight: 600;
+		font-weight: 900 !important;
+		@include NOTO;
+		font-size: 20px;
+		margin-bottom: .5em;
 	}
 	
 	h3.sec{
@@ -299,19 +328,44 @@ section.sec{
 		text-align: center;
 		@include transform(translateY(-40%));
 		font-size: 28px;
-		font-weight: bold;
+		font-weight: 900;
 		@include NOTO;
 		@include textshadow();
 		@include flex;
 		justify-content: center;
 		align-items: center;
+		.label-tag{
+			background: $red;
+			font-size: 16px;
+			text-shadow: none;
+			color: #FFF;
+			height: 30px;
+			border-radius: 50px;
+			@include flex-centering;
+			padding: 0 15px;
+			white-space: nowrap;
+			margin-right: 10px;
+		}
 		.s{
 			font-size: .8em;
 		}
 		strong{
 			color: $red;
 		}
+		.tubu{
+			@include transform(translateY(6px));
+		}
 	}
+	
+	h4{
+		margin: 0;
+		font-size: 20px;
+		//@include pfix(.5em);
+		font-weight: 900 !important;
+		@include NOTO;
+		margin-bottom: .5em;
+	}
+	
 	.idx{
 		>div{
 			width: calc((100% - 30px) / 2);
@@ -321,7 +375,125 @@ section.sec{
 	p{
 		font-size: 16px;
 		line-height: 1.66;
+		margin-bottom: 1em;
+		>strong{
+			font-size: 20px;
+			@include NOTO;
+			font-weight: 900;
+		}
 	}
+	.note{
+		padding-left: 0;
+		margin-top: 5px;
+		margin-bottom: 0;
+		p{
+			font-size: 12px;
+			margin-bottom: 0;
+		}
+	}
+	
+	.graf-wrap{
+		padding: 30px;
+		background: #fff;
+		border-radius: 12px;
+		p{
+			margin-bottom: 0;font-size: 12px;
+			line-height: 1;
+			text-align: center;
+			margin-top: 1em;
+		}
+	}
+	.img{
+		img{
+			width: 100% !important;
+			height: auto !important;
+		}
+	}
+}
+
+/* !! - - -  */
+/* !! メイン成分 */
+%desc-seibun{
+	background: #eee;
+	border-radius: 6px;
+	position: relative;
+	margin-bottom: 10px;
+	width: 100%;
+	&:last-of-type{margin-bottom: 0;}
+	.desc{
+		font-size: 16px;
+		margin-top: 10px;
+		@include textshadow();
+		font-weight: bold;
+		@include pfix(.5em);
+		//padding-top: 1em;
+	}
+	.logo{
+		width: 90px;
+		position: absolute;
+		top: 19px;right: 19px;
+		@include flex-centering;
+		.logo-txt{
+			height: 30px;
+			width: auto;
+			margin-bottom: 6px;
+		}
+	}
+}
+
+@mixin ttl-seibun{
+	font-size: 24px !important;
+	@include NOTO;
+	font-weight: 900;
+	line-height: 1 !important;
+	//height: 30px;
+	@include flex;
+	justify-content: flex-start;
+	align-items:flex-end;
+	margin-bottom: 0 ;
+	.kana{
+		font-size: 1em;
+	}
+	.nat{
+		font-size: 1em;
+		height: 1em;
+		@include flex;
+		align-items: center;
+		position: relative;
+		margin-left: 5px;
+		i{
+			font-size: 1.6em;
+			@include RB;
+			letter-spacing: -3px;
+			margin-right:.1em;
+			height: .3em;
+			@include transform(translateY(-.5em));
+		}
+	}
+}
+
+//!! - ルテインゼアキサンチン
+
+.desc-rutein,.desc-zeakisantin{
+	@extend %desc-seibun;
+	border: 4px solid #ccc;
+	padding: 15px;
+}
+.rutein-zeakisantin,.main-seibun-ttl{
+	@include ttl-seibun;
+	@include textshadow();
+
+}
+
+
+.desc-rutein{
+	background-color: rgba($yellow,0.2);
+	border-color: $orange;
+}
+
+.desc-zeakisantin{
+	background-color: rgba($red,0.2);
+	border-color: $ruge;
 }
 
 
@@ -420,6 +592,15 @@ section.static{
 
 #sec-ingredients{
 	background: #E1F3FB;
+	.nutrient{
+		max-width: 960px;
+		margin: 0 auto;
+		margin-bottom: 30px;
+		th{
+			background: rgba(253, 211, 60, 0.21);
+
+		}
+	}
 	table{
 		border-radius: 12px;
 		background: #fff;
@@ -440,10 +621,20 @@ section.static{
 			
 		}
 	}
+	.mention{
+		max-width: 960px;
+		margin: 0 auto;
+		text-align: right;
+		font-size: 16px;
+		margin-top: 15px;
+	}
 }
 
 /* !! - - -  */
 /* !! .idx */
+.flxc{
+	@include flex-centering;
+}
 
 
 }//#content-detail.new
@@ -476,19 +667,6 @@ section.static{
 	}
 }
 
-div[class^="about-"]{
-	background: #fff;
-	position: relative;
-	padding: 30px;
-	border-radius: 12px;
-	max-width: 960px;
-	margin: 0 auto;
-	margin-top: 50px;
-	.inner{
-		padding: 0 !important;
-		margin-top: 30px !important;
-	}
-}
 
 .about-SOD2{
 	h4{
@@ -528,13 +706,6 @@ div[class^="about-"]{
 			p{
 				font-size: 14px;
 				@include pfix(.5em);
-			}
-		}
-		.note{
-			padding-left: 0;
-			margin-top: 5px;
-			p{
-				font-size: 12px;
 			}
 		}
 	}
@@ -744,406 +915,455 @@ div[class^="about-"]{
 
 /* !!------------------------------------ */
 /* !! ★クロワールアイ・プロ・Q */
-main.croire-eye-pro,main.croire-eye-Q{
+main.eye-Q {
 	
-	.mv{
-		@include bg-img(url(../../product/img/bg02.jpg)); 
-		//$url,$size,$position,$repeat
-		&.q{
-			@include bg-img(url(../../product/img/bg02-q.jpg)); 
-		}
-	}
-	
-	&.croire-eye-Q h2{
-		line-height: 1 !important;
-		padding: 0px !important;
-		border-bottom: 1px solid #ddd;
-	}
-	
+/* !! - 1粒にルテインとゼアキサンチンを配合 */
+
+#sec01{
+	background: #FFEDE5 !important;
+}
+
+.about-rutein2{
 	.idx{
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		&.rev{
-			flex-direction: row-reverse;
-		}
-	}
-	
-	.graf{
-		max-width: 900px;
-		margin: 0 auto;
-		margin-top: 50px;
-		.txt{
-			@include pc{
-				width: 410px;
-				height: 238px;
-						
-			}//@pc
-			p{
-				position: relative;
-				top: 50%;
-				margin-top: -20px;
-				@include transform(translateY(-50%));
-			}
-		}
-	}
-	
-	.img.ac{
-		text-align: center;
-	}
-	
-	p.ac{text-align: center;}
-	
-	
-	
-	h2.bd + p{
-		padding-top: 30px;
-		@include pfix(.7em);
-	}
-	
-	img.KEMIN{
-		vertical-align: middle;
-		position: relative;
-		top: -2px;
-		margin-right: 20px;
-		//top: 50%;
-		//display: inline-block;
-	}
-	
-	.mt30{
-		margin-top: 30px;
-	}
-	
-	.idx.box{
-		dl{
-			max-width: 475px;
-			//width: 100%;
-			margin: 0;
-			dt{
-				position: relative;
-				text-align: center;
-				padding-top: 20px;
-				span{
-					position: absolute;
-					top: 0;left: 0;
-					font-weight: bold;
-					font-size: 2.2rem;
-				}
-			}
-			dd{
-				font-size: 1.6rem;
-				padding-top: 20px;
-				@include pfix(.7em);
-			}
-		}
-	}
-	
-	ul.img-list._200{
-		max-width: 800px;
-	
-		margin: 0 auto;
-		li{
-			width: 200px !important;
-			margin:0 25px;
-			margin-bottom: 30px;
-			&:nth-last-child(-n+3){
-				margin-bottom: 0;
-			}
-			b{
-				font-size: 2rem;
-				font-weight: bold;
-				line-height: 1;
-				display: block;
-				margin-bottom: 20px;
-			}
-			.img{
-				height: auto;
-			}
-		}
-	}
-	
-	ul.more-elem{
-		font-size: 0;
-		text-align: center;
-		@include sp{
-			@include flex;	
-		}//@sp
-		li{
-			display: inline-block;
-			letter-spacing: .1em;
-			margin:0 5px;
-			line-height: 60px;
-			padding: 0 10px;
-			min-width: 133px;
-			text-align: center;
-			font-size: 2rem;
-			font-weight: bold;
+		>div{
 			position: relative;
-			@include sp{
-				height: 50px;
-				@include flex-centering;
-				line-height: 1;
-				width: calc(50% - 2px);
-				margin: 0;
-				margin-bottom: 4px;	
-			}//@sp
-			&.new{
-				&:after{
-					content: "";
-					width: 100%;
-					height: 36px;
-					position: absolute;
-					top: 0;left: 0;
-					@include transform(translateY(-100%));
-					@include bg-img(url(../../product/croire-eye-q/img/dec-NEW.png),auto 100%); //$url,$size,$position,$repeat					
-				}
-			}
+			z-index: 1;
+		}
+		._2{
+			z-index: 2;
+			background: #FFF;
 		}
 	}
-	
-	h2.Q{
-		line-height: 1;
-		padding: 0 !important;
-		font-weight: bold !important;
-		font-size: 26px;
+}
+.eyeball{
+	position: relative;
+	z-index: 1;
+	&:after{
+		content: "";
+		width: 151px;
+		height: 192px;
+		//background: rgba(238, 238, 238, 0.61);
+		position: absolute;
+		right: -103px;
+		bottom: 104px;
+		z-index: 1;
+		@include bg-img(url(/product/croire-eye-q/img/anchor-rutein@2x.png),100% auto); //$url,$size,$position,$repeat			
+	}
+}
+
+//!! - ルテイン・ゼアキサンチンは脳と密接な関係があります。
+
+.about-brain{
+	.inner{
+		position: relative;
+	}
+	.st0
+	{
+		@include bg-img(url(/product/croire-eye-q/img/st0@2x.png)); //$url,$size,$position,$repeat
 		@include flex;
-		justify-content: center;
-		-ms-align-items: center;
 		align-items: center;
-		span{
-			height: 26px;
-			border: 1px solid #000;
-			display: inline-block;
-			font-size: 14px;
-			@include flex-centering;
-			display: -webkit-inline-flex;
-			display: -moz-inline-flex;
-			display: -ms-inline-flex;
-			display: -o-inline-flex;
-			display: inline-flex;
-			padding: 0 10px;
-			margin-left: 10px;
-			border-radius: 4px;
-		}
+		justify-content: flex-start;
+		padding:0 15px;
+		height: 250px;
+	}
+	.eye02{
+		position: relative;
+		left: -80px;
+		top: -20px;
 	}
 	
-	/* !! ----- */
-	/* !! Q */
-	.lead.Q{
-		max-width: 800px;
-		margin: 0 auto;
-		h3{
-			margin: 50px 0 !important;
-			max-width: 1000px;
-			border: none;
-			background: #000;
-			color: #fff;
-			font-size: 26px;
-			@include sp{
-				font-size: 20px;	
-			}//@sp
-			font-weight: 900;letter-spacing: .1em;
-		}
-		.idx{
-			@include flex;
-			@include sp{
-				margin: 0 30px;	
-			}//@sp
-			
-			.inner{
-				>i{
-					position: absolute;
-					width: 50px;height: 50px;@include sp{
-						width: 36px;height: 36px;
-						font-size: 20px;
-					}//@sp
-					position: absolute;
-					top: 0;left: 0;
-					@include transform(translate(-50%,-50%));
-					z-index: 1;
-					background: #000;
-					@include flex-centering;
-					color: #fff;
-					font-weight: 900;
-				}
-				@include pc{
-						width: calc(50% - 25px);
-				}//@pc
-				
-				padding: 30px;
-				@include sp{
-					padding: 20px;
-					margin-bottom: 30px;
-				}//@sp
-				position: relative;
-				border: 1px solid $orange;
-				margin: 0;
-				text-align: justify;
-				
-				h4{
-					font-size: 20px;
-					color: $orange;
-					font-weight: 900;
-					line-height: 1.66;
-				}
-				p{
-					font-size: 16px;
-					text-align: justify !important;
-					margin-top: 15px;
-					@include sp{
-						padding: 0 !important;	
-					}//@sp
-				}
+	.txt{
+		width: 600px;
+		padding-top: 15px;
+		p{
+			&:last-of-type{
+				margin-bottom: 0 !important;
 			}
 		}
-	}//.lead.Q
+	}
 	
-	.graf-sec.Q{
-		background: #ECF6FC;
-		margin-left: -20px;
-		width: 100vw;
-		h2{
-			@include minchou;
-			//border-bottom: 1px solid #777;
+	._3{
+		width: 255px;
+		background: #FFF;
+		border-radius: 6px;
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		z-index: 2;
+		padding: 15px;
+		@include shadow01;
+		ul.normal{
+			font-size: 16px;
+			font-weight: bold;
+			line-height: 1.8;
+			padding-left: 1em;
+			margin-bottom: 1em;
+			span{
+				font-weight: 900 !important;
+				@include NOTO;
+				color: $orange;
+			}
+			span.c2{
+				color: $ruge;
+			}
 		}
-		.idx{
-			justify-content: center;
+	}
+	.label-tag{
+		background: $orange;
+		font-size: 16px !important;
+		height: 30px;
+		border-radius: 50px;
+		@include flex-centering;
+		line-height: 1em;
+		color: #FFF;
+		white-space: nowrap;
+		span{
+			position: relative;
+			top: -1px;
 			
-			.inner{
-				margin: 0 25px !important;
-				h3{
-					margin: 0 !important;
-					background: #BA5D5C;
-					color: #FFF;
-					border: 0;
-					@include sp{
-						font-size: 20*$px;	
-					}//@sp
-				}
-				padding: 0 !important;
-			}			
 		}
-		.txt{
-			text-align: center;
-			margin-top: 15px;
-			@include sp{
-				margin: 0 20px;
-					img{
-						width: 100% !important;
-						height: auto !important;
-					}
-			}//@sp
+	}
+}
+
+span[class^="kana-"]{
+	font-weight: bold;
+	display: inline-block;
+	line-height:.9;
+	padding:9px 10px;
+	letter-spacing: .05em;
+	@include NOTO;
+	@include textshadow;
+}
+.kana-rutein{
+	background: $orange ;
+}
+.kana-zeakisantin{
+	background: $ruge;
+}
+	
+	
+//!! - たった一粒で数多くの栄養素を配合
+	
+#sec02{
+	background: #FFFFD2;
+}
+
+.about-material.hand{
+	max-width: 960px;
+	margin: 0 auto;
+	border-radius: 12px;
+	overflow: hidden;
+	position: relative;
+	height: 376px;
+	.bg-img{
+		position: relative;
+		border-radius: 12px;
+		overflow: hidden;
+		position: absolute;
+		z-index: 0;
+		top: 0;left: 0;
+		width:100%;
+		height:100%;
+		img{
+			width: 100% !important;
+			height: auto !important;
+			position: relative;
+			z-index: 0;
 		}
 	}
 	
+}
+
+.label-tag{
+	background: #333;
+	color: #FFf;
+	@include flex-centering;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 0 15px;
+	border-radius: 50px;
+	&.co1{
+		background: $red;
+	}
+	&.co2{
+		background: #6A068B;
+	}
+	&.co3{
+		background: #0027ff;
+	}
+	&.co4{
+		background: #2e9b3e;
+	}
+}
+
+
+.material-list{
 	
-	/* !!  - about-blue-light */
-	.about-bluelight{
-		padding-bottom: 0;
-		.inner{
-			padding: 0 !important;
+	position: relative;
+	z-index: 1;
+	padding: 30px !important;
+	@include flex;
+	height: 100%;
+	font-weight: 900;
+	.hd{
+		height: 24px;
+		@include flex;
+		justify-content: flex-start;
+		align-items:flex-start;
+		margin-bottom: 10px;
+		.img{
+			height: 100%;
+			width: auto;
+			@include flex-centering;
+			margin-left: 5px;
+		}
+	}
+	
+	p{
+		font-size: 16px;
+		@include NOTO;
+	}
+	
+	>ul{
+		@include flex-centering;
+		justify-content: space-between;
+		align-items: flex-start;
+		
+		li._2{
+			margin-top: 15px;
+			margin-bottom: auto;
+		}
+		._3{
+			width: 100%;
+			height: 50px;
+			.inner{
+				padding: 0;
+				position: relative;
+				height: 100%;
+				ul{
+					position: absolute;
+					bottom: 0;
+					right: 0;
+					width: 130%;
+					@include flex;
+					li{
+						width: 145px;
+						flex-wrap: nowrap;
+						white-space: nowrap;
+					}
+				}
+			}
 		}
 		
-		border: 2px solid #e8e9e9;
-		padding: 0;
-		margin-top: 50px;
-		.hd{
-			margin: 30px 0;
-			@include sp{
-				padding: 0 15px;	
-			}//@sp
-			h3{
-				margin: 0 !important;
-				line-height: 1;
-				font-size: 22px;
-				color: #000;
-				font-weight: 900;
-				width: 100%;
-				border: none;
-				padding: 0;
-				max-width: 1000px;
-				text-align: center;
-				@include sp{
-					font-size: 18px;
-					line-height: 1.5;	
-				}//@sp
-			}
-		}
-		p{
+	}
+	
+	.btm{
+		align-self: flex-end;
+	}
+	
+	ul.normal{
+		font-weight: bold;
+		line-height: 28px;
+		@include NOTO;
+		font-weight: 900;
+		@include textshadow;
+		li{
+			line-height: 1;
 			@include flex;
-			justify-content: center;
-			span{
-				padding:0px 15px;
-				margin: 0 10px;
-				height: 40px;
-				border-radius: 4px;
-				color: #fff;
-				margin-top: 20px;
+			justify-content: flex-start;
+			margin-top: 10px;
+			&:before{
+				content:"●";
+				font-size: .3em;
+				width: 20px;
 				@include flex-centering;
 				display: -webkit-inline-flex;
 				display: -moz-inline-flex;
 				display: -ms-inline-flex;
 				display: -o-inline-flex;
 				display: inline-flex;
-				font-size: 15px;
-				letter-spacing: .1em;
-				font-weight: bold;
-				&._1{
-					background: #CC592A;
-				}
-				&._2{
-					background: #B42A2A;
-				}
+				align-content: center;
 			}
 		}
-		
-		.ft{
-			text-align: center;
-			margin: 30px 0;
-			@include sp{
-				padding: 0 15px;
-			}//@sp
-			h4{
-				display: inline-block;
-				span{
-					border: 1px solid #000;
-					@include flex-centering;
-					font-size: 20px;
-					font-weight: bold;height: 40px;
-				}
-				b{
-					@include pc{
-						white-space: nowrap;	
-					}//@pc
-					
-					letter-spacing: .1em;
-					display: block;
-					margin-top: 15px;
-				}
-			}
-		}
-		
-	}//.about-bluelight
+	}
 	
-	.total{
-		font-size: 26px;
-		text-align: center;
-		line-height: 1.6;
-		font-weight: 900;
-		background: $orange;
-		margin-top: 20px;
-		padding: 20px;
-		color: #FFF;
-		@include sp{
-			font-size: 22px !important;
-			text-align: justify !important;
-		}//@sp
+	.main-seibun{
+		
+		img{
+			display: block;
+			margin: 5px 0;
+			height: 24px !important;
+			width: auto !important;
+		}
+		
+		p{
+			text-shadow: none !important;
+			margin-bottom: 20px !important;
+		}
 	}
 	
 	
-	
-}//main.croire-eye-pro
+}//.material-list
 
+
+.about-material.sub{
+	padding: 30px;
+	max-width: 960px;
+	margin: 0 auto;
+	background: #fff;
+	border-radius: 12px;
+	.inner{
+		padding: 0;
+	}
+	.label-tag{
+		display: inline-block;
+		background: #FF007C;
+	}
+	ul{
+		@include flex;
+		margin-top: 15px;
+		li{
+			width: 80px;
+			height: 100px;
+			@include flex-centering;
+			justify-content: space-between;
+			position: relative;
+			.img{
+				width: 80px;
+				height: 80px;
+				background: #EEE;
+				border-radius: 100px;
+				position: absolute;
+				top: 0px;
+				left: 0;
+				z-index: 0;
+			}
+			*{
+				position: relative;
+				z-index: 1;
+				white-space: nowrap;
+				font-weight: bold;
+				line-height: 1;
+				@include textshadow;
+			}
+			.name{
+				font-size: 14px;
+				i{
+					font-size: .6em;
+					line-height: 1;
+				}
+			}
+			.food{
+				margin-top: auto;
+				font-size: 12px;
+			}
+			.amo{
+				font-size: 13px;
+				margin-top: 5px;
+				i{
+					font-size: 1.4em;
+				}
+			}
+		}
+	}
+}
+
+//!! - 目と脳をサポートする機能性表示食品
+#sec03{
+	
+	background: #E4F5FF !important;
+	
+	
+	.about-seibun{
+		.idx{
+			>div{
+				margin-bottom: 0;
+			}
+		}
+	}
+	
+	//!! - - 届出表示
+	.label-tag{
+		display: -webkit-inline-flex;
+		display: -moz-inline-flex;
+		display: -ms-inline-flex;
+		display: -o-inline-flex;
+		display: inline-flex;
+		min-width: 100px;
+		height: 24px;
+		font-weight: bold;
+		&.eye{
+			background: $orange;
+		}
+		&.brain{
+			background: $ruge;
+		}
+	}
+	.about-todokedehyouji{
+		.idx{
+			>div{
+				width: 50% !important;
+			}
+			._1{
+				padding-right: 30px;
+				border-right: 1px solid #ccc;
+			}
+			._2{
+				padding-left: 30px;
+				strong{
+					color: $ruge;
+				}
+			}
+		}
+		h4{
+			margin-top: 15px;
+			line-height: 1.5;
+			span{
+				font-size: .8em;
+			}
+		}
+		.desc1{
+			height: 8em;
+		}
+		p{
+			font-size: 16px;
+			strong{
+				font-size: 1em;
+				color: $orange;
+			}
+		}
+		.desc2{
+			h4{
+				border: 1px solid #ccc;
+				@include flex-centering;
+				height: 32px;
+				font-size: 18px;
+				span{
+					position: relative;
+					top: -1px;
+					font-size: 1em;
+				}
+			}
+			p{
+				text-align: center ;
+				font-weight: bold;
+				padding: 15px 0;
+				margin-bottom: 0;
+			}
+
+		}
+	}
+	
+}//#sec03
+
+
+	
+}//main.croire-eye-Q
+
+p.plus{
+	text-align: center;
+	margin: 15px 0;
+}
 
 
 /* !!------------------------------------ */
