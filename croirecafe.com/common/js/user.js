@@ -112,11 +112,13 @@ $(function(){
 
 $(function(){
 	
+	
+	
 	$(window).scroll(function () {
 	  	
 	  	var scroll = $(this).scrollTop(); 
 	  	var winH = $(window).innerHeight();
-	  	var inH = window.innerHeight;
+	  	//var inH = window.innerHeight;
 	  	
 	  	if( scroll > 0 ){ 
 		  	$("body").addClass('moved'); 
@@ -132,8 +134,22 @@ $(function(){
 		  	$("body").removeClass("fv_passed")
 	  	}
 	  	
-	  	$(".ec-cartNaviIsset").css("max-height",inH - 80);
-	  	$(".ec-cartNaviIsset__cart-wrap").css("max-height",inH - 120);
+	  	//!! カートボタン領域
+	  	if($("#content-detail")[0]){
+		  	var contentDetailTop = $("#content-detail").offset().top;
+		  	console.log(contentDetailTop);
+		  	if(contentDetailTop){
+			  	if(scroll >= contentDetailTop){
+				  	$("body").addClass("cart-btn-grp_passed")
+			  	}else{
+				  	$("body").removeClass("cart-btn-grp_passed")
+			  	}
+		  	}
+		  	
+	  	}
+	  	
+	  	//$(".ec-cartNaviIsset").css("max-height",inH - 80);
+	  	//$(".ec-cartNaviIsset__cart-wrap").css("max-height",inH - 120);
 /*
 		(function(){
 
@@ -150,6 +166,16 @@ $(function(){
 	  	
 	});
 
+});
+
+$(window).on("load resize",function() {
+	  	
+	  	var inH = window.innerHeight;
+	  	
+	  	$(".ec-cartNaviIsset").css("max-height",inH - 80);
+	  	$(".ec-cartNaviIsset__cart-wrap").css("max-height",inH - 120);
+	  	$("#top-side").css("max-height",inH );
+	
 });
 	
 
@@ -349,10 +375,14 @@ $(function(){
 
 
 /* !!------------------------------------ */
-/* !! SPナビゲ */
+/* !! SPナビゲ-ション */
 $(function(){
 	$("#btn-toggle-menu").on("click",function(){
 		$("body").toggleClass("sp-menu-shown");
+		var cartWindow = $(".ec-cartNaviIsset.is-active");
+		if(cartWindow[0]){
+			$(".ec-cartNavi__icon").click();
+		}
 	})
 });
 
@@ -744,6 +774,10 @@ var generateProdInfo =( function generateProdInfo(data) {
 			$(".cart-url-base").attr("data-url",item.url.base);
 		}
 		$(".cart-price-try").html(item.price.try);
+		if(!item.url.try[0]){
+			$(".try-price-wrap").remove();	
+		}
+
 		if(item.coupon_code[0]){
 			$(".cart-coupon-code").html(item.coupon_code);
 		}

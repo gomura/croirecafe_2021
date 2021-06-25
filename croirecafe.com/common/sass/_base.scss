@@ -129,6 +129,45 @@ body.showBlk *:before {
 	text-shadow:0px 2px 1px $color, 0px 1px 1px $color, 1px 1px 1px $color, 1px 0px 1px $color, 2px 0px 1px $color, 1px -1px 1px $color, 1px -2px 1px $color,0px -2px 1px $color, -1px -2px 1px $color, -2px -2px 1px $color, -2px -1px 1px $color, -2px 0px 1px $color, -2px 1px 1px $color, -1px 1px 1px $color
 }
 
+//!! - 三角
+@mixin triangle($dir:b-r,$size:30px,$color:#fff){
+	width: 0;
+	height: 0;
+	border: $size solid ;
+	$top:transparent;
+	$right:transparent;
+	$bottom:transparent;
+	$left:transparent;
+	@if ($dir == b-r) {
+		$right:$color;
+		$bottom:$color;
+	} @else if ($dir == b-l) {
+		$left:$color;
+		$bottom:$color;
+	} @else if ($dir == t-l) {
+		$left:$color;
+		$top:$color;
+	} @else if ($dir == t-r) {
+		$right:$color;
+		$top:$color;
+	}@else if ($dir == l) {
+		$right:$color;
+	} @else if ($dir == r) {
+		$left:$color;
+	} @else if ($dir == t) {
+		$bottom:$color;
+	} @else if ($dir == b) {
+		$top:$color;
+	}
+	
+	border-color: $top $right $bottom $left;
+}
+
+//!! マーカー
+@mixin line($color: #ff0, $height: 65%){
+  background: linear-gradient(transparent $height, $color 0%);
+  display: inline;
+}
 
 /* !! - - -  */
 /* !! 構造 */
