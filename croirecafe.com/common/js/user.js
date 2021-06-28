@@ -168,6 +168,79 @@ $(function(){
 
 });
 
+
+/* !!------------------------------------ */
+/* !! スムーズスクロール */
+/* !!------------------------------------ */
+/* !! スムーススクロール */
+/* !!------------------------------------ */
+
+$(function(){
+	
+	$('body').on('click','a[href^="#"]',function(){
+		var speed = 1200;
+		var href= $(this).attr("href");
+		var target = $(href == "#" || href == "" ? 'html' : href);
+		if(is_mobile){
+			var margin = 60 ;
+			
+			if(target.data("sp-gap")){
+				margin = target.data("sp-gap") ;
+			}
+			var position = target.offset().top - margin;
+		}
+		else{
+			var margin = 80;
+			if(target.data("gap")){
+				margin = target.data("gap") ;
+			}
+			var position = target.offset().top - margin;
+		}
+		
+		if($(this).is(".gnav .index a") && mobile ){
+			speed = 0;
+		}
+		
+		$("html, body").delay(0).animate({scrollTop:position},speed,"slowdown",function(){
+			$("html,body,#container").removeClass("menu_on");
+			if($(window).scrollTop() == 0 ){
+				$("h1").removeClass("hide");
+				
+			}
+		});
+		
+		return false;
+	});
+});
+
+//!!　外部からのリンク対策
+$(function(event){
+	//this.event.preventDefault();
+	var str = location.href
+	var str = str.split("#");
+	var margin = !mobile ? 92 : 50 ;
+	
+	if(str[1]){
+		$("#main").addClass("hide");
+		$(window).load(function() {
+			//alert(margin)
+			$("#main").removeClass("hide");
+			var pos = $("#"+str[1]).offset().top - margin;
+			$("html, body").animate({scrollTop:pos},500,function(){
+				$("#shade").fadeOut(1000,function(){
+					$("#shade").remove();
+				});
+			});
+		});	
+	}
+
+});
+
+
+
+
+
+
 $(window).on("load resize",function() {
 	  	
 	  	var inH = window.innerHeight;

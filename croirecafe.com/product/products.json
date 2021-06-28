@@ -13,10 +13,14 @@
 		"name": "プレミアムクロワール茶",
 		"name_disp": "プレミアムクロワール茶",
 		"desc_short": "お子様からご年配の方までご安心して飲める健康茶。",
-		"desc_long": "驚きの活性酸除去酵素を含有。こだわり厳選された4種の茶葉をブレンド。",
+		"desc_long": "活性酸素を除去する酵素SO値が豊富。こだわりの4種の茶葉をブレンド。",
 		"tag": [
 			{
 				"txt": "1袋25包入",
+				"color": "light"
+			},
+			{
+				"txt": "1包で500mlペットボトル6本分",
 				"color": "light"
 			}
 		],
@@ -24,7 +28,7 @@
 			"base": "2,786",
 			"teiki1": "1,950",
 			"teiki2": "2,368",
-			"try": "1,990",
+			"try": "2,507",
 			"diff": "6,688"
 		},
 		"disc_rate":["30","15"],
@@ -69,7 +73,7 @@
 			"base": "5,554",
 			"teiki1": "3,054",
 			"teiki2": "3,888",
-			"try": "3,980",
+			"try": "4,998",
 			"diff": "11,664"
 		},
 		"disc_rate":["45","30"],
@@ -114,7 +118,7 @@
 			"base": "3,980",
 			"teiki1": "2,786",
 			"teiki2": "3,383",
-			"try": "1,980",
+			"try": "3,582",
 			"diff": "9,552"
 		},
 		"coupon_code":"0581",
@@ -155,7 +159,7 @@
 			"base": "2,700",
 			"teiki1": "1,890",
 			"teiki2": "2,295",
-			"try": "1,980",
+			"try": "2,430",
 			"diff": "6,480"
 		},
 		"coupon_code":"0569",
@@ -177,11 +181,11 @@
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/na.png",
-		"label_url": "/product/img/label/label-n-ase.png",
+		"label_url": "/product/img/label/label-Nase@2x.png",
 		"name": "Nアセチルグルコサミンロコモディ+B",
 		"name_disp": "Nアセチルグルコサミン<br />ロコモディ+B",
 		"desc_short": "関節成分と筋肉成分を配合。",
-		"desc_long": "通常のグルコサミンの3倍吸収率。関節成分と筋肉成分を配合した、関節・筋肉・骨のためのサプリメント。",
+		"desc_long": "通常のグルコサミンの3倍吸収率。関節・筋肉・骨のためのサプリメント。",
 		"tag": [
 			{
 				"txt": "1袋90粒入",
@@ -196,7 +200,7 @@
 			"base": "3,780",
 			"teiki1": "2,646",
 			"teiki2": "3,213",
-			"try": "2,480",
+			"try": "3,402",
 			"diff": "9,072"
 		},
 		"coupon_code":"0570",
@@ -218,11 +222,11 @@
 			"alt":""
 		},
 		"thumb_url": "/product/img/thumbnail/q10.png",
-		"label_url": "/product/img/label/label-q10.png",
+		"label_url": "/product/img/label/label-q10@2x.png",
 		"name": "クロワール 還元型コエンザイムQ10",
 		"name_disp": "クロワール<br />還元型コエンザイムQ10",
 		"desc_short": "1粒に5つの元気成分をぎゅっと凝縮。",
-		"desc_long": "通常のコエンザイムQ10の3倍吸収率。1粒に5つの元気成分を贅沢に配合。",
+		"desc_long": "体を動かすエネルギーを作り出す成分。1粒に5つの元気成分を贅沢に配合。",
 		"tag": [
 			{
 				"txt": "1袋30粒入",
@@ -237,7 +241,7 @@
 			"base": "3,402",
 			"teiki1": "2,381",
 			"teiki2": "2,891",
-			"try": "2,480",
+			"try": "3,061",
 			"diff": "9,072"
 		},
 		"coupon_code":"0554",
@@ -278,7 +282,7 @@
 			"base": "3,456",
 			"teiki1": "2,419",
 			"teiki2": "2,937",
-			"try": "2,560",
+			"try": "3,110",
 			"diff": "8,300"
 		},
 		"disc_rate":["30","15"],
@@ -354,13 +358,13 @@
 			"base": "3,850",
 			"teiki1": "",
 			"teiki2": "",
-			"try": "",
+			"try": "3,465",
 			"diff": ""
 		},
 		"url": {
 			"base": "/products/detail/42",
 			"teiki": "",
-			"try": ""
+			"try": "/products/detail/127"
 		},
 		"delivery_fee":"231"
 	}

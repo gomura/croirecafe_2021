@@ -287,6 +287,9 @@ h2.sec{
 	box-sizing: border-box;
 	line-height: 1;
 	height: 54px;
+	@include flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .btn.more{
@@ -321,12 +324,13 @@ h2.sec{
 }
 
 a.ec-blockBtn--cancel,
-a.ec-blockBtn--primary{
+a.ec-blockBtn--primary,
+.ec-inlineBtn{
 	@include flex;
 	justify-content: center;
 	align-items: center;
 	@extend %btn_L;
-	font-size: 16px;
+	font-size: 16px !important;
 	letter-spacing: .1em;
 	text-decoration: none !important;
 	background: #c7e0f7 !important;
@@ -334,6 +338,12 @@ a.ec-blockBtn--primary{
 	font-weight: bold;
 	color: $blue !important;
 	min-width: 200px;
+	font-weight: bold !important;
+	display: -webkit-flex !important;
+	display: -moz-flex !important;
+	display: -ms-flex !important;
+	display: -o-flex !important;
+	display: flex !important;
 	i{
 		margin-right: 5px;
 	}
@@ -1459,8 +1469,14 @@ ul.rank{
 
 /* !! - - -  */
 /* !! クロワールシリーズ一覧 */
-
+#page_user_data #croire-index{
+	@include sp{
+		width: 100% !important;
+		padding: 15*$px !important;
+	}//@sp
+}
 .products-list{
+	max-width: 100%;
 	@include flex;
 	@include sp{
 		padding: 0 10*$px;	
@@ -1830,13 +1846,21 @@ ul.payment-delivery{
 	display: flex;
 	justify-content: center;
 	background: rgba($yellow,0.3);
+	
 	padding: 100px 50px;
 	margin: 0 auto;
-		margin-top: 100px;
+	margin-top: 100px;
+	@include sp{
+		padding:30px 15*$px;	
+	}//@sp
 
 	>div{
-		width: 264px;
-		margin: 0 10px;
+		@include pc{
+			width: 264px;	
+			margin: 0 10px;
+		}//@pc
+		
+		
 		border-bottom: 1px dotted #ccc;
 		&.nb{
 			border-bottom: 0 !important;
@@ -3140,6 +3164,8 @@ main.payment{
 				i{
 					font-size: 18px;
 					line-height: 1;
+					position: relative;
+					top: -1px;
 				}
 			}
 		}
@@ -5991,6 +6017,64 @@ body.type_teiki,body.otameshi_10{
 /* !!------------------------------------ */
 /* !! マイページ */
 
+/* !! - - -  */
+/* !! ナビゲーション */
+.ec-navlistRole__navlist{
+	//border: none !important;
+	border-radius: 12px;
+	border-width: 2px !important;
+	@include sp{
+		border: none !important;
+		@include flex;
+	}//@sp
+	li{
+		
+		//background: #eee;
+		//border-radius: 12px;
+		//width: 120px !important;
+		//height: 120px;
+		@include pc{
+			border: none !important;
+			border-right: 2px solid #eee !important; 
+			&:last-of-type{border-right: 0 !important;}
+				
+		}//@pc
+		@include sp{
+			border: none !important;
+			border: 1px solid #ddd !important;
+			border-radius: 6px;
+			width: calc(50% - 2px)!important;
+			margin-bottom: 4px;
+		}//@pc
+		a{
+			font-size: 14px !important;
+			font-weight: bold;
+			white-space: nowrap;
+			width:100%;
+			height:100%;
+			@include flex-centering;
+			display: -webkit-flex !important;
+			display: -moz-flex !important;
+			display: -ms-flex !important;
+			display: -o-flex !important;
+			display: flex !important;
+			@include sp{
+				flex-direction: row !important;
+				align-content: center !important;
+			}//@sp
+			&:before{
+				display: block;
+				margin-bottom: 10px;
+				font-size: 1.5em;
+				font-weight: normal;
+				@include sp{
+					margin-bottom: 0;
+					margin-right: 10px;
+				}//@sp
+			}
+		}
+	}
+}
 
 /* !! - - -  */
 /* !! ご注文履歴 */
@@ -6000,6 +6084,12 @@ body.type_teiki,body.otameshi_10{
 	display: none !important;
 }
 
+
+.ec-historyListHeader__action{
+	.ec-inlineBtn{
+		
+	}
+}
 
 #teikiRepurchase{
 	&-inner{

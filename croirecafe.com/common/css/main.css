@@ -296,7 +296,8 @@ h2.sec, .ec-pageHeader {
 /* !! - - -  */
 /* !! ボタン */
 a.ec-blockBtn--cancel,
-a.ec-blockBtn--primary, #top-side .side-item > a, .ec-login__actions .ec-blockBtn--cancel, .ec-cartRole__actions .ec-blockBtn--action, .ec-blockBtn--cancel, .ec-inlineBtn {
+a.ec-blockBtn--primary,
+.ec-inlineBtn, #top-side .side-item > a, .ec-login__actions .ec-blockBtn--cancel, .ec-cartRole__actions .ec-blockBtn--action, .ec-blockBtn--cancel {
   width: 100%;
   height: 54px !important;
   -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
@@ -308,11 +309,13 @@ a.ec-blockBtn--primary, #top-side .side-item > a, .ec-login__actions .ec-blockBt
   background: #eee;
   font-size: 16px; }
   
-  a.ec-blockBtn--primary:hover, #top-side .side-item > a:hover, .ec-cartRole__actions .ec-blockBtn--action:hover, .ec-blockBtn--cancel:hover, .ec-inlineBtn:hover {
+  a.ec-blockBtn--primary:hover,
+  .ec-inlineBtn:hover, #top-side .side-item > a:hover, .ec-cartRole__actions .ec-blockBtn--action:hover, .ec-blockBtn--cancel:hover {
     -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
             box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4); }
   
-  a.ec-blockBtn--primary:active, #top-side .side-item > a:active, .ec-cartRole__actions .ec-blockBtn--action:active, .ec-blockBtn--cancel:active, .ec-inlineBtn:active {
+  a.ec-blockBtn--primary:active,
+  .ec-inlineBtn:active, #top-side .side-item > a:active, .ec-cartRole__actions .ec-blockBtn--action:active, .ec-blockBtn--cancel:active {
     -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
 
@@ -338,7 +341,30 @@ a.ec-blockBtn--primary, #top-side .side-item > a, .ec-login__actions .ec-blockBt
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   line-height: 1;
-  height: 54px; }
+  height: 54px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
   .ec-blockBtn--action:hover, #product-wrap .row-cart-setion button.add-cart:hover {
     -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
             box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4); }
@@ -396,7 +422,8 @@ a.ec-blockBtn--primary, #top-side .side-item > a, .ec-login__actions .ec-blockBt
   display: none !important; }
 
 a.ec-blockBtn--cancel,
-a.ec-blockBtn--primary {
+a.ec-blockBtn--primary,
+.ec-inlineBtn {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -420,16 +447,23 @@ a.ec-blockBtn--primary {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 16px;
+  font-size: 16px !important;
   letter-spacing: .1em;
   text-decoration: none !important;
   background: #c7e0f7 !important;
   border: 2px solid #fff;
   font-weight: bold;
   color: #228BAF !important;
-  min-width: 200px; }
+  min-width: 200px;
+  font-weight: bold !important;
+  display: -webkit-flex !important;
+  display: -moz-flex !important;
+  display: -ms-flex !important;
+  display: -o-flex !important;
+  display: flex !important; }
   a.ec-blockBtn--cancel i,
-  a.ec-blockBtn--primary i {
+  a.ec-blockBtn--primary i,
+  .ec-inlineBtn i {
     margin-right: 5px; }
 
 /* !! - - -  */
@@ -1855,7 +1889,13 @@ ul.rank {
 
 /* !! - - -  */
 /* !! クロワールシリーズ一覧 */
+@media screen and (max-width: 767px) {
+  #page_user_data #croire-index {
+    width: 100% !important;
+    padding: 4.005vw !important; } }
+
 .products-list {
+  max-width: 100%;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -2354,10 +2394,15 @@ ul.payment-delivery {
   padding: 100px 50px;
   margin: 0 auto;
   margin-top: 100px; }
+  @media screen and (max-width: 767px) {
+    #page-footer {
+      padding: 30px 4.005vw; } }
   #page-footer > div {
-    width: 264px;
-    margin: 0 10px;
     border-bottom: 1px dotted #ccc; }
+    @media screen and (min-width: 768px) {
+      #page-footer > div {
+        width: 264px;
+        margin: 0 10px; } }
     #page-footer > div.nb {
       border-bottom: 0 !important; }
     #page-footer > div .hd {
@@ -3776,7 +3821,9 @@ main.payment p.img {
                 align-items: center; }
         #product-wrap .product-cart-inner .label-tag .price i {
           font-size: 18px;
-          line-height: 1; }
+          line-height: 1;
+          position: relative;
+          top: -1px; }
     #product-wrap .product-cart-inner .row-sbsc-price1, #product-wrap .product-cart-inner .row-try-price {
       background: #FDF894;
       padding: 15px 20px;
@@ -6702,6 +6749,89 @@ select[id$=_shippingDeliveryDate] span {
 /* !!------------------------------------ */
 /* !! マイページ */
 /* !! - - -  */
+/* !! ナビゲーション */
+.ec-navlistRole__navlist {
+  border-radius: 12px;
+  border-width: 2px !important; }
+  @media screen and (max-width: 767px) {
+    .ec-navlistRole__navlist {
+      border: none !important;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      -o-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+              justify-content: space-between; } }
+  @media screen and (min-width: 768px) {
+    .ec-navlistRole__navlist li {
+      border: none !important;
+      border-right: 2px solid #eee !important; }
+      .ec-navlistRole__navlist li:last-of-type {
+        border-right: 0 !important; } }
+  @media screen and (max-width: 767px) {
+    .ec-navlistRole__navlist li {
+      border: none !important;
+      border: 1px solid #ddd !important;
+      border-radius: 6px;
+      width: calc(50% - 2px) !important;
+      margin-bottom: 4px; } }
+  .ec-navlistRole__navlist li a {
+    font-size: 14px !important;
+    font-weight: bold;
+    white-space: nowrap;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: -webkit-flex !important;
+    display: -moz-flex !important;
+    display: -ms-flex !important;
+    display: -o-flex !important;
+    display: flex !important; }
+    @media screen and (max-width: 767px) {
+      .ec-navlistRole__navlist li a {
+        -webkit-box-orient: horizontal !important;
+        -webkit-box-direction: normal !important;
+        -webkit-flex-direction: row !important;
+            -ms-flex-direction: row !important;
+                flex-direction: row !important;
+        -webkit-align-content: center !important;
+            -ms-flex-line-pack: center !important;
+                align-content: center !important; } }
+    .ec-navlistRole__navlist li a:before {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.5em;
+      font-weight: normal; }
+      @media screen and (max-width: 767px) {
+        .ec-navlistRole__navlist li a:before {
+          margin-bottom: 0;
+          margin-right: 10px; } }
+
+/* !! - - -  */
 /* !! ご注文履歴 */
 #summary_box__add_point {
   display: none !important; }
@@ -6831,7 +6961,7 @@ select[id$=_shippingDeliveryDate] span {
     width: 100%; }
   .col-sm-12 {
     padding: 0 !important; }
-  .img img {
+  .img img:not(.st) {
     max-width: 100%;
     height: auto; }
   img {
@@ -8176,7 +8306,7 @@ select[id$=_shippingDeliveryDate] span {
       main.single section.bg-GR .inner {
         max-width: 1000px;
         margin: 0 auto; }
-    main.single .img img {
+    main.single .img img:not(.st) {
       width: 100% !important;
       height: auto !important; }
     main.single .note {

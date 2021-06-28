@@ -48,7 +48,7 @@ main .inner{
 }
 
 .img{
-	img{
+	img:not(.st){
 		max-width: 100%;
 		height: auto;
 	}
@@ -1657,7 +1657,7 @@ main.single{
 	}
 	
 	.img{
-		img{
+		img:not(.st){
 			width: 100% !important;
 			height: auto !important;
 		}
