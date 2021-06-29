@@ -10,10 +10,11 @@
 		},
 		"thumb_url": "/product/img/thumbnail/croiretea.png",
 		"label_url": "/product/img/label/label-croiretea.png",
+		"content_img_url" : "/product/img/content/tea.png",
 		"name": "プレミアムクロワール茶",
 		"name_disp": "プレミアムクロワール茶",
 		"desc_short": "お子様からご年配の方までご安心して飲める健康茶。",
-		"desc_long": "活性酸素を除去する酵素SO値が豊富。こだわりの4種の茶葉をブレンド。",
+		"desc_long": "活性酸素を除去する酵素SOD値が豊富。こだわりの4種の茶葉をブレンド。",
 		"tag": [
 			{
 				"txt": "1袋25包入",
@@ -32,7 +33,7 @@
 			"diff": "6,688"
 		},
 		"disc_rate":["30","15"],
-		"coupon_code":"0561",
+		"coupon_code":"",
 		"url": {
 			"base": "/products/detail/56",
 			"teiki": "/products/detail/120",
@@ -51,21 +52,18 @@
 		},
 		"thumb_url": "/product/img/thumbnail/pb12.png",
 		"label_url": "/product/img/label/label-pb12.png",
+		"content_img_url" : "/product/img/content/pb12.png",
 		"name": "クロワールプロバイオティクス12",
 		"name_disp": "クロワール<br />プロバイオティクス12",
 		"desc_short": "全12種類の生きた善玉菌を1粒に250億個配合",
 		"desc_long": "乳酸菌8種類とビフィズス菌4種類　250億個を1粒に配合！<strong>独自製法</strong>で小腸・大腸まで生きたまま届く。",
 		"tag": [
 			{
-				"txt": "1本60包入",
-				"color": "light"
-			},
-			{
 				"txt": "1日1粒目安",
 				"color": "light"
 			},
 			{
-				"txt": "約2ヶ月分",
+				"txt": "1本60日分",
 				"color": "light"
 			}
 		],
@@ -96,6 +94,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/eye-q.png",
 		"label_url": "/product/img/label/label-eye-q.png",
+		"content_img_url" : "/product/img/content/Q.png",
 		"name": "クロワールアイ・Q",
 		"name_disp": "クロワールアイ・Q",
 		"desc_short": "目と脳の健康をWサポートする機能性表示食品。",
@@ -141,10 +140,11 @@
 		},
 		"thumb_url": "/product/img/thumbnail/midori.png",
 		"label_url": "/product/img/label/label-midori.png",
+		"content_img_url" : "/product/img/content/midori.png",
 		"name": "緑のDHA&EPA+ゴールデンユーグレナ",
 		"name_disp": "緑のDHA&EPA<br /><i>+ゴールデンユーグレナ</i>",
 		"desc_short": "時代は魚由来から植物由来へ。",
-		"desc_long": "NASAの開発から生まれた植物性のDHA・EPA。こだわりの製法で作った安全安心の品質。",
+		"desc_long": "NASAの開発から生まれた植物由来（藻）のDHA・EPA。こだわりの製法で作った安全安心の品質。",
 		"tag": [
 			{
 				"txt": "1袋90粒入",
@@ -182,9 +182,10 @@
 		},
 		"thumb_url": "/product/img/thumbnail/na.png",
 		"label_url": "/product/img/label/label-Nase@2x.png",
+		"content_img_url" : "/product/img/content/NA.png",
 		"name": "Nアセチルグルコサミンロコモディ+B",
 		"name_disp": "Nアセチルグルコサミン<br />ロコモディ+B",
-		"desc_short": "関節成分と筋肉成分を配合。",
+		"desc_short": "関節・筋肉・骨のための成分を配合。",
 		"desc_long": "通常のグルコサミンの3倍吸収率。関節・筋肉・骨のためのサプリメント。",
 		"tag": [
 			{
@@ -223,6 +224,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/q10.png",
 		"label_url": "/product/img/label/label-q10@2x.png",
+		"content_img_url" : "/product/img/content/Q10.png",
 		"name": "クロワール 還元型コエンザイムQ10",
 		"name_disp": "クロワール<br />還元型コエンザイムQ10",
 		"desc_short": "1粒に5つの元気成分をぎゅっと凝縮。",
@@ -264,6 +266,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/gold.png",
 		"label_url": "/product/img/label/label-gold.png",
+		"content_img_url" : "/product/img/content/gold.png",
 		"name": "クロワールゴールド",
 		"name_disp": "クロワールゴールド",
 		"desc_short": "アフリカ紅茶とメシマコブを1粒に凝縮",
@@ -305,6 +308,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/wahaha.png",
 		"label_url": "/product/img/label/label-wahaha.png",
+		"content_img_url" : "",
 		"name": "魔法のワハハ歯ブラシ（3本セット）",
 		"name_disp": "魔法のワハハ歯ブラシ<br /><i>（3本セット）</i>",
 		"desc_short": "磨き残しゼロを目指した歯ブラシ。",
@@ -319,7 +323,7 @@
 			"base": "1,650",
 			"teiki1": "",
 			"teiki2": "",
-			"try": "1485",
+			"try": "1,485",
 			"diff": ""
 		},
 		"coupon_code":"0518",
@@ -342,6 +346,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/coat65.png",
 		"label_url": "/product/img/label/label-coat.png",
+		"content_img_url" : "",
 		"name": "薬用はみがきクロワールコート65g",
 		"name_disp": "薬用はみがき<br />クロワールコート65g",
 		"desc_short": "発泡剤・研磨剤不使用。",

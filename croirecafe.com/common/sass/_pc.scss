@@ -449,37 +449,55 @@ a.ec-blockBtn--primary,
 	}
 }
 
-//メニュー右
+//!! メニュー右
 .ec-headerNaviRole__right{
 	width: auto !important;
 	.ec-headerNav{
+// 		/margin-right: 10px;
 		@include flex;
 		@include sp{
 			display: none;	
 		}//@sp
 		.header-item,.ec-headerNav__item{
-			margin: 0 10px;
+			margin-right: 10px;
 			a{
 				@include flex-centering;
+				background: #EEE;
+				padding: 6px;
+				border-radius: 6px;
+				width: 100px;
+				height: 60px;
+				text-shadow: 0px 2px 3px rgba(0, 0, 0, .4);
 				&:hover{
 					i,span{
-						color: $lite-blue !important;	
+						//color: $lite-blue !important;	
 					}
 				}
 				i{
 					margin: 0;
 					margin-bottom: 6px;
 					font-size: 18px !important;
-					color: $blue !important;
+					//color: $blue !important;
+					color: #FFF !important;
 				}
 				span{
-					font-size: 14px;
-					font-weight: bold;
+					font-size: 13px;
+					font-weight: 900;
 					letter-spacing: .05em;
 					margin: 0;
-					color: $blue !important;
+					//color: $blue !important;
+					color: #FFF !important;
 				}
 			}
+		}
+		.entry a{
+			background: rgba($orange,.8);
+		}
+		.mypage_favorite a{
+			background: rgba($yellow,.99);
+		}
+		.mypage_login a{
+			background: rgba($blue,.8) !important;
 		}
 	}
 	
@@ -616,6 +634,13 @@ a.ec-blockBtn--primary,
 		@include flex;
 		align-content: center;
 		font-size: 16px !important;
+		
+		@include pc{
+			height: 60px;
+			border-radius: 6px;
+			background: rgba($pink,.1);	
+		}//@pc
+		
 		>a{
 			display: none !important;
 		}
@@ -920,9 +945,10 @@ ul.category-nav{
 	}//@sp
 	.disp-user-name{
 		height: 80px;
-		border: 2px solid #ddd;
+		//border: 2px solid #ddd;
 		border-radius: 12px;
 		@include flex-centering;
+		background: rgba(253, 211, 60, 0.34);
 		p{
 			font-size: 15px;
 			white-space: nowrap;
@@ -1776,7 +1802,7 @@ ul.payment-delivery{
 		border: 2px solid #ddd;
 		@include sp{
 			padding: 15*$px;
-			width: 100%;
+			width: 120%;
 			margin-bottom: 15*$px;
 			position: relative;
 		}//@sp
@@ -1784,8 +1810,14 @@ ul.payment-delivery{
 			width: 100px;
 			height: 100px;
 			border-radius: 50%;
-			background: #ddd;
+			background: rgba(253, 211, 60, 0.56);
 			margin: 0 auto 20px auto;
+			@include flex-centering;
+			img{
+				width: 110% !important;
+				height: auto !important;
+				max-width: 1000px;
+			}
 			@include sp{
 				position: absolute;
 				width: 50px;
@@ -1818,9 +1850,10 @@ ul.payment-delivery{
 			@include sp{
 				font-size: 12px;	
 			}//@sp
-			
+			margin-bottom: 0 !important;
 		}
 		.btn{
+			display: none;
 			margin-top: auto;
 			margin-bottom: 0;
 			background: rgba($yellow,0.3);
@@ -2953,7 +2986,7 @@ main.payment{
 			}
 		}
 		>img{
-			height: 82%;
+			height: 70%;
 			width: auto;
 			position: relative;
 			z-index: 1;
@@ -2961,6 +2994,31 @@ main.payment{
 				height: 75%;	
 			}//@sp
 		}
+		.content-img{
+			background: #fff;
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			width: 110px;
+			height: 110px;
+			border-radius: 300px;
+			z-index: 2;
+			opacity: 1;
+			@include flex-centering;
+			@include sp{
+				$sz : 80*$px;
+				width: $sz;
+				height: $sz;
+				bottom: 20*$px;
+				right: 20*$px;
+			}//@sp
+			img{
+				width: 200% !important;
+				height: 200% !important;
+				max-width: 1000px;
+			}
+		}
+
 	}
 	
 	//!! - カートボタン表示部
@@ -3368,6 +3426,7 @@ main.payment{
 			margin-top: 15px;
 			@include flex;
 			justify-content: flex-end;
+			font-size: 12px;
 			@include sp{
 				padding: 0 10*$px;
 				justify-content: space-between;	
@@ -3399,6 +3458,7 @@ main.payment{
 			padding: 20px 0;
 			padding-top: 15px;
 			height: 100%;
+
 			.ec-numberInput{
 				pointer-events: none;
 				opacity: .5;
@@ -3458,6 +3518,7 @@ main.payment{
 		.row-cart-setion{
 			margin-top: auto;
 			margin-bottom: 0;
+			margin-top: 20px;
 			form{
 				height: 54px;
 			}
@@ -3618,6 +3679,7 @@ main.payment{
 		margin-bottom: 0;
 		margin-top: 5px;
 		font-size: 14px;
+		display: none;
 		@include sp{
 			margin: 15*$px 0 10*$px 0;
 			
@@ -3690,6 +3752,9 @@ main.payment{
 
 
 /* !! 特別クーポン */
+.row-coupon-code{
+	display: none;
+}
 .couponCode{
 	border: 2px solid $red;
 	border-radius: 4px;
@@ -6188,4 +6253,45 @@ body.type_teiki,body.otameshi_10{
 }
 
 
+/* !!------------------------------------ */
+/* !! お届けコース */
+main.page.course{
+	@include sp{
+		margin:0 15*$px;
+		padding: 15*$px !important;	max-width: 100%;
+		.txt{
+			text-align: left !important;
+			
+		}
+		.merit{
+			li{
+				padding-right: 0 !important;
+			}
+		}
+	}//@sp
+}
 
+
+
+/* !!------------------------------------ */
+/* !! プライバシーポリシー */
+
+
+.privacy-wrap{
+	p{
+		font-size: 16px;
+		line-height: 1.66;
+	}
+	
+	h2{
+		font-size: 20px;
+		font-weight: bold;
+		margin: 1em 0 .5em;
+		text-align: left;
+	}
+	
+	ol{
+		list-style: decimal;
+		margin-left: 1.5em;
+	}
+}

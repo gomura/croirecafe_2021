@@ -172,8 +172,6 @@ $(function(){
 /* !!------------------------------------ */
 /* !! スムーズスクロール */
 /* !!------------------------------------ */
-/* !! スムーススクロール */
-/* !!------------------------------------ */
 
 $(function(){
 	
@@ -214,28 +212,6 @@ $(function(){
 });
 
 //!!　外部からのリンク対策
-$(function(event){
-	//this.event.preventDefault();
-	var str = location.href
-	var str = str.split("#");
-	var margin = !mobile ? 92 : 50 ;
-	
-	if(str[1]){
-		$("#main").addClass("hide");
-		$(window).load(function() {
-			//alert(margin)
-			$("#main").removeClass("hide");
-			var pos = $("#"+str[1]).offset().top - margin;
-			$("html, body").animate({scrollTop:pos},500,function(){
-				$("#shade").fadeOut(1000,function(){
-					$("#shade").remove();
-				});
-			});
-		});	
-	}
-
-});
-
 
 
 
@@ -806,8 +782,13 @@ var generateProdInfo =( function generateProdInfo(data) {
 		if(item.label_url[0]){
 			html += '<div class="label"><img src="'+item.label_url+'"/></div>';
 		}
+		if(item.content_img_url[0]){
+			html += '<div class="content-img "><img src="'+item.content_img_url+'" width="" height="" alt="" /></div>';
+		}
 		html += '<img src="'+item.thumb_url+'" />';
+		
 		$('.product-img').attr('data-pcode',item.pcode).append(html);
+
 		
 		//カートヘッダー
 		html = "";
@@ -864,7 +845,8 @@ var generateProdInfo =( function generateProdInfo(data) {
 			var This = $(this);
 			loadCartBtn(This,This.data("url"));
 		});
-	} 
+	}
+	
 	
 });
 

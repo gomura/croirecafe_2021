@@ -83,6 +83,8 @@ p {
     display: block; }
     #content-detail.new .img img.st.l {
       margin: 0; }
+  #content-detail.new .ib {
+    display: inline-block; }
   #content-detail.new p.reference {
     font-size: 13px !important;
     line-height: 1.1;
@@ -589,7 +591,8 @@ p {
       #content-detail.new #onayami .osusume-list.s li {
         margin-bottom: 15px !important;
         width: 100%;
-        font-size: 18px; }
+        font-size: 18px;
+        background: rgba(73, 232, 229, 0.46); }
     #content-detail.new #onayami .osusume-list.column-3 li {
       width: calc((100% - 60px) / 3); }
       @media screen and (max-width: 767px) {
@@ -785,7 +788,8 @@ p {
           background: #fff;
           padding: 30px;
           border-radius: 12px;
-          width: 465px; }
+          width: 465px;
+          position: relative; }
           @media screen and (max-width: 767px) {
             #content-detail.new section.sec div[class*="about-"].idx > div {
               padding: 3.204vw;
@@ -1212,6 +1216,10 @@ p {
     text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff; }
     #content-detail.new .rutein-zeakisantin strong, #content-detail.new .main-seibun-ttl strong {
       font-weight: 900 !important; }
+    #content-detail.new .rutein-zeakisantin .label-tag, #content-detail.new .main-seibun-ttl .label-tag {
+      text-shadow: none;
+      margin-bottom: 10px;
+      background: #FF0000; }
     #content-detail.new .rutein-zeakisantin._2, #content-detail.new .main-seibun-ttl._2 {
       -webkit-box-align: center;
       -webkit-align-items: center;
@@ -1443,21 +1451,26 @@ p {
       max-width: 960px;
       margin: 0 auto;
       margin-bottom: 30px; }
-      #content-detail.new #sec-ingredients .nutrient th {
-        background: rgba(253, 211, 60, 0.21); }
+      @media screen and (max-width: 767px) {
+        #content-detail.new #sec-ingredients .nutrient th {
+          font-size: 12px !important; } }
     #content-detail.new #sec-ingredients table {
       border-radius: 12px;
       background: #fff;
+      width: 100%;
       margin: 0 auto;
       border-collapse: collapse; }
+      #content-detail.new #sec-ingredients table caption {
+        text-align: center;
+        font-weight: 900; }
       @media screen and (min-width: 768px) {
         #content-detail.new #sec-ingredients table {
           width: 960px; } }
       #content-detail.new #sec-ingredients table th {
-        white-space: nowrap;
         text-align: center;
         vertical-align: middle;
-        border: 2px solid #E1F3FB; }
+        border: 2px solid #E1F3FB;
+        background: rgba(253, 211, 60, 0.29); }
         @media screen and (min-width: 768px) {
           #content-detail.new #sec-ingredients table th {
             width: 200px; } }
@@ -1466,12 +1479,20 @@ p {
             font-size: 14px !important; } }
       #content-detail.new #sec-ingredients table td {
         text-align: left; }
+        #content-detail.new #sec-ingredients table td i {
+          font-size: .8em; }
       #content-detail.new #sec-ingredients table th, #content-detail.new #sec-ingredients table td {
         padding: 10px;
         border: 2px solid #E1F3FB; }
+        #content-detail.new #sec-ingredients table th i, #content-detail.new #sec-ingredients table td i {
+          font-size: .8em; }
         @media screen and (max-width: 767px) {
           #content-detail.new #sec-ingredients table th, #content-detail.new #sec-ingredients table td {
             font-size: 12px; } }
+      #content-detail.new #sec-ingredients table._2 th {
+        white-space: nowrap; }
+      #content-detail.new #sec-ingredients table._2 td {
+        text-align: justify; }
     #content-detail.new #sec-ingredients .mention {
       max-width: 960px;
       margin: 0 auto;
@@ -1759,6 +1780,11 @@ p {
             justify-content: center; }
     .about-material .ft ul.normal li, .about-material.hand .ft ul.normal li, .about-material.box .ft ul.normal li {
       margin: 0 15px; }
+      .about-material .ft ul.normal li i, .about-material.hand .ft ul.normal li i, .about-material.box .ft ul.normal li i {
+        font-size: .8em;
+        -webkit-align-self: flex-end;
+            -ms-flex-item-align: end;
+                align-self: flex-end; }
       @media screen and (max-width: 767px) {
         .about-material .ft ul.normal li, .about-material.hand .ft ul.normal li, .about-material.box .ft ul.normal li {
           width: 40%;
@@ -1794,6 +1820,8 @@ p {
   .about-material.sub ul.normal li {
     margin: 0 15px;
     margin-top: 15px; }
+    .about-material.sub ul.normal li i {
+      font-size: .8em; }
     @media screen and (max-width: 767px) {
       .about-material.sub ul.normal li {
         margin: 0;
@@ -2371,23 +2399,23 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
 #content-detail.new.premium-croire .about-SOD4 > h4 {
   margin-top: 1em; }
 
-#content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div {
-  background: #D3EDFB;
+#content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div {
+  background: #D3EDFB !important;
   border-radius: 6px; }
   @media screen and (min-width: 768px) {
-    #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div {
+    #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div {
       padding: 20px; }
-      #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div._1 {
+      #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div._1 {
         width: 600px; }
-      #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div._2 {
+      #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div._2 {
         width: 260px; } }
-  #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div._1 {
+  #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div._1 {
     position: relative; }
   @media screen and (max-width: 767px) {
-    #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div {
+    #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div {
       padding: 4.005vw;
       width: 100%; } }
-  #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div h4 {
+  #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div h4 {
     font-weight: 500;
     display: -webkit-box;
     display: -webkit-flex;
@@ -2407,9 +2435,9 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         -ms-flex-pack: center;
             justify-content: center;
     white-space: nowrap; }
-    #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div h4.blue {
+    #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div h4.blue {
       color: #228BAF; }
-    #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div h4 span {
+    #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div h4 span {
       background: #fff;
       font-size: 16px;
       height: 30px;
@@ -2434,15 +2462,15 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
       padding: 0px 20px;
       letter-spacing: .1em; }
     @media screen and (max-width: 767px) {
-      #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div h4 {
+      #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div h4 {
         font-size: 16px !important; } }
   @media screen and (min-width: 768px) {
-    #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div .img {
+    #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div .img {
       height: 100px; }
-      #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div .img img {
+      #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div .img img {
         margin: 0 10px; } }
   @media screen and (max-width: 767px) {
-    #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div .img {
+    #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div .img {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -2460,13 +2488,13 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
       -webkit-justify-content: center;
           -ms-flex-pack: center;
               justify-content: center; }
-      #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > div .img img._2 {
+      #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div .img img._2 {
         -webkit-transform: rotateZ(90deg);
             -ms-transform: rotate(90deg);
                 transform: rotateZ(90deg);
         margin: 20px 0; } }
 
-#content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > p.anc {
+#content-detail.new.premium-croire .about-SOD4 .sod-hataraki > p.anc {
   width: 20px;
   position: relative;
   z-index: 1;
@@ -2489,14 +2517,14 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
           justify-content: center;
   margin-bottom: 0; }
   @media screen and (max-width: 767px) {
-    #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > p.anc {
+    #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > p.anc {
       width: 100%;
       -webkit-box-align: center;
       -webkit-align-items: center;
           -ms-flex-align: center;
               align-items: center;
       margin-top: -15px; }
-      #content-detail.new.premium-croire .about-SOD4 .about-sod-hataraki > p.anc img {
+      #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > p.anc img {
         -webkit-transform: rotateZ(90deg);
             -ms-transform: rotate(90deg);
                 transform: rotateZ(90deg);
@@ -2989,6 +3017,14 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         font-weight: 900 !important; }
       #content-detail.new.premium-croire #sec03 > h3 i.zero {
         font-size: 3em; }
+        #content-detail.new.premium-croire #sec03 > h3 i.zero rt {
+          font-size: 16px;
+          text-align: center;
+          line-height: 1;
+          position: relative;
+          -webkit-transform: translateY(29%);
+          -ms-transform: translateY(29%);
+          transform: translateY(29%); }
   #content-detail.new.premium-croire #sec03 .zero-list {
     display: -webkit-flex;
     display: -moz-flex;
@@ -3147,6 +3183,8 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
             justify-content: space-between; }
   #content-detail.eye-Q .about-rutein2 .idx ._1 {
     width: 216px !important; }
+    #content-detail.eye-Q .about-rutein2 .idx ._1 .label-tag {
+      white-space: nowrap; }
     @media screen and (max-width: 767px) {
       #content-detail.eye-Q .about-rutein2 .idx ._1 {
         width: 100% !important;
@@ -3360,23 +3398,106 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         background: #E75613; }
       #content-detail.eye-Q #sec03 .label-tag.brain {
         background: #C10F23; }
-    @media screen and (max-width: 767px) {
-      #content-detail.eye-Q #sec03 .about-todokedehyouji ._1 {
-        border-bottom: 1px solid #666;
-        padding-bottom: 20px;
-        margin-bottom: 20px !important; } }
-    #content-detail.eye-Q #sec03 .about-todokedehyouji ._2 {
-      height: auto !important; }
-      #content-detail.eye-Q #sec03 .about-todokedehyouji ._2 strong {
-        color: #C10F23; }
-    @media screen and (min-width: 768px) {
-      #content-detail.eye-Q #sec03 .about-todokedehyouji .idx > div {
-        width: 50% !important; }
-      #content-detail.eye-Q #sec03 .about-todokedehyouji .idx ._1 {
-        padding-right: 30px;
-        border-right: 1px solid #ccc; }
-      #content-detail.eye-Q #sec03 .about-todokedehyouji .idx ._2 {
-        padding-left: 30px;
+    #content-detail.eye-Q #sec03 .about-todokedehyouji {
+      text-align: center; }
+      @media screen and (max-width: 767px) {
+        #content-detail.eye-Q #sec03 .about-todokedehyouji ._1 {
+          border-bottom: 1px solid #666;
+          padding-bottom: 20px;
+          margin-bottom: 20px !important; } }
+      #content-detail.eye-Q #sec03 .about-todokedehyouji ._2 {
+        height: auto !important; }
+        #content-detail.eye-Q #sec03 .about-todokedehyouji ._2 strong {
+          color: #C10F23; }
+      @media screen and (min-width: 768px) {
+        #content-detail.eye-Q #sec03 .about-todokedehyouji .idx > div {
+          width: 50% !important; }
+        #content-detail.eye-Q #sec03 .about-todokedehyouji .idx ._1 {
+          padding-right: 30px;
+          border-right: 1px solid #ccc; }
+        #content-detail.eye-Q #sec03 .about-todokedehyouji .idx ._2 {
+          padding-left: 30px;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: column;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          -webkit-box-align: start;
+          -webkit-align-items: flex-start;
+              -ms-flex-align: start;
+                  align-items: flex-start;
+          -webkit-box-pack: justify;
+          -webkit-justify-content: space-between;
+              -ms-flex-pack: justify;
+                  justify-content: space-between; } }
+      @media screen and (max-width: 767px) {
+        #content-detail.eye-Q #sec03 .about-todokedehyouji .idx {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: column;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+              -ms-flex-pack: center;
+                  justify-content: center; } }
+      #content-detail.eye-Q #sec03 .about-todokedehyouji .label-tag {
+        margin: 0 auto;
+        height: 32px;
+        font-size: 18px;
+        font-weight: 900; }
+      #content-detail.eye-Q #sec03 .about-todokedehyouji h4 {
+        margin-top: 15px;
+        line-height: 1.5;
+        text-align: center;
+        font-size: 28px; }
+        #content-detail.eye-Q #sec03 .about-todokedehyouji h4 span {
+          font-size: .8em; }
+      #content-detail.eye-Q #sec03 .about-todokedehyouji .desc1 {
+        border: 2px solid #ccc;
+        padding: 15px;
+        border-radius: 6px; }
+        @media screen and (min-width: 768px) {
+          #content-detail.eye-Q #sec03 .about-todokedehyouji .desc1 {
+            height: 10.5em; } }
+        #content-detail.eye-Q #sec03 .about-todokedehyouji .desc1 p {
+          margin-bottom: 0 !important; }
+        #content-detail.eye-Q #sec03 .about-todokedehyouji .desc1.ru {
+          border-color: #E75613;
+          background: rgba(231, 86, 19, 0.1); }
+        #content-detail.eye-Q #sec03 .about-todokedehyouji .desc1.ze {
+          border-color: #C10F23;
+          background: rgba(193, 15, 35, 0.1); }
+      #content-detail.eye-Q #sec03 .about-todokedehyouji p {
+        font-size: 16px; }
+        #content-detail.eye-Q #sec03 .about-todokedehyouji p strong {
+          font-size: 1em;
+          color: #E75613; }
+      @media screen and (max-width: 767px) {
+        #content-detail.eye-Q #sec03 .about-todokedehyouji .desc2 {
+          margin-top: 20px; } }
+      #content-detail.eye-Q #sec03 .about-todokedehyouji .desc2 h4 {
+        border: 1px solid #ccc;
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -3394,82 +3515,20 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         -webkit-justify-content: center;
             -ms-flex-pack: center;
                 justify-content: center;
-        -webkit-box-align: start;
-        -webkit-align-items: flex-start;
-            -ms-flex-align: start;
-                align-items: flex-start;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-            -ms-flex-pack: justify;
-                justify-content: space-between; } }
-    @media screen and (max-width: 767px) {
-      #content-detail.eye-Q #sec03 .about-todokedehyouji .idx {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
-            -ms-flex-pack: center;
-                justify-content: center; } }
-    #content-detail.eye-Q #sec03 .about-todokedehyouji h4 {
-      margin-top: 15px;
-      line-height: 1.5; }
-      #content-detail.eye-Q #sec03 .about-todokedehyouji h4 span {
-        font-size: .8em; }
-    @media screen and (min-width: 768px) {
-      #content-detail.eye-Q #sec03 .about-todokedehyouji .desc1 {
-        height: 8em; } }
-    #content-detail.eye-Q #sec03 .about-todokedehyouji p {
-      font-size: 16px; }
-      #content-detail.eye-Q #sec03 .about-todokedehyouji p strong {
-        font-size: 1em;
-        color: #E75613; }
-    @media screen and (max-width: 767px) {
-      #content-detail.eye-Q #sec03 .about-todokedehyouji .desc2 {
-        margin-top: 20px; } }
-    #content-detail.eye-Q #sec03 .about-todokedehyouji .desc2 h4 {
-      border: 1px solid #ccc;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: column;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      height: 32px;
-      font-size: 18px; }
-      #content-detail.eye-Q #sec03 .about-todokedehyouji .desc2 h4 span {
-        position: relative;
-        top: -1px;
-        font-size: 1em; }
-    #content-detail.eye-Q #sec03 .about-todokedehyouji .desc2 p {
-      text-align: center;
-      font-weight: bold;
-      padding: 15px 0;
-      margin-bottom: 0; }
-    #content-detail.eye-Q #sec03 .about-todokedehyouji .desc2 .img {
-      margin-top: auto;
-      margin-bottom: 0; }
+        height: 32px;
+        font-size: 18px; }
+        #content-detail.eye-Q #sec03 .about-todokedehyouji .desc2 h4 span {
+          position: relative;
+          top: -1px;
+          font-size: 1em; }
+      #content-detail.eye-Q #sec03 .about-todokedehyouji .desc2 p {
+        text-align: center;
+        font-weight: bold;
+        padding: 15px 0;
+        margin-bottom: 0; }
+      #content-detail.eye-Q #sec03 .about-todokedehyouji .desc2 .img {
+        margin-top: auto;
+        margin-bottom: 0; }
 
 p.plus {
   text-align: center;
@@ -4209,6 +4268,10 @@ main.Q10 #sec03 {
 
 /* !!------------------------------------ */
 /* !! クロワールコート */
+#content-detail.coat .about-shisyuubyou {
+  margin-bottom: 50px !important;
+  border: 4px solid #ccc; }
+
 @media screen and (max-width: 767px) {
   #content-detail.coat #onayami .idx {
     -webkit-flex-wrap: wrap;
@@ -4332,6 +4395,20 @@ main.Q10 #sec03 {
 
 #content-detail.wahaha #sec01 {
   background: #E5F4FF !important; }
+
+@media screen and (max-width: 767px) {
+  #content-detail.wahaha .about-wahaha2 ._1 {
+    width: 100%; }
+    #content-detail.wahaha .about-wahaha2 ._1 .img {
+      height: 200px; }
+      #content-detail.wahaha .about-wahaha2 ._1 .img img {
+        height: 100%;
+        width: auto; } }
+
+#content-detail.wahaha .about-wahaha2 ._1 .img {
+  background: #defcff;
+  padding: 15px;
+  border-radius: 6px; }
 
 #content-detail.wahaha #sec02 {
   background: #FCEEF3 !important; }
