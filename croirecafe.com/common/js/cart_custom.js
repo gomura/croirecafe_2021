@@ -1,3 +1,45 @@
+
+var test = location.href.match('localhost|:88');
+
+
+
+/* !!------------------------------------ */
+/* !! 商品合計金額修正 */
+
+function fix_total_price(){
+	
+	if(!test){
+		//return false
+	}
+	
+	var total_price = $(".ec-cartRole__total .ec-cartRole__totalAmount");
+	
+	var total_price_number = 0;
+	
+	total_price.each(function(){
+		var This = $(this);
+		var txt = This.text(),
+		
+		price1 = txt.replace('￥', '').replace(',', '');
+		price = parseFloat(price1);
+		total_price_number += price;
+	});
+	
+	total_price = total_price_number.toLocaleString();
+	//alert(total_price);
+	if($(".ec-cartRole__totalText")[0]){
+		$(".ec-cartRole__totalText strong").html("￥"+total_price);
+	}
+}
+
+$(function(){
+	if($(".ec-cartRole__totalText")[0]){
+		fix_total_price();
+	}
+});
+
+
+
 /* !!------------------------------------ */
 /* !! おひとり様一回 */
 

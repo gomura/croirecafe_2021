@@ -212,7 +212,28 @@ $(function(){
 });
 
 //!!　外部からのリンク対策
+//!!　外部からのリンク対策
+$(function(event){
+	//this.event.preventDefault();
+	var str = location.href
+	var str = str.split("#");
+	var margin = !is_mobile ? 100 : 60 ;
+	return false;
+	if(str[1]){
+		$("#main").addClass("hide");
+		$(window).on("load",function() {
+			//alert(margin)
+			$("#main").removeClass("hide");
+			var pos = $("#"+str[1]).offset().top - margin;
+			$("html, body").animate({scrollTop:pos},500,function(){
+				$("#shade").fadeOut(1000,function(){
+					$("#shade").remove();
+				});
+			});
+		});	
+	}
 
+});
 
 
 
@@ -797,7 +818,7 @@ var generateProdInfo =( function generateProdInfo(data) {
 			type = "subscription";
 			html += '<li class="subscription" data-type="subscription">';
 			if(item.price.diff[0]){
-				html += '<div class="comment">年間<b>'+item.price.diff+'</b>円お得！</div>';
+				html += '<div class="comment">年間約<b>'+item.price.diff+'</b>円お得！</div>';
 			}
 			html += '<span>定期購入コース</span>';
 			html += '</li>';

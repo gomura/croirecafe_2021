@@ -490,13 +490,14 @@ a.ec-blockBtn--primary,
 				}
 			}
 		}
-		.entry a{
+		.entry a,.mypage a{
 			background: rgba($orange,.8);
 		}
-		.mypage_favorite a{
+		.mypage_favorite a,
+		.fav a{
 			background: rgba($yellow,.99);
 		}
-		.mypage_login a{
+		.mypage_login a, .logout a{
 			background: rgba($blue,.8) !important;
 		}
 	}
@@ -5570,7 +5571,8 @@ main.Q10{
 		.ec-cartRow__amountColumn{
 			
 			@include sp{
-				border-right: 0;	
+				border-right: 0;
+				
 			}//@sp
 		}
 	}
@@ -5609,7 +5611,7 @@ main.Q10{
 	
 	.ec-cartRow__amountUpDown{
 		@include sp{
-			display: block !important;	
+			@include flex-centering;
 			.ec-cartRow__amountUpButton{
 				margin-top: 10px !important;
 			}

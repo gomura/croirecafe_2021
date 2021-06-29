@@ -149,7 +149,18 @@ h2.index{
 		@include sp{
 			padding: 10px 15px;	
 		}//@sp
-		i{
+		.name{
+			margin-bottom: 10px;
+			font-weight: 900;
+			font-size: 20px;
+			display: inline-block;
+			white-space: nowrap;
+			>i{
+				font-size: .7em;
+				font-weight: 900;
+			}
+		}
+		>i{
 			
 			position: relative;
 			z-index: 3;
@@ -174,7 +185,10 @@ h2.index{
 			}//@sp
 		}
 		._2{
-
+			@include sp{
+				display: inline-block;
+				margin-top: 10px;	
+			}//@sp
 		}
 		.num{
 			@include PD;
@@ -182,7 +196,7 @@ h2.index{
 			line-height: .1;
 			@include sp{
 				font-size: 2.4em;
-	
+				
 			}//@sp
 		}
 		&:before{
@@ -227,6 +241,7 @@ h2.sec-2{
 	margin-bottom: 50px;
 	@include sp{
 		margin-bottom: 20px;
+		
 	}//@sp
 	.line{
 		font-size: 15px;
@@ -331,7 +346,8 @@ h2.sec-2{
 		letter-spacing: .1em;
 		@include sp{
 			padding: 20*$px;
-			font-size: 24px !important;	
+			font-size: 32*$px !important;	
+			text-align: center;
 			b{
 				display: inline-block;
 			}
@@ -346,6 +362,9 @@ h3{
 	line-height: 1.6;
 	text-align: left;
 	max-width: 100%;
+	&.cen{
+		text-align: center;
+	}
 }
 
 .idx{
@@ -359,6 +378,18 @@ h3{
 	@include line;
 }
 
+.kw{
+	font-size: 1.5em;
+	color: $pink;
+	font-weight: 900;
+}
+
+h3.sec{
+	.kw{
+		align-self: flex-end !important;
+	}
+}
+
 /* !! - - -  */
 /* !! INDEX */
 
@@ -370,7 +401,8 @@ h3{
 	margin-top: 50px;
 	@include sp{
 		padding: 0 15*$px;
-		max-width: 100%;	
+		max-width: 100%;
+		margin-top: 20px;	
 	}//@sp
 	li{
 		@include flex;
@@ -660,6 +692,7 @@ section.sec{
 	}
 	
 	>h3{
+		@include textshadow;
 		@include pc{
 			width: 960px;
 			margin-left: auto !important;
@@ -668,7 +701,11 @@ section.sec{
 		@include sp{
 			padding: 0 15*$px;
 			text-align: justify;
+			&.cen{
+				text-align: center !important;
+			}
 		}//@sp
+		letter-spacing: .1em;
 	}
 	
 	h3{
@@ -713,6 +750,7 @@ section.sec{
 			padding: 10px 0 10px;
 			margin-bottom: 20*$px;
 			justify-content: flex-start;
+			text-align: center;
 		}//@sp
 		.label-tag{
 			background: $red;
@@ -1087,7 +1125,8 @@ section.static{
 			display: -o-inline-flex;
 			display: inline-flex;
 			font-size: 22px;
-			background: #fff;
+			//background: #fff;
+			border: 2px solid #666;
 			width: 400px;
 			border-radius: 50px;
 			line-height: 1;
@@ -1144,6 +1183,8 @@ section.static{
 			border-radius: 24px;
 			align-self: flex-start;
 			padding: 20px 30px;
+			
+			@include textshadow(#fff);
 			@include sp{
 				padding: 15px;
 				br{
@@ -1642,12 +1683,19 @@ ul.vitaminB{
 	@include flex;
 	height: 100%;
 	font-weight: 900;
+	@include sp{
+		justify-content: center;
+	}//@sp
 	.hd{
 		height: 24px;
 		@include flex;
 		justify-content: flex-start;
 		align-items:flex-start;
 		margin-bottom: 10px;
+		@include sp{
+			align-items: center;
+			justify-content: center !important;
+		}//@sp
 		.img{
 			height: 100%;
 			width: auto;
@@ -1666,7 +1714,8 @@ ul.vitaminB{
 		justify-content: space-between;
 		align-items: flex-start;
 		@include sp{
-			margin-bottom: 30*$px;	
+			margin: 15*$px 0;
+
 		}//@sp
 		&._2{
 			
@@ -1813,6 +1862,63 @@ ul.vitaminB{
 	}
 }
 
+
+//!! SEC0
+#sec0{
+	padding: 0;
+	margin-bottom: 100px;
+	@include sp{
+		margin-bottom: 30px;	
+	}//@sp
+	div[class*="about-"]{
+		padding: 10px;
+		margin: 0 auto;
+		@include sp{
+			margin: 0 15*$px;
+			//background: none;	
+		}//@sp
+		.wrap{
+			background: #FFF;
+			padding: 30px;
+			border-radius: 6px;
+			@include sp{
+				padding: 15*$px;
+				@include shadow01;
+			}//@sp
+			h3{
+				font-size: 40px !important;
+				letter-spacing: .1em;
+				@include sp{
+					text-align: center;	
+					font-size: 32*$px !important;
+				}//@sp
+				i{
+					font-size: .8em;
+				}
+			}
+			p{
+				@include pc{
+					font-size: 18px !important;
+					line-height: 1.8;
+						
+				}//@pc
+				b.enh{
+					font-weight: 900;
+					@include NOTO;
+					font-size: 1.4em;
+					color: $pink;
+				}
+				@include sp{
+					font-size: 16px !important;	
+				}//@sp
+			}
+		}
+		.img{
+			background: rgba($blue,.1);
+			padding: 15px;border-radius: 6px;
+		}
+	}
+}
 
 
 /* !!------------------------------------ */
@@ -2792,6 +2898,10 @@ span[class^="kana-"]{
 		min-width: 100px;
 		height: 24px;
 		font-weight: bold;
+		white-space: nowrap;
+		@include sp{
+			font-size: 14px !important;	
+		}//@sp
 		&.eye{
 			background: $orange;
 		}
@@ -3196,6 +3306,7 @@ main.Q10{
 			align-items: center;
 			justify-content: flex-start;height: 26px;
 			margin-bottom: 10px !important;
+			white-space: nowrap;
 			.img{
 				height: 100%;
 				margin-left: 10px;
@@ -3403,10 +3514,23 @@ main.Q10{
 /* !! Nアセチルグルコサミンロコモ+B */
 
 #content-detail.NA{
-	
+
 #sec01{
 	background: #E5F5FF !important;
 }
+
+.kw._1{
+	color: #072E95;
+}
+.kw._2{
+	color: $orange;
+}
+
+.lead-txt.cen{
+	text-align: center;
+	@include textshadow;
+}
+
 span.label-tag{
 	display: -webkit-inline-flex;
 	display: -moz-inline-flex;
@@ -3454,6 +3578,9 @@ span.label-tag{
 }
 
 .about-imida{
+	h4{
+		text-align: justify;
+	}
 	.imida{
 		background: #FFEEE4;
 		border-radius: 6px;
@@ -3461,6 +3588,7 @@ span.label-tag{
 		align-items: center;
 		padding: 0 30px;
 		justify-content: center;
+		
 		.img{
 			width: 105px;
 			height: 105px;
@@ -3525,11 +3653,10 @@ span.label-tag{
 /* !! クロワールコート */
 
 #content-detail.coat{
+	
 
-.about-shisyuubyou{
-	margin-bottom: 50px !important;
-	border: 4px solid #ccc;
-	h3.sec{}
+.about-shishuubyou{
+	background: rgba(104, 47, 159, 0.52) !important;
 }
 
 #onayami{
@@ -3772,12 +3899,21 @@ div.cen{
 /* !!------------------------------------ */
 /* !! 緑のDHA&EPA+ゴールデンユーグレナ */
 #content-detail.DHA{
+	
+	
+.about-DHA-EPA-0{
+	background: rgba(240, 101, 182, 0.52) !important;
+}
+	
+	
 #sec01{
 	background: #E4F5FF !important;
 }
 .lead-txt{
 	strong{
-		
+		b{
+			font-size: 1.4em;
+		}
 		@include pc{
 			font-size: 28px !important;	
 		}//@pc
@@ -3807,13 +3943,22 @@ div.cen{
 }
 
 .about-DHA-EPA-4{
+	//!! - 植物由来のオメガ3を高配合
+	._1{
+		.img{
+			img{
+				width: 70% !important;
+			}
+		}
+	}
 	._2{
 		padding:0 30px;
 		//width: 300px !important;
-		@include flex-centering;
-		justify-content: flex-start !important;
-		img{
-			width: 110% !important;
+		@include flex;
+		justify-content: center;
+		align-items: center;
+		img.omega3{
+			width: 120% !important;
 			height: auto !important;
 		}
 	}
@@ -3832,6 +3977,19 @@ div.cen{
 }
 
 .about-safety{
+	>.img{
+		position: relative;	
+		.label{
+			position: absolute;
+			top: 0;right: 0;
+			z-index: 1;
+			@include sp{
+				width: 60*$px;
+				top: -20*$px;
+				right: -25*$px;	
+			}//@sp
+		}
+	}
 	.safety2{
 		@include flex;
 		justify-content: center;

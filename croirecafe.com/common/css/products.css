@@ -153,17 +153,26 @@ p {
       @media screen and (max-width: 767px) {
         #content-detail.new h2.index strong {
           padding: 10px 15px; } }
-      #content-detail.new h2.index strong i {
+      #content-detail.new h2.index strong .name {
+        margin-bottom: 10px;
+        font-weight: 900;
+        font-size: 20px;
+        display: inline-block;
+        white-space: nowrap; }
+        #content-detail.new h2.index strong .name > i {
+          font-size: .7em;
+          font-weight: 900; }
+      #content-detail.new h2.index strong > i {
         position: relative;
         z-index: 3;
         letter-spacing: .05em;
         line-height: 1; }
         @media screen and (min-width: 768px) {
-          #content-detail.new h2.index strong i {
+          #content-detail.new h2.index strong > i {
             white-space: nowrap;
             font-size: 32px; } }
         @media screen and (max-width: 767px) {
-          #content-detail.new h2.index strong i {
+          #content-detail.new h2.index strong > i {
             font-size: 16px;
             line-height: 1.3;
             font-weight: 900; } }
@@ -171,6 +180,10 @@ p {
         #content-detail.new h2.index strong ._1 {
           margin-bottom: 5px;
           display: inline-block; } }
+      @media screen and (max-width: 767px) {
+        #content-detail.new h2.index strong ._2 {
+          display: inline-block;
+          margin-top: 10px; } }
       #content-detail.new h2.index strong .num {
         font-family: 'Playfair Display', serif;
         line-height: 1;
@@ -391,7 +404,8 @@ p {
       @media screen and (max-width: 767px) {
         #content-detail.new h2.sec-2 strong {
           padding: 5.34vw;
-          font-size: 24px !important; }
+          font-size: 8.544vw !important;
+          text-align: center; }
           #content-detail.new h2.sec-2 strong b {
             display: inline-block; } }
   #content-detail.new h3 {
@@ -401,6 +415,8 @@ p {
     line-height: 1.6;
     text-align: left;
     max-width: 100%; }
+    #content-detail.new h3.cen {
+      text-align: center; }
   #content-detail.new .idx {
     max-width: 960px;
     margin: 0 auto; }
@@ -410,6 +426,14 @@ p {
     background: -o-linear-gradient(transparent 65%, #ff0 0%);
     background: linear-gradient(transparent 65%, #ff0 0%);
     display: inline; }
+  #content-detail.new .kw {
+    font-size: 1.5em;
+    color: #E4007F;
+    font-weight: 900; }
+  #content-detail.new h3.sec .kw {
+    -webkit-align-self: flex-end !important;
+        -ms-flex-item-align: end !important;
+            align-self: flex-end !important; }
   #content-detail.new #index-list-wrap {
     text-align: center; }
   #content-detail.new #index-list {
@@ -418,7 +442,8 @@ p {
     @media screen and (max-width: 767px) {
       #content-detail.new #index-list {
         padding: 0 4.005vw;
-        max-width: 100%; } }
+        max-width: 100%;
+        margin-top: 20px; } }
     #content-detail.new #index-list li {
       display: -webkit-flex;
       display: -moz-flex;
@@ -802,15 +827,20 @@ p {
         @media screen and (min-width: 768px) {
           #content-detail.new section.sec div[class*="about-"] .inner {
             margin-top: 30px !important; } }
-    @media screen and (min-width: 768px) {
-      #content-detail.new section.sec > h3 {
-        width: 960px;
-        margin-left: auto !important;
-        margin-right: auto !important; } }
-    @media screen and (max-width: 767px) {
-      #content-detail.new section.sec > h3 {
-        padding: 0 4.005vw;
-        text-align: justify; } }
+    #content-detail.new section.sec > h3 {
+      text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff;
+      letter-spacing: .1em; }
+      @media screen and (min-width: 768px) {
+        #content-detail.new section.sec > h3 {
+          width: 960px;
+          margin-left: auto !important;
+          margin-right: auto !important; } }
+      @media screen and (max-width: 767px) {
+        #content-detail.new section.sec > h3 {
+          padding: 0 4.005vw;
+          text-align: justify; }
+          #content-detail.new section.sec > h3.cen {
+            text-align: center !important; } }
     #content-detail.new section.sec h3 {
       margin: 0;
       margin-top: -0.25em;
@@ -881,7 +911,8 @@ p {
           -webkit-box-pack: start;
           -webkit-justify-content: flex-start;
               -ms-flex-pack: start;
-                  justify-content: flex-start; } }
+                  justify-content: flex-start;
+          text-align: center; } }
       #content-detail.new section.sec h3.sec .label-tag {
         background: #FF0000;
         font-size: 16px;
@@ -1346,7 +1377,7 @@ p {
         display: -ms-inline-flexbox;
         display: inline-flex;
         font-size: 22px;
-        background: #fff;
+        border: 2px solid #666;
         width: 400px;
         border-radius: 50px;
         line-height: 1;
@@ -1405,6 +1436,7 @@ p {
             -ms-flex-item-align: start;
                 align-self: flex-start;
         padding: 20px 30px;
+        text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff;
         margin-bottom: 30px;
         position: relative;
         -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -2034,6 +2066,12 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
           justify-content: space-between;
   height: 100%;
   font-weight: 900; }
+  @media screen and (max-width: 767px) {
+    .material-list {
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; } }
   .material-list .hd {
     height: 24px;
     display: -webkit-flex;
@@ -2060,6 +2098,16 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         -ms-flex-align: start;
             align-items: flex-start;
     margin-bottom: 10px; }
+    @media screen and (max-width: 767px) {
+      .material-list .hd {
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center !important;
+        -webkit-justify-content: center !important;
+            -ms-flex-pack: center !important;
+                justify-content: center !important; } }
     .material-list .hd .img {
       height: 100%;
       width: auto;
@@ -2115,7 +2163,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
             align-items: flex-start; }
     @media screen and (max-width: 767px) {
       .material-list > ul {
-        margin-bottom: 8.01vw; } }
+        margin: 4.005vw 0; } }
     @media screen and (min-width: 768px) {
       .material-list > ul._2 {
         -webkit-box-align: end !important;
@@ -2270,6 +2318,56 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         margin-top: 5px; }
         .about-material.sub ul:not(.normal) li .amo i {
           font-size: 1.4em; }
+
+#sec0 {
+  padding: 0;
+  margin-bottom: 100px; }
+  @media screen and (max-width: 767px) {
+    #sec0 {
+      margin-bottom: 30px; } }
+  #sec0 div[class*="about-"] {
+    padding: 10px;
+    margin: 0 auto; }
+    @media screen and (max-width: 767px) {
+      #sec0 div[class*="about-"] {
+        margin: 0 4.005vw; } }
+    #sec0 div[class*="about-"] .wrap {
+      background: #FFF;
+      padding: 30px;
+      border-radius: 6px; }
+      @media screen and (max-width: 767px) {
+        #sec0 div[class*="about-"] .wrap {
+          padding: 4.005vw;
+          -webkit-box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+                  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1); } }
+      #sec0 div[class*="about-"] .wrap h3 {
+        font-size: 40px !important;
+        letter-spacing: .1em; }
+        @media screen and (max-width: 767px) {
+          #sec0 div[class*="about-"] .wrap h3 {
+            text-align: center;
+            font-size: 8.544vw !important; } }
+        #sec0 div[class*="about-"] .wrap h3 i {
+          font-size: .8em; }
+      @media screen and (min-width: 768px) {
+        #sec0 div[class*="about-"] .wrap p {
+          font-size: 18px !important;
+          line-height: 1.8; } }
+      #sec0 div[class*="about-"] .wrap p b.enh {
+        font-weight: 900;
+        font-family: 'Noto Sans JP', sans-serif !important;
+        font-weight: 900;
+        font-size: 1.4em;
+        color: #E4007F; }
+        #sec0 div[class*="about-"] .wrap p b.enh strong {
+          font-weight: 900 !important; }
+      @media screen and (max-width: 767px) {
+        #sec0 div[class*="about-"] .wrap p {
+          font-size: 16px !important; } }
+    #sec0 div[class*="about-"] .img {
+      background: rgba(34, 139, 175, 0.1);
+      padding: 15px;
+      border-radius: 6px; }
 
 /* !!------------------------------------ */
 /* !! ★プレミアムクロワール茶 */
@@ -3393,7 +3491,11 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
       display: inline-flex;
       min-width: 100px;
       height: 24px;
-      font-weight: bold; }
+      font-weight: bold;
+      white-space: nowrap; }
+      @media screen and (max-width: 767px) {
+        #content-detail.eye-Q #sec03 .label-tag {
+          font-size: 14px !important; } }
       #content-detail.eye-Q #sec03 .label-tag.eye {
         background: #E75613; }
       #content-detail.eye-Q #sec03 .label-tag.brain {
@@ -3871,7 +3973,8 @@ main.Q10 #sec03 {
           -ms-flex-pack: start;
               justify-content: flex-start;
       height: 26px;
-      margin-bottom: 10px !important; }
+      margin-bottom: 10px !important;
+      white-space: nowrap; }
       .about-material.simple .desc .hd .img {
         height: 100%;
         margin-left: 10px;
@@ -4117,6 +4220,16 @@ main.Q10 #sec03 {
 #content-detail.NA #sec01 {
   background: #E5F5FF !important; }
 
+#content-detail.NA .kw._1 {
+  color: #072E95; }
+
+#content-detail.NA .kw._2 {
+  color: #E75613; }
+
+#content-detail.NA .lead-txt.cen {
+  text-align: center;
+  text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff; }
+
 #content-detail.NA span.label-tag {
   display: -webkit-inline-flex;
   display: -moz-inline-flex;
@@ -4169,6 +4282,9 @@ main.Q10 #sec03 {
       #content-detail.NA .about-NA2 ._2 .img p {
         width: 48%;
         font-size: 12px; } }
+
+#content-detail.NA .about-imida h4 {
+  text-align: justify; }
 
 #content-detail.NA .about-imida .imida {
   background: #FFEEE4;
@@ -4268,9 +4384,8 @@ main.Q10 #sec03 {
 
 /* !!------------------------------------ */
 /* !! クロワールコート */
-#content-detail.coat .about-shisyuubyou {
-  margin-bottom: 50px !important;
-  border: 4px solid #ccc; }
+#content-detail.coat .about-shishuubyou {
+  background: rgba(104, 47, 159, 0.52) !important; }
 
 @media screen and (max-width: 767px) {
   #content-detail.coat #onayami .idx {
@@ -4571,11 +4686,16 @@ main.Q10 #sec03 {
 
 /* !!------------------------------------ */
 /* !! 緑のDHA&EPA+ゴールデンユーグレナ */
+#content-detail.DHA .about-DHA-EPA-0 {
+  background: rgba(240, 101, 182, 0.52) !important; }
+
 #content-detail.DHA #sec01 {
   background: #E4F5FF !important; }
 
 #content-detail.DHA .lead-txt {
   text-align: center; }
+  #content-detail.DHA .lead-txt strong b {
+    font-size: 1.4em; }
   @media screen and (min-width: 768px) {
     #content-detail.DHA .lead-txt strong {
       font-size: 28px !important; } }
@@ -4626,31 +4746,36 @@ main.Q10 #sec03 {
         #content-detail.DHA .about-DHA-EPA-2 .img img {
           width: 50% !important; } }
 
+#content-detail.DHA .about-DHA-EPA-4 ._1 .img img {
+  width: 70% !important; }
+
 #content-detail.DHA .about-DHA-EPA-4 ._2 {
   padding: 0 30px;
-  display: -webkit-box;
   display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-pack: start !important;
-  -webkit-justify-content: flex-start !important;
-      -ms-flex-pack: start !important;
-          justify-content: flex-start !important; }
-  #content-detail.DHA .about-DHA-EPA-4 ._2 img {
-    width: 110% !important;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  #content-detail.DHA .about-DHA-EPA-4 ._2 img.omega3 {
+    width: 120% !important;
     height: auto !important; }
 
 #content-detail.DHA .about-DHA-EPA-4 ._3 .img {
@@ -4660,6 +4785,19 @@ main.Q10 #sec03 {
 
 #content-detail.DHA #sec02 {
   background: #FFEEE4 !important; }
+
+#content-detail.DHA .about-safety > .img {
+  position: relative; }
+  #content-detail.DHA .about-safety > .img .label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1; }
+    @media screen and (max-width: 767px) {
+      #content-detail.DHA .about-safety > .img .label {
+        width: 16.02vw;
+        top: -5.34vw;
+        right: -6.675vw; } }
 
 #content-detail.DHA .about-safety .safety2 {
   display: -webkit-flex;
