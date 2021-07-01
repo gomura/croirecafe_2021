@@ -365,7 +365,22 @@ h3{
 	&.cen{
 		text-align: center;
 	}
+	.dif{
+		position: relative;
+		display: inline-block;
+		i{
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			font-size: .6em;
+			width: 100%;
+			text-align: center;
+			@include transform(translateY(100%));
+		}
+	}
 }
+
+
 
 .idx{
 	max-width: 960px;
@@ -380,8 +395,24 @@ h3{
 
 .kw{
 	font-size: 1.5em;
-	color: $pink;
+	color: $red;
 	font-weight: 900;
+	&.x1{
+		font-size: 1em !important;
+	}
+	&.x2{
+		font-size: 2em !important;
+	}
+	&.x08{
+		font-size: .8em !important;
+	}
+	&.kon{
+		color: $kon;
+	}
+}
+
+.co_red{
+	color: $red;
 }
 
 h3.sec{
@@ -715,12 +746,16 @@ section.sec{
 		@include NOTO;
 		font-size: 24px;
 		margin-bottom: .5em;
+		.kw{
+			font-size: 1.2em !important;
+		}
 		.s{
 			font-size: .8em;
 		}
 		@include sp{
 			font-size: 20px !important;	
 		}//@sp
+		
 	}
 	//!! - - h3.sec
 	h3.sec{
@@ -736,6 +771,11 @@ section.sec{
 			@include transform(translateY(-40%));	
 		}//@pc
 		
+		.kw{
+			font-size: 1.2em;
+			align-self: flex-end !important;
+			@include transform(translateY(-8%));
+		}
 		font-size: 26px;
 		font-weight: 900;
 		@include NOTO;
@@ -825,6 +865,9 @@ section.sec{
 		@include sp{
 			font-size: 18px !important;	
 		}//@sp
+		&.cen{
+			text-align: center;
+		}
 	}
 	
 	//!! -- idx
@@ -1175,15 +1218,67 @@ section.static{
 #sec-voice{
 	background: #FEE68B;
 	.voice-wrap{
-		max-width: 800px;
+		max-width: 600px;
 		margin: 0 auto;
+		padding: 0 100px;
+		padding-bottom: 20px;
 		@include flex-centering;
+		@include sp{
+			padding:0px;
+			margin: 0*$px;	
+			padding-bottom: 20*$px;
+		}//@sp
 		.voice{
 			background: #fff;
 			border-radius: 24px;
 			align-self: flex-start;
 			padding: 20px 30px;
-			
+			@include sp{
+				margin-left: 75px;
+				padding:10*$px 15*$px;
+				margin-bottom: 40*$px;
+				border-radius: 20px;
+			}//@sp
+			.data{
+				width: 80px;
+				//background: #EEE;
+				position: absolute;
+				bottom: 0;
+				left: -15px;
+				@include transform(translateX(-100%));
+				z-index: 0;
+				@include sp{
+					width: 60px;
+					height: 60px;	
+				}//@sp
+				span{
+					display: block;
+					text-align: center;
+					line-height: 1;
+					position: absolute;
+					bottom:-10px;
+					left: 0;
+					font-size: 14px;
+					@include NOTO;
+					width: 100%;
+					@include transform(translateY(100%));
+					@include sp{
+						font-size: 13px;
+						white-space: nowrap;	
+					}//@sp
+				}
+				.img{
+					width: 80px;
+					height: 80px;
+					border-radius: 70px;
+					background: #fff;
+					@include bg-img(url(/common/img/persone-both@2x.png),auto 80%,center 20px); //$url,$size,$position,$repeat
+					@include sp{
+						width: 60px;
+						height: 60px;	
+					}//@sp
+				}
+			}
 			@include textshadow(#fff);
 			@include sp{
 				padding: 15px;
@@ -1199,21 +1294,35 @@ section.static{
 			    display: inline-block;
 			    width: 0;
 			    height: 0;
-			    border-style: solid;
-			    border-width: 15px 15px 0 0;
-			    border-color: #fff transparent transparent transparent;
-			    position: absolute;
-			    bottom: 0;left: 30px;
-			    @include transform(translateY(100%));
-			   
+				@include triangle($dir:b-r,$size:20px,$color:#fff);
+				position: absolute;
+				bottom: 0;left: 25px;
+				@include transform(translateX(-100%));
+				@include sp{
+					bottom: 0;left: 35px;
+					//@include triangle($dir:b-r,$size:10px,$color:#fff);	
+				}//@sp
 			}
 			&:nth-of-type(2n){
 				align-self: flex-end;
+				@include sp{
+					margin-right: 70px;	
+					margin-left: 0;
+				}//@sp
 				&:after{
 					content: "";
 					left: auto;
-					right: 30px;
-					border-width: 15px 0 0 15px;				
+					right: 25px;
+					@include transform(translateX(100%));
+					@include triangle($dir:b-l,$size:20px,$color:#fff);
+					@include sp{
+						right: 35px;	
+					}//@sp	
+				}
+				.data{
+					right: -15px;
+					left: auto;
+					@include transform(translateX(100%));
 				}
 			}&:last-of-type{
 				margin-bottom: 0;
@@ -1221,6 +1330,9 @@ section.static{
 			p{
 				font-size: 16px;
 				font-weight: bold;
+				z-index: 1;
+				position: relative;
+				@include pfix(.5em);
 				@include sp{
 					font-size: 14px;	
 				}//@sp
@@ -1921,8 +2033,60 @@ ul.vitaminB{
 }
 
 
+/* !! - - -  */
+/* !! 購入するボタン */
+#btn-to-cart-wrap{
+	position: fixed;
+	bottom: 0;left: 0;
+	width: 100%;
+	//height: 50px;
+	z-index: 10;
+	//background: #eee;
+	@include flex;
+	justify-content: center;
+	padding: 20px 0;
+	transition:600ms ease-in-out;
+	pointer-events: none;
+	@include transform(translateY(100%));
+	@include sp{
+		//background: rgba(255, 255, 255, 0.98);
+		box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
+		//backdrop-filter: blur(5px);
+		padding: 0;
+		align-items: center;
+		background: $orange;
+	}//@sp
+	a{
+		//@include shadow02;
+		//max-width: 200px !important;
+		height:50px;
+		width: 100%;
+		pointer-events: auto;
+		@include flex-centering;
+		text-decoration: none;
+		@include NOTO;
+		font-weight: 900;
+		font-size: 16px;
+		letter-spacing: .1em;
+		@include sp{
+			height: 70px;	
+			color: $orange;
+		}//@sp
+	}
+	a{
+		text-align: center;
+		//background: #eee;
+		color: #FFF;
+	}
+	.cart-btn-grp_passed & {
+		@include transform(translateY(0));
+	}
+}
+
+
 /* !!------------------------------------ */
 /* !! ★プレミアムクロワール茶 */
+
 
 
 #content-detail.new.premium-croire{
@@ -2856,7 +3020,11 @@ span[class^="kana-"]{
 
 
 .about-material.hand{
+	background: #fff;
 	height: 376px;
+	.bg-img{
+		@include flex-centering;
+	}
 	@include sp{
 		height: auto;
 		background: #fff;
@@ -3102,8 +3270,12 @@ main.probiotics12{
 			background: $ruge;
 		}
 		p{
-			color: $ruge;
+// 			/color: $ruge;
 			font-weight: bold;
+			.kw{
+				font-size: 1.2em !important;font-weight: 900;
+				@include NOTO;
+			}
 		}
 		.img{
 			margin-top: -30px;
@@ -3307,6 +3479,7 @@ main.Q10{
 			justify-content: flex-start;height: 26px;
 			margin-bottom: 10px !important;
 			white-space: nowrap;
+			flex-wrap: nowrap;
 			.img{
 				height: 100%;
 				margin-left: 10px;
@@ -3559,12 +3732,13 @@ span.label-tag{
 				position: absolute;
 				top: -8px;right:0;
 				@include transform(translateY(-100%));
-				font-size: 14px;
+				font-size: 18px;
 				text-align: center;
 				line-height: 1.2;
 				width: 222px;
 				color: $pink;
-				font-weight: bold;
+				font-weight: 900;
+				@include NOTO;
 				b{
 					font-size: 1.2em;
 				}
@@ -3903,6 +4077,30 @@ div.cen{
 	
 .about-DHA-EPA-0{
 	background: rgba(240, 101, 182, 0.52) !important;
+	.txt1{
+		font-weight: 900;
+		text-align: justify;
+		
+		.idx{
+			@include flex-centering;
+			display: -webkit-inline-flex;
+			display: -moz-inline-flex;
+			display: -ms-inline-flex;
+			display: -o-inline-flex;
+			display: inline-flex;
+			line-height: 1;
+			*{
+				line-height: 1;
+			}
+			i{
+				font-size: 14px;
+				margin-top: 5px;
+			}
+		}
+	}
+	p:last-of-type{
+		margin-bottom: 0;
+	}
 }
 	
 	
@@ -3950,6 +4148,12 @@ div.cen{
 				width: 70% !important;
 			}
 		}
+		@include pc{
+			max-width: 250px ;	
+		}//@pc
+		@include sp{
+			order:2;	
+		}//@sp
 	}
 	._2{
 		padding:0 30px;
@@ -3957,18 +4161,33 @@ div.cen{
 		@include flex;
 		justify-content: center;
 		align-items: center;
+		
 		img.omega3{
-			width: 120% !important;
+			width: 110% !important;
 			height: auto !important;
 		}
+		@include sp{
+			order:1;
+			padding: 0;
+		}//@sp
 	}
 	._3{
 		.img{
 			border-radius: 6px;
 			background: rgba($red,.1);
-			padding: 15px;
+			border: 1px solid $pink;
+			position: relative;
+			overflow: hidden;
+			img{
+				position: relative;
+			}
 		}
-		
+		@include pc{
+			max-width: 250px ;		
+		}//@pc
+		@include sp{
+			order:3;	
+		}//@sp
 	}
 }
 
@@ -3981,7 +4200,7 @@ div.cen{
 		position: relative;	
 		.label{
 			position: absolute;
-			top: 0;right: 0;
+			top: -25px;right: -25px;
 			z-index: 1;
 			@include sp{
 				width: 60*$px;
@@ -4028,6 +4247,11 @@ div.cen{
 		.img .img{
 			width: 60px;
 		}
+		p{
+			margin-bottom: 0 !important;
+		}
+	}
+	._2{
 		h4{
 			justify-content: flex-start;
 			align-items: center;
@@ -4039,25 +4263,11 @@ div.cen{
 				}//@sp
 			}
 		}
+		.img .img{
+			width: 60px;
+		}
 		p{
 			margin-bottom: 0 !important;
-		}
-	}
-	._2{
-		background: #E5F2E2;
-		border-radius: 6px;
-		padding: 30px;
-		@include flex-centering;
-		align-items: flex-start ;
-		@include sp{
-			padding: 15*$px;	
-		}//@sp
-		.img{
-			align-self: center;
-			@include flex-centering;
-			margin-bottom: 0;
-			justify-content: center;
-			flex-grow: 3;
 		}
 	}
 	

@@ -2213,6 +2213,29 @@
         }
     },
     {
+        "name": "ec-cube/FirstTimeOnly4",
+        "version": "1.0.2",
+        "version_normalized": "1.0.2.0",
+        "dist": {
+            "type": "tar",
+            "url": "https://package-api.ec-cube.net/ec-cube/FirstTimeOnly4/1.0.2/FirstTimeOnly4-1.0.2.tgz"
+        },
+        "type": "eccube-plugin",
+        "extra": {
+            "code": "FirstTimeOnly4",
+            "id": 1792
+        },
+        "installation-source": "dist",
+        "description": "初回購入限定プラグイン for EC-CUBE4",
+        "transport-options": {
+            "http": {
+                "header": [
+                    "X-ECCUBE-KEY: 47a4dba0a9bed62511c27ac8347d4ad97a2b224e"
+                ]
+            }
+        }
+    },
+    {
         "name": "ec-cube/MailMagazine4",
         "version": "4.0.2",
         "version_normalized": "4.0.2.0",
@@ -7428,7 +7451,8 @@
             "string",
             "symfony",
             "words"
-        ]
+        ],
+        "abandoned": "use `EnglishInflector` from the String component instead"
     },
     {
         "name": "symfony/intl",

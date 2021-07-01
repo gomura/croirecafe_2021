@@ -899,6 +899,18 @@ $(function(){
 });
 
 
+/* !! - - -  */
+/* !! 購入するボタン */
+$(function(){
+	var cart_wrap = $("#cart-wrap");
+	if(cart_wrap[0]){
+		var html = "";
+		html += '<div id="btn-to-cart-wrap"><a class="" href="#cart-wrap"><span>商品のご購入はこちら</span></a></div>';
+		$("body").append(html).addClass("has-btn-to-cart-wrap");
+	}
+});
+
+
 
 
 

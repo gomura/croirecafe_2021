@@ -1180,11 +1180,13 @@ ul.category-nav{
 				@include transform(scale(1.05));
 			}
 		}
+/*
 		&:active{
 			img{
 				@include transform(scale(1.03));
 			}
 		}
+*/
 		&:before{
 			content:"";
 			position: absolute;
@@ -3433,7 +3435,10 @@ main.payment{
 				justify-content: space-between;	
 			}//@sp
 			>p{
-				border: 1px solid #000;
+				//border: 1px solid $pink;
+				background: rgba($pink,.1);
+				border-radius: 50px;
+				color: $pink;
 				margin-left: 10px;
 				height: 24px;
 				line-height: 1;

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7089fbb6d2983e79e10db32883e7277",
+    "content-hash": "66549af30e2597b21402b0979738d924",
     "packages": [
         {
             "name": "azuyalabs/yasumi",
@@ -1775,6 +1775,27 @@
                 "id": 1837
             },
             "description": "LINExEC-CUBEログイン連携プラグイン",
+            "transport-options": {
+                "http": {
+                    "header": [
+                        "X-ECCUBE-KEY: 47a4dba0a9bed62511c27ac8347d4ad97a2b224e"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "ec-cube/FirstTimeOnly4",
+            "version": "1.0.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://package-api.ec-cube.net/ec-cube/FirstTimeOnly4/1.0.2/FirstTimeOnly4-1.0.2.tgz"
+            },
+            "type": "eccube-plugin",
+            "extra": {
+                "code": "FirstTimeOnly4",
+                "id": 1792
+            },
+            "description": "初回購入限定プラグイン for EC-CUBE4",
             "transport-options": {
                 "http": {
                     "header": [
@@ -5199,6 +5220,7 @@
                 "symfony",
                 "words"
             ],
+            "abandoned": "use `EnglishInflector` from the String component instead",
             "time": "2019-01-16T13:27:11+00:00"
         },
         {
@@ -8371,6 +8393,7 @@
                 "faker",
                 "fixtures"
             ],
+            "abandoned": true,
             "time": "2018-07-12T10:23:15+00:00"
         },
         {
@@ -9987,12 +10010,12 @@
             "version": "1.4.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/83e253c8e0be5b0257b881e1827274667c5c17a9",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/83e253c8e0be5b0257b881e1827274667c5c17a9",
                 "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9",
                 "shasum": ""
             },

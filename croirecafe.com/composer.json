@@ -36,6 +36,7 @@
         "ec-cube/AdminSupportCustomerLogin": "^1.0",
         "ec-cube/Coupon4": "^4.0",
         "ec-cube/ECCUBE4LineLoginIntegration": "1.2.0",
+        "ec-cube/FirstTimeOnly4": "^1.0",
         "ec-cube/MailMagazine4": "^4.0",
         "ec-cube/PostCarrier4": "^4.1",
         "ec-cube/ProductOnlyCustomerB": "^1.0",

@@ -417,6 +417,19 @@ p {
     max-width: 100%; }
     #content-detail.new h3.cen {
       text-align: center; }
+    #content-detail.new h3 .dif {
+      position: relative;
+      display: inline-block; }
+      #content-detail.new h3 .dif i {
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        font-size: .6em;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+        transform: translateY(100%); }
   #content-detail.new .idx {
     max-width: 960px;
     margin: 0 auto; }
@@ -428,8 +441,18 @@ p {
     display: inline; }
   #content-detail.new .kw {
     font-size: 1.5em;
-    color: #E4007F;
+    color: #FF0000;
     font-weight: 900; }
+    #content-detail.new .kw.x1 {
+      font-size: 1em !important; }
+    #content-detail.new .kw.x2 {
+      font-size: 2em !important; }
+    #content-detail.new .kw.x08 {
+      font-size: .8em !important; }
+    #content-detail.new .kw.kon {
+      color: #1c2585; }
+  #content-detail.new .co_red {
+    color: #FF0000; }
   #content-detail.new h3.sec .kw {
     -webkit-align-self: flex-end !important;
         -ms-flex-item-align: end !important;
@@ -852,6 +875,8 @@ p {
       margin-bottom: .5em; }
       #content-detail.new section.sec h3 strong {
         font-weight: 900 !important; }
+      #content-detail.new section.sec h3 .kw {
+        font-size: 1.2em !important; }
       #content-detail.new section.sec h3 .s {
         font-size: .8em; }
       @media screen and (max-width: 767px) {
@@ -897,6 +922,14 @@ p {
           -webkit-transform: translateY(-40%);
           -ms-transform: translateY(-40%);
           transform: translateY(-40%); } }
+      #content-detail.new section.sec h3.sec .kw {
+        font-size: 1.2em;
+        -webkit-align-self: flex-end !important;
+            -ms-flex-item-align: end !important;
+                align-self: flex-end !important;
+        -webkit-transform: translateY(-8%);
+        -ms-transform: translateY(-8%);
+        transform: translateY(-8%); }
       #content-detail.new section.sec h3.sec strong {
         font-weight: 900 !important; }
       @media screen and (max-width: 767px) {
@@ -997,6 +1030,8 @@ p {
       @media screen and (max-width: 767px) {
         #content-detail.new section.sec h4 {
           font-size: 18px !important; } }
+      #content-detail.new section.sec h4.cen {
+        text-align: center; }
     @media screen and (min-width: 768px) {
       #content-detail.new section.sec .idx > div {
         width: calc((100% - 30px) / 2); }
@@ -1410,8 +1445,10 @@ p {
   #content-detail.new #sec-voice {
     background: #FEE68B; }
     #content-detail.new #sec-voice .voice-wrap {
-      max-width: 800px;
+      max-width: 600px;
       margin: 0 auto;
+      padding: 0 100px;
+      padding-bottom: 20px;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -1429,6 +1466,11 @@ p {
       -webkit-justify-content: center;
           -ms-flex-pack: center;
               justify-content: center; }
+      @media screen and (max-width: 767px) {
+        #content-detail.new #sec-voice .voice-wrap {
+          padding: 0px;
+          margin: 0vw;
+          padding-bottom: 5.34vw; } }
       #content-detail.new #sec-voice .voice-wrap .voice {
         background: #fff;
         border-radius: 24px;
@@ -1443,6 +1485,58 @@ p {
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
         @media screen and (max-width: 767px) {
           #content-detail.new #sec-voice .voice-wrap .voice {
+            margin-left: 75px;
+            padding: 2.67vw 4.005vw;
+            margin-bottom: 10.68vw;
+            border-radius: 20px; } }
+        #content-detail.new #sec-voice .voice-wrap .voice .data {
+          width: 80px;
+          position: absolute;
+          bottom: 0;
+          left: -15px;
+          -webkit-transform: translateX(-100%);
+          -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+          z-index: 0; }
+          @media screen and (max-width: 767px) {
+            #content-detail.new #sec-voice .voice-wrap .voice .data {
+              width: 60px;
+              height: 60px; } }
+          #content-detail.new #sec-voice .voice-wrap .voice .data span {
+            display: block;
+            text-align: center;
+            line-height: 1;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            font-size: 14px;
+            font-family: 'Noto Sans JP', sans-serif !important;
+            font-weight: 900;
+            width: 100%;
+            -webkit-transform: translateY(100%);
+            -ms-transform: translateY(100%);
+            transform: translateY(100%); }
+            #content-detail.new #sec-voice .voice-wrap .voice .data span strong {
+              font-weight: 900 !important; }
+            @media screen and (max-width: 767px) {
+              #content-detail.new #sec-voice .voice-wrap .voice .data span {
+                font-size: 13px;
+                white-space: nowrap; } }
+          #content-detail.new #sec-voice .voice-wrap .voice .data .img {
+            width: 80px;
+            height: 80px;
+            border-radius: 70px;
+            background: #fff;
+            background-image: url(/common/img/persone-both@2x.png);
+            background-repeat: no-repeat;
+            background-size: auto 80%;
+            background-position: center 20px; }
+            @media screen and (max-width: 767px) {
+              #content-detail.new #sec-voice .voice-wrap .voice .data .img {
+                width: 60px;
+                height: 60px; } }
+        @media screen and (max-width: 767px) {
+          #content-detail.new #sec-voice .voice-wrap .voice {
             padding: 15px; }
             #content-detail.new #sec-voice .voice-wrap .voice br {
               display: none; } }
@@ -1451,29 +1545,57 @@ p {
           display: inline-block;
           width: 0;
           height: 0;
-          border-style: solid;
-          border-width: 15px 15px 0 0;
-          border-color: #fff transparent transparent transparent;
+          width: 0;
+          height: 0;
+          border: 20px solid;
+          border-color: transparent #fff #fff transparent;
           position: absolute;
           bottom: 0;
-          left: 30px;
-          -webkit-transform: translateY(100%);
-          -ms-transform: translateY(100%);
-          transform: translateY(100%); }
+          left: 25px;
+          -webkit-transform: translateX(-100%);
+          -ms-transform: translateX(-100%);
+          transform: translateX(-100%); }
+          @media screen and (max-width: 767px) {
+            #content-detail.new #sec-voice .voice-wrap .voice:after {
+              bottom: 0;
+              left: 35px; } }
         #content-detail.new #sec-voice .voice-wrap .voice:nth-of-type(2n) {
           -webkit-align-self: flex-end;
               -ms-flex-item-align: end;
                   align-self: flex-end; }
+          @media screen and (max-width: 767px) {
+            #content-detail.new #sec-voice .voice-wrap .voice:nth-of-type(2n) {
+              margin-right: 70px;
+              margin-left: 0; } }
           #content-detail.new #sec-voice .voice-wrap .voice:nth-of-type(2n):after {
             content: "";
             left: auto;
-            right: 30px;
-            border-width: 15px 0 0 15px; }
+            right: 25px;
+            -webkit-transform: translateX(100%);
+            -ms-transform: translateX(100%);
+            transform: translateX(100%);
+            width: 0;
+            height: 0;
+            border: 20px solid;
+            border-color: transparent transparent #fff #fff; }
+            @media screen and (max-width: 767px) {
+              #content-detail.new #sec-voice .voice-wrap .voice:nth-of-type(2n):after {
+                right: 35px; } }
+          #content-detail.new #sec-voice .voice-wrap .voice:nth-of-type(2n) .data {
+            right: -15px;
+            left: auto;
+            -webkit-transform: translateX(100%);
+            -ms-transform: translateX(100%);
+            transform: translateX(100%); }
         #content-detail.new #sec-voice .voice-wrap .voice:last-of-type {
           margin-bottom: 0; }
         #content-detail.new #sec-voice .voice-wrap .voice p {
           font-size: 16px;
-          font-weight: bold; }
+          font-weight: bold;
+          z-index: 1;
+          position: relative;
+          margin-top: -0.25em;
+          margin-bottom: -0.25em; }
           @media screen and (max-width: 767px) {
             #content-detail.new #sec-voice .voice-wrap .voice p {
               font-size: 14px; } }
@@ -2368,6 +2490,92 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
       background: rgba(34, 139, 175, 0.1);
       padding: 15px;
       border-radius: 6px; }
+
+/* !! - - -  */
+/* !! 購入するボタン */
+#btn-to-cart-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px 0;
+  -webkit-transition: 600ms ease-in-out;
+  -o-transition: 600ms ease-in-out;
+  transition: 600ms ease-in-out;
+  pointer-events: none;
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%); }
+  @media screen and (max-width: 767px) {
+    #btn-to-cart-wrap {
+      -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
+              box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
+      padding: 0;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      background: #E75613; } }
+  #btn-to-cart-wrap a {
+    height: 50px;
+    width: 100%;
+    pointer-events: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif !important;
+    font-weight: 900;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: .1em; }
+    #btn-to-cart-wrap a strong {
+      font-weight: 900 !important; }
+    @media screen and (max-width: 767px) {
+      #btn-to-cart-wrap a {
+        height: 70px;
+        color: #E75613; } }
+  #btn-to-cart-wrap a {
+    text-align: center;
+    color: #FFF; }
+  .cart-btn-grp_passed #btn-to-cart-wrap {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0); }
 
 /* !!------------------------------------ */
 /* !! ★プレミアムクロワール茶 */
@@ -3464,7 +3672,26 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
   #content-detail.eye-Q #sec02 {
     background: #FFFFD2; }
   #content-detail.eye-Q .about-material.hand {
+    background: #fff;
     height: 376px; }
+    #content-detail.eye-Q .about-material.hand .bg-img {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
     @media screen and (max-width: 767px) {
       #content-detail.eye-Q .about-material.hand {
         height: auto;
@@ -3744,8 +3971,14 @@ main.probiotics12 .about-cryotechnology ._2 {
   main.probiotics12 .about-cryotechnology ._2 .label-tag {
     background: #C10F23; }
   main.probiotics12 .about-cryotechnology ._2 p {
-    color: #C10F23;
     font-weight: bold; }
+    main.probiotics12 .about-cryotechnology ._2 p .kw {
+      font-size: 1.2em !important;
+      font-weight: 900;
+      font-family: 'Noto Sans JP', sans-serif !important;
+      font-weight: 900; }
+      main.probiotics12 .about-cryotechnology ._2 p .kw strong {
+        font-weight: 900 !important; }
   main.probiotics12 .about-cryotechnology ._2 .img {
     margin-top: -30px; }
 
@@ -3974,7 +4207,10 @@ main.Q10 #sec03 {
               justify-content: flex-start;
       height: 26px;
       margin-bottom: 10px !important;
-      white-space: nowrap; }
+      white-space: nowrap;
+      -webkit-flex-wrap: nowrap;
+          -ms-flex-wrap: nowrap;
+              flex-wrap: nowrap; }
       .about-material.simple .desc .hd .img {
         height: 100%;
         margin-left: 10px;
@@ -4270,12 +4506,16 @@ main.Q10 #sec03 {
     -webkit-transform: translateY(-100%);
     -ms-transform: translateY(-100%);
     transform: translateY(-100%);
-    font-size: 14px;
+    font-size: 18px;
     text-align: center;
     line-height: 1.2;
     width: 222px;
     color: #E4007F;
-    font-weight: bold; }
+    font-weight: 900;
+    font-family: 'Noto Sans JP', sans-serif !important;
+    font-weight: 900; }
+    #content-detail.NA .about-NA2 ._2 .img p strong {
+      font-weight: 900 !important; }
     #content-detail.NA .about-NA2 ._2 .img p b {
       font-size: 1.2em; }
     @media screen and (max-width: 767px) {
@@ -4688,6 +4928,42 @@ main.Q10 #sec03 {
 /* !! 緑のDHA&EPA+ゴールデンユーグレナ */
 #content-detail.DHA .about-DHA-EPA-0 {
   background: rgba(240, 101, 182, 0.52) !important; }
+  #content-detail.DHA .about-DHA-EPA-0 .txt1 {
+    font-weight: 900;
+    text-align: justify; }
+    #content-detail.DHA .about-DHA-EPA-0 .txt1 .idx {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      display: -webkit-inline-flex;
+      display: -moz-inline-flex;
+      display: -ms-inline-flex;
+      display: -o-inline-flex;
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      line-height: 1; }
+      #content-detail.DHA .about-DHA-EPA-0 .txt1 .idx * {
+        line-height: 1; }
+      #content-detail.DHA .about-DHA-EPA-0 .txt1 .idx i {
+        font-size: 14px;
+        margin-top: 5px; }
+  #content-detail.DHA .about-DHA-EPA-0 p:last-of-type {
+    margin-bottom: 0; }
 
 #content-detail.DHA #sec01 {
   background: #E4F5FF !important; }
@@ -4749,6 +5025,17 @@ main.Q10 #sec03 {
 #content-detail.DHA .about-DHA-EPA-4 ._1 .img img {
   width: 70% !important; }
 
+@media screen and (min-width: 768px) {
+  #content-detail.DHA .about-DHA-EPA-4 ._1 {
+    max-width: 250px; } }
+
+@media screen and (max-width: 767px) {
+  #content-detail.DHA .about-DHA-EPA-4 ._1 {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2; } }
+
 #content-detail.DHA .about-DHA-EPA-4 ._2 {
   padding: 0 30px;
   display: -webkit-flex;
@@ -4775,13 +5062,35 @@ main.Q10 #sec03 {
       -ms-flex-align: center;
           align-items: center; }
   #content-detail.DHA .about-DHA-EPA-4 ._2 img.omega3 {
-    width: 120% !important;
+    width: 110% !important;
     height: auto !important; }
+  @media screen and (max-width: 767px) {
+    #content-detail.DHA .about-DHA-EPA-4 ._2 {
+      -webkit-box-ordinal-group: 2;
+      -webkit-order: 1;
+          -ms-flex-order: 1;
+              order: 1;
+      padding: 0; } }
 
 #content-detail.DHA .about-DHA-EPA-4 ._3 .img {
   border-radius: 6px;
   background: rgba(255, 0, 0, 0.1);
-  padding: 15px; }
+  border: 1px solid #E4007F;
+  position: relative;
+  overflow: hidden; }
+  #content-detail.DHA .about-DHA-EPA-4 ._3 .img img {
+    position: relative; }
+
+@media screen and (min-width: 768px) {
+  #content-detail.DHA .about-DHA-EPA-4 ._3 {
+    max-width: 250px; } }
+
+@media screen and (max-width: 767px) {
+  #content-detail.DHA .about-DHA-EPA-4 ._3 {
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3; } }
 
 #content-detail.DHA #sec02 {
   background: #FFEEE4 !important; }
@@ -4790,8 +5099,8 @@ main.Q10 #sec03 {
   position: relative; }
   #content-detail.DHA .about-safety > .img .label {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -25px;
+    right: -25px;
     z-index: 1; }
     @media screen and (max-width: 767px) {
       #content-detail.DHA .about-safety > .img .label {
@@ -4858,7 +5167,10 @@ main.Q10 #sec03 {
 #content-detail.DHA .about-quarity ._1 .img .img {
   width: 60px; }
 
-#content-detail.DHA .about-quarity ._1 h4 {
+#content-detail.DHA .about-quarity ._1 p {
+  margin-bottom: 0 !important; }
+
+#content-detail.DHA .about-quarity ._2 h4 {
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
@@ -4867,71 +5179,18 @@ main.Q10 #sec03 {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
-  #content-detail.DHA .about-quarity ._1 h4 .img {
+  #content-detail.DHA .about-quarity ._2 h4 .img {
     margin-right: 10px; }
     @media screen and (max-width: 767px) {
-      #content-detail.DHA .about-quarity ._1 h4 .img {
+      #content-detail.DHA .about-quarity ._2 h4 .img {
         margin: 0 auto;
         margin-bottom: 10px !important; } }
 
-#content-detail.DHA .about-quarity ._1 p {
-  margin-bottom: 0 !important; }
+#content-detail.DHA .about-quarity ._2 .img .img {
+  width: 60px; }
 
-#content-detail.DHA .about-quarity ._2 {
-  background: #E5F2E2;
-  border-radius: 6px;
-  padding: 30px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start; }
-  @media screen and (max-width: 767px) {
-    #content-detail.DHA .about-quarity ._2 {
-      padding: 4.005vw; } }
-  #content-detail.DHA .about-quarity ._2 .img {
-    -webkit-align-self: center;
-        -ms-flex-item-align: center;
-            align-self: center;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin-bottom: 0;
-    justify-content: center;
-    -webkit-box-flex: 3;
-    -webkit-flex-grow: 3;
-        -ms-flex-positive: 3;
-            flex-grow: 3; }
+#content-detail.DHA .about-quarity ._2 p {
+  margin-bottom: 0 !important; }
 
 #content-detail.DHA .about-material ._1 {
   border: 2px solid #ccc;
