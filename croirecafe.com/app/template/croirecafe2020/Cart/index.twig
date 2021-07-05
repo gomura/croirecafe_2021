@@ -207,7 +207,9 @@ file that was distributed with this source code.
 	                        {{ '合計：'|trans }}<span class="ec-cartRole__totalAmount">{{ Cart.totalPrice|price }}</span>
 	                        
 	                    </div>
-                        <p class="note-delivery"><i>+送料</i><span>※送料の詳細はレジにて表示されます。</span></p>
+                        <p class="note-delivery default"><i>送料別途</i><span>※送料の金額、配送方法等はレジにて表示されます。</span></p>
+                        <p class="note-delivery teiki"><i>送料無料</i></p>
+                        
                         <a class="ec-blockBtn--action" href="{{ path('cart_buystep', {'cart_key':cartKey}) }}">{{ 'レジに進む'|trans }}</a>
                         {% if loop.last %}
                         	

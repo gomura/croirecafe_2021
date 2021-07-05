@@ -39,6 +39,27 @@ $(function(){
 });
 
 
+/* !!------------------------------------ */
+/* !! 別途送料表示 */
+$(function(){
+	
+	var container = $(".cart-container");
+	
+	container.each(function(){
+		var This = $(this),
+			itemName = This.find(".ec-cartRow__name");
+			itemName.each(function(){
+				var _This = $(this);
+				if(_This.text().match("定期購入価格")){
+					This.addClass("teiki");
+					return false;
+				}
+			});
+	});
+	
+});
+
+
 
 /* !!------------------------------------ */
 /* !! おひとり様一回 */

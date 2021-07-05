@@ -472,6 +472,10 @@ a.ec-blockBtn--primary,
   .cart-in-section-disabled a i {
     margin-right: 5px; }
 
+@media screen and (max-width: 767px) {
+  .ec-blockBtn--action {
+    max-width: 240px; } }
+
 /* !! - - -  */
 /* !! form */
 .ec-input input {
@@ -6679,6 +6683,11 @@ main.Q10 .sec.gyoushuku {
         max-width: 300px;
         margin-left: auto;
         margin-right: 0; } }
+    @media screen and (max-width: 767px) {
+      .ec-cartRole__actions .ec-blockBtn--action {
+        max-width: 240px;
+        margin: 15px auto;
+        margin-top: 20px; } }
   .ec-cartRole__actions .ec-blockBtn--cancel {
     display: none !important; }
 
@@ -6718,6 +6727,58 @@ main.Q10 .sec.gyoushuku {
     .ec-blockBtn--cancel {
       max-width: 240px; } }
 
+/* !! - - -  */
+/* !! 送料について */
+.note-delivery {
+  text-align: right;
+  margin-bottom: 10px; }
+  .note-delivery i {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: -webkit-inline-flex;
+    display: -moz-inline-flex;
+    display: -ms-inline-flex;
+    display: -o-inline-flex;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    background: rgba(228, 0, 127, 0.1);
+    height: 22px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 0 15px;
+    line-height: 1; }
+  .note-delivery span {
+    display: block;
+    font-size: 12px;
+    line-height: 1;
+    margin-top: 10px; }
+
+.cart-container .teiki {
+  display: none; }
+
+.cart-container.teiki .teiki {
+  display: block; }
+
+.cart-container.teiki .default {
+  display: none; }
+
 /* !!------------------------------------ */
 /* !! 決済画面 */
 .ec-totalBox {
@@ -6727,6 +6788,10 @@ main.Q10 .sec.gyoushuku {
     margin-top: 15px; }
     .ec-totalBox .ec-totalBox__btn .ec-blockBtn--cancel {
       margin-top: 15px; }
+  @media screen and (max-width: 767px) {
+    .ec-totalBox .ec-blockBtn--action {
+      max-width: 240px;
+      margin: 0 auto; } }
 
 .ec-inlineBtn {
   height: 40px !important;
@@ -6802,7 +6867,17 @@ main.Q10 .sec.gyoushuku {
 .ec-orderCoupon {
   margin-bottom: 30px !important; }
   .ec-orderCoupon #coupon_button {
-    border-radius: 50px !important; }
+    border-radius: 50px !important;
+    max-width: 240px !important;
+    border: 2px solid #fff !important;
+    display: block;
+    -webkit-box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1); }
+
+@media screen and (max-width: 767px) {
+  #page_plugin_coupon_shopping .ec-blockBtn--action {
+    margin: 10px auto !important;
+    margin-bottom: 20px !important; } }
 
 #yamato_payment4_credit dl[id^="detail_box__"] {
   margin: 0 20px !important; }
@@ -6834,6 +6909,9 @@ h2.heading02 {
 
 #confirm_box__quantity_edit_button {
   margin-top: 10px; }
+
+.ec-cartRole__total {
+  padding-bottom: 10px !important; }
 
 .ec-cartRole__totalText p {
   text-align: center;
@@ -6982,6 +7060,13 @@ select[id$=_shippingDeliveryDate] span {
 
 /* !!------------------------------------ */
 /* !! ショッピング */
+/* !! - - -  */
+/* !! shopping-form */
+@media screen and (min-width: 768px) {
+  #shopping-form {
+    padding-top: 85px;
+    margin-top: -85px; } }
+
 @media screen and (min-width: 768px) {
   .login_cen {
     margin: 0 auto; } }

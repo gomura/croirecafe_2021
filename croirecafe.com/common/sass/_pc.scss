@@ -358,6 +358,9 @@ a.ec-blockBtn--primary,
 
 .ec-blockBtn--action{
 	@extend %btn_CTA;
+	@include sp{
+		max-width: 240px;	
+	}//@sp
 }
 
 /* !! - - -  */
@@ -5820,7 +5823,9 @@ main.Q10{
 			margin-right: 0;
 		}//@pc
 		@include sp{
-			
+			max-width: 240px;
+			margin: 15px auto;
+			margin-top: 20px;
 		}//@sp
 	}
 	&:last-of-type{
@@ -5855,6 +5860,49 @@ main.Q10{
 }
 
 
+/* !! - - -  */
+/* !! 送料について */
+.note-delivery{
+	text-align: right;
+	margin-bottom: 10px;
+	i{
+		@include flex-centering;
+		display: -webkit-inline-flex;
+		display: -moz-inline-flex;
+		display: -ms-inline-flex;
+		display: -o-inline-flex;
+		display: inline-flex;
+		background: rgba($pink,.1);
+		height: 22px;
+		font-size: 14px;
+		font-weight: bold;
+		border-radius: 50px;
+		padding: 0 15px;
+		line-height: 1;
+	}
+	span{
+		display: block;
+		font-size: 12px;
+		line-height: 1;
+		margin-top: 10px;
+	}
+}
+
+.cart-container{
+	.teiki{
+		display: none;
+	}
+	&.teiki{
+		.teiki{
+			display: block;
+		}
+		.default{
+			display: none;
+		}
+	}
+}
+
+
 /* !!------------------------------------ */
 /* !! 決済画面 */
 
@@ -5866,6 +5914,12 @@ main.Q10{
 		.ec-blockBtn--cancel{
 			margin-top: 15px;
 		}
+	}
+	.ec-blockBtn--action{
+		@include sp{
+			max-width: 240px;
+			margin: 0 auto;	
+		}//@sp
 	}
 }
 
@@ -5958,6 +6012,18 @@ main.Q10{
 	margin-bottom: 30px !important;
 	#coupon_button{
 		border-radius: 50px !important;
+		max-width: 240px !important;
+		border: 2px solid #fff !important;
+		display: block;
+		@include shadow01;
+	}
+}
+#page_plugin_coupon_shopping{
+	.ec-blockBtn--action{
+		@include sp{
+			margin: 10px auto !important;
+			margin-bottom: 20px !important;	
+		}//@sp
 	}
 }
 
@@ -6022,7 +6088,9 @@ h2.heading02{
 #confirm_box__quantity_edit_button{
 	margin-top: 10px;
 }
-
+.ec-cartRole__total{
+	padding-bottom: 10px !important;
+}
 .ec-cartRole__totalText p{
 	text-align: center;
 	font-size: 16px;
@@ -6220,6 +6288,16 @@ body.type_teiki,body.otameshi_10{
 
 /* !!------------------------------------ */
 /* !! ショッピング */
+
+ /* !! - - -  */
+ /* !! shopping-form */
+ #shopping-form{
+	 @include pc{
+	 	padding-top: 85px;
+	 	margin-top: -85px;
+	 }//@pc
+ }
+
 .login_cen{
 	@include pc{
 		margin: 0 auto;	
