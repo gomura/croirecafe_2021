@@ -6566,6 +6566,11 @@ main.Q10 .sec.gyoushuku {
       padding: 4.005vw; } }
   .cart-container .ec-cartRole__progress {
     display: none; }
+  .cart-container .label-tag {
+    margin-bottom: 10px;
+    background: rgba(228, 0, 127, 0.7);
+    line-height: 1;
+    font-size: 14px !important; }
 
 .ec-cartTable {
   border: 2px solid #9FA0A0;
@@ -6770,13 +6775,13 @@ main.Q10 .sec.gyoushuku {
     line-height: 1;
     margin-top: 10px; }
 
-.cart-container .teiki {
+.cart-container .souryou-muryou {
   display: none; }
 
-.cart-container.teiki .teiki {
+.cart-container.souryou-muryou .souryou-muryou {
   display: block; }
 
-.cart-container.teiki .default {
+.cart-container.souryou-muryou .default {
   display: none; }
 
 /* !!------------------------------------ */
@@ -7216,8 +7221,69 @@ select[id$=_shippingDeliveryDate] span {
 
 /* !! - - -  */
 /* !! ご注文履歴 */
+.ec-orderOrder {
+  padding: 20px; }
+
+.ec-definitions--soft {
+  padding: 0 20px; }
+
+.ec-orderMail p, .ec-orderPayment p {
+  padding: 20px; }
+
 #summary_box__add_point {
   display: none !important; }
+
+#creditForm {
+  background: rgba(250, 190, 0, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 640px;
+  margin: 0 auto;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  #creditForm .ec-para-nomal {
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px; }
+  #creditForm .ec-rectHeading {
+    width: 100%;
+    margin-bottom: 10px; }
+  #creditForm h2 {
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 10px; }
+  #creditForm #credit_change_card_owner {
+    height: 40px;
+    font-size: 16px; }
+  #creditForm > dl input {
+    width: 100%; }
+  #creditForm > dl #credit_change_security_code {
+    max-width: 100%; }
+  @media screen and (min-width: 768px) {
+    #creditForm > dl {
+      width: calc(50% - 10px); } }
+  @media screen and (max-width: 767px) {
+    #creditForm > dl {
+      width: 100%; }
+      #creditForm > dl select {
+        display: inline-block;
+        width: 80px; } }
+  #creditForm .ec-off4Grid {
+    width: 100%; }
 
 #teikiRepurchase-inner {
   background: #efefef;

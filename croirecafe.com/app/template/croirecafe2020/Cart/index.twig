@@ -204,11 +204,11 @@ file that was distributed with this source code.
                     </div>
                     <div class="ec-cartRole__actions">
                         <div class="ec-cartRole__total">
-	                        {{ '合計：'|trans }}<span class="ec-cartRole__totalAmount">{{ Cart.totalPrice|price }}</span>
+	                        {{ '合計：'|trans }}<span class="ec-cartRole__totalAmount total" data-price="{{ Cart.totalPrice}}">{{ Cart.totalPrice|price }}</span>
 	                        
 	                    </div>
                         <p class="note-delivery default"><i>送料別途</i><span>※送料の金額、配送方法等はレジにて表示されます。</span></p>
-                        <p class="note-delivery teiki"><i>送料無料</i></p>
+                        <p class="note-delivery souryou-muryou"><i>送料無料</i></p>
                         
                         <a class="ec-blockBtn--action" href="{{ path('cart_buystep', {'cart_key':cartKey}) }}">{{ 'レジに進む'|trans }}</a>
                         {% if loop.last %}

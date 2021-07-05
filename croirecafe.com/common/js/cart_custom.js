@@ -50,13 +50,27 @@ $(function(){
 			itemName = This.find(".ec-cartRow__name");
 			itemName.each(function(){
 				var _This = $(this);
+				//var price = _This.find($(".total").data("price"));
+				var price = This.find(".ec-cartRole__totalAmount.total").data("price");
+				var price = Number(price);
 				if(_This.text().match("定期購入価格")){
-					This.addClass("teiki");
+					This.addClass("teiki souryou-muryou").prepend('<div class="label-tag inline">定期購入商品</div>');
+					return false;
+				}else if(_This.text().match("送料無料")){
+					This.addClass("souryou-muryou").prepend('<div class="label-tag inline">送料無料商品</div>');
+					return false;
+				}else if(_This.text().match("初回お試し")){
+					This.addClass("shokai-otameshi souryou-muryou").prepend('<div class="label-tag inline">初回お試し商品</div>');
+					return false;
+				}else{
+					This.addClass("default").prepend('<div class="label-tag inline">通常購入商品</div>');
+					if( price >= 7000 ){
+						This.addClass("souryou-muryou");
+					}
 					return false;
 				}
 			});
 	});
-	
 });
 
 

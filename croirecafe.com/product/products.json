@@ -3,6 +3,7 @@
 		"pcode": "3101561",
 		"pid": "120",
 		"slug": "premium-croiretea",
+		"view":"subscription",
 		"slide_url": {
 			"pc": "/product/img/slide/561.jpg",
 			"sp": "/product/img/slide/561_sp.jpg",
@@ -37,7 +38,8 @@
 		"url": {
 			"base": "/products/detail/56",
 			"teiki": "/products/detail/120",
-			"try": "/products/detail/21"
+			"try": "/products/detail/21",
+			"line": "/products/detail/108"
 		},
 		"delivery_fee":"231"
 	},
@@ -45,6 +47,7 @@
 		"pcode": "3101572",
 		"pid": "122",
 		"slug": "probiotics12",
+		"view":"subscription",
 		"slide_url": {
 			"pc": "/product/img/slide/572.jpg",
 			"sp": "/product/img/slide/572_sp.jpg",
@@ -79,7 +82,8 @@
 		"url": {
 			"base": "/products/detail/58",
 			"teiki": "/products/detail/122",
-			"try": "/products/detail/59"
+			"try": "/products/detail/59",
+			"line": "/products/detail/113"
 		},
 		"delivery_fee":"660"
 	},
@@ -87,6 +91,7 @@
 		"pcode": "3101581",
 		"pid": "121",
 		"slug": "",
+		"view":"onestop",
 		"slide_url": {
 			"pc": "/product/img/slide/581.jpg",
 			"sp": "/product/img/slide/581_sp.jpg",
@@ -125,7 +130,8 @@
 		"url": {
 			"base": "/products/detail/87",
 			"teiki": "/products/detail/121",
-			"try": "/products/detail/88"
+			"try": "/products/detail/88",
+			"line": "/products/detail/111"
 		},
 		"delivery_fee":"231"
 	},
@@ -133,6 +139,7 @@
 		"pcode": "3101569",
 		"pid": "118",
 		"slug": "midori-no-dhaepa",
+		"view":"onestop",
 		"slide_url": {
 			"pc": "/product/img/slide/569.jpg",
 			"sp": "/product/img/slide/569_sp.jpg",
@@ -167,7 +174,8 @@
 		"url": {
 			"base": "/products/detail/26",
 			"teiki": "/products/detail/118",
-			"try": "/products/detail/22"
+			"try": "/products/detail/22",
+			"line": "/products/detail/115"
 		},
 		"delivery_fee":"231"
 	},
@@ -175,6 +183,7 @@
 		"pcode": "3101570",
 		"pid": "117",
 		"slug": "na",
+		"view":"subscription",
 		"slide_url": {
 			"pc": "/product/img/slide/570.jpg",
 			"sp": "/product/img/slide/570_sp.jpg",
@@ -209,7 +218,8 @@
 		"url": {
 			"base": "/products/detail/29",
 			"teiki": "/products/detail/117",
-			"try": "/products/detail/36"
+			"try": "/products/detail/36",
+			"line": "/products/detail/124"
 		},
 		"delivery_fee":"231"
 	},
@@ -217,6 +227,7 @@
 		"pcode": "3101554",
 		"pid": "118",
 		"slug": "q10",
+		"view":"subscription",
 		"slide_url": {
 			"pc": "/product/img/slide/554.jpg",
 			"sp": "/product/img/slide/554_sp.jpg",
@@ -251,7 +262,8 @@
 		"url": {
 			"base": "/products/detail/34",
 			"teiki": "/products/detail/116",
-			"try": "/products/detail/35"
+			"try": "/products/detail/35",
+			"line": "/products/detail/114"
 		},
 		"delivery_fee":"231"
 	},
@@ -259,6 +271,7 @@
 		"pcode": "3101526",
 		"pid": "119",
 		"slug": "gold",
+		"view":"subscription",
 		"slide_url": {
 			"pc": "/product/img/slide/526.jpg",
 			"sp": "/product/img/slide/526_sp.jpg",
@@ -293,7 +306,8 @@
 		"url": {
 			"base": "/products/detail/25",
 			"teiki": "/products/detail/119",
-			"try": "/products/detail/27"
+			"try": "/products/detail/27",
+			"line": "/products/detail/109"
 		},
 		"delivery_fee":"231"
 	},
@@ -301,6 +315,7 @@
 		"pcode": "3103518",
 		"pid": "20",
 		"slug": "wahaha",
+		"view":"onestop",
 		"slide_url": {
 			"pc": "/product/img/slide/518.jpg",
 			"sp": "/product/img/slide/518_sp.jpg",
@@ -339,6 +354,7 @@
 		"pcode": "3101535",
 		"pid": "42",
 		"slug": "croire-coat",
+		"view":"onestop",
 		"slide_url": {
 			"pc": "/product/img/slide/535.jpg",
 			"sp": "/product/img/slide/535_sp.jpg",
@@ -369,7 +385,8 @@
 		"url": {
 			"base": "/products/detail/42",
 			"teiki": "",
-			"try": "/products/detail/127"
+			"try": "/products/detail/127",
+			"line": "/products/detail/110"
 		},
 		"delivery_fee":"231"
 	}

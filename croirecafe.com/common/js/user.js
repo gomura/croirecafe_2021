@@ -77,6 +77,7 @@ function getUrlVars(){ // URLに付与した文字列から変数を取得する
 	return vars;
 }
 
+
 $.easing.slowdown = function(x,t,b,c,d){
     return -c * ((t=t/d-1)*t*t*t - 1) + b;
 }
@@ -772,6 +773,7 @@ var generateProdInfo =( function generateProdInfo(data) {
 	}
 	
 	$("body").attr("data-pcode",pcode);
+	var source = getUrlVars()["utm_source"];
 	
 	//alert(pcode);
 	var filtered = []		
@@ -822,7 +824,7 @@ var generateProdInfo =( function generateProdInfo(data) {
 		html = "";
 		var type = "onestop";
 		if(item.price.teiki1[0]){
-			type = "subscription";
+			//type = "subscription";
 			html += '<li class="subscription" data-type="subscription">';
 			if(item.price.diff[0]){
 				html += '<div class="comment">年間約<b>'+item.price.diff+'</b>円お得！</div>';
@@ -831,6 +833,12 @@ var generateProdInfo =( function generateProdInfo(data) {
 			html += '</li>';
 		}
 		html += '<li class="onestop" data-type="onestop"><span>1回のみお届けコース</span></li>';
+		
+		if(source == "line"){
+			type = "onestop";
+		}else{
+			type = item.view;
+		}
 		$("body").attr("data-type",type);
 		$(".product-cart-header").append(html);
 		
@@ -852,9 +860,21 @@ var generateProdInfo =( function generateProdInfo(data) {
 		}else{
 			$(".cart-delivery-fee").html(item.delivery_fee);
 		}
+		
+		//!! - lineの場合
+		if(source == "line" ){
+			$(".row-info").html('<p class="line">LINE会員様限定 送料無料</p>')
+		}
+		
 		if(item.url.base[0]){
 			$(".cart-url-base").attr("data-url",item.url.base);
 		}
+		
+		//!! - lineの場合
+		if(source == "line" && item.url.line[0] ){
+			$(".cart-url-base").attr("data-url",item.url.line).addClass("line");
+		}
+		
 		$(".cart-price-try").html(item.price.try);
 		if(!item.url.try[0]){
 			$(".try-price-wrap").remove();	

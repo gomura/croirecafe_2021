@@ -5693,6 +5693,12 @@ main.Q10{
 	.ec-cartRole__progress{
 		display: none;
 	}
+	.label-tag{
+		margin-bottom: 10px;
+		background: rgba($pink,.7);
+		line-height: 1;
+		font-size: 14px !important;
+	}
 }
 
 .ec-cartTable{
@@ -5889,11 +5895,11 @@ main.Q10{
 }
 
 .cart-container{
-	.teiki{
+	.souryou-muryou{
 		display: none;
 	}
-	&.teiki{
-		.teiki{
+	&.souryou-muryou{
+		.souryou-muryou{
 			display: block;
 		}
 		.default{
@@ -6419,7 +6425,19 @@ body.type_teiki,body.otameshi_10{
 
 /* !! - - -  */
 /* !! ご注文履歴 */
+.ec-orderOrder{
+	padding: 20px;
+}
 
+.ec-definitions--soft{
+	padding: 0 20px;
+}
+
+.ec-orderMail,.ec-orderPayment{
+	p{
+		padding: 20px;
+	}
+}
 
 #summary_box__add_point{
 	display: none !important;
@@ -6429,6 +6447,58 @@ body.type_teiki,body.otameshi_10{
 .ec-historyListHeader__action{
 	.ec-inlineBtn{
 		
+	}
+}
+
+
+#creditForm{
+	background:rgba($yellow,.1);
+	padding: 20px;
+	border-radius: 12px;
+	max-width: 640px;
+	margin: 0 auto;
+	@include flex;
+	.ec-para-nomal{
+		width: 100%;
+		font-size: 16px;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	.ec-rectHeading{
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	h2{
+		background: #fff;
+		padding: 10px;
+		margin-bottom: 10px;
+	}
+	#credit_change_card_owner{
+		height: 40px;
+		font-size: 16px;
+	}
+	>dl{
+		input{
+			width: 100%;
+		}
+		#credit_change_security_code{
+			max-width: 100%;
+		}
+		@include pc{
+			width: calc(50% - 10px);	
+		}//@pc
+		@include sp{
+			width: 100%;
+			.form-inline{}
+			select{
+				display: inline-block;
+				width: 80px;
+			}
+		}//@sp
+		
+	}
+	.ec-off4Grid{
+		width: 100%;
 	}
 }
 
