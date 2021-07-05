@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?typ78l');
-  src:  url('fonts/icomoon.eot?typ78l#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?typ78l') format('truetype'),
-    url('fonts/icomoon.woff?typ78l') format('woff'),
-    url('fonts/icomoon.svg?typ78l#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?18qpnc');
+  src:  url('fonts/icomoon.eot?18qpnc#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?18qpnc') format('truetype'),
+    url('fonts/icomoon.woff?18qpnc') format('woff'),
+    url('fonts/icomoon.svg?18qpnc#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -39,6 +39,9 @@
 }
 .icon-profile:before {
   content: "\e923";
+}
+.icon-cart:before {
+  content: "\e93a";
 }
 .icon-credit-card:before {
   content: "\e93f";
@@ -102,6 +105,24 @@
 }
 .icon-heart:before {
   content: "\e9da";
+}
+.icon-arrow-up-left2:before {
+  content: "\ea39";
+}
+.icon-arrow-up2:before {
+  content: "\ea3a";
+}
+.icon-arrow-up-right2:before {
+  content: "\ea3b";
+}
+.icon-arrow-right2:before {
+  content: "\ea3c";
+}
+.icon-arrow-down-right2:before {
+  content: "\ea3d";
+}
+.icon-arrow-down2:before {
+  content: "\ea3e";
 }
 .icon-checkbox-checked:before {
   content: "\ea52";

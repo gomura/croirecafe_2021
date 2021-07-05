@@ -72,7 +72,8 @@ textarea::selection {
 	background: #dbdcdc;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="number"]{
   box-sizing: border-box;
   width: 100%;
   font-size: 16px;
@@ -274,7 +275,7 @@ h2.sec{
 }
 
 %btn_CTA{
-	@include bg_orange;
+	background: rgba($cta,.9);
 	@include shadow02;
 	border-radius: 50px;
 	display: block;
@@ -290,6 +291,11 @@ h2.sec{
 	@include flex;
 	justify-content: center;
 	align-items: center;
+	text-decoration: none;
+	outline: none;
+	&:hover{
+		background: rgba($cta,1);
+	}
 }
 
 .btn.more{
@@ -325,7 +331,8 @@ h2.sec{
 
 a.ec-blockBtn--cancel,
 a.ec-blockBtn--primary,
-.ec-inlineBtn{
+.ec-inlineBtn,
+.cart-in-section-disabled a{
 	@include flex;
 	justify-content: center;
 	align-items: center;
@@ -462,7 +469,7 @@ a.ec-blockBtn--primary,
 			margin-right: 10px;
 			a{
 				@include flex-centering;
-				background: #EEE;
+				background: $btn;
 				padding: 6px;
 				border-radius: 6px;
 				width: 100px;
@@ -490,15 +497,32 @@ a.ec-blockBtn--primary,
 				}
 			}
 		}
-		.entry a,.mypage a{
-			background: rgba($orange,.8);
+		.logout a{
+			//background: $btn;
+			//color: $blue !important;
+			//text-shadow: none;
+			:before{
+				//color: $blue !important;
+			}
+			span{
+				//color: $blue !important;
+			}
+		}
+		.mypage a{
+			background: rgba($mypage,.8);
+		}
+		.entry a{
+			background: rgba($entry,.8);
 		}
 		.mypage_favorite a,
 		.fav a{
-			background: rgba($yellow,.99);
+			background: rgba($favorite,.99);
 		}
-		.mypage_login a, .logout a{
-			background: rgba($blue,.8) !important;
+		.mypage_login a{
+			background: rgba($login,.7) !important;
+		}
+		.logout a{
+			background: rgba($login,.7) !important;
 		}
 	}
 	
@@ -969,15 +993,31 @@ ul.category-nav{
 			font-size: 16px;
 			letter-spacing: .1em;
 			text-decoration: none !important;
-			background: #c7e0f7;
+			background: $btn;
 			border: 2px solid #fff;
 			font-weight: bold;
 			color: $blue !important;
+			text-shadow: 0px 2px 3px rgba(0, 0, 0, .4);
+			&.logout{
+				//text-shadow: 0px 0px 3px rgba(255, 255, 255, 1);
+			}
 			i{
 				margin-right: 5px;
 			}
-			&.login{
-				@include bg_orange;
+			&.mypage{
+				background: $mypage;
+				color: #FFF !important;
+			}
+			&.favorite{
+				background: $favorite;
+				color: #fff !important;
+			}
+			&.entry{
+				background: $entry;
+				color: #FFF !important;
+			}
+			&.login,&.logout{
+				background: $login;
 				border: 2px solid #fff;
 				color: #FFF;
 				font-weight: bold;
@@ -2809,7 +2849,7 @@ main.payment{
 .ec-login__actions{
 	.ec-blockBtn--cancel{
 		@extend %btn_L;
-		@include bg_orange;
+		background: $login;
 		height: 54px !important;
 		border: 2px solid #fff;
 		color: #FFF;
@@ -3057,7 +3097,7 @@ main.payment{
 			letter-spacing: .05em;
 			@include cart-trns;
 			@include sp{
-				height: 40px;	
+				height: 50px;	
 			}//@sp
 			&.subscription{
 				body[data-type="subscription"] & {
@@ -3168,6 +3208,7 @@ main.payment{
 		.row-base-price{
 			padding: 0 20px;
 			margin-bottom: 10px;
+			width: 100%;
 			@include sp{
 				padding: 0 10px;
 			}//@sp
@@ -3314,7 +3355,7 @@ main.payment{
 				width: 150px;
 				@include sp{
 					white-space: nowrap;
-					width: 120px;	
+					width: 130*$px;
 				}//@sp
 			}
 			ul{
@@ -3391,6 +3432,7 @@ main.payment{
 			}//@sp
 			.row-base-price{
 				height: auto;
+				width: 100%;
 				.label{
 					padding: 0;
 				}
@@ -3464,15 +3506,21 @@ main.payment{
 			padding: 20px 0;
 			padding-top: 15px;
 			height: 100%;
-
+			@include pc{
+				@include flex-centering;
+				justify-content: flex-start;
+				align-items: flex-start;	
+			}//@pc
 			.ec-numberInput{
 				pointer-events: none;
 				opacity: .5;
 			}
 			
+			
 		}
 		.row-try-price{
 			padding: 0 20px;
+			width: 100%;
 			@include sp{
 				padding: 0 10*$px;	
 			}//@sp
@@ -3525,6 +3573,7 @@ main.payment{
 			margin-top: auto;
 			margin-bottom: 0;
 			margin-top: 20px;
+			width: 100%;
 			form{
 				height: 54px;
 			}
@@ -3539,7 +3588,6 @@ main.payment{
 				margin: auto 0 !important;
 				.ec-numberInput{
 					height: auto;
-				
 				}
 			}
 			.productRole__btn{
@@ -3619,7 +3667,7 @@ main.payment{
 			padding:0 10*$px;	
 		}//@sp
 		.teiki-banner{
-			height: 50px;border: 1px solid $pink;
+			height: 36px;border: 1px solid $pink;
 			width: 320px;
 			@include flex-centering;
 		}
@@ -3648,7 +3696,7 @@ main.payment{
 			padding: 0;
 			padding-right: 10px;
 			font-weight: bold;
-			#quantity{
+			#quantity,.alt-quantity{
 				width: 50px;
 				height: 36px;
 				border-width: 3px;
@@ -3658,9 +3706,18 @@ main.payment{
 				padding: 5px;
 				padding-left: 10px;
 				margin-left: 10px;
+				font-size: 16px;
+				text-align: center;
 				@include sp{
 					margin-left: 5*$px;	
 				}//@sp
+			}
+			.alt-quantity{
+				display: inline-block;
+				//padding: 0 !important;
+				width: auto;
+				padding:0 10px;
+		
 			}
 		}
 		.ec-productRole__btn{
@@ -3672,6 +3729,9 @@ main.payment{
 			@extend %btn_CTA;
 			width: 250px;
 			margin-bottom: 0;
+			&:before{
+				//content: "\e93a" !important;
+			}
 			@include sp{
 				width: 195*$px;	
 			}//@sp
@@ -3707,6 +3767,7 @@ main.payment{
 /* !! おひとり様一回限り */
 
 
+
 .ec-blockBtn--action.add-cart{
 	position: relative;
 
@@ -3731,6 +3792,96 @@ main.payment{
 		}
 	}
 }
+
+//!! - お試し購入は会員様限定です。ログインまたは新規会員登録
+.cart-in-section-disabled-wrap{
+	width: 100%;
+	margin-top: auto;
+	margin-bottom: 0;
+	padding: 0 20px;
+	@include sp{
+		margin-top: 20px;
+		padding:0 10*$px;
+	}//@sp
+}
+.cart-in-section-disabled{
+	background: #FFF;
+	padding:0;
+	padding-top: 17px;
+	padding-bottom: 20px;
+	border-radius: 6px;
+	position: relative;
+	display: block;
+	&.sbsc{
+		background: rgba($pink,.1);
+	}
+	@include sp{
+		padding:20*$px 15*$px;
+		
+	}//@sp
+	p{
+		text-align: center;
+		font-weight: bold;
+		line-height: 1;
+		position: absolute;
+		top: 0;left: 0;
+		width: 100%;
+		font-size: 14px;
+		@include transform(translateY(-40%));
+		@include textshadow;
+	}
+	
+	.btn-grp{
+		margin-top: 5px;
+		width: 100%;
+		@include pc{
+			@include flex;
+			align-items: center;
+			justify-content: center;
+		}//@pc
+		
+		@include sp{
+			@include flex-centering;	
+		}//@sp
+		flex-wrap: nowrap;
+
+		>span{
+			font-size: 14px;
+			padding: 0 10px;
+			font-weight: bold;
+			@include sp{
+				padding: 10px;	
+			}//@sp
+		}
+		a{
+			border-radius: 50px;
+			max-width: 150px;
+			@extend %btn_L;
+			display: -webkit-inline-flex;
+			display: -moz-inline-flex;
+			display: -ms-inline-flex;
+			display: -o-inline-flex;
+			display: inline-flex;
+			height: 40px !important;
+			font-size: 14px !important;
+			align-items: center;
+			min-width: 10px;
+			line-height: 1;
+			&.login{
+				background: $login !important;
+				color: #FFF !important;
+			}
+			&.entry{
+				background: $entry !important;
+				color: #FFF !important;
+			}
+		}
+
+
+	}
+	
+
+}//.cart-in-section-disabled
 
 .ec-productRole__tags{
 	margin-bottom: 15px;
@@ -3810,6 +3961,8 @@ main.payment{
 		@include din;
 	}
 }
+
+
 
 //!! PB12
 .PB12_1{
@@ -5525,12 +5678,26 @@ main.Q10{
 	}//@sp
 }
 
-
+.cart-container{
+	background: rgba($yellow,0.1);
+	padding: 20px;
+	@include sp{
+		padding: 15*$px;	
+	}//@sp
+	margin-bottom: 30px;
+	border-radius: 12px;
+	width: 100%;
+	.ec-cartRole__progress{
+		display: none;
+	}
+}
 
 .ec-cartTable{
 	//background: #EEE;
 	border: 2px solid $gray2;
-	border-radius: 12px;
+	border-radius: 6px;
+	overflow: hidden;
+	background: #FFF !important;
 }
 
 .ec-cartRole__cart{
@@ -5540,14 +5707,17 @@ main.Q10{
 		border-radius: 50px;
 		overflow: hidden;
 		border-collapse: collapse;
-		background: none !important;
+		
+		
 		*{
 			padding: 10px;
 			//border-right: 1px solid #fff;
 			//background: #eee;
-			background: none !important;
+			//background: #FFF !important;
 			border-bottom: 2px solid $gray2;
 			border-right: 2px solid $gray2;
+			overflow: hidden;
+			
 			&:last-of-type{border-right: none;}
 		}
 		.ec-cartHeader__label{
@@ -5633,10 +5803,10 @@ main.Q10{
 //!!ボタン
 .ec-cartRole__actions{
 	margin-right: 0 !important;
-	margin-bottom: 100px;
+	margin-bottom: 0px;
+	min-width: 100%;
+	text-align: right;
 	.ec-blockBtn--action{
-		@extend %btn_L;
-		@include bg_orange;
 		height: 54px !important;
 		border: 2px solid #fff;
 		color: #FFF;
@@ -5644,14 +5814,27 @@ main.Q10{
 		letter-spacing: .1em;
 		color: #FFF !important;
 		@include flex-centering;
-		
+		@include pc{
+			max-width: 300px;
+			margin-left: auto;
+			margin-right: 0;
+		}//@pc
+		@include sp{
+			
+		}//@sp
 	}
 	&:last-of-type{
 		
 	}
+	.ec-blockBtn--cancel{
+		display: none !important;
+	}
 }
 
-
+.cart-back-wrap{
+	width: 100%;
+	margin: 10px 0;
+}
 .ec-blockBtn--cancel{
 	@extend %btn_L;
 	background: #fff;
@@ -5661,6 +5844,14 @@ main.Q10{
 	@include flex-centering;
 	white-space: nowrap;
 	margin-top: 30px;
+	margin: 0 auto;
+	@include pc{
+		max-width: 300px;
+		
+	}//@pc
+	@include sp{
+		max-width: 240px;
+	}//@sp
 }
 
 

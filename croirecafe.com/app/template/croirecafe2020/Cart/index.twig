@@ -88,6 +88,7 @@ file that was distributed with this source code.
             <div class="ec-cartRole__totalText">
                 <p>
                     {{ '商品の合計金額は「<strong>%price%</strong>」です。'|trans({ '%price%': totalPrice|price })|raw }}
+                    <span>※送料別途</span>
                 </p>
             </div>
             {% if Carts|length > 1 %}
@@ -114,7 +115,7 @@ file that was distributed with this source code.
                             </div>
                         </div>
                     {% endfor %}
-
+					<div class="cart-container">
                     <div class="ec-cartRole__cart">
                         <div class="ec-cartTable">
                             <ol class="ec-cartHeader">
@@ -132,7 +133,7 @@ file that was distributed with this source code.
                                             <img src="{{ asset('assets/icon/cross.svg') }}" alt="delete">
                                         </a>
                                     </li>
-                                    <li class="ec-cartRow__contentColumn">
+                                    <li class="ec-cartRow__contentColumn" data-pid="{{Product.id}}" data-pcode="{{Product.pcode}}">
                                         <div class="ec-cartRow__img">
                                             <a target="_blank" href="{{ url('product_detail', {id : Product.id} ) }}">
                                                 <img src="{{ asset(Product.MainListImage|no_image_product, 'save_image') }}" alt="{{ Product.name }}"/>
@@ -202,15 +203,24 @@ file that was distributed with this source code.
                         {% endif %}
                     </div>
                     <div class="ec-cartRole__actions">
-                        <div class="ec-cartRole__total">{{ '合計：'|trans }}<span class="ec-cartRole__totalAmount">{{ Cart.totalPrice|price }}</span>
-                        </div>
+                        <div class="ec-cartRole__total">
+	                        {{ '合計：'|trans }}<span class="ec-cartRole__totalAmount">{{ Cart.totalPrice|price }}</span>
+	                        
+	                    </div>
+                        <p class="note-delivery"><i>+送料</i><span>※送料の詳細はレジにて表示されます。</span></p>
                         <a class="ec-blockBtn--action" href="{{ path('cart_buystep', {'cart_key':cartKey}) }}">{{ 'レジに進む'|trans }}</a>
                         {% if loop.last %}
+                        	
                             <a class="ec-blockBtn--cancel" href="{{ path('homepage') }}">{{ 'お買い物を続ける'|trans }}</a>
                         {% endif %}
                     </div>
+                    </div><!-- /.cart-container -->
                 {% endfor %}
             </form>
+            
+            
+        
+        
         {% else %}
             {% for CartIndex,Cart in Carts %}
                 {% set cartKey = Cart.cart_key %}
@@ -236,6 +246,11 @@ file that was distributed with this source code.
                 </div>
             </div>
         {% endif %}
+        
+        <div class="cart-back-wrap">
+	        <a class="ec-blockBtn--cancel" href="{{ path('homepage') }}">{{ 'お買い物を続ける'|trans }}</a>
+        </div>
+        
     </div>
 
 {% endblock %}

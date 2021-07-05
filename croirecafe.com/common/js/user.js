@@ -725,10 +725,17 @@ $(function(){
 /* !! 外部カートボタン読み込み */
 
 function loadCartBtn(elem,tgtUrl){
-	elem.load(tgtUrl+" #form1")
-	console.log("done");
+	elem.load(tgtUrl+" #form1",function(){
+		
+		console.log(tgtUrl + "loaded");
+		elem.find("#quantity").remove();
+	})
 }
 
+/* !! 外部カートボタン読み込み用セレクトボックス追加 */
+function set_selectBtn(){
+	
+}
 
 /* !! カート表示部読み込み */
 
@@ -905,7 +912,7 @@ $(function(){
 	var cart_wrap = $("#cart-wrap");
 	if(cart_wrap[0]){
 		var html = "";
-		html += '<div id="btn-to-cart-wrap"><a class="" href="#cart-wrap"><span>商品のご購入はこちら</span></a></div>';
+		html += '<div id="btn-to-cart-wrap"><a class="" href="#cart-wrap"><span>商品の<br class="pc" />ご購入は<br class="pc" />こちら</span></a></div>';
 		$("body").append(html).addClass("has-btn-to-cart-wrap");
 	}
 });

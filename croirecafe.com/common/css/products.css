@@ -2495,10 +2495,6 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
 /* !! 購入するボタン */
 #btn-to-cart-wrap {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -2518,24 +2514,37 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 20px 0;
   -webkit-transition: 600ms ease-in-out;
   -o-transition: 600ms ease-in-out;
   transition: 600ms ease-in-out;
   pointer-events: none;
-  -webkit-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  transform: translateY(100%); }
+  -webkit-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  transform: translateY(200%);
+  background: #E75613;
+  z-index: 10; }
+  @media screen and (min-width: 768px) {
+    #btn-to-cart-wrap {
+      right: 30px;
+      bottom: 30px;
+      width: 100px;
+      height: 100px;
+      z-index: 10;
+      border-radius: 100px; } }
   @media screen and (max-width: 767px) {
     #btn-to-cart-wrap {
-      -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
-              box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
+      padding: 20px 0;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+      transform: translateY(100%);
       padding: 0;
       -webkit-box-align: center;
       -webkit-align-items: center;
           -ms-flex-align: center;
-              align-items: center;
-      background: #E75613; } }
+              align-items: center; } }
   #btn-to-cart-wrap a {
     height: 50px;
     width: 100%;
@@ -2565,6 +2574,11 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
     letter-spacing: .1em; }
     #btn-to-cart-wrap a strong {
       font-weight: 900 !important; }
+    @media screen and (min-width: 768px) {
+      #btn-to-cart-wrap a {
+        width: 100%;
+        height: 100%;
+        font-size: 14px; } }
     @media screen and (max-width: 767px) {
       #btn-to-cart-wrap a {
         height: 70px;
