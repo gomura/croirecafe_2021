@@ -598,6 +598,11 @@ var generateList =( function generateList(data) {
 		html += '<img src="'+item.thumb_url+'" />';
 		html += '</div>';
 		html += '<div class="txt">';
+		if(item.label_sale_url[0]){
+			html += '<div class="label_sale"><img src="'+item.label_sale_url+'"/></div>';
+		}else{
+			
+		}
 		html += '<h3 class="pname"><span>'+item.name_disp+'</span></h3>';
 		html += '<p class="desc">'+item.desc_long+'</p>';
 		html += '</div>';
@@ -711,6 +716,19 @@ $(function(){
 /* !!------------------------------------ */
 /* !! 商品詳細ページ */
 
+function toggleMention(){
+
+	var mention = $("#mention-subscriotion");
+	if(!mention[0]) return;
+	if($('body[data-type="subscription"]')[0]){
+		mention.slideDown(300);
+	}else{
+		mention.slideUp(300);
+	}
+}
+
+
+
 /* !! カート表示部切り替え */
 $(function(){
 	if($('.product-cart-header')[0]){
@@ -718,6 +736,7 @@ $(function(){
 			var This = $(this),
 				type = This.data('type');
 			$('body').attr('data-type',type);
+			toggleMention();
 			return false;
 		});
 	}
@@ -888,6 +907,10 @@ var generateProdInfo =( function generateProdInfo(data) {
 		if(item.coupon_code[0]){
 			$(".cart-coupon-code").html(item.coupon_code);
 		}
+		
+		if(item.label_sale_url[0]){
+			$(".try-price-wrap").prepend('<div class="label_sale"><img src="'+item.label_sale_url+'"/></div>')
+		}
 		if(item.url.try[0]){
 			$(".cart-url-try").attr("data-url",item.url.try);
 		}
@@ -909,6 +932,11 @@ var generateProdInfo =( function generateProdInfo(data) {
 		loadFavBtn(elem,item.url.base);
 	}
 	
+	if(pcode == '3101535' || pcode == '3103518'){
+		$("#mention-subscriotion").remove();
+	}else{
+		toggleMention();
+	}
 	
 });
 
@@ -952,6 +980,17 @@ $(function(){
 });
 
 
+/* !! チェックボックス */
+$(function(){
+	$(".row-checkbox input").on("change",function(){
+		var This = $(this);
+		if(This.is(":checked")){
+			$("body").addClass("mention_checked");
+		}else{
+			$("body").removeClass("mention_checked");
+		}
+	});
+});
 
 
 

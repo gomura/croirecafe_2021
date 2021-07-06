@@ -157,6 +157,12 @@ html.test #crowari .test {
   img {
     height: auto; } }
 
+#admin_support_customer_login_title {
+  background: #ff0000 !important;
+  color: #fff !important;
+  opacity: 1 !important;
+  z-index: 101 !important; }
+
 /* !!------------------------------------ */
 /* !! 共通css */
 html {
@@ -483,6 +489,7 @@ a.ec-blockBtn--primary,
 
 /* !!------------------------------------ */
 /* !! ヘッダー */
+/* !!　代理ログイン */
 .ec-headerNaviRole {
   position: fixed;
   z-index: 100;
@@ -2090,57 +2097,72 @@ ul.rank {
         opacity: .5;
         z-index: 0;
         background: #d7e9ee; }
-    .products-list > li .txt .pname {
-      font-weight: bold;
-      text-align: center;
-      height: 100px;
-      font-size: 20px;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: column;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      letter-spacing: .05em; }
-      .products-list > li .txt .pname span {
-        line-height: 1.4;
-        font-family: source-han-sans-japanese, sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        -webkit-transition: 100ms;
-        -o-transition: 100ms;
-        transition: 100ms;
-        font-weight: bold; }
-        .products-list > li .txt .pname span i {
-          font-size: .8em; }
-      @media screen and (max-width: 767px) {
-        .products-list > li .txt .pname {
-          height: 60px;
-          font-size: 14px; } }
-    .products-list > li .txt .desc {
-      padding: 0px 20px;
-      padding-bottom: 20px;
-      font-size: 16px;
-      margin-top: -0.25em;
-      margin-bottom: -0.25em; }
-      .products-list > li .txt .desc strong {
-        font-weight: normal; }
-      @media screen and (max-width: 767px) {
-        .products-list > li .txt .desc {
-          padding: 0 2.67vw;
-          font-size: 12px;
-          padding-bottom: 2.67vw; } }
+    .products-list > li .txt {
+      position: relative; }
+      .products-list > li .txt .label_sale {
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 100%;
+        padding: 0 15px;
+        z-index: 1; }
+        .products-list > li .txt .label_sale img {
+          width: 100% !important;
+          height: auto !important; }
+      .products-list > li .txt .pname {
+        font-weight: bold;
+        text-align: center;
+        height: 100px;
+        font-size: 20px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        letter-spacing: .05em; }
+        .products-list > li .txt .pname span {
+          line-height: 1.4;
+          font-family: source-han-sans-japanese, sans-serif;
+          font-weight: 400;
+          font-style: normal;
+          -webkit-transition: 100ms;
+          -o-transition: 100ms;
+          transition: 100ms;
+          font-weight: bold; }
+          .products-list > li .txt .pname span i {
+            font-size: .8em; }
+        @media screen and (max-width: 767px) {
+          .products-list > li .txt .pname {
+            height: 60px;
+            font-size: 14px; } }
+      .products-list > li .txt .desc {
+        padding: 0px 20px;
+        padding-bottom: 20px;
+        font-size: 16px;
+        margin-top: -0.25em;
+        margin-bottom: -0.25em; }
+        .products-list > li .txt .desc strong {
+          font-weight: normal; }
+        @media screen and (max-width: 767px) {
+          .products-list > li .txt .desc {
+            padding: 0 2.67vw;
+            font-size: 12px;
+            padding-bottom: 2.67vw; } }
 
 /* !! - - -  */
 /* !! クロ割 */
@@ -4446,7 +4468,8 @@ main.payment p.img {
       background: #FDF894;
       padding: 20px 0;
       padding-top: 15px;
-      height: 100%; }
+      height: 100%;
+      position: relative; }
       @media screen and (min-width: 768px) {
         #product-wrap .product-cart-inner .try-price-wrap {
           display: -webkit-box;
@@ -4477,6 +4500,21 @@ main.payment p.img {
       #product-wrap .product-cart-inner .try-price-wrap .ec-numberInput {
         pointer-events: none;
         opacity: .5; }
+      #product-wrap .product-cart-inner .try-price-wrap .label_sale {
+        margin-bottom: 10px;
+        text-align: center;
+        width: 100%;
+        padding: 0 30px;
+        display: none; }
+        @media screen and (min-width: 768px) {
+          #product-wrap .product-cart-inner .try-price-wrap .label_sale {
+            padding: 0 50px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%); } }
     #product-wrap .product-cart-inner .row-try-price {
       padding: 0 20px;
       width: 100%; }
@@ -4822,8 +4860,7 @@ main.payment p.img {
     text-align: right;
     margin-bottom: 0;
     margin-top: 5px;
-    font-size: 14px;
-    display: none; }
+    font-size: 14px; }
     @media screen and (max-width: 767px) {
       #product-wrap .row-checkbox {
         margin: 4.005vw 0 2.67vw 0;
@@ -4833,6 +4870,61 @@ main.payment p.img {
       color: #228BAF; }
     #product-wrap .row-checkbox input {
       margin-right: 10px; }
+
+/* !! 定期カートボタン */
+.product-cart-teiki .add-cart {
+  pointer-events: none;
+  opacity: .5; }
+  .mention_checked .product-cart-teiki .add-cart {
+    opacity: 1;
+    pointer-events: auto; }
+
+.mention-subscriotion {
+  background: rgba(228, 0, 127, 0.1);
+  padding: 30px;
+  border-radius: 12px;
+  margin-top: -20px;
+  position: relative;
+  display: none; }
+  @media screen and (max-width: 767px) {
+    .mention-subscriotion {
+      padding: 5.34vw;
+      margin: 4.005vw; } }
+  .mention-subscriotion h3 {
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-weight: bold;
+    text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff; }
+  .mention-subscriotion h4 {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 10px; }
+    .mention-subscriotion h4:first-of-type {
+      margin-top: 0; }
+  .mention-subscriotion .idx {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    @media screen and (min-width: 768px) {
+      .mention-subscriotion .idx > div {
+        margin: 0 10px;
+        max-width: calc(50% - 10px); } }
+    @media screen and (max-width: 767px) {
+      .mention-subscriotion .idx {
+        display: block; }
+        .mention-subscriotion .idx > div {
+          margin-top: 20px; } }
+  .mention-subscriotion p {
+    font-size: 14px; }
 
 /* !! おひとり様一回限り */
 .ec-blockBtn--action.add-cart {

@@ -186,7 +186,7 @@ $(function(){
 	
 	//!! 定期
 	//if($("body").is(".type_teiki") ){
-	if($("body").is(".type_teiki") || $("body").is(".type_shokai")){
+	if($("body").is(".type_teiki") || $("body").is(".type_shokai") || $("body").is(".shipping_free")){
 		
 		//配送方法
 		var box = $(".ec-orderDelivery");
@@ -261,7 +261,7 @@ $(function(){
 			if(txt.match("クロワールプロバイオティクス12|クロワールコート")){
 				console.log("match");
 				shipOption.each(function(){
-					if($(this).val() == 4 || $(this).val() == 7 || $(this).val() == 6){
+					if($(this).val() == 4 || $(this).val() == 7 || $(this).val() == 6 || $(this).val() == 13){
 						if($(this).val() == "") return;
 						$(this).remove();
 					}
@@ -276,6 +276,11 @@ $(function(){
 						//$(this).remove();
 					}
 					if($(this).val() == 6 && $(this).is(":selected")){
+						$(".ec-select.ec-select__delivery, .ec-select__time").remove();
+						
+						$(this).closest(".ec-select").append(postHtml);
+					}
+					if($(this).val() == 13 && $(this).is(":selected")){
 						$(".ec-select.ec-select__delivery, .ec-select__time").remove();
 						
 						$(this).closest(".ec-select").append(postHtml);
@@ -311,6 +316,8 @@ $(function(){
 });
 
 
+
+
 /* !!------------------------------------ */
 /* !! クーポンの移動 */
 
@@ -335,5 +342,21 @@ $(function(){
 		}
 	}
 });
+
+
+/* !!------------------------------------ */
+/* !! confirm */
+
+$(function(){
+	var postHtml = '<p class="postTXt">2〜3営業日（土日祝除く）でポストにお届けいたします。</p>';
+	var delivery = $(".ec-orderDelivery__actions");
+	if(delivery.text().match("ゆうパケット発送")){
+		$(".ec-select__delivery, .ec-select__time ").remove();
+		delivery.find(".ec-select").append(postHtml);
+	}
+});
+
+
+
 
 

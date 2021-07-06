@@ -11,6 +11,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/eye-q.png",
 		"label_url": "/product/img/label/label-eye-q.png",
+		"label_sale_url": "/img/top/label-sale@2x.png",
 		"content_img_url" : "/product/img/content/Q.png",
 		"name": "クロワールアイ・Q",
 		"name_disp": "クロワールアイ・Q",
@@ -59,6 +60,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/midori.png",
 		"label_url": "/product/img/label/label-midori.png",
+		"label_sale_url": "/img/top/label-sale@2x.png",
 		"content_img_url" : "/product/img/content/midori.png",
 		"name": "緑のDHA&EPA+ゴールデンユーグレナ",
 		"name_disp": "緑のDHA&EPA<br /><i>+ゴールデンユーグレナ</i>",
@@ -103,6 +105,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/croiretea.png",
 		"label_url": "/product/img/label/label-croiretea.png",
+		"label_sale_url": "",
 		"content_img_url" : "/product/img/content/tea.png",
 		"name": "プレミアムクロワール茶",
 		"name_disp": "プレミアムクロワール茶",
@@ -147,6 +150,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/pb12.png",
 		"label_url": "/product/img/label/label-pb12.png",
+		"label_sale_url": "",
 		"content_img_url" : "/product/img/content/pb12.png",
 		"name": "クロワールプロバイオティクス12",
 		"name_disp": "クロワール<br />プロバイオティクス12",
@@ -191,6 +195,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/na.png",
 		"label_url": "/product/img/label/label-Nase@2x.png",
+		"label_sale_url": "",
 		"content_img_url" : "/product/img/content/NA.png",
 		"name": "Nアセチルグルコサミンロコモディ+B",
 		"name_disp": "Nアセチルグルコサミン<br />ロコモディ+B",
@@ -202,7 +207,7 @@
 				"color": "light"
 			},
 			{
-				"txt": "1日3〜4粒目安",
+				"txt": "1日3粒目安",
 				"color": "light"
 			}
 		],
@@ -235,6 +240,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/q10.png",
 		"label_url": "/product/img/label/label-q10@2x.png",
+		"label_sale_url": "",
 		"content_img_url" : "/product/img/content/Q10.png",
 		"name": "クロワール 還元型コエンザイムQ10",
 		"name_disp": "クロワール<br />還元型コエンザイムQ10",
@@ -279,6 +285,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/gold.png",
 		"label_url": "/product/img/label/label-gold.png",
+		"label_sale_url": "",
 		"content_img_url" : "/product/img/content/gold.png",
 		"name": "クロワールゴールド",
 		"name_disp": "クロワールゴールド",
@@ -323,6 +330,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/wahaha.png",
 		"label_url": "/product/img/label/label-wahaha.png",
+		"label_sale_url": "",
 		"content_img_url" : "",
 		"name": "魔法のワハハ歯ブラシ（3本セット）",
 		"name_disp": "魔法のワハハ歯ブラシ<br /><i>（3本セット）</i>",
@@ -330,7 +338,7 @@
 		"desc_long": "1本で４つの働き。ピラミッド構造でコンパクトなヘッド形状が歯の隙間の汚れを逃さない！",
 		"tag": [
 			{
-				"txt": "1袋30粒入",
+				"txt": "3本セット",
 				"color": "light"
 			}
 		],
@@ -362,6 +370,7 @@
 		},
 		"thumb_url": "/product/img/thumbnail/coat65.png",
 		"label_url": "/product/img/label/label-coat.png",
+		"label_sale_url": "",
 		"content_img_url" : "",
 		"name": "薬用はみがきクロワールコート65g",
 		"name_disp": "薬用はみがき<br />クロワールコート65g",
@@ -388,6 +397,6 @@
 			"try": "/products/detail/127",
 			"line": "/products/detail/110"
 		},
-		"delivery_fee":"231"
+		"delivery_fee":"660"
 	}
 ]
