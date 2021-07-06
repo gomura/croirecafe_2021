@@ -182,16 +182,20 @@ $(function(){
 $(function(){
 	if(!$("#page_shopping")[0] && !$("select[id$=_shipping_delivery_date]")[0]) return;
 	
+	var postHtml = '<p class="postTXt">2〜3営業日（土日祝除く）でポストにお届けいたします。</p>';
 	
+	//!! 定期
 	//if($("body").is(".type_teiki") ){
 	if($("body").is(".type_teiki") || $("body").is(".type_shokai")){
+		
 		//配送方法
 		var box = $(".ec-orderDelivery");
+		
 		box.each(function(){
 			var This = $(this);
 			var txt = This.text();
 			var shipOption = This.find("select[id$=_Delivery] option");
-			if(txt.match("クロワールプロバイオティクス12")){
+			if(txt.match("クロワールプロバイオティクス12|クロワールコート")){
 				console.log("match");
 				shipOption.each(function(){
 					if($(this).val() == 4 || $(this).val() == 7 || $(this).val() == 13){
@@ -204,13 +208,21 @@ $(function(){
 			}else{
 				console.log("notmatch");
 				shipOption.each(function(){
-					if($(this).val() == 11 || $(this).val() == 14 ){
+					if($(this).val() == 11 || $(this).val() == 14 ||$(this).val() == 5 ){
 						if($(this).val() == "") return;
 						$(this).remove();
+					}else{
+						if(!$("body").is(".type_teiki")){
+							$(".ec-select.ec-select__delivery, .ec-select__time").remove();
+							$(this).closest(".ec-select").append(postHtml);
+							
+						}
+
 					}
 				});
-				$(".ec-select.ec-select__time").remove();
 				
+				$(".ec-select__time").remove();
+								
 				if(txt.match("初回お試し価格・期間限定送料無料")){
 					$(".ec-select.ec-select__delivery").remove();
 					
@@ -235,28 +247,50 @@ $(function(){
 			}
 		});
 		$(".ec-select__delivery label").text("発送予定日");
+	
 	}else{
-		var item_name = $(".ec-imageGrid__content");
-		item_name.each(function(){
+	
+	//!! 通常		
+		
+		var box = $(".ec-orderDelivery");
+		box.each(function(){
 			var This = $(this);
-			var shipOption = This.closest(".ec-orderDelivery").find("select[id$=_Delivery] option");
-			if(This.text().match("クロワールプロバイオティクス12|クロワールコート")){
+			var txt = This.text();
+			var shipSelect = This.find("select[id$=_Delivery]");
+			var shipOption = This.find("select[id$=_Delivery] option");
+			if(txt.match("クロワールプロバイオティクス12|クロワールコート")){
 				console.log("match");
 				shipOption.each(function(){
-					if($(this).val() == 6 || $(this).val() == 13){
+					if($(this).val() == 4 || $(this).val() == 7 || $(this).val() == 6){
+						if($(this).val() == "") return;
 						$(this).remove();
 					}
 				});
 				return false;
+			
 			}else{
+				console.log("notmatch");
 				shipOption.each(function(){
-					if($(this).val() == 14){
-						$(this).remove();
+					if($(this).val() == 11 || $(this).val() == 14 || $(this).val() == 3){
+						if($(this).val() == "") return;
+						//$(this).remove();
+					}
+					if($(this).val() == 6 && $(this).is(":selected")){
+						$(".ec-select.ec-select__delivery, .ec-select__time").remove();
+						
+						$(this).closest(".ec-select").append(postHtml);
 					}
 				});
-				console.log("notmatch");
+				
+				if(txt.match("初回お試し価格・期間限定送料無料")){
+					$(".ec-select.ec-select__delivery").remove();
+					
+					return false;
+				}
 			}
-		});		
+			
+
+		});
 	}
 });
 

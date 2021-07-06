@@ -299,7 +299,7 @@ file that was distributed with this source code.
                                         <div class="ec-imageGrid">
                                             <div class="ec-imageGrid__img"><img src="{{ asset((orderItem.product is null ? null : orderItem.product.MainListImage)|no_image_product, 'save_image') }}" alt="{{ orderItem.productName }}"></div>
                                             <div class="ec-imageGrid__content">
-                                                <p>{{ orderItem.productName }}{{ is_reduced_tax_rate(orderItem) ? '※'|trans }}</p>
+                                                <p>{{ orderItem.productName }}</p>
                                                 {% if orderItem.productClass is not null and orderItem.productClass.classCategory1 %}
                                                     <p>{{ orderItem.productClass.classCategory1.className.name }}：{{ orderItem.productClass.classCategory1 }}</p>
                                                 {% endif %}

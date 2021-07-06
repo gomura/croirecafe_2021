@@ -7005,6 +7005,13 @@ main.Q10 .sec.gyoushuku {
   padding-bottom: 20px !important;
   text-align: center; }
 
+.postTXt {
+  background: #EEE;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  background: rgba(228, 0, 127, 0.1); }
+
 .ec-orderPayment .ec-radio {
   padding: 0 20px; }
 
