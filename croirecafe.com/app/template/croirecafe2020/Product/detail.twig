@@ -211,13 +211,20 @@ file that was distributed with this source code.
 {% block main %}
     <div class="ec-productRole pid_{{Product.id}}" data-pid="{{Product.id}}">
         
-        <div id="product-header"></div>
+        <div id="product-header">
+	        
+	        {% if is_granted('ROLE_USER') %}
+	         <div class="favorite-btn-wrap"></div>
+	        {% endif %}
+        
+        </div>
         <!-- /.product-header -->
         
         <div id="product-wrap">
 	        
-	        <div class="product-img">
-	        </div>
+	       
+	        
+	        <div class="product-img"></div>
 	        
 			<div class="product-cart-wrap" id="cart-wrap" data-gap="125" data-sp-gap="105">
 				
@@ -251,7 +258,7 @@ file that was distributed with this source code.
 							</ul>
 						</div>
 						<div class="row-banner">
-							<div class="teiki-banner">定期購入バナー</div>
+							<div class="teiki-banner"><a target="_blank" href="/user_data/course#_1">定期購入についてはこちら ＞</a></div>
 						</div>
 						
 						{% if is_granted('ROLE_USER') %}
@@ -558,10 +565,10 @@ file that was distributed with this source code.
                     
                     
                     {% if BaseInfo.option_favorite_product %}
-                        <form action="{{ url('product_add_favorite', {id:Product.id}) }}" method="post">
+                        <form action="{{ url('product_add_favorite', {id:Product.id}) }}" method="post" id="favorite1">
                             <div class="ec-productRole__btn">
                                 {% if is_favorite == false %}
-                                    <button type="submit" id="favorite" class="ec-blockBtn--cancel">
+                                    <button type="submit" id="favorite" class="ec-blockBtn--cancel" >
                                         {{ 'お気に入りに追加'|trans }}
                                     </button>
                                 {% else %}

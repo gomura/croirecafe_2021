@@ -723,20 +723,25 @@ $(function(){
 	}
 });
 
+/* !! 外部お気に入りボタン読み込み */
+
+function loadFavBtn(elem,tgtUrl){
+	elem.load(tgtUrl+" #favorite1",function(){
+		console.log(tgtUrl + "loaded");
+		//elem.find("#quantity").remove();
+	})
+}
+
+
 /* !! 外部カートボタン読み込み */
 
 function loadCartBtn(elem,tgtUrl){
 	elem.load(tgtUrl+" #form1",function(){
-		
 		console.log(tgtUrl + "loaded");
 		elem.find("#quantity").remove();
 	})
 }
 
-/* !! 外部カートボタン読み込み用セレクトボックス追加 */
-function set_selectBtn(){
-	
-}
 
 /* !! カート表示部読み込み */
 
@@ -805,7 +810,7 @@ var generateProdInfo =( function generateProdInfo(data) {
 		html += '<strong>'+item.name+'</strong>';
 		html += '<span class="desc-short">'+item.desc_short+'</span>';
 		html += '</h1>';
-		$("#product-header").append(html);
+		$("#product-header").prepend(html);
 		
 		//画像
 		html = "";
@@ -840,7 +845,7 @@ var generateProdInfo =( function generateProdInfo(data) {
 			type = item.view;
 		}
 		$("body").attr("data-type",type);
-		$(".product-cart-header").append(html);
+		$(".product-cart-header").prepend(html);
 		
 		//定期購入
 		html = "";
@@ -887,12 +892,21 @@ var generateProdInfo =( function generateProdInfo(data) {
 			$(".cart-url-try").attr("data-url",item.url.try);
 		}
 	}//for
-
+	
+	
+	//カートボタン読み込み
 	if($(".cart-in-section")[0]){
 		$(".cart-in-section").each(function(){
 			var This = $(this);
 			loadCartBtn(This,This.data("url"));
 		});
+	}
+	
+	
+	//お気に入りボタン読み込み
+	if($(".favorite-btn-wrap")[0]){
+		var elem = $(".favorite-btn-wrap");
+		loadFavBtn(elem,item.url.base);
 	}
 	
 	

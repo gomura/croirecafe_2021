@@ -1595,6 +1595,9 @@ section.static{
 			@include flex;
 			margin-top: 15px;
 			justify-content: center;
+			@include sp{
+				justify-content: center;	
+			}//@sp
 			li{
 				margin: 0 15px;
 				
@@ -1603,9 +1606,9 @@ section.static{
 					align-self: flex-end;
 				}
 				@include sp{
-					width: 40%;
-					margin: 0;
-					margin-top: 10px;	
+					margin:0 10px;
+					margin-top: 10px;
+					flex-wrap: nowrap;
 				}//@sp
 			}
 		}

@@ -2912,8 +2912,52 @@ main.payment{
 	padding: 0;
 }
 
+
+//!! - お気に入り登録
+.favorite-btn-wrap{
+	position: absolute;
+	top: 0;right: 0;
+	//background: #eee;
+	@include sp{
+		top: auto;
+		bottom: 0px;
+		right: 0;
+		width: 100%;	
+		position: static;
+		margin-top: 15px;
+	}//@sp
+	.ec-productRole__btn{
+		margin-bottom: 0;width: auto !important;
+		button{
+			margin: 0 !important;
+			margin-left: auto !important;
+			margin-right: 0 !important;
+			@include sp{
+				margin: 0 auto !important;	
+			}//@sp
+		}
+		.ec-blockBtn--cancel{
+			width: auto;
+			height: 36px !important;
+			font-size: 14px;
+			letter-spacing: .05em;
+			background: $yellow;
+			border: 2px solid #fff !important;
+			color: #63500e !important;
+			line-height: 1;
+			@include sp{
+				height: 32px !important;
+				font-size: 12px;	
+				width: auto !important;
+			}//@sp
+		}
+	}
+}
+
+
 //!! - 商品タイトル
 #product-header{
+	position: relative;
 	@include sp{
 		padding: 12*$px 15*$px;	
 	}//@sp
@@ -2979,6 +3023,8 @@ main.payment{
 	//background: #eee;
 	margin-bottom: 50px;
 	@include flex;
+	position: relative;
+	
 	.product-img{
 		width: 465px;
 		height: 436px;
