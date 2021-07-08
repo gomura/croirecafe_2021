@@ -1,99 +1,5 @@
 [
 	{
-		"pcode": "3101581",
-		"pid": "121",
-		"slug": "",
-		"view":"onestop",
-		"slide_url": {
-			"pc": "/product/img/slide/581.jpg",
-			"sp": "/product/img/slide/581_sp.jpg",
-			"alt":""
-		},
-		"thumb_url": "/product/img/thumbnail/eye-q.png",
-		"label_url": "/product/img/label/label-eye-q.png",
-		"label_sale_url": "/img/top/label-sale@2x.png",
-		"content_img_url" : "/product/img/content/Q.png",
-		"name": "クロワールアイ・Q",
-		"name_disp": "クロワールアイ・Q",
-		"desc_short": "目と脳の健康をWサポートする機能性表示食品。",
-		"desc_long": "１粒で目のかすみやぼやけの改善と注意力や思考の柔軟性の維持をWサポート",
-		"tag": [
-			{
-				"txt": "機能性表示食品",
-				"color": "heavy"
-			},
-			{
-				"txt": "1袋30粒入",
-				"color": "light"
-			},
-			{
-				"txt": "1日1粒目安",
-				"color": "light"
-			}
-		],
-		"price": {
-			"base": "3,980",
-			"teiki1": "2,786",
-			"teiki2": "3,383",
-			"try": "2,200",
-			"diff": "9,552"
-		},
-		"coupon_code":"0581",
-		"disc_rate":["30","15"],
-		"url": {
-			"base": "/products/detail/87",
-			"teiki": "/products/detail/121",
-			"try": "/products/detail/88",
-			"line": "/products/detail/111"
-		},
-		"delivery_fee":"231"
-	},
-	{
-		"pcode": "3101569",
-		"pid": "118",
-		"slug": "midori-no-dhaepa",
-		"view":"onestop",
-		"slide_url": {
-			"pc": "/product/img/slide/569.jpg",
-			"sp": "/product/img/slide/569_sp.jpg",
-			"alt":""
-		},
-		"thumb_url": "/product/img/thumbnail/midori.png",
-		"label_url": "/product/img/label/label-midori.png",
-		"label_sale_url": "/img/top/label-sale@2x.png",
-		"content_img_url" : "/product/img/content/midori.png",
-		"name": "緑のDHA&EPA+ゴールデンユーグレナ",
-		"name_disp": "緑のDHA&EPA<br /><i>+ゴールデンユーグレナ</i>",
-		"desc_short": "時代は魚由来から植物由来へ。",
-		"desc_long": "NASAの開発から生まれた植物由来（藻）のDHA・EPA。こだわりの製法で作った安全安心の品質。",
-		"tag": [
-			{
-				"txt": "1袋90粒入",
-				"color": "light"
-			},
-			{
-				"txt": "1日3〜4粒目安",
-				"color": "light"
-			}
-		],
-		"price": {
-			"base": "2,700",
-			"teiki1": "1,890",
-			"teiki2": "2,295",
-			"try": "1,980",
-			"diff": "6,480"
-		},
-		"coupon_code":"0569",
-		"disc_rate":["30","15"],
-		"url": {
-			"base": "/products/detail/26",
-			"teiki": "/products/detail/118",
-			"try": "/products/detail/22",
-			"line": "/products/detail/115"
-		},
-		"delivery_fee":"231"
-	},
-	{
 		"pcode": "3101561",
 		"pid": "120",
 		"slug": "premium-croiretea",
@@ -182,6 +88,100 @@
 			"line": "/products/detail/113"
 		},
 		"delivery_fee":"660"
+	},
+	{
+		"pcode": "3101581",
+		"pid": "121",
+		"slug": "",
+		"view":"subscription",
+		"slide_url": {
+			"pc": "/product/img/slide/581.jpg",
+			"sp": "/product/img/slide/581_sp.jpg",
+			"alt":""
+		},
+		"thumb_url": "/product/img/thumbnail/eye-q.png",
+		"label_url": "/product/img/label/label-eye-q.png",
+		"label_sale_url": "",
+		"content_img_url" : "/product/img/content/Q.png",
+		"name": "クロワールアイ・Q",
+		"name_disp": "クロワールアイ・Q",
+		"desc_short": "目と脳の健康をWサポートする機能性表示食品。",
+		"desc_long": "１粒で目のかすみやぼやけの改善と注意力や思考の柔軟性の維持をWサポート",
+		"tag": [
+			{
+				"txt": "機能性表示食品",
+				"color": "heavy"
+			},
+			{
+				"txt": "1袋30粒入",
+				"color": "light"
+			},
+			{
+				"txt": "1日1粒目安",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "3,980",
+			"teiki1": "2,786",
+			"teiki2": "3,383",
+			"try": "3,582",
+			"diff": "9,552"
+		},
+		"coupon_code":"0581",
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/87",
+			"teiki": "/products/detail/121",
+			"try": "/products/detail/88",
+			"line": "/products/detail/111"
+		},
+		"delivery_fee":"231"
+	},
+	{
+		"pcode": "3101569",
+		"pid": "118",
+		"slug": "midori-no-dhaepa",
+		"view":"subscription",
+		"slide_url": {
+			"pc": "/product/img/slide/569.jpg",
+			"sp": "/product/img/slide/569_sp.jpg",
+			"alt":""
+		},
+		"thumb_url": "/product/img/thumbnail/midori.png",
+		"label_url": "/product/img/label/label-midori.png",
+		"label_sale_url": "",
+		"content_img_url" : "/product/img/content/midori.png",
+		"name": "緑のDHA&EPA+ゴールデンユーグレナ",
+		"name_disp": "緑のDHA&EPA<br /><i>+ゴールデンユーグレナ</i>",
+		"desc_short": "時代は魚由来から植物由来へ。",
+		"desc_long": "NASAの開発から生まれた植物由来（藻）のDHA・EPA。こだわりの製法で作った安全安心の品質。",
+		"tag": [
+			{
+				"txt": "1袋90粒入",
+				"color": "light"
+			},
+			{
+				"txt": "1日3〜4粒目安",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "2,700",
+			"teiki1": "1,890",
+			"teiki2": "2,295",
+			"try": "2,430",
+			"diff": "6,480"
+		},
+		"coupon_code":"0569",
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/26",
+			"teiki": "/products/detail/118",
+			"try": "/products/detail/22",
+			"line": "/products/detail/115"
+		},
+		"delivery_fee":"231"
 	},
 	{
 		"pcode": "3101570",
