@@ -1500,6 +1500,10 @@ a.ec-blockBtn--primary,
 
 /* !!------------------------------------ */
 /* !! トップページ */
+@media screen and (min-width: 768px) {
+  #mv-slide {
+    height: 567px; } }
+
 @media screen and (max-width: 767px) {
   .ec-layoutRole {
     overflow: hidden; } }
@@ -5624,6 +5628,19 @@ span.teiki2 {
 /* !!------------------------------------ */
 /* !!------------------------------------ */
 /* !! ★商品単体ページ共通 */
+@media screen and (min-width: 768px) {
+  #detail_bnr_area {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    width: 800px;
+    margin: 0 auto;
+    margin-bottom: 50px; } }
+
+@media screen and (max-width: 767px) {
+  #detail_bnr_area {
+    margin-bottom: 20px; } }
+
 .ec-productRole .slick-slide {
   text-align: center; }
   .ec-productRole .slick-slide img {

@@ -209,8 +209,14 @@ file that was distributed with this source code.
 {% endblock %}
 
 {% block main %}
+  
+    
     <div class="ec-productRole pid_{{Product.id}}" data-pid="{{Product.id}}">
-        
+     
+		<div id="detail_bnr_area" data-start="20210707" data-end="20210709">
+		<a href="/"><img src="/img/bnr20210706/bnr_02.jpg" alt="bnr_02" width="465" height="" /></a>
+		</div>
+       
         <div id="product-header">
 	        
 	        {% if is_granted('ROLE_USER') %}
@@ -225,8 +231,10 @@ file that was distributed with this source code.
 	       
 	        
 	        <div class="product-img"></div>
-	        
+
 			<div class="product-cart-wrap" id="cart-wrap" data-gap="125" data-sp-gap="105">
+				
+
 				
 				<ul class="product-cart-header"></ul>
 				

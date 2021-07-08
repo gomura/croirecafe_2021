@@ -1165,7 +1165,11 @@ ul.category-nav{
 
 /* !!------------------------------------ */
 /* !! トップページ */
-
+#mv-slide{
+	@include pc{
+		height: 567px;	
+	}//@pc
+}
 
 
 //!!　メインコンテンツ
@@ -2105,7 +2109,8 @@ ul.payment-delivery{
 	overflow: hidden;
 	margin-bottom: 10px;
 	@include pc{
-		margin-top: 50px;	
+		margin-top: 50px;
+		
 	}//@pc
 	@include sp{
 		margin: 0;
@@ -4691,6 +4696,20 @@ span.teiki2{
 /* !!------------------------------------ */
 /* !!------------------------------------ */
 /* !! ★商品単体ページ共通 */
+
+#detail_bnr_area{
+	@include pc{
+		border-radius: 12px;
+		overflow: hidden;
+		margin-bottom: 30px;
+		width: 800px;
+		margin: 0 auto;
+		margin-bottom: 50px;	
+	}//@pc
+	@include sp{
+		margin-bottom: 20px;	
+	}//@sp
+}
 
 //!! - slide
 .ec-productRole{
