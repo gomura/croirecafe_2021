@@ -518,7 +518,7 @@ $(function(){
 	    $('.main_visual').slick({
 	        fade:true,
 	        dots: false,
-	        arrows: false,
+	        arrows: true,
 	        autoplay: true,
 	        autoplaySpeed: 8000,
 	        speed: 800,
