@@ -482,7 +482,7 @@ $(function(){
 
 
 /* !! - - -  */
-/* !! スライド */
+/* !! mvスライド(Ajax) */
 
 var generateMVslide =( function generateMVslide(data) {
     
@@ -503,6 +503,7 @@ var generateMVslide =( function generateMVslide(data) {
 		html += '</picture>';
 		html += '</div>';
 		html2 += '<div class="item_thumb" data-pcode="'+item.pcode+'">';
+		html2 += '<a href="'+$url+'"></a>';
 		html2 += '<i><img src="'+item.thumb_url+'" /></i></div>';
 	}
     MV.html(html);
@@ -563,7 +564,7 @@ $(function(){
         
 
 /* !!------------------------------------ */
-/* !! クロワール一覧リスト生成 */
+/* !! クロワール一覧リスト生成(Ajax) */
 
 
 
@@ -762,7 +763,7 @@ function loadCartBtn(elem,tgtUrl){
 }
 
 
-/* !! カート表示部読み込み */
+/* !! カート表示部読み込み(Ajax) */
 
 var generateProdInfo =( function generateProdInfo(data) {
 
