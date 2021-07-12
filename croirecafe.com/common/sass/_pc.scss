@@ -380,6 +380,10 @@ a.ec-blockBtn--primary,
 	}
 }
 
+button{
+	outline: none !important;
+}
+
 /* !!------------------------------------ */
 /* !! ヘッダー */
 
@@ -6719,10 +6723,16 @@ body.type_teiki,body.otameshi_10{
 
 #creditForm{
 	background:rgba($yellow,.1);
-	padding: 20px;
+	padding: 30px;
 	border-radius: 12px;
-	max-width: 640px;
+	//max-width: 640px;
 	margin: 0 auto;
+	>div{
+		width: 100%;
+	}
+	@include sp{
+		padding: 15*$px;	
+	}//@sp
 	@include flex;
 	.ec-para-nomal{
 		width: 100%;
@@ -6738,6 +6748,12 @@ body.type_teiki,body.otameshi_10{
 		background: #fff;
 		padding: 10px;
 		margin-bottom: 10px;
+	}
+	table{
+		min-width: 100%;
+		@include sp{
+			font-size: 13px;	
+		}//@sp
 	}
 	#credit_change_card_owner{
 		height: 40px;
@@ -6885,6 +6901,32 @@ main.page.course{
 
 
 
+/* !! - - -  */
+/* !! クレジット */
+#creditForm{
+	.ec-off4Grid__cell{
+		margin-left: 0;
+		text-align: center;
+		justify-content: center;
+		width: 100% !important;
+	}
+	table{
+		background: #fff;
+		border-radius: 6px ;
+		tbody{
+			border-radius: 6px;
+		}
+		th{
+			white-space: nowrap;
+		}
+	}
+}
+#credit_delete{
+	//font-size: 14px;
+	width: 250px !important;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
 /* !!------------------------------------ */
 /* !! プライバシーポリシー */
 

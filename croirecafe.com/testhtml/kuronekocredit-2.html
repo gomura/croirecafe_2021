@@ -1,0 +1,887 @@
+
+<!doctype html>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# product: http://ogp.me/ns/product#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="eccube-csrf-token" content="E5gLZ7C5Rhn0ucIeq-eXHKyywqXvpYXZbBpAQt5smbY">
+    <title>クロワールカフェ / MYページ/クレジットカード編集</title>
+                        <meta name="robots" content="noindex">
+         
+ 
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MHMSLFK');</script>
+
+   
+    <link rel="icon" href="/html/user_data/assets/img/common/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
+    <link rel="stylesheet" href="/html/template/croirecafe2020/assets/css/style.css">
+    <style type="text/css">
+table {
+    margin: 15px auto 20px auto;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    width: 100%;
+    border-collapse: collapse;
+    /*text-align: left;*/
+}
+table th {
+    padding: 8px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    background-color: #F3F3F3;
+    font-weight: normal;
+    text-align: center;
+}
+table td {
+    padding: 8px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+</style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $.ajaxSetup({
+                'headers': {
+                    'ECCUBE-CSRF-TOKEN': $('meta[name="eccube-csrf-token"]').attr('content')
+                }
+            });
+        });
+    </script>
+                    <link rel="stylesheet" href="/html/user_data/assets/css/customize.css">
+
+	<!-- !! add -->
+	<link rel="stylesheet" href="/common/css/products.css?v=20210709135518" type="text/css">
+	<link rel="stylesheet" href="/common/css/main.css?v=20210709135518" type="text/css">
+	<link rel="stylesheet" href="/common/fonts/icomoon/style.css" type="text/css">
+	<script src="/common/js/user.js?v=20210709135518"></script>
+	<script src="/common/js/cart_custom.js?v=20210709135518"></script>
+	<script src="/common/js/mypage_custom.js?v=20210709135518"></script>
+	<script src="/common/js/jquery.inview.js"></script>
+	
+	<!-- LINE Tag Base Code -->
+	<!-- Do Not Modify -->
+	<script>
+	(function(g,d,o){
+	  g._ltq=g._ltq||[];g._lt=g._lt||function(){g._ltq.push(arguments)};
+	  var h=location.protocol==='https:'?'https://d.line-scdn.net':'http://d.line-cdn.net';
+	  var s=d.createElement('script');s.async=1;
+	  s.src=o||h+'/n/line_tag/public/release/v1/lt.js';
+	  var t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);
+	    })(window, document);
+	_lt('init', {
+	  customerType: 'account',
+	  tagId: 'fd580f51-f71d-45dc-a7e5-3bcdb310cce8'
+	});
+	_lt('send', 'pv', ['fd580f51-f71d-45dc-a7e5-3bcdb310cce8']);
+	</script>
+	<noscript>
+	  <img height="1" width="1" style="display:none"
+	       src="https://tr.line.me/tag.gif?c_t=lap&t_id=fd580f51-f71d-45dc-a7e5-3bcdb310cce8&e=pv&noscript=1" />
+	</noscript>
+	<!-- End LINE Tag Base Code -->
+
+</head>
+
+
+<body id="page_mypage_kuronekocredit" class="mypage user_granted">
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHMSLFK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div id="path" class="product">
+	<ul>
+		<li><a href="/">トップページ</a></li>
+		<li><a href="/user_data/croire">商品一覧</a></li>
+		<li id="currentPage"><span class="cart-title"></span></li>
+	</ul>
+</div>
+
+
+
+<div class="ec-layoutRole">
+	
+                <div class="ec-layoutRole__header">
+                <!-- ▼ヘッダー(商品検索・ログインナビ・カート) -->
+            <div class="ec-headerNaviRole"><div class="inner">
+    <div class="ec-headerNaviRole__left">
+       <!-- !!  <div class="ec-headerRole__navSP">
+            
+<div class="ec-headerNavSP">
+    <i class="fas fa-bars">vv</i>
+</div>
+        </div> -->
+    </div>
+    <div class="logo-pc">
+		<a href="/">
+			<p>エーエルジャパンの健康食品クロワール公式通販サイト</p>
+			<strong>CROIRE CAFE</strong>
+			<span>クロワールカフェ</span>
+		</a>
+    </div>
+    <div class="ec-headerNaviRole__right">
+        <div class="ec-headerNaviRole__nav">
+            
+<div class="ec-headerNav">
+            <div class="header-item mypage">
+            <a href="https://croirecafe.com/mypage/">
+                <i class="ec-headerNav__itemIcon fas fa-user fa-fw"></i>
+                <span class="ec-headerNav__itemLink">マイページ</span>
+            </a>
+        </div>
+                    <div class="ec-headerNav__item fav">
+                <a href="https://croirecafe.com/mypage/favorite">
+                    <i class="ec-headerNav__itemIcon fas fa-heart fa-fw"></i>
+                    <span class="ec-headerNav__itemLink">お気に入り</span>
+                </a>
+            </div>
+                <div class="header-item logout">
+            <a href="https://croirecafe.com/logout">
+                <i class="ec-headerNav__itemIcon fas fa-lock fa-fw"></i>
+                <span class="ec-headerNav__itemLink">ログアウト</span>
+            </a>
+        </div>
+    </div>
+
+        </div>
+        <div class="ec-headerRole__cart">
+            <div class="ec-cartNaviWrap">
+    <div class="ec-cartNavi">
+	    <a href="https://croirecafe.com/cart"></a>
+        <i class="txt">カートの中身を見る</i>
+        <i class="ec-cartNavi__icon fas fa-shopping-cart">
+            <span class="ec-cartNavi__badge">0</span>
+        </i>
+        <div class="ec-cartNavi__label"><div class="ec-cartNavi__price">￥0</div></div>
+    </div>
+            <div class="ec-cartNaviNull">
+            <div class="ec-cartNaviNull__message">
+                <p>現在カート内に商品はございません。</p>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+<div id="btn-toggle-menu" class="btn rdy click"><div class="inner">
+	
+		<div class="line rdy1"></div>
+		<div class="line rdy2"></div>
+		<div class="line rdy3"></div>
+		<div class="line close1"></div>
+		<div class="line close2"></div>
+</div>
+</div>
+</div>
+
+        <!-- ▲ヘッダー(商品検索・ログインナビ・カート) -->
+    <!-- ▼ロゴ -->
+            
+        <!-- ▲ロゴ -->
+    <!-- ▼カテゴリナビ(PC) -->
+            
+
+
+<!-- !! 
+<div class="ec-categoryNaviRole">
+    <div class="ec-itemNav">
+        <ul class="category-nav">
+	        
+	        <li><a href="/user_data/croire">クロワールシリーズ一覧</a></li>
+	        <li><a href="/user_data/course">ご注文コースについて</a></li>
+	        <li><a href="/user_data/payment">送料・お支払い方法</a></li>
+	        <li class="na"><a href="#">週間柏崎</a></li>
+	        <li><a href="/user_data/FAQ">よくあるご質問</a></li>
+	        <li><a href="/contact">お問い合わせ</a></li>　
+	
+	    </ul>
+    </div>
+</div>
+ -->
+        <!-- ▲カテゴリナビ(PC) -->
+
+        </div>
+    
+        
+    <div class="ec-layoutRole__contents">
+	    
+<section id="top-side">
+
+<!-- /#top-_side -->
+
+	<div class="disp-user-name">
+		<p>ようこそ<b> 米田 亘 </b>様</p>
+	</div>
+    
+    <div class="side-item">
+        <a class="mypage" href="https://croirecafe.com/mypage/">
+            <i class="ec-headerNav__itemIcon fas fa-user fa-fw"></i>
+            <span class="ec-headerNav__itemLink">マイページ</span>
+        </a>
+    </div>
+             <div class="side-item">
+            <a class="favorite" href="https://croirecafe.com/mypage/favorite">
+                <i class="ec-headerNav__itemIcon fas fa-heart fa-fw"></i>
+                <span class="ec-headerNav__itemLink">お気に入り</span>
+            </a>
+        </div>
+        <div class="side-item">
+        <a class="logout" href="https://croirecafe.com/logout">
+            <i class="ec-headerNav__itemIcon fas fa-lock fa-fw"></i>
+            <span class="ec-headerNav__itemLink">ログアウト</span>
+        </a>
+    </div>
+
+
+	<div class="ec-cartNaviWrap">
+    <div class="ec-cartNavi">
+	    <a href="https://croirecafe.com/cart"></a>
+        <i class="txt">カートの中身を見る</i>
+        <i class="ec-cartNavi__icon fas fa-shopping-cart">
+            <span class="ec-cartNavi__badge">0</span>
+        </i>
+        <div class="ec-cartNavi__label"><div class="ec-cartNavi__price">￥0</div></div>
+    </div>
+            <div class="ec-cartNaviNull">
+            <div class="ec-cartNaviNull__message">
+                <p>現在カート内に商品はございません。</p>
+            </div>
+        </div>
+    </div>
+
+	
+	<div class="about-delivery">
+		<p>
+			<span class="price">¥7,000</span>(税込)以上<br />お買い上げで<b>送料無料</b>
+		</p>
+		<a href="/help/tradelaw#about_shipping">送料について</a>
+	</div>
+	
+	<div class="about-subscription">
+		<img src="/common/img/bnr-teiki.png" alt="便利でお得な定期購入コース" width="" height="" />
+	</div>
+	<!-- /.about-subscription -->
+
+</section>
+                
+                
+        <div class="ec-layoutRole__main">
+                        
+                            <div class="ec-layoutRole__main">
+        <div class="ec-mypageRole">
+            <div class="ec-pageHeader">
+                <h1>マイページ/クレジットカード編集</h1>
+            </div>
+            <div class="ec-navlistRole">
+    <ul class="ec-navlistRole__navlist">
+        <li class="ec-navlistRole__item ">
+            <a href="https://croirecafe.com/mypage/" class="icon-history">ご注文履歴</a>
+        </li>
+                    <li class="ec-navlistRole__item ">
+                <a class="icon-heart" href="https://croirecafe.com/mypage/favorite">お気に入り一覧</a>
+            </li>
+                <li class="ec-navlistRole__item ">
+            <a class="icon-pencil" href="https://croirecafe.com/mypage/change">会員情報編集</a>
+        </li>
+        <li class="ec-navlistRole__item ">
+            <a class="icon-truck" href="https://croirecafe.com/mypage/delivery">お届け先一覧</a>
+        </li>
+        <li class="ec-navlistRole__item ">
+            <a class="icon-user-minus" href="https://croirecafe.com/mypage/withdraw">退会手続き</a>
+        </li>
+    </ul>
+</div>
+
+<div class="ec-welcomeMsg">
+    <p class="c_name">ようこそ米田 亘様</p>
+    </div>
+
+        </div>
+
+        <div class="ec-mypageRole">
+            <div class="ec-alert-warning">
+                <div class="ec-alert-warning__icon"><img src="/html/template/croirecafe2020/assets/icon/exclamation-white.svg"></div>
+                <div class="ec-alert-warning__text">
+                    決済エラー状態の定期受注が存在します。カード情報を登録し直してください。
+                </div>
+            </div>
+            <form name="creditForm" id="creditForm" method="post">
+                <input type="hidden" name="last_credit_date" id="last_credit_date" value="" />
+                <div class="ec-rectHeading">
+                    <h2>現在登録されているカード情報</h2>
+                </div>
+                <div>
+                    <table summary="クレジットカード選択">
+                        <colgroup width="10%"></colgroup>
+                        <colgroup width="5%"></colgroup>
+                        <colgroup width="85%"></colgroup>
+                        <tr>
+                            <th class="">選択<span class="ec-required">※</span></th>
+                            <th class="">キー</th>
+                            <th class="">登録カード番号選択</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input id="card_key_1" name="card_key" required="required" class="payment" value="1" type="radio"  checked="checked" />
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                <span>カード番号：************5102　有効期限：25年06月</span>
+                                <span>カード名義：WATARU YONEDA</span>
+                                <input id="card_key_1_last_credit_date" type="hidden" value="20210503165418" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="ec-off4Grid">
+                    <div class="ec-off4Grid__cell">
+                        <button type="submit"
+                                class="ec-blockBtn--action" id="credit_delete">選択したカードを削除する</button>
+                    </div>
+                </div>
+
+                <div class="ec-rectHeading">
+                    <h2>クレジットカード情報登録</h2>
+                </div>
+                <dl id="detail_box__card_number" class="dispTarget">
+                    <dt><label class="ec-label">カード番号</label><span class="ec-required">必須</span></dt>
+                    <dd>
+                        <div class="form-group form-inline ">
+                            <input type="text"  id="credit_change_card_no" name="credit_change[card_no]" class="form-control" minlength="12" maxlength="16" autocomplete="off" />
+                            
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl id="detail_box__card_expire" class="dispTarget">
+                    <dt><label class="ec-label">カード有効期限</label><span class="ec-required">必須</span></dt>
+                    <dd>
+                        <div class="form-group form-inline">
+                                        <select  id="credit_change_card_exp_month" name="credit_change[card_exp_month]" class="form-control" autocomplete="off"><option value=""></option><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>
+    月 / 20             <select  id="credit_change_card_exp_year" name="credit_change[card_exp_year]" class="form-control" autocomplete="off"><option value=""></option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option></select>
+    年
+                            
+                            
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl id="detail_box__card_name" class="dispTarget">
+                    <dt><label class="ec-label">カード名義</label><span class="ec-required">必須</span></dt>
+                    <dd>
+                        <div class="form-group form-inline ">
+                            <input type="text"  id="credit_change_card_owner" name="credit_change[card_owner]" maxlength="25" />
+                            
+                            <p>カードに記載の名前をご記入下さい。ご本人名義のカードをご使用ください。半角英文字入力（例：TAROU YAMADA）</p>
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl id="detail_box__security_code">
+                    <dt><label class="ec-label">セキュリティコード</label><span class="ec-required">必須</span></dt>
+                    <dd>
+                        <div class="form-group form-inline ec-telInput ">
+                            <input type="text"  id="credit_change_security_code" name="credit_change[security_code]" class="form-control" maxlength="4" autocomplete="off" />
+                            
+                            <p>主にカード裏面の署名欄に記載されている末尾３桁～４桁の数をご記入ください。半角入力（例：123）</p>
+                        </div>
+                    </dd>
+                </dl>
+                <div class="ec-off4Grid">
+                    <div class="ec-off4Grid__cell">
+                        <button type="submit"
+                                class="ec-blockBtn--cancel" id="credit_register">登録する</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+                                </div>
+
+                    </div>
+
+        
+                <div class="ec-layoutRole__footer">
+                <!-- ▼フッター -->
+            <div class="ec-footerRole">
+    <div class="ec-footerRole__inner">
+        <ul class="ec-footerNavi">
+            <li class="ec-footerNavi__link">
+                <a href="https://croirecafe.com/help/about">当サイトについて</a>
+            </li>
+            <li class="ec-footerNavi__link">
+                <a href="https://croirecafe.com/help/privacy">プライバシーポリシー</a>
+            </li>
+            <li class="ec-footerNavi__link">
+                <a href="https://croirecafe.com/help/tradelaw">特定商取引法に基づく表記</a>
+            </li>
+            <li class="ec-footerNavi__link">
+                <a href="https://croirecafe.com/contact">お問い合わせ</a>
+            </li>
+        </ul>
+        <div class="ec-footerTitle">
+            <div class="ec-footerTitle__logo">
+                <a href="https://croirecafe.com/">
+	                 <img src="/common/img/logo.svg" alt="CROIRE CAFE" />
+                     <i>クロワールカフェ</i>
+                </a>
+            </div>
+            <div class="ec-footerTitle__copyright">copyright (c) クロワールカフェ all rights reserved.</div>
+        </div>
+    </div>
+</div>
+
+        <!-- ▲フッター -->
+
+        </div>
+    </div><!-- ec-layoutRole -->
+
+<div class="ec-overlayRole"></div>
+<div class="ec-drawerRoleClose"><i class="fas fa-times"></i></div>
+<div class="ec-drawerRole">
+                    <!-- ▼商品検索 -->
+            
+<div class="ec-headerSearch">
+    <form method="get" class="searchform" action="/products/list">
+        <div class="ec-headerSearch__category">
+            <div class="ec-select ec-select_search">
+                            <select name="category_id" class="category_id"><option value="">全ての商品</option><option value="13">送料無料商品</option><option value="12">お試し商品10%OFF</option><option value="11">通常購入</option><option value="10">同梱資材</option><option value="9">プレゼント商品</option><option value="2">クロワールシリーズ</option><option value="5">定期購入商品</option><option value="14">定期購入商品(2020年12月以前)</option><option value="7">定期購入価格・継続価格A</option><option value="8">定期購入価格・継続価格B</option><option value="6">購入テスト</option></select>
+    
+            </div>
+        </div>
+        <div class="ec-headerSearch__keyword">
+            <div class="ec-input">
+                <input type="search" name="name" maxlength="50" class="search-name" placeholder="キーワードを入力" />
+                <button class="ec-headerSearch__keywordBtn" type="submit">
+                    <div class="ec-icon">
+                        <img src="/html/template/croirecafe2020/assets/icon/search-dark.svg" alt="">
+                    </div>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+        <!-- ▲商品検索 -->
+    <!-- ▼カテゴリナビ(SP) -->
+            
+
+
+<div class="ec-headerCategoryArea">
+    <div class="ec-headerCategoryArea__heading">
+        <p>カテゴリ一覧</p>
+    </div>
+    <div class="ec-itemNav">
+        <ul class="ec-itemNav__nav">
+                            <li>
+                            <a href="https://croirecafe.com/products/list?category_id=13">
+        送料無料商品
+    </a>
+    
+                </li>
+                            <li>
+                            <a href="https://croirecafe.com/products/list?category_id=12">
+        お試し商品10%OFF
+    </a>
+    
+                </li>
+                            <li>
+                            <a href="https://croirecafe.com/products/list?category_id=11">
+        通常購入
+    </a>
+    
+                </li>
+                            <li>
+                            <a href="https://croirecafe.com/products/list?category_id=10">
+        同梱資材
+    </a>
+    
+                </li>
+                            <li>
+                            <a href="https://croirecafe.com/products/list?category_id=9">
+        プレゼント商品
+    </a>
+    
+                </li>
+                            <li>
+                            <a href="https://croirecafe.com/products/list?category_id=2">
+        クロワールシリーズ
+    </a>
+    
+                </li>
+                            <li>
+                            <a href="https://croirecafe.com/products/list?category_id=5">
+        定期購入商品
+    </a>
+    
+                </li>
+                            <li>
+                            <a href="https://croirecafe.com/products/list?category_id=14">
+        定期購入商品(2020年12月以前)
+    </a>
+    
+                </li>
+                            <li>
+                            <a href="https://croirecafe.com/products/list?category_id=7">
+        定期購入価格・継続価格A
+    </a>
+    
+                </li>
+                            <li>
+                            <a href="https://croirecafe.com/products/list?category_id=8">
+        定期購入価格・継続価格B
+    </a>
+    
+                </li>
+                            <li>
+                            <a href="https://croirecafe.com/products/list?category_id=6">
+        購入テスト
+    </a>
+    
+                </li>
+                    </ul>
+    </div>
+</div>
+
+        <!-- ▲カテゴリナビ(SP) -->
+    <!-- ▼ログインナビ(SP) -->
+            
+<div class="ec-headerLinkArea">
+    <div class="ec-headerLink__list">
+        <a class="ec-headerLink__item" href="https://croirecafe.com/cart">
+            <div class="ec-headerLink__icon">
+                <i class="fas fa-shopping-cart fa-fw"></i>
+            </div>
+            <span>カートを見る</span>
+        </a>
+                    <a class="ec-headerLink__item" href="https://croirecafe.com/mypage/">
+                <div class="ec-headerLink__icon">
+                    <i class="fas fa-user fa-fw"></i>
+                </div>
+                <span>マイページ</span>
+            </a>
+                            <a class="ec-headerLink__item" href="https://croirecafe.com/mypage/favorite">
+                    <div class="ec-headerLink__icon">
+                        <i class="fas fa-heart fa-fw"></i>
+                    </div>
+                    <span>お気に入り</span>
+                </a>
+                        <a class="ec-headerLink__item" href="https://croirecafe.com/logout">
+                <div class="ec-headerLink__icon">
+                    <i class="fas fa-lock fa-fw"></i>
+                </div>
+                <span>ログアウト</span>
+            </a>
+                <a class="ec-headerLink__item" href="https://croirecafe.com/">
+            <div class="ec-headerLink__icon">
+                <i class="fas fa-home fa-fw"></i>
+            </div>
+            <span>ホームに戻る</span>
+        </a>
+    </div>
+</div>
+
+        <!-- ▲ログインナビ(SP) -->
+
+    </div>
+<div class="ec-blockTopBtn pagetop">ページトップへ</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+<script>
+var eccube_lang = {
+    "common.delete_confirm":"削除してもよろしいですか?"
+}
+</script><script src="/html/template/croirecafe2020/assets/js/function.js"></script>
+<script src="/html/template/croirecafe2020/assets/js/eccube.js"></script>
+<script type="text/javascript" class="webcollect-embedded-token" src="https://api.kuronekoyamato.co.jp/api/token/js/embeddedTokenLib.js"></script>
+<script>
+    $('#credit_delete').click( function () {
+        if(confirm('選択したカードを削除しますか？')) {
+            var num = $('input[name=card_key]:checked').val();
+            var lastDate = "card_key_"+num+"_last_credit_date";
+            $('#last_credit_date').val($('#'+lastDate).val());
+
+            $('#creditForm').attr('action', "https://croirecafe.com/mypage/kuronekocredit/delete");
+            $('#creditForm').submit();
+        }
+
+        return false;
+    });
+
+    $('#credit_register').click( function () {
+        ret = true;
+
+        ret = fnCheckMaxRegist();
+        if (ret) {
+            ret = executePay();
+        }
+        if (!ret) {
+            return false;
+        }
+    });
+
+    /*
+     * 登録上限チェック
+     */
+    function fnCheckMaxRegist() {
+        var saveLimit = "3";
+        if(saveLimit == "") {
+            saveLimit = 0;
+        }
+        if(1 >= saveLimit) {
+            alert("カードお預かりは"+saveLimit+"件までとなっております。");
+            if($('#'+formPrefix+'_register_card')) {
+                $('#'+formPrefix+'_register_card').prop('checked', false);
+            }
+            return false;
+        }
+        return true;
+    }
+
+    /*
+     * 送信ボタン押下時に実行するJavaScript関数
+     */
+    var isJsSend = false;
+    var formId = 'creditForm';
+    var formPrefix = 'credit_change';
+    function executePay() {
+
+        if(isJsSend) {
+            alert("只今、処理中です。しばらくお待ち下さい。");
+            return false;
+        } else {
+            isJsSend = true;
+
+            $('#'+formPrefix+'_card_no').css({'background-color': '#ffffff'});
+            $('#'+formPrefix+'_card_owner').css({'background-color': '#ffffff'})
+            $('#'+formPrefix+'_card_exp_month').css({'background-color': '#ffffff'});
+            $('#'+formPrefix+'_card_exp_year').css({'background-color': '#ffffff'});
+            $('#'+formPrefix+'_security_code').css({'background-color': '#ffffff'});
+
+            // コールバック関数（「正常」の場合）
+            var callbackSuccess = function(response) {
+                var formElement = document.getElementById(formId);
+                // カード情報がリクエストパラメータに含まれないようにする
+                removeCardData();
+
+                // formに発行したトークンを追加する
+                if($('#'+formPrefix+'_webcollectToken').length) {
+                    $('#'+formPrefix+'_webcollectToken').val(response.token);
+                } else {
+                    var hiddenElement = document.createElement("input");
+                    hiddenElement.type = "hidden";
+                    hiddenElement.name = "webcollectToken";
+                    hiddenElement.value = response.token;
+
+                    formElement.appendChild(hiddenElement);
+                }
+
+                // formをサブミットする
+                formElement.setAttribute('action', "https://croirecafe.com/mypage/kuronekocredit/register");
+                formElement.submit();
+            }
+
+            // コールバック関数（「異常」の場合）
+            var callbackFailure = function(response) {
+                //エラー情報を取得
+                var errorInfo = response.errorInfo;
+
+                //errorItemの内容に応じてテキストボックスの背景色を変更する関数
+                function changeColor(errorItem) {
+                    switch(errorItem) {
+                        case "cardNo":
+                            $('#'+formPrefix+'_card_no').css({'background-color': '#fdeef1'});
+                            break;
+                        case "cardOwner":
+                            $('#'+formPrefix+'_card_owner').css({'background-color': '#fdeef1'})
+                            break;
+                        case "cardExp":
+                            $('#'+formPrefix+'_card_exp_month').css({'background-color': '#fdeef1'});
+                            $('#'+formPrefix+'_card_exp_year').css({'background-color': '#fdeef1'});
+                            break;
+                        case "securityCode":
+                            $('#'+formPrefix+'_security_code').css({'background-color': '#fdeef1'});
+                            break;
+                    }
+                }
+
+                //エラーの数だけ処理を繰り返す
+                for (var i = 0; i<errorInfo.length; i++) {
+                    if (errorInfo[i].errorItem) {
+                        changeColor(errorInfo[i].errorItem);
+                    }
+
+                    //メッセージをalertで出力
+                    alert(errorInfo[i].errorCode + " : " + errorInfo[i].errorMsg);
+                }
+
+                isJsSend = false;
+                return false;
+            }
+
+            // トークン発行APIへ渡すパラメータ(共通)
+            var createTokenInfo = {
+                traderCode: "620922102",
+                authDiv: "2",
+                optServDiv: "00",
+                securityCode: $('#'+formPrefix+'_security_code').val(),
+                checkSum: "d8ae40ed882077e2a5847e199c2a0e3e97d29803676863dc9607fa2517b407ab"
+            }
+
+            createTokenInfo["optServDiv"] = "01";
+            createTokenInfo["memberId"]   = "73536598";
+            createTokenInfo["authKey"]    = "73536598";
+            createTokenInfo["cardNo"]    = $('#'+formPrefix+'_card_no').val();
+            createTokenInfo["cardOwner"] = $('#'+formPrefix+'_card_owner').val();
+            createTokenInfo["cardExp"]   = $('#'+formPrefix+'_card_exp_month').val() + $('#'+formPrefix+'_card_exp_year').val();
+
+            // webコレクトが提供するJavaScript関数を実行し、トークンを発行する。
+            return WebcollectTokenLib.createToken(createTokenInfo, callbackSuccess, callbackFailure);
+        }
+    }
+
+    function removeCardData() {
+        $('#'+formPrefix+'_card_no').removeAttr("name");
+        $('#'+formPrefix+'_card_owner').removeAttr("name");
+        $('#'+formPrefix+'_card_exp_month').removeAttr("name");
+        $('#'+formPrefix+'_card_exp_year').removeAttr("name");
+        $('#'+formPrefix+'_security_code').removeAttr("name");
+    }
+</script>
+                <script>$(function() { $("ul.ec-navlistRole__navlist").first().append($('#IplPeriodicPurchase'))})</script>
+
+        <li class="ec-navlistRole__item " id="IplPeriodicPurchase">
+            <a href="https://croirecafe.com/mypage/periodic">定期一覧</a>
+        </li>
+
+                <script>$(function() { $("ul.ec-navlistRole__navlist").first().append($('#kuronekocredit'))})</script>
+
+        <li class="ec-navlistRole__item active" id="kuronekocredit">
+            <a href="https://croirecafe.com/mypage/kuronekocredit">カード編集</a>
+        </li>
+
+                <script>
+    $(function() {
+        // Bar追加
+        $('body').prepend($("#admin_support_customer_login").html());
+        $("#admin_support_customer_login").remove();
+    });
+</script>
+
+<div id="admin_support_customer_login">
+    <div id="admin_support_customer_login_title" class="alert-success alert-dismissable alert-section" style="text-align:center; position: fixed; top: 0; width: 100%; z-index: 100; opacity: 0.6;">
+        代理ログイン中です
+    </div>
+</div>
+
+    
+<script src="/html/user_data/assets/js/customize.js"></script>
+
+
+<div id="shade"></div>
+
+<div id="popup">
+	<div class="close"></div>
+	<div id="popup-inner">
+		
+		<div class="teiki">
+			<h2>定期購入について</h2>
+			<ul class="idx">
+				<li>発送日は<br />毎月1日・15日<br />から選べます<br />※発送日が土日祝日の場合、<br />前営業日に発送</li>
+				<li>初回は30〜45％OFF<br />2回目以降から<br />ずっと15〜30％OFF</li>
+				<li>3回購入毎に<br />次回購入が<br />30〜45％OFF</li>
+			</ul>
+			<h3><i>●</i>変更・解約が可能</h3>
+			<p>※お届け4回目以降、変更・解約が可能となります。※3ヶ月以内（隔月の場合は6ヶ月以内）の解約はできません。</p>
+			<h3><i>●</i>一時お休み制度</h3>
+			<p>
+				定期購入頂いてから4回目以降より一時お休み制度をご利用頂けます。<br />
+				お休み頂く場合は、発送日の１週間前までにマイページよりご登録下さい。<br />
+				一時お休み制度は最長３回までとなります。3ヶ月（隔月の場合は6ヶ月）経ってもご連絡のない場合は解約となりますのでご注意ください。
+			</p>
+			<h3><i>●</i>お支払方法</h3>
+			<p>
+				・クレジットカード ・後払い（コンビニ・郵便局・銀行）<br />
+				※請求書は、お荷物とは同梱することが出来ない為、後日、別送となります。<br />
+				※後払い（コンビニ・郵便局・銀行）の請求書はネットプロテクションズより後日郵送。
+			</p>
+			<h3><i>●</i>お届け方法について</h3>
+			<p>●ポストに投函のメール便でお届け<br />
+			●クロワールプロバイオティクス１２をお届けの場合は佐川急便でのお届け<br />
+			<h4>◎クロワールプロバイオティクス12のお届けについて</h4>
+			<p>※メール便対応サイズ（厚さ2.5cm）外のため、佐川急便でのお届けとなります。<br />
+			※代金お引替えでのお支払いはお受けできません。<br />
+			※商品ご到着の日にち指定不可。時間指定のみ可。<br />
+			※他の定期購入商品を同梱してお届けする場合、佐川急便での配送となります。</p>
+
+			<a href="#" id="teiki-link-btn">さらに詳しく</a>
+			<p class="note"><i>※</i>定期購入のお知らせについて、info@al-japan.comより送信させて頂きます。</p>
+		</div>
+		<!-- /.teiki -->
+		
+		<div class="onestop">
+			
+			<div class="_1">
+				<div class="hd">初回お試し購入<span class="note"><i>※</i>他の商品でお試し購入をされた方は不可となります</span></div>
+				<p class="txt">おひとりさま1個限り</p>
+				<p class="price">
+					<span><img src="/img/top/10poff@2x.png" alt="10poff@2x" width="109" ></span>
+					<span class="price_1"><i>1,000</i>円(税込)</span>
+					<a href="#"  class="btn2 _1">さらに詳しく</a>
+				</p>
+			</div>
+			<div class="_2">
+				<div class="hd">今回のみご注文</div>
+				<p class="price">
+					<span><img src="/img/top/10poff@2x.png" alt="10poff@2x" width="109" ></span>
+					<span class="price_2"><b class="comm_1"></b><i>1,000</i>円(税込)</span>
+					<a href="#"  class="btn2 _2">さらに詳しく</a>
+				</p>
+				<p class="price price3_row">
+					<span><img src="/img/top/10poff@2x.png" alt="10poff@2x" width="109" ></span>
+					<span class="price_3"><b class="comm_2"></b><i>1,000</i>円(税込)</span>
+					<a href="#"  class="btn2 _3">さらに詳しく</a>
+				</p>
+			</div>
+			
+		</div>
+		<!-- /.onestop -->
+		
+	</div>
+</div>
+
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'jip7amx',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+</body>
+</html>
