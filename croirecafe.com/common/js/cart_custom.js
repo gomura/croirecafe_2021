@@ -179,11 +179,19 @@ $(function(){
 
 
 //!! 配送の選択
+function addPostTxt(elem){
+	var postHtml = '<p class="postTxt">2〜3営業日（土日祝除く）でポストにお届けいたします。</p>';
+	if($(".postTxt")[0]){
+		return;
+	}else{
+		elem.closest(".ec-select").append(postHtml);
+	}
+}
+
 $(function(){
+	
 	if(!$("#page_shopping")[0] && !$("select[id$=_shipping_delivery_date]")[0]) return;
-	
-	var postHtml = '<p class="postTXt">2〜3営業日（土日祝除く）でポストにお届けいたします。</p>';
-	
+
 	//!! 定期
 	//if($("body").is(".type_teiki") ){
 	if($("body").is(".type_teiki") || $("body").is(".type_shokai") || $("body").is(".shipping_free")){
@@ -214,8 +222,7 @@ $(function(){
 					}else{
 						if(!$("body").is(".type_teiki")){
 							$(".ec-select.ec-select__delivery, .ec-select__time").remove();
-							$(this).closest(".ec-select").append(postHtml);
-							
+							addPostTxt($(this));
 						}
 
 					}
@@ -275,15 +282,17 @@ $(function(){
 						if($(this).val() == "") return;
 						//$(this).remove();
 					}
-					if($(this).val() == 6 && $(this).is(":selected")){
+					
+					
+					if($(this).val() == 6 && $(this).is(":selected")){ //ゆうパケット発送 231円(税込)
 						$(".ec-select.ec-select__delivery, .ec-select__time").remove();
 						
-						$(this).closest(".ec-select").append(postHtml);
+						addPostTxt($(this));
 					}
 					if($(this).val() == 13 && $(this).is(":selected")){
 						$(".ec-select.ec-select__delivery, .ec-select__time").remove();
 						
-						$(this).closest(".ec-select").append(postHtml);
+						addPostTxt($(this));
 					}
 				});
 				
@@ -348,11 +357,14 @@ $(function(){
 /* !! confirm */
 
 $(function(){
-	var postHtml = '<p class="postTXt">2〜3営業日（土日祝除く）でポストにお届けいたします。</p>';
+	var postHtml = '<p class="postTxt">2〜3営業日（土日祝除く）でポストにお届けいたします。</p>';
 	var delivery = $(".ec-orderDelivery__actions");
-	if(delivery.text().match("ゆうパケット発送")){
-		$(".ec-select__delivery, .ec-select__time ").remove();
-		delivery.find(".ec-select").append(postHtml);
+	if($("#page_shopping_confirm")[0]){
+		if(delivery.text().match("ゆうパケット発送")){
+			$(".ec-select__delivery, .ec-select__time ").remove();
+			delivery.find(".ec-select").append(postHtml);
+		}
+		
 	}
 });
 

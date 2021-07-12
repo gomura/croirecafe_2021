@@ -150,7 +150,7 @@ file that was distributed with this source code.
                     {% for item in Order.order_items if item.isCharge %}
                         {% set charge = item.total_price %}
                     {% endfor %}
-                    {{ Order.Payment }}({{ charge|price }})
+                    {{ Order.Payment }} <span class="charge" data-charge="{{ charge }}">※手数料{{ charge|price }}</span>
                 </div>
             </div>
             {% if BaseInfo.isOptionPoint and Order.Customer is not null %}
