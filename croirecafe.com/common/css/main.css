@@ -305,7 +305,7 @@ h2.sec, .ec-pageHeader {
 a.ec-blockBtn--cancel,
 a.ec-blockBtn--primary,
 .ec-inlineBtn,
-.cart-in-section-disabled a, #top-side .side-item > a, .ec-login__actions .ec-blockBtn--cancel, .cart-in-section-disabled .btn-grp a, .ec-blockBtn--cancel {
+.cart-in-section-disabled a, .ec-inlineBtn.btn-L, #top-side .side-item > a, .ec-login__actions .ec-blockBtn--cancel, .cart-in-section-disabled .btn-grp a, .ec-blockBtn--cancel {
   background-color: none;
   width: 100%;
   height: 54px !important;
@@ -494,6 +494,26 @@ a.ec-blockBtn--primary,
 
 button {
   outline: none !important; }
+
+.ec-inlineBtn.btn-L {
+  font-size: 16px !important;
+  letter-spacing: .1em;
+  text-decoration: none !important;
+  background: #c7e0f7 !important;
+  border: 2px solid #fff;
+  font-weight: bold;
+  color: #228BAF !important;
+  min-width: 200px;
+  font-weight: bold !important;
+  display: -webkit-flex !important;
+  display: -moz-flex !important;
+  display: -ms-flex !important;
+  display: -o-flex !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  max-width: 240px;
+  margin: 30px auto !important; }
 
 /* !!------------------------------------ */
 /* !! ヘッダー */
@@ -7144,6 +7164,12 @@ main.Q10 .sec.gyoushuku {
   margin-bottom: 0 !important;
   padding: 20px !important; }
 
+.ec-orderDelivery > p {
+  padding: 0 20px; }
+  @media screen and (max-width: 767px) {
+    .ec-orderDelivery > p {
+      padding: 0 5.34vw; } }
+
 .ec-orderDelivery__title {
   display: -webkit-flex;
   display: -moz-flex;
@@ -7540,8 +7566,18 @@ select[id$=_shippingDeliveryDate] span {
 
 /* !! - - -  */
 /* !! ご注文履歴 */
+.ec-rectHeading {
+  margin-bottom: 10px; }
+
 .ec-orderOrder {
   padding: 20px; }
+
+.ec-orderConfirm > p {
+  padding: 0 20px;
+  margin-bottom: 10px; }
+  @media screen and (max-width: 767px) {
+    .ec-orderConfirm > p {
+      padding: 0 5.34vw; } }
 
 .ec-definitions--soft {
   padding: 0 20px; }

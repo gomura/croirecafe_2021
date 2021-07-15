@@ -394,6 +394,26 @@ button{
 	outline: none !important;
 }
 
+.ec-inlineBtn.btn-L{
+	@extend %btn_L;
+	font-size: 16px !important;
+	letter-spacing: .1em;
+	text-decoration: none !important;
+	background: #c7e0f7 !important;
+	border: 2px solid #fff;
+	font-weight: bold;
+	color: $blue !important;
+	min-width: 200px;
+	font-weight: bold !important;
+	display: -webkit-flex !important;
+	display: -moz-flex !important;
+	display: -ms-flex !important;
+	display: -o-flex !important;
+	display: flex !important;
+	max-width: 240px;
+	margin: 30px auto !important;
+}
+
 /* !!------------------------------------ */
 /* !! ヘッダー */
 
@@ -6311,7 +6331,12 @@ main.Q10{
 
 //!! - 配送情報
 .ec-orderDelivery{
-	
+	>p{
+		padding:0 20px;
+		@include sp{
+			padding:0 20*$px;	
+		}//@sp
+	}
 }
 .ec-orderDelivery__title{
 	@include flex;
@@ -6766,8 +6791,21 @@ body.type_teiki,body.otameshi_10{
 
 /* !! - - -  */
 /* !! ご注文履歴 */
+.ec-rectHeading{
+	margin-bottom: 10px;
+}
 .ec-orderOrder{
 	padding: 20px;
+}
+
+.ec-orderConfirm{
+	>p{
+		padding:0 20px;
+		margin-bottom: 10px;
+		@include sp{
+			padding: 0 20*$px;	
+		}//@sp
+	}
 }
 
 .ec-definitions--soft{
