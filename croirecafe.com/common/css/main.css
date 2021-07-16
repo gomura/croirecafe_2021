@@ -331,7 +331,7 @@ a.ec-blockBtn--primary,
     -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
 
-.ec-blockBtn--action, #product-wrap .row-cart-setion button.add-cart {
+.ec-blockBtn--action, #product-wrap .row-cart-setion button.add-cart, #credit_register {
   background-color: none;
   background: rgba(255, 129, 0, 0.9) !important;
   -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
@@ -376,15 +376,15 @@ a.ec-blockBtn--primary,
           align-items: center;
   text-decoration: none;
   outline: none; }
-  .ec-blockBtn--action:hover, #product-wrap .row-cart-setion button.add-cart:hover {
+  .ec-blockBtn--action:hover, #product-wrap .row-cart-setion button.add-cart:hover, #credit_register:hover {
     -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
             box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4); }
-  .ec-blockBtn--action:active, #product-wrap .row-cart-setion button.add-cart:active {
+  .ec-blockBtn--action:active, #product-wrap .row-cart-setion button.add-cart:active, #credit_register:active {
     -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
-  .ec-blockBtn--action:hover, #product-wrap .row-cart-setion button.add-cart:hover {
+  .ec-blockBtn--action:hover, #product-wrap .row-cart-setion button.add-cart:hover, #credit_register:hover {
     background: #ff8100 !important; }
-  .ec-blockBtn--action:focus, #product-wrap .row-cart-setion button.add-cart:focus, .ec-blockBtn--action:active, #product-wrap .row-cart-setion button.add-cart:active {
+  .ec-blockBtn--action:focus, #product-wrap .row-cart-setion button.add-cart:focus, #credit_register:focus, .ec-blockBtn--action:active, #product-wrap .row-cart-setion button.add-cart:active, #credit_register:active {
     background: #ff9a33 !important; }
 
 .btn.more {
@@ -463,6 +463,8 @@ a.ec-blockBtn--primary,
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  line-height: 1;
+  margin-bottom: 10px;
   font-size: 16px !important;
   letter-spacing: .1em;
   text-decoration: none !important;
@@ -7410,6 +7412,9 @@ select[id$=_shippingDeliveryDate] span {
 
 /* !!------------------------------------ */
 /* !! ショッピング */
+.ec-off3Grid .ec-off3Grid__cell {
+  margin: 0 auto; }
+
 /* !! - - -  */
 /* !! shopping-form */
 @media screen and (min-width: 768px) {
@@ -7423,6 +7428,9 @@ select[id$=_shippingDeliveryDate] span {
 
 .ec-totalBox__taxRate {
   display: none !important; }
+
+.ec-rectHeading + div {
+  padding: 20px 20px; }
 
 #coupon {
   padding: 20px;
@@ -7483,9 +7491,15 @@ select[id$=_shippingDeliveryDate] span {
 /* !! マイページ */
 /* !! - - -  */
 /* !! ナビゲーション */
+.ec-welcomeMsg {
+  border: none; }
+
 .ec-navlistRole__navlist {
-  border-radius: 12px;
-  border-width: 2px !important; }
+  border-width: 2px !important;
+  overflow: hidden; }
+  @media screen and (min-width: 768px) {
+    .ec-navlistRole__navlist {
+      border-radius: 12px; } }
   @media screen and (max-width: 767px) {
     .ec-navlistRole__navlist {
       border: none !important;
@@ -7563,9 +7577,100 @@ select[id$=_shippingDeliveryDate] span {
         .ec-navlistRole__navlist li a:before {
           margin-bottom: 0;
           margin-right: 10px; } }
+  #periodic_nav .ec-navlistRole__navlist {
+    border: none; }
+    @media screen and (min-width: 768px) {
+      #periodic_nav .ec-navlistRole__navlist {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        border: none !important; }
+        #periodic_nav .ec-navlistRole__navlist li {
+          width: 200px;
+          border-right: 0 !important;
+          margin: 0 5px; }
+        #periodic_nav .ec-navlistRole__navlist a {
+          background: rgba(228, 0, 127, 0.1);
+          width: 200px;
+          border-radius: 12px;
+          margin: 0 !important; }
+          #periodic_nav .ec-navlistRole__navlist a:hover {
+            background: rgba(228, 0, 127, 0.2); } }
 
 /* !! - - -  */
 /* !! ご注文履歴 */
+.ec-historyRole {
+  background: rgba(250, 190, 0, 0.2);
+  padding: 20px;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 15px; }
+  .ec-historyRole p {
+    font-size: 16px; }
+  .ec-historyRole .ec-definitions {
+    margin: 0;
+    margin-top: 10px; }
+    .ec-historyRole .ec-definitions dt {
+      background: #fff;
+      font-size: 13px !important;
+      width: 120px;
+      height: 24px;
+      margin-right: 10px;
+      line-height: 1;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      display: -webkit-inline-flex;
+      display: -moz-inline-flex;
+      display: -ms-inline-flex;
+      display: -o-inline-flex;
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      border-radius: 50px; }
+      @media screen and (max-width: 767px) {
+        .ec-historyRole .ec-definitions dt {
+          font-size: 13px !important;
+          height: 24px !important; } }
+    .ec-historyRole .ec-definitions dd {
+      font-size: 15px;
+      font-weight: bold; }
+  .ec-historyRole .ec-inlineBtn {
+    max-width: 240px; }
+    @media screen and (min-width: 768px) {
+      .ec-historyRole .ec-inlineBtn {
+        margin-left: 0 !important; } }
+    @media screen and (max-width: 767px) {
+      .ec-historyRole .ec-inlineBtn {
+        margin: 30px auto !important; } }
+  .ec-historyRole .ec-historyRole__contents {
+    padding: 0;
+    border: none; }
+  .ec-historyRole .ec-historyRole__detailTitle {
+    font-size: 16px !important; }
+    @media screen and (max-width: 767px) {
+      .ec-historyRole .ec-historyRole__detailTitle {
+        font-size: 14px !important; } }
+  @media screen and (max-width: 767px) {
+    .ec-historyRole .ec-imageGrid__content {
+      padding: 2.67vw 0;
+      font-size: 16px !important; } }
+
 .ec-rectHeading {
   margin-bottom: 10px; }
 
@@ -7588,6 +7693,8 @@ select[id$=_shippingDeliveryDate] span {
 #summary_box__add_point {
   display: none !important; }
 
+/* !! - - -  */
+/* !! カード情報 */
 #creditForm {
   background: rgba(250, 190, 0, 0.1);
   padding: 30px;

@@ -87,8 +87,9 @@ https://np-atobarai.jp
 郵便番号：〒{{ Shipping.postal_code }}
 住所：{{ Shipping.Pref.name }}{{ Shipping.addr01 }}{{ Shipping.addr02 }}
 電話番号：{{ Shipping.phone_number }}
+
+※定期購入の場合はお届け予定日が発送日(土日祝の場合、直前の平日)となります。
 お届け予定日：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_day }}
-※定期購入の場合はお届け予定日が、発送日(土日祝の場合、直前の平日)となります。
 お届け時間：{{ Shipping.shipping_delivery_time|default('指定なし') }}
 
 

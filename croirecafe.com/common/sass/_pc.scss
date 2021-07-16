@@ -290,7 +290,6 @@ h2.sec{
 %btn_CTA{
 	background-color: none;
 	background: rgba($cta,.9) !important;
-
 	@include shadow02;
 	border-radius: 50px;
 	display: block;
@@ -315,6 +314,8 @@ h2.sec{
 		background: lighten($cta,10%) !important;
 	}
 }
+
+
 
 .btn.more{
 	width: 100%; 
@@ -355,6 +356,8 @@ a.ec-blockBtn--primary,
 	justify-content: center;
 	align-items: center;
 	@extend %btn_L;
+	line-height: 1;
+	margin-bottom: 10px;
 	font-size: 16px !important;
 	letter-spacing: .1em;
 	text-decoration: none !important;
@@ -6660,7 +6663,9 @@ body.type_teiki,body.otameshi_10{
 
 /* !!------------------------------------ */
 /* !! ショッピング */
-
+.ec-off3Grid .ec-off3Grid__cell{
+	margin: 0 auto;
+}
  /* !! - - -  */
  /* !! shopping-form */
  #shopping-form{
@@ -6678,6 +6683,12 @@ body.type_teiki,body.otameshi_10{
 
 .ec-totalBox__taxRate{
 	display: none !important;
+}
+
+.ec-rectHeading{
+	& + div{
+		padding: 20px 20px;
+	}
 }
 
 //!! クーポン
@@ -6732,10 +6743,17 @@ body.type_teiki,body.otameshi_10{
 
 /* !! - - -  */
 /* !! ナビゲーション */
+.ec-welcomeMsg{
+	border: none;
+}
 .ec-navlistRole__navlist{
 	//border: none !important;
-	border-radius: 12px;
+	
+	@include pc{
+		border-radius: 12px;	
+	}//@pc
 	border-width: 2px !important;
+	overflow: hidden;
 	@include sp{
 		border: none !important;
 		@include flex;
@@ -6787,10 +6805,101 @@ body.type_teiki,body.otameshi_10{
 			}
 		}
 	}
+	#periodic_nav & {
+		border: none;
+		@include pc{
+			justify-content: center;
+
+			border: none !important;
+			li{
+				width: 200px;
+				border-right: 0 !important;
+				margin: 0 5px;
+			}
+			a{
+				background: rgba($pink,.1);
+				width: 200px;
+				border-radius: 12px;
+				margin: 0 !important;
+				
+				&:hover{
+					background: rgba($pink,.2);
+				}
+			}
+		}//@pc
+	}
 }
 
 /* !! - - -  */
 /* !! ご注文履歴 */
+
+.ec-historyRole{
+	background:rgba($yellow,.2);
+	padding: 20px;
+	border-radius: 12px;
+	border: none;
+	margin-bottom: 15px;
+	p{
+		font-size: 16px;
+	}
+	.ec-definitions{
+		margin: 0;
+		margin-top: 10px;
+		dt{
+			background: #fff;
+			font-size: 13px !important;
+			width: 120px;
+			height: 24px;
+			margin-right: 10px;
+			line-height: 1;
+			@include flex-centering;
+			display: -webkit-inline-flex;
+			display: -moz-inline-flex;
+			display: -ms-inline-flex;
+			display: -o-inline-flex;
+			display: inline-flex;
+			border-radius: 50px;
+			@include sp{
+				font-size: 13px !important;	
+				height: 24px !important;
+			}//@sp
+		}
+		dd{
+			font-size: 15px;
+			font-weight: bold;
+		}
+	}
+	.type_teiki & {
+	//		background: rgba($pink,.0);
+	}
+	.ec-inlineBtn{
+		max-width: 240px;
+		@include pc{
+			margin-left: 0 !important;	
+		}//@pc
+		@include sp{
+			margin: 30px auto !important; 
+		}//@sp
+	}
+	.ec-historyRole__contents{
+		padding: 0;
+		border: none;
+	}
+	
+	.ec-historyRole__detailTitle{
+		font-size: 16px !important;
+		@include sp{
+			font-size: 14px !important; 	
+		}//@sp
+	}
+	.ec-imageGrid__content{
+		@include sp{
+			padding: 10*$px 0;
+			font-size: 16px !important;
+		}//@sp
+	}
+}
+
 .ec-rectHeading{
 	margin-bottom: 10px;
 }
@@ -6829,7 +6938,8 @@ body.type_teiki,body.otameshi_10{
 	}
 }
 
-
+/* !! - - -  */
+/* !! カード情報 */
 #creditForm{
 	background:rgba($yellow,.1);
 	padding: 30px;
@@ -6891,6 +7001,10 @@ body.type_teiki,body.otameshi_10{
 	.ec-off4Grid{
 		width: 100%;
 	}
+}
+
+#credit_register{
+	@extend %btn_CTA;
 }
 
 #teikiRepurchase{
@@ -7036,6 +7150,10 @@ main.page.course{
 	margin: 0 auto;
 	margin-bottom: 50px;
 }
+
+
+
+
 /* !!------------------------------------ */
 /* !! プライバシーポリシー */
 
