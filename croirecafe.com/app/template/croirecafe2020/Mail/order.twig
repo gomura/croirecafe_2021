@@ -138,7 +138,7 @@ https://np-atobarai.jp
 電話番号：{{ Shipping.phone_number }}
 
 配送方法：{{ Shipping.shipping_delivery_name }}
-※定期購入の場合はお届け予定日が発送予定日となります。（発送予定日が土日祝の場合、直前の平日に発送いたします)
+※定期購入の場合はお届け予定日が発送日(土日祝の場合、直前の平日)となります。
 お届け予定日：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_day }}
 お届け時間：{{ Shipping.shipping_delivery_time|default('指定なし') }}
 
