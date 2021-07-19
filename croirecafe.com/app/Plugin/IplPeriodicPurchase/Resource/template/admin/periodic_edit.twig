@@ -284,7 +284,8 @@ It applies to terms of service.
                                         <div class="col">{{ PeriodicPurchase.update_date ? PeriodicPurchase.update_date|date_sec : '' }}</div>
                                     </div>
                                     <div class="row mb-3">
-                                        <div class="col-4"><i class="fa fa-truck fa-fw mr-1" aria-hidden="true"></i>{{ 'ipl_periodic_purchase.admin.order.last_shipping_date'|trans }}</div>
+                                        <div class="col-4"><i class="fa fa-truck fa-fw mr-1" aria-hidden="true"></i>前回発送予定日
+	                                     </div>
                                         <div class="col">{{ PeriodicPurchase.shipping_date ? PeriodicPurchase.shipping_date|date_day : '' }}</div>
                                     </div>
                                     <div class="row mb-3">
@@ -375,7 +376,9 @@ It applies to terms of service.
 	                                    
                                         <div class="col-4">
 	                                        <i class="fa fa-calendar-check-o fa-fw mr-1" aria-hidden="true"></i>
-	                                        {{ 'ipl_periodic_purchase.admin.order.next_shipping_date'|trans }}
+	                                        
+	                                        <!-- !! {{ 'ipl_periodic_purchase.admin.order.next_shipping_date'|trans }} -->
+	                                        次回発送予定日
 	                                        {% if PeriodicPurchase.skip_flg > 0 %}<span class="order-skip">購入者スキップあり</span>{% endif %}
 	                                    </div>
                                         <div class="col">

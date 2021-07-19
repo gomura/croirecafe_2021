@@ -674,13 +674,16 @@ It applies to terms of service.
                                             <th class="border-top-0 pt-2 pb-2 text-center pl-3">
                                                 <input type="checkbox" id="toggle_check_all" name="filter" value="open">
                                             </th>
-                                            <th class="border-top-0 pt-2 pb-2 text-center">購入商品</th>
+                                            
                                             <th class="border-top-0 pt-2 pb-2 text-center">{{ 'admin.order.orderer'|trans }}</th>
+                                            <th class="border-top-0 pt-2 pb-2 text-center">購入商品</th>
+                                           
                                             <th class="border-top-0 pt-2 pb-2 text-center">定期サイクル</th>
                                             <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.periodic_status'|trans }}</th>
                                             <th class="border-top-0 pt-2 pb-2 text-center text-nowrap">{{ 'admin.common.mail_address'|trans }}</th>
                                             <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.periodic_purchase_count'|trans }}</th>
-                                            <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.next_shipping_date'|trans }}</th>
+                                            <!-- !! <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.next_shipping_date'|trans }}</th> -->
+                                            <th class="border-top-0 pt-2 pb-2 text-center">次回発送予定日</th>
                                             <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.card_change_date'|trans }}</th>
                                             <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.first_order_id'|trans }}</th>
                                             <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.last_order_id'|trans }}</th>
@@ -712,28 +715,29 @@ It applies to terms of service.
                                                         />
                                                     {% endif %}
                                                 </td>
-                                                {# 購入商品 #}
-                                                <td>
-                                                    {% for PeriodicPurchaseItem in PeriodicPurchase.PeriodicPurchaseItems %}
-                                                        {% if PeriodicPurchaseItem.isProduct %}
-                                                            <a href="{{ url('admin_product_product_edit', {id: PeriodicPurchaseItem.ProductClass.Product.id}) }}" target="_blank">
-                                                                {{ PeriodicPurchaseItem.product_name }}
-                                                            </a><br/>
-                                                            <span>
-                                                                定期回数：{{ PeriodicPurchaseItem.periodic_purchase_count_by_item }}<br/>
-                                                            </span>
-                                                            <span>
-                                                                {{ PeriodicPurchaseItem.product_code }}<br/>
-                                                            </span>
-                                                        {% endif %}
-                                                    {% endfor %}
-                                                </td>
                                                 
                                                 {# 購入者 #}
                                                 <td class="align-middle text-left">
                                                     <a class="action-edit" href="{{ url('periodic_admin_order_edit', { id : PeriodicPurchase.id }) }}">{{ PeriodicPurchase.id }}</br>{{ PeriodicPurchase.name01 ~ PeriodicPurchase.name02 }}</a>
                                                 </td>
-                                                
+                                                {# 購入商品 #}
+                                                <td>
+                                                    {% for PeriodicPurchaseItem in PeriodicPurchase.PeriodicPurchaseItems %}
+                                                        {% if PeriodicPurchaseItem.isProduct %}
+                                                            
+                                                            <a href="{{ url('admin_product_product_edit', {id: PeriodicPurchaseItem.ProductClass.Product.id}) }}" target="_blank">
+                                                                {{ PeriodicPurchaseItem.product_name }}
+                                                            </a><br/>
+                                                            <span>
+                                                                定期回数：{{ PeriodicPurchaseItem.periodic_purchase_count_by_item }}
+                                                                <!-- !! <span>商品番号：{{ PeriodicPurchaseItem.product_code }}</span> -->
+                                                                
+                                                            </span><br />
+                                                           
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </td>
+                                              
                                                 {# 定期サイクル #}
                                                 <td class="align-middle text-center">{{ PeriodicPurchase.Cycle.display_name }}</td>
                                                 
