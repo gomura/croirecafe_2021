@@ -82,8 +82,7 @@ $(function(){
 	var container = $("#history-container");
 	if(!container[0]) return;
 	
-/*
-	container.load("/mypage/ .ec-historyRole__detailTitle",function(){
+	container.load("//croirecafe.com/mypage/ .ec-historyRole__detailTitle",function(){
 		 var pid = container.data("pid");
 		 container.find("p").each(function(){
 			 var myPid = $(this).data("pid"),
@@ -98,7 +97,6 @@ $(function(){
 			 
 		 });
 	});
-*/
 });
 
 

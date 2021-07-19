@@ -110,19 +110,17 @@ var generateList2 =( function generateList(data) {
 
 });
 
-/*
 $(function(){
 	var wrap = $("#teikiRepurchase");
 	if(wrap[0]){
 		$.ajax({
-		    //url: "/common/js/repurchase.json",
-		    //cache: false
+		    url: "/common/js/repurchase.json",
+		    cache: false
 		}).then(generateList2).then(function(){
 			
 		});
 	}
 });
-*/
 
 
 /* !!------------------------------------ */
