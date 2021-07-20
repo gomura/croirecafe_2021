@@ -544,6 +544,7 @@ button{
 					margin: 0;
 					//color: $blue !important;
 					color: #FFF !important;
+					white-space: nowrap;
 				}
 			}
 		}
@@ -1383,7 +1384,7 @@ ul.category-nav{
 		height: calc((960px - 80px)/9) !important;
 		margin-right: 10px;
 		position: relative;
-		outline: none;
+		outline: none !important;
 		@include sp{
 			margin: 5px;
 			height: 80px !important;
@@ -1397,7 +1398,7 @@ ul.category-nav{
 			//background: #EEE;
 			z-index: 1;
 			pointer-events: none;
-			
+			outline: none !important;
 		}
 		
 		i{
