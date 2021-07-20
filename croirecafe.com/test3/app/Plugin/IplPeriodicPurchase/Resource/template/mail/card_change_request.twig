@@ -1,0 +1,23 @@
+{#
+RepeatCube for EC-CUBE4
+Copyright(c) 2019 IPLOGIC CO.,LTD. All Rights Reserved.
+
+http://www.iplogic.co.jp/
+
+This program is not free software.
+It applies to terms of service.
+#}
+{% autoescape false %}
+{{ PeriodicPurchase.name01 }} {{ PeriodicPurchase.name02 }} 様
+
+平素は{{ BaseInfo.shop_name }}をご利用いただき、誠にありがとうございます。
+
+ご登録いただいておりますクレジットカードにつきまして
+有効期限切れ等の理由によりお支払い手続きを完了できませんでした。
+
+つきましては下記URLからマイページにログインし、カード情報の変更手続きをお願いいたします。
+
+[URL] {{ url('mypage_login') }}
+
+お手数お掛けいたしますが、何卒よろしくお願い申し上げます。
+{% endautoescape %}

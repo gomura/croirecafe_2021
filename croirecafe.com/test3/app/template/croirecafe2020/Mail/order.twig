@@ -1,0 +1,175 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% autoescape false %}
+{{ Order.name01 }} {{ Order.name02 }} 様
+
+この度はご注文いただき誠にありがとうございます。下記ご注文内容にお間違えがないかご確認下さい。
+
+{% if Order.Payment.id == 6 %}
+************************************************
+　お支払いの際に、後払い（コンビニ・郵便局・銀行）
+　をご選択いただいた方へ
+************************************************
+
+お支払い方法にて、[ 後払い（コンビニ・郵便局・銀行） ] をご選択いただいた方は、
+商品お届け後、1週間から10日ほどで下記の決済代行サービスよりお振込用紙が届きますので、
+そちらでお支払いください。
+※ゆうちょ銀行以外の銀行でのお支払いには別途手数料が必要です。
+
+::::::::::::
+
+決済代行サービス　“NP後払い”
+https://np-atobarai.jp
+
+運営会社　株式会社ネットプロテクションズ
+
+::::::::::::
+
+※連休等で決済代行サービスからのお振込用紙の発送が遅れる場合がございます。
+
+{% endif %}
+
+
+************************************************
+　ご請求金額
+************************************************
+
+ご注文日時：{{ Order.order_date|date_sec }}
+ご注文番号：{{ Order.order_no }}
+お支払い合計：{{ Order.payment_total|price}}
+お支払い方法：{{ Order.payment_method }}
+{% if BaseInfo.isOptionPoint and Order.Customer is not null %}
+ご利用ポイント：{{ Order.usePoint|number_format }} pt
+加算ポイント：{{ Order.addPoint|number_format }} pt
+{% endif %}
+お問い合わせ：{{ Order.message }}
+
+{% if Order.Payment.id == 6 %}
+************************************************
+　お支払いの際に、後払い（コンビニ・郵便局・銀行）
+　をご選択いただいた方へ
+************************************************
+
+お支払い方法にて、[ 後払い（コンビニ・郵便局・銀行） ] をご選択いただいた方は、
+商品お届け後、1週間から10日ほどで下記の決済代行サービスよりお振込用紙が届きますので、
+そちらでお支払いください。
+※ゆうちょ銀行以外の銀行でのお支払いには別途手数料が必要です。
+
+::::::::::::
+
+決済代行サービス　“NP後払い”
+https://np-atobarai.jp
+
+運営会社　株式会社ネットプロテクションズ
+
+::::::::::::
+
+※連休等で決済代行サービスからのお振込用紙の発送が遅れる場合がございます。
+
+{% endif %}
+
+
+************************************************
+　ご注文商品明細
+************************************************
+
+{% for OrderItem in Order.MergedProductOrderItems %}
+商品コード：{{ OrderItem.product_code }}
+商品名：{{ OrderItem.product_name }}  {{ OrderItem.classcategory_name1 }}  {{ OrderItem.classcategory_name2 }} {{ is_reduced_tax_rate(OrderItem) ? '※' }}
+単価：{{ OrderItem.price_inctax|price }}
+数量：{{ OrderItem.quantity|number_format }}
+
+{% endfor %}
+※は軽減税率対象商品です。
+-------------------------------------------------
+小　計：{{ Order.subtotal|price }}
+手数料：{{ Order.charge|price }}
+送　料：{{ Order.delivery_fee_total|price}}
+{% if Order.taxable_discount < 0 %}
+値引き：{{ Order.taxable_discount|price }}
+{% endif %}
+-------------------------------------------------
+合　計：{{ Order.taxable_total|price }}
+    {% for rate, total in Order.taxable_total_by_tax_rate %}
+    ({{ rate }} %対象：{{ total|price }})
+    {% endfor %}
+{% for item in Order.tax_free_discount_items %}
+-------------------------------------------------
+{{ item.product_name }}：{{ item.total_price|price }}
+{% endfor %}
+============================================
+お支払い合計：{{ Order.payment_total|price }}
+
+************************************************
+　ご注文者情報
+************************************************
+お名前：{{ Order.name01 }} {{ Order.name02 }} 様
+お名前(カナ)：{{ Order.kana01 }} {{ Order.kana02 }} 様
+{% if Order.company_name %}
+会社名：{{ Order.company_name }}
+{% endif %}
+郵便番号：〒{{ Order.postal_code }}
+住所：{{ Order.Pref.name }}{{ Order.addr01 }}{{ Order.addr02 }}
+電話番号：{{ Order.phone_number }}
+メールアドレス：{{ Order.email }}
+
+************************************************
+　配送情報
+************************************************
+
+{%  for Shipping in Order.Shippings %}
+◎お届け先{% if Order.multiple %}{{ loop.index }}{% endif %}
+
+お名前：{{ Shipping.name01 }} {{ Shipping.name02 }} 様
+お名前(カナ)：{{ Shipping.kana01 }} {{ Shipping.kana02 }} 様
+{% if Shipping.company_name %}
+会社名：{{ Shipping.company_name }}
+{% endif %}
+郵便番号：〒{{ Shipping.postal_code }}
+住所：{{ Shipping.Pref.name }}{{ Shipping.addr01 }}{{ Shipping.addr02 }}
+電話番号：{{ Shipping.phone_number }}
+
+配送方法：{{ Shipping.shipping_delivery_name }}
+※定期購入の場合はお届け予定日が発送日(土日祝の場合、直前の平日)となります。
+お届け予定日：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_day }}
+お届け時間：{{ Shipping.shipping_delivery_time|default('指定なし') }}
+
+{%  for OrderItem in Shipping.productOrderItems %}
+商品コード：{{ OrderItem.product_code }}
+商品名：{{ OrderItem.product_name }}  {{ OrderItem.classcategory_name1 }}  {{ OrderItem.classcategory_name2 }}
+数量：{{ OrderItem.quantity|number_format }}
+
+{% endfor %}
+{% endfor %}
+
+{% if Order.complete_mail_message is not empty %}
+{{ Order.complete_mail_message }}
+{% endif %}
+
+============================================
+
+{% if campaign.startDate < date('2013-12-01 00:00:00') %}
+お得な割引情報を配信中！クロワールカフェのLINE公式アカウントができました。
+今ならお友達登録で¥1,000割引クーポンもらえます！
+お友達登録はこちらから！
+
+{% else %}
+
+お得な割引情報を配信中！クロワールカフェのLINE公式アカウントができました。
+お友達登録はこちらから！
+
+{% endif %}
+https://lin.ee/equtE5c
+
+============================================
+
+このメッセージはお客様へのお知らせ専用です。
+{% endautoescape %}

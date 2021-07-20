@@ -1,0 +1,71 @@
+{#
+RepeatCube for EC-CUBE4
+Copyright(c) 2019 IPLOGIC CO.,LTD. All Rights Reserved.
+
+http://www.iplogic.co.jp/
+
+This program is not free software.
+It applies to terms of service.
+#}
+{% autoescape false %}
+
+{{ run_date|localizeddate('medium', 'short', 'Japanese', null, 'YYYY-MM-dd HH:mm') }}の定期バッチ実行結果は以下の通りです。
+
+解約（再開期限切れ）件数：{{ Result.arrPeriodicIdsOverResumePeriod|length }}
+{% if Result.arrPeriodicIdsOverResumePeriod %}
+解約（再開期限切れ）定期ID：{% for id in Result.arrPeriodicIdsOverResumePeriod %}{{ id }}{% endfor %}
+
+{% endif %}
+
+事前お知らせメール配信件数：{{ Result.arrPeriodicIdsSentThePreInfoMail|length }}
+{% if Result.arrPeriodicIdsSentThePreInfoMail %}
+事前お知らせメール配信定期ID：{% for id in Result.arrPeriodicIdsSentThePreInfoMail %}{{ id }}{% endfor %}
+
+{% endif %}
+事前お知らせ処理時エラー数：{{ Result.arrPreInfoError|length }}
+
+{% if Result.arrPreInfoError %}
+【事前お知らせ処理時エラー詳細】
+下記定期受注の処理時にエラーが発生しました。
+実際の受注作成時にはシステムエラーが発生するため、それまでに原因を解決してください。
+
+{% for preInfoError in Result.arrPreInfoError %}
+定期ID：{{ preInfoError.PeriodicPurchase.id }}
+ご注文者氏名：{{ preInfoError.name }}
+メールアドレス：{{ preInfoError.PeriodicPurchase.email }}
+エラー内容：{{ preInfoError.error_detail }}
+
+{% endfor %}
+
+{% endif %}
+購入処理件数：{{ Result.targetPeriodicPurchases|length }}
+成功数：{{ Result.successCnt }}
+決済エラー数：{{ Result.arrPaymentErr|length }}
+システムエラー数：{{ Result.arrSystemErr|length }}
+
+{% if Result.arrPaymentErr %}
+【決済エラー詳細】
+決済エラーとなった定期は定期受注管理画面からカード変更依頼メール一括通知を実施してください。
+
+{% for paymentErr in Result.arrPaymentErr %}
+定期ID：{{ paymentErr.PeriodicPurchase.id }}
+ご注文者氏名：{{ paymentErr.name }}
+メールアドレス：{{ paymentErr.PeriodicPurchase.email }}
+エラー内容：{{ paymentErr.error_detail }}
+
+{% endfor %}
+
+{% endif %}
+{% if Result.arrSystemErr %}
+【システムエラー詳細】
+システムエラーとなった定期は原因を解決した後に、定期状況を「再決済」に変更してください。
+
+{% for systemErr in Result.arrSystemErr %}
+定期ID：{{ systemErr.PeriodicPurchase.id }}
+ご注文者氏名：{{ systemErr.name }}
+メールアドレス：{{ systemErr.PeriodicPurchase.email }}
+エラー内容：{{ systemErr.error_detail }}
+
+{% endfor %}
+{% endif %}
+{% endautoescape %}

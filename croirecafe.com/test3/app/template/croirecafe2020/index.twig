@@ -1,0 +1,247 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'front_page' %}
+
+{% block stylesheet %}
+    <style>
+        .slick-slider {
+            margin-bottom: 30px;
+        }
+
+        .slick-dots {
+            position: absolute;
+            bottom: -45px;
+            display: block;
+            width: 100%;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        .slick-dots li {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 5px;
+            padding: 0;
+
+            cursor: pointer;
+        }
+
+        .slick-dots li button {
+            font-size: 0;
+            line-height: 0;
+            display: block;
+            width: 20px;
+            height: 20px;
+            padding: 5px;
+            cursor: pointer;
+            color: transparent;
+            border: 0;
+            outline: none;
+            background: transparent;
+        }
+
+        .slick-dots li button:hover,
+        .slick-dots li button:focus {
+            outline: none;
+        }
+
+        .slick-dots li button:hover:before,
+        .slick-dots li button:focus:before {
+            opacity: 1;
+        }
+
+        .slick-dots li button:before {
+            content: " ";
+            line-height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            text-align: center;
+            opacity: .25;
+            background-color: black;
+            border-radius: 50%;
+
+        }
+
+        .slick-dots li.slick-active button:before {
+            opacity: .75;
+            background-color: black;
+        }
+
+        .slick-dots li button.thumbnail img {
+            width: 0;
+            height: 0;
+        }
+    </style>
+{% endblock %}
+
+{% block javascript %}{% endblock javascript %}
+
+
+
+{% block main %}
+
+
+	
+	
+    
+    <!-- !! スライド -->
+	<section id="mv-slide">
+		
+		<div class="main_visual" data-pcode="3101561">
+	       <div class="item" data-pcode="3101561"><i>1</i></div>
+	       <div class="item" data-pcode="3101572"><i>2</i></div>
+	       <div class="item" data-pcode="3101581"><i>3</i></div>
+	       <div class="item" data-pcode="3101569"><i>4</i></div>
+	       <div class="item" data-pcode="3101570"><i>5</i></div>
+	       <div class="item" data-pcode="3101526"><i>6</i></div>
+	       <div class="item" data-pcode="3101554"><i>7</i></div>
+	       <div class="item" data-pcode="3101535"><i>8</i></div>
+	       <div class="item" data-pcode="3103518"><i>9</i></div>
+	    </div>	
+		
+		<div class="main_visual_nav">
+			<div class="item_thumb" data-pcode="3101561"><i>1</i></div>
+			<div class="item_thumb" data-pcode="3101572"><i>2</i></div>
+			<div class="item_thumb" data-pcode="3101581"><i>3</i></div>
+			<div class="item_thumb" data-pcode="3101569"><i>4</i></div>
+			<div class="item_thumb" data-pcode="3101570"><i>5</i></div>
+			<div class="item_thumb" data-pcode="3101526"><i>6</i></div>
+			<div class="item_thumb" data-pcode="3101554"><i>7</i></div>
+			<div class="item_thumb" data-pcode="3101535"><i>8</i></div>
+			<div class="item_thumb" data-pcode="3103518"><i>9</i></div>
+		</div>
+	</section>
+	
+
+
+	<!-- !! メイン -->
+	<main class="top">
+		
+		
+				
+		<!-- !! クロワールシリーズ -->
+		<section id="products-list">
+			
+			<h2 class="sec">
+				<span>取扱商品一覧</span>
+			</h2>
+			
+			<ul id="products-list-ul" class="products-list top" data-column="3"></ul>
+			
+			
+		</section>
+		<!-- /#products-top -->
+	
+	
+		<!-- !! 新着情報 -->
+		<!--<section id="news">
+			
+			<h2 class="sec">
+				<span>新着情報</span>
+			</h2>
+			
+			<ul class="news">
+				<li>
+					<div class="date">2019.08.19</div>
+					<div class="cat">ニュース</div>
+					<div class="ttl">オンラインショップをリニューアルいたしました</div>
+					<div class="desc">お客様によりわかりやすくご購入いただけるようオンラインショップをリニューアルいたしました</div>
+				</li>
+				<li>
+					<div class="date">2019.08.19</div>
+					<div class="cat">ニュース</div>
+					<div class="ttl">オンラインショップをリニューアルいたしました</div>
+					<div class="desc">お客様によりわかりやすくご購入いただけるようオンラインショップをリニューアルいたしました</div>
+				</li>
+			</ul>
+			
+			 <a href="#" class="btn-more">一覧はこちら</a> -->
+			
+		</section>
+		
+
+
+		<!-- !! 送料・お支払い方法について -->
+		<section id="payment-delivery">
+			
+			<h2 class="sec">
+				<span>送料・お支払い方法について</span>
+			</h2>
+			
+			<ul class="payment-delivery">
+				<li>
+					<div class="img"><img src="/common/img/s01.png" width="200" height="200" alt="" /></div>
+					
+					<h3><span>13時までのご注文で、<br />即日発送</span></h3>
+					<p>
+						ご注文商品は、通常2営業日以内に発送いたします。※1<br />
+						当日出荷をご希望の方は、13時までにご注文ください。<br />
+						定期購入の場合は毎月1日・15日に発送いたします。※2
+					</p>
+					<a class="btn more"><span>さらに詳しく</span></a>
+				</li>
+				
+				<li>
+					<div class="img"><img src="/common/img/s02.png" width="200" height="200" alt="" /></div>
+					<h3><span> ご購入金額7,000円（税込）<br />以上で<b>送料無料</b></span></h3>
+					<p>7,000円（税込）以上のお買い物で送料無料！<br />定期お届けコースでご注文いただくと、毎回送料無料です。</p>
+					<a href="" class="btn more"><span>さらに詳しく</span></a>
+				</li>
+				
+				<li>
+					<div class="img"><img src="/common/img/s03.png" width="200" height="200" alt="" /></div>
+					<h3><span>お支払い方法は<br />クレジットカード・コンビニ後払い</span></h3>
+					<p>お支払い方法は、クレジットカードまたはコンビニ後払いがお選びいただけます。</p>
+					<a href="" class="btn more"><span>さらに詳しく</span></a>
+				</li>
+			</ul>
+			
+			
+		</section>
+		<!-- /#payment-delivery -->
+
+	
+
+		<section id="magazine">
+			
+			<h2 class="sec">
+				<span>週間柏﨑</span>
+				<div class="ja">弊社代表柏﨑が、日々の想いを綴ります。</div>
+			</h2>
+			
+			<ul class="magazine"></ul>
+			
+			<a href="https://blog.al-japan.com/" target="_blank" class="btn more L">一覧はこちら</a>
+			
+			
+		</section>
+
+	
+
+	
+	</main>                              
+
+
+
+
+
+        </div>
+    </div>
+
+{% endblock %}
