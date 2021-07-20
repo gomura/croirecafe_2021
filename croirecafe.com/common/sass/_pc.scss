@@ -417,6 +417,16 @@ button{
 	margin: 30px auto !important;
 }
 
+
+/* !! - - -  */
+/* !! 期間表示 */
+*[data-start]{
+	display: none;
+	&.show{
+		display: block;
+	}
+}
+
 /* !!------------------------------------ */
 /* !! ヘッダー */
 
@@ -1202,6 +1212,14 @@ ul.category-nav{
 
 /* !!------------------------------------ */
 /* !! トップページ */
+
+
+/* !! - - -  */
+/* !! フラッシュセール */
+#flash-sale{
+	display: none;
+}
+
 #mv-slide{
 	@include pc{
 		height: 567px;	
@@ -1328,6 +1346,7 @@ ul.category-nav{
 	font-size: 0;
 	//border-radius: 36px;
 	opacity: .4;
+	@include flex-centering;
 	@include transform(translateY(-50%));
 	&:hover{
 		opacity: .8;
@@ -2207,6 +2226,7 @@ ul.payment-delivery{
 	border-radius: 12px;
 	overflow: hidden;
 	margin-bottom: 0 !important;
+	#page_product_detail &,
 	.front_page & {
 		margin-bottom: 50px !important;
 		@include sp{
@@ -3732,7 +3752,7 @@ main.payment{
 		.try-price-wrap{
 			background: $lite-yellow;
 			padding: 20px 0;
-			padding-top: 15px;
+			padding-top: 10px;
 			height: 100%;
 			position: relative;
 			@include pc{
@@ -3740,6 +3760,9 @@ main.payment{
 				justify-content: flex-start;
 				align-items: flex-start;	
 			}//@pc
+			@include sp{
+				padding-bottom: 10*$px;	
+			}//@sp
 			.ec-numberInput{
 				pointer-events: none;
 				opacity: .5;
@@ -3811,7 +3834,39 @@ main.payment{
 				text-shadow: none;
 			}
 		}
-		
+		.row-try-txt{
+			width: 100%;
+			padding: 0 20px;
+			&:empty{
+				display: none;
+			}
+			.try-txt{
+				@include flex;
+				
+				justify-content: flex-end;
+				@include pc{
+					padding: 10px 0;	
+				}//@pc
+				p{
+					background: $red;
+					width: 200px;
+					color: #FFF;
+					font-weight: bold;
+					text-align: center;
+					font-size: 12px;
+					line-height: 1;
+					padding: 3px 0;
+					height: 22px;
+					@include flex;
+					align-items: center;
+					justify-content: center;
+					line-height: 1;
+					i{
+						font-size: 1.4em;
+					}
+				}
+			}
+		}
 		.row-cart-setion{
 			margin-top: auto;
 			margin-bottom: 0;
@@ -4115,16 +4170,22 @@ main.payment{
 .cart-in-section-disabled{
 	background: #FFF;
 	padding:0;
-	padding-top: 17px;
-	padding-bottom: 20px;
+	padding-top: 12px;
+	padding-bottom: 15px;
 	border-radius: 6px;
 	position: relative;
 	display: block;
+	
+	@include pc{
+		width: calc(100% + 20px);
+		margin-left: -10px;
+		margin-bottom: -10px;	
+	}//@pc
 	&.sbsc{
 		background: rgba($pink,.1);
 	}
 	@include sp{
-		padding:20*$px 15*$px;
+		padding:15*$px 15*$px;
 		
 	}//@sp
 	p{

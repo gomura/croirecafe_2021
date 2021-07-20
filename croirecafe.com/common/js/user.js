@@ -7,6 +7,32 @@ $.ajaxSetup({
 	cache: false
 });
 
+function getNowYMDStr(){
+  const date = new Date()
+  const Y = date.getFullYear()
+  const M = ("00" + (date.getMonth()+1)).slice(-2)
+  const D = ("00" + date.getDate()).slice(-2)
+
+  return Y + M + D
+}
+
+
+/* !! セール期間判別 */
+
+function is_sale(){
+	var start = 20210721;
+	var end = 20210726;
+	var today = getNowYMDStr();
+	if( today > start && today < end ){
+		return true;
+	}else{
+		//return false;
+		return true;
+	}
+}
+
+var productsJSON = is_sale() ? "/product/products_sale.json" : "/product/products.json" ;
+
 /* !!------------------------------------ */
 /* !! ブラウザ判別 */
 
@@ -482,6 +508,31 @@ $(function(){
 
 
 /* !! - - -  */
+/* !! 期間限定表示 */
+
+$(function(){
+	var tgt = $("*[data-start]");
+	var today = getNowYMDStr();
+	tgt.each(function(){
+		var This = $(this),
+		start = This.data("start"),
+		end = This.data("end");
+		flg = false;
+		if(start[0] && today > start){
+			flg = true;
+		}
+		if(end && today > start && today < end){
+			flg = true;
+		}
+		flg = true;
+		if(flg){
+			This.addClass("show");
+		}
+	})
+});
+
+
+/* !! - - -  */
 /* !! mvスライド(Ajax) */
 
 var generateMVslide =( function generateMVslide(data) {
@@ -512,8 +563,9 @@ var generateMVslide =( function generateMVslide(data) {
 });
 
 $(function(){
+	
 	$.ajax({
-	    url: "/product/products.json",
+	    url: productsJSON,
 	}).then(generateMVslide).then(function(){
 	    $('.main_visual').slick({
 	        fade:true,
@@ -619,7 +671,7 @@ $(function(){
 	var wrap = $("#products-list-ul");
 	if(wrap[0]){
 		$.ajax({
-		    url: "/product/products.json",
+		    url: productsJSON,
 		}).then(generateList).then(function(){
 			
 		}).then(function(){
@@ -909,6 +961,10 @@ var generateProdInfo =( function generateProdInfo(data) {
 			$(".cart-coupon-code").html(item.coupon_code);
 		}
 		
+		if(item.try_txt && item.try_txt[0]){
+			$(".row-try-txt").html('<div class="try-txt"><p>'+item.try_txt+'</p></div>');
+		}
+		
 		if(item.label_sale_url[0]){
 			$(".try-price-wrap").prepend('<div class="label_sale"><img src="'+item.label_sale_url+'"/></div>')
 		}
@@ -951,7 +1007,7 @@ $(function(){
 	
 
 	$.ajax({
-	    url: "/product/products.json",
+	    url: productsJSON,
 	}).then(generateProdInfo).then(function(){
 		
 	}).then(function(){

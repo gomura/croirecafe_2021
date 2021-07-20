@@ -42,6 +42,7 @@
 			"try": "/products/detail/21",
 			"line": "/products/detail/108"
 		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
 		"delivery_fee":"231"
 	},
 	{
@@ -87,6 +88,7 @@
 			"try": "/products/detail/59",
 			"line": "/products/detail/113"
 		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
 		"delivery_fee":"660"
 	},
 	{
@@ -136,6 +138,7 @@
 			"try": "/products/detail/88",
 			"line": "/products/detail/111"
 		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
 		"delivery_fee":"231"
 	},
 	{
@@ -181,6 +184,7 @@
 			"try": "/products/detail/22",
 			"line": "/products/detail/115"
 		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
 		"delivery_fee":"231"
 	},
 	{
@@ -226,6 +230,7 @@
 			"try": "/products/detail/36",
 			"line": "/products/detail/124"
 		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
 		"delivery_fee":"231"
 	},
 	{
@@ -271,6 +276,7 @@
 			"try": "/products/detail/35",
 			"line": "/products/detail/114"
 		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
 		"delivery_fee":"231"
 	},
 	{
@@ -316,6 +322,7 @@
 			"try": "/products/detail/27",
 			"line": "/products/detail/109"
 		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
 		"delivery_fee":"231"
 	},
 	{
@@ -356,6 +363,7 @@
 			"teiki": "",
 			"try": "/products/detail/43"
 		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
 		"delivery_fee":"231"
 	},
 	{
@@ -397,6 +405,7 @@
 			"try": "/products/detail/127",
 			"line": "/products/detail/110"
 		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
 		"delivery_fee":"660"
 	}
 ]

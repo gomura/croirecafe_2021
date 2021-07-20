@@ -18,8 +18,10 @@ function fix_total_price(){
 	
 	total_price.each(function(){
 		var This = $(this);
-		var txt = This.text(),
-		
+		var txt = This.text();
+		if(This.find(".ec-color-red")[0]){
+			txt = This.find(".ec-color-red").text();
+		}
 		price1 = txt.replace('￥', '').replace(',', '');
 		price = parseFloat(price1);
 		total_price_number += price;
