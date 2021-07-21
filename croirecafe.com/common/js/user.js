@@ -18,20 +18,48 @@ function getNowYMDStr(){
 
 
 /* !! セール期間判別 */
+var today = getNowYMDStr();
+
+var today = 20210722;
 
 function is_sale(){
-	var start = 20210721;
-	var end = 20210726;
-	var today = getNowYMDStr();
-	if( today > start && today < end ){
+	var start = 20210722;
+	var end = 20210725;
+	
+	if( today >= start && today <= end ){
 		return true;
 	}else{
-		//return false;
-		return true;
+		return false;
+		//return true;
 	}
 }
 
 var productsJSON = is_sale() ? "/product/products_sale.json" : "/product/products.json" ;
+
+/* !! - - -  */
+/* !! 期間限定表示 */
+
+$(function(){
+	var tgt = $("*[data-start]");
+	
+	tgt.each(function(){
+		var This = $(this),
+		start = This.data("start"),
+		end = This.data("end");
+		flg = false;
+		if(start[0] && today >= start){
+			flg = true;
+		}
+		if(end && today >= start && today <= end){
+			flg = true;
+		}
+		//flg = true;
+		if(flg){
+			This.addClass("show");
+		}
+	})
+});
+
 
 /* !!------------------------------------ */
 /* !! ブラウザ判別 */
@@ -507,29 +535,6 @@ $(function(){
 });
 
 
-/* !! - - -  */
-/* !! 期間限定表示 */
-
-$(function(){
-	var tgt = $("*[data-start]");
-	var today = getNowYMDStr();
-	tgt.each(function(){
-		var This = $(this),
-		start = This.data("start"),
-		end = This.data("end");
-		flg = false;
-		if(start[0] && today > start){
-			flg = true;
-		}
-		if(end && today > start && today < end){
-			flg = true;
-		}
-		flg = true;
-		if(flg){
-			This.addClass("show");
-		}
-	})
-});
 
 
 /* !! - - -  */
@@ -575,7 +580,7 @@ $(function(){
 	        autoplaySpeed: 8000,
 	        speed: 800,
 	        asNavFor: '.main_visual_nav',
-	    });
+	    }).addClass("on");
 	        
 	    $('.main_visual_nav').slick({
 			slidesToShow: 9,
@@ -598,7 +603,7 @@ $(function(){
 					}
 				}
 			]	
-		});
+		}).addClass("on");
 	}).then(function(){
 		if(is_mobile){
 			$(".cell .img").each(function(){
