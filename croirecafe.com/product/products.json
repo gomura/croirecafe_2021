@@ -354,7 +354,8 @@
 		"url": {
 			"base": "/products/detail/20",
 			"teiki": "",
-			"try": "/products/detail/43"
+			"try": "/products/detail/43",
+			"line": "/products/detail/128"
 		},
 		"delivery_fee":"231"
 	},

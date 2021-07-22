@@ -361,7 +361,8 @@
 		"url": {
 			"base": "/products/detail/20",
 			"teiki": "",
-			"try": "/products/detail/43"
+			"try": "/products/detail/43",
+			"line": "/products/detail/128"
 		},
 		"try_txt":"今ならさらに<i>10%OFF!!</i>",
 		"delivery_fee":"231"

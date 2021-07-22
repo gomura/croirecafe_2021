@@ -20,7 +20,7 @@ function getNowYMDStr(){
 /* !! セール期間判別 */
 var today = getNowYMDStr();
 
-var today = 20210722;
+//var today = 20210722;
 
 function is_sale(){
 	var start = 20210722;
