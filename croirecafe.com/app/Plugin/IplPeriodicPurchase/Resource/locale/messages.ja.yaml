@@ -65,10 +65,10 @@ ipl_periodic_purchase.admin.order.last_order_status: 最新対応状況
 ipl_periodic_purchase.admin.order.first_order_date: 初回購入日
 ipl_periodic_purchase.admin.order.first_order_date__start: 初回購入日(開始)
 ipl_periodic_purchase.admin.order.first_order_date__end: 初回購入日(終了)
-ipl_periodic_purchase.admin.order.next_shipping_date: 次回お届け予定日
+ipl_periodic_purchase.admin.order.next_shipping_date: 次回発送予定日
 ipl_periodic_purchase.admin.order.next_shipping_delivery_time: 次回お届け時間
-ipl_periodic_purchase.admin.order.next_shipping_date__start: 次回お届け予定日(開始)
-ipl_periodic_purchase.admin.order.next_shipping_date__end: 次回お届け予定日(終了)
+ipl_periodic_purchase.admin.order.next_shipping_date__start: 次回発送予定日(開始)
+ipl_periodic_purchase.admin.order.next_shipping_date__end: 次回発送予定日(終了)
 ipl_periodic_purchase.admin.order.next_shipping_date_deadline_over: 次回お届け予定日は締め日(%deadline%)以降を選択してください。
 ipl_periodic_purchase.admin.order.card_change_mail_status: カード変更依頼メール送信状況
 ipl_periodic_purchase.admin.order.card_change_mail_status__unsent: 未送信
@@ -82,7 +82,7 @@ ipl_periodic_purchase.admin.order.total_number: %val%回
 ipl_periodic_purchase.admin.order.periodic_count: 定期回数
 ipl_periodic_purchase.admin.order.periodic_count__start: 定期回数(開始)
 ipl_periodic_purchase.admin.order.periodic_count__end: 定期回数(終了)
-ipl_periodic_purchase.admin.order.last_shipping_date: 前回お届け日
+ipl_periodic_purchase.admin.order.last_shipping_date: 前回発送日
 ipl_periodic_purchase.admin.order.last_shipping_delivery_time: 前回お届け時間
 ipl_periodic_purchase.admin.order.history: 定期履歴
 ipl_periodic_purchase.admin.order.history_info: これまでに生成された定期受注の履歴が確認出来ます。
