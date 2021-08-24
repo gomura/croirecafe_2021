@@ -45,6 +45,9 @@ td.itemlist{
 	&.teiki{
 		background: rgba(255, 255, 0, 0.08);
 	}
+	&.honsha-shukka{
+		background: #d5f8ff;
+	}
 	&.bessou{
 		border: 2px solid rgba(255, 0, 0, 0.3) !important;
 /*
@@ -68,6 +71,18 @@ td.itemlist{
 		}
 	}
 }
+.shipping-delivery-memo{
+	display: block;
+	background: $red;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	padding: 6px 0;
+	
+	border-radius: 50px;
+	margin-bottom: 10px;
+}
+
 
 .order-index-itemlist{
 	&.small {

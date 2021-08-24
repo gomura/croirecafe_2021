@@ -571,7 +571,7 @@ file that was distributed with this source code.
                                                 </td>
                                                 
                                                 <!-- !! 配送方法 -->
-                                                <td class="align-middle text-left itemlist">
+                                                <td class="align-middle text-left itemlist shipping-delivery">
 	                                                {{ Shipping.delivery }}
                                                 </td>
                                                 
@@ -762,7 +762,7 @@ file that was distributed with this source code.
     </div>
     
 	<!-- !! add -->
-	<link rel="stylesheet" href="/common/css/admin.css" type="text/css">
-	<script src="/common/js/order_custom.js"></script>
+	<link rel="stylesheet" href="/common/css/admin.css?v={{ 'now'|date('YmdHis') }}" type="text/css">
+	<script src="/common/js/order_custom.js?v={{ 'now'|date('YmdHis') }}"></script>
 
 {% endblock %}

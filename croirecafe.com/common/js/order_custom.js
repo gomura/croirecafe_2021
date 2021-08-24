@@ -29,6 +29,18 @@ itemlist.each(function(){
 	This.attr("data-weight",weight);
 });
 
+//!! 定期購入
+var shopMemo = $("a[data-original-title]");
+shopMemo.each(function(){
+	var This = $(this);
+	var title = This.data("original-title");
+	if(title.match("定期本社出荷")){
+		This.closest(".order-index-row").addClass("honsha-shukka")
+		.find(".shipping-delivery").prepend('<span class="shipping-delivery-memo">定期本社出荷</span>');
+	}
+});
+
+//!! 定期購入本社出荷
 itemlist.each(function(){
 	var This = $(this);
 	var pname = This.text();
@@ -36,6 +48,7 @@ itemlist.each(function(){
 		This.closest(".order-index-row").addClass("teiki");
 	}
 });
+
 
 
 var orderRow = $(".order-index-row");
