@@ -23,7 +23,18 @@ It applies to terms of service.
             <table id="html-mail-table1" border="0" width="600px" cellpadding="10" cellspacing="0" class="container" style="border-spacing:0;mso-table-lspace:0pt;mso-table-rspace:0pt;">
                 <tr>
                     <td class="container-padding content" align="left" style="border-collapse:collapse;padding-left:24px;padding-right:24px;padding-top:12px;padding-bottom:12px;background-color:#ffffff;">
-                        
+                        <br>
+                         <div class="body-text" style="border:1px solid #ccc;padding: 1em; font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;color:#333333;">
+						 	<p><b>『定期購入の特典内容変更のお知らせ』</b></p>
+
+							<p style="font-size: .9em">
+								いつも弊社クロワール商品をご愛顧いただき誠にありがとうございます。2020年11月20日より、定期購入を新しくお申し込みいただいたお客様の
+								定期購入特典の内容を変更させていただいております。<br />
+								※現在ご継続いただいているお客様の定期購入の特典内容は従来通りで変更はございません。<br />
+								変更内容については<a href="https://croirecafe.com/user_data/peridotic_notice">こちら</a>をご覧ください。
+							</p>
+						</div>
+						 <br>
                         <div class="body-text" style="font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;color:#333333;">
                             {{ Order.name01 }} {{ Order.name02 }} 様<br/>
                             <br/>
@@ -33,7 +44,7 @@ It applies to terms of service.
 							今回のご注文のスキップ・休止等のご変更は下記の日付までとなっております。<br />
 							何卒ご了承ください。<br /><br />
                             {% for Shipping in Order.Shippings %}
-	                            ご変更締め切り日時：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-6 day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 14時00分まで<br/>
+	                            ご変更締め切り日時：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-8 day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 23時59分まで<br/>
 	                            
                            {% endfor %}
                             <br />

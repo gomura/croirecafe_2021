@@ -1056,7 +1056,7 @@ $(function(){
 
 
 
-//!! iframeの追加
+//!! 商品案内の読み込み
 
 $(function(){
 	if($("a#frame")[0]){
