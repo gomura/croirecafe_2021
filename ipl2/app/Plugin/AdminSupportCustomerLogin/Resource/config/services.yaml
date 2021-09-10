@@ -1,0 +1,7 @@
+services:
+# デフォルトを直接差し替えると Plugin がインストールされていない状態でも反映されるため
+# Factoryを挟んで切り替え
+  security.logout.handler.session:
+    factory: 'Plugin\AdminSupportCustomerLogin\DependencyInjection\Factory\SecurityLogoutHandlerSessionFactory:createSecurityLogoutHandlerSession'
+    class: Symfony\Component\Security\Http\Logout\LogoutHandlerInterface
+

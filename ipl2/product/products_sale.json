@@ -1,0 +1,412 @@
+[
+	{
+		"pcode": "3101561",
+		"pid": "120",
+		"slug": "premium-croiretea",
+		"view":"onestop",
+		"slide_url": {
+			"pc": "/product/img/slide/561.jpg",
+			"sp": "/product/img/slide/561_sp.jpg",
+			"alt":""
+		},
+		"thumb_url": "/product/img/thumbnail/croiretea.png",
+		"label_url": "/product/img/label/label-croiretea.png",
+		"label_sale_url": "/img/bnr20210722/label-sale@2x.png",
+		"content_img_url" : "/product/img/content/tea.png",
+		"name": "プレミアムクロワール茶",
+		"name_disp": "プレミアムクロワール茶",
+		"desc_short": "お子様からご年配の方までご安心して飲める健康茶。",
+		"desc_long": "活性酸素を除去する酵素SOD値が豊富。こだわりの4種の茶葉をブレンド。",
+		"tag": [
+			{
+				"txt": "1袋25包入",
+				"color": "light"
+			},
+			{
+				"txt": "1包で500mlペットボトル6本分",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "2,786",
+			"teiki1": "1,950",
+			"teiki2": "2,368",
+			"try": "2,507",
+			"diff": "6,688"
+		},
+		"disc_rate":["30","15"],
+		"coupon_code":"",
+		"url": {
+			"base": "/products/detail/56",
+			"teiki": "/products/detail/120",
+			"try": "/products/detail/21",
+			"line": "/products/detail/108"
+		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
+		"delivery_fee":"231"
+	},
+	{
+		"pcode": "3101572",
+		"pid": "122",
+		"slug": "probiotics12",
+		"view":"onestop",
+		"slide_url": {
+			"pc": "/product/img/slide/572.jpg",
+			"sp": "/product/img/slide/572_sp.jpg",
+			"alt":""
+		},
+		"thumb_url": "/product/img/thumbnail/pb12.png",
+		"label_url": "/product/img/label/label-pb12.png",
+		"label_sale_url": "/img/bnr20210722/label-sale@2x.png",
+		"content_img_url" : "/product/img/content/pb12.png",
+		"name": "クロワールプロバイオティクス12",
+		"name_disp": "クロワール<br />プロバイオティクス12",
+		"desc_short": "全12種類の生きた善玉菌を1粒に250億個配合",
+		"desc_long": "乳酸菌8種類とビフィズス菌4種類　250億個を1粒に配合！<strong>独自製法</strong>で小腸・大腸まで生きたまま届く。",
+		"tag": [
+			{
+				"txt": "1日1粒目安",
+				"color": "light"
+			},
+			{
+				"txt": "1本60日分",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "5,554",
+			"teiki1": "3,054",
+			"teiki2": "3,888",
+			"try": "4,998",
+			"diff": "11,664"
+		},
+		"disc_rate":["45","30"],
+		"coupon_code":"0572",
+		"url": {
+			"base": "/products/detail/58",
+			"teiki": "/products/detail/122",
+			"try": "/products/detail/59",
+			"line": "/products/detail/113"
+		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
+		"delivery_fee":"660"
+	},
+	{
+		"pcode": "3101581",
+		"pid": "121",
+		"slug": "",
+		"view":"onestop",
+		"slide_url": {
+			"pc": "/product/img/slide/581.jpg",
+			"sp": "/product/img/slide/581_sp.jpg",
+			"alt":""
+		},
+		"thumb_url": "/product/img/thumbnail/eye-q.png",
+		"label_url": "/product/img/label/label-eye-q.png",
+		"label_sale_url": "/img/bnr20210722/label-sale@2x.png",
+		"content_img_url" : "/product/img/content/Q.png",
+		"name": "クロワールアイ・Q",
+		"name_disp": "クロワールアイ・Q",
+		"desc_short": "目と脳の健康をWサポートする機能性表示食品。",
+		"desc_long": "１粒で目のかすみやぼやけの改善と注意力や思考の柔軟性の維持をWサポート",
+		"tag": [
+			{
+				"txt": "機能性表示食品",
+				"color": "heavy"
+			},
+			{
+				"txt": "1袋30粒入",
+				"color": "light"
+			},
+			{
+				"txt": "1日1粒目安",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "3,980",
+			"teiki1": "2,786",
+			"teiki2": "3,383",
+			"try": "3,582",
+			"diff": "9,552"
+		},
+		"coupon_code":"0581",
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/87",
+			"teiki": "/products/detail/121",
+			"try": "/products/detail/88",
+			"line": "/products/detail/111"
+		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
+		"delivery_fee":"231"
+	},
+	{
+		"pcode": "3101569",
+		"pid": "118",
+		"slug": "midori-no-dhaepa",
+		"view":"onestop",
+		"slide_url": {
+			"pc": "/product/img/slide/569.jpg",
+			"sp": "/product/img/slide/569_sp.jpg",
+			"alt":""
+		},
+		"thumb_url": "/product/img/thumbnail/midori.png",
+		"label_url": "/product/img/label/label-midori.png",
+		"label_sale_url": "/img/bnr20210722/label-sale@2x.png",
+		"content_img_url" : "/product/img/content/midori.png",
+		"name": "緑のDHA&EPA+ゴールデンユーグレナ",
+		"name_disp": "緑のDHA&EPA<br /><i>+ゴールデンユーグレナ</i>",
+		"desc_short": "時代は魚由来から植物由来へ。",
+		"desc_long": "NASAの開発から生まれた植物由来（藻）のDHA・EPA。こだわりの製法で作った安全安心の品質。",
+		"tag": [
+			{
+				"txt": "1袋90粒入",
+				"color": "light"
+			},
+			{
+				"txt": "1日3〜4粒目安",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "2,700",
+			"teiki1": "1,890",
+			"teiki2": "2,295",
+			"try": "2,430",
+			"diff": "6,480"
+		},
+		"coupon_code":"0569",
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/26",
+			"teiki": "/products/detail/118",
+			"try": "/products/detail/22",
+			"line": "/products/detail/115"
+		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
+		"delivery_fee":"231"
+	},
+	{
+		"pcode": "3101570",
+		"pid": "117",
+		"slug": "na",
+		"view":"onestop",
+		"slide_url": {
+			"pc": "/product/img/slide/570.jpg",
+			"sp": "/product/img/slide/570_sp.jpg",
+			"alt":""
+		},
+		"thumb_url": "/product/img/thumbnail/na.png",
+		"label_url": "/product/img/label/label-Nase@2x.png",
+		"label_sale_url": "/img/bnr20210722/label-sale@2x.png",
+		"content_img_url" : "/product/img/content/NA.png",
+		"name": "Nアセチルグルコサミンロコモディ+B",
+		"name_disp": "Nアセチルグルコサミン<br />ロコモディ+B",
+		"desc_short": "関節・筋肉・骨のための成分を配合。",
+		"desc_long": "通常のグルコサミンの3倍吸収率。関節・筋肉・骨のためのサプリメント。",
+		"tag": [
+			{
+				"txt": "1袋90粒入",
+				"color": "light"
+			},
+			{
+				"txt": "1日3粒目安",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "3,780",
+			"teiki1": "2,646",
+			"teiki2": "3,213",
+			"try": "3,402",
+			"diff": "9,072"
+		},
+		"coupon_code":"0570",
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/29",
+			"teiki": "/products/detail/117",
+			"try": "/products/detail/36",
+			"line": "/products/detail/124"
+		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
+		"delivery_fee":"231"
+	},
+	{
+		"pcode": "3101554",
+		"pid": "118",
+		"slug": "q10",
+		"view":"onestop",
+		"slide_url": {
+			"pc": "/product/img/slide/554.jpg",
+			"sp": "/product/img/slide/554_sp.jpg",
+			"alt":""
+		},
+		"thumb_url": "/product/img/thumbnail/q10.png",
+		"label_url": "/product/img/label/label-q10@2x.png",
+		"label_sale_url": "/img/bnr20210722/label-sale@2x.png",
+		"content_img_url" : "/product/img/content/Q10.png",
+		"name": "クロワール 還元型コエンザイムQ10",
+		"name_disp": "クロワール<br />還元型コエンザイムQ10",
+		"desc_short": "1粒に5つの元気成分をぎゅっと凝縮。",
+		"desc_long": "体を動かすエネルギーを作り出す成分。1粒に5つの元気成分を贅沢に配合。",
+		"tag": [
+			{
+				"txt": "1袋30粒入",
+				"color": "light"
+			},
+			{
+				"txt": "1日1粒目安",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "3,402",
+			"teiki1": "2,381",
+			"teiki2": "2,891",
+			"try": "3,061",
+			"diff": "9,072"
+		},
+		"coupon_code":"0554",
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/34",
+			"teiki": "/products/detail/116",
+			"try": "/products/detail/35",
+			"line": "/products/detail/114"
+		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
+		"delivery_fee":"231"
+	},
+	{
+		"pcode": "3101526",
+		"pid": "119",
+		"slug": "gold",
+		"view":"onestop",
+		"slide_url": {
+			"pc": "/product/img/slide/526.jpg",
+			"sp": "/product/img/slide/526_sp.jpg",
+			"alt":""
+		},
+		"thumb_url": "/product/img/thumbnail/gold.png",
+		"label_url": "/product/img/label/label-gold.png",
+		"label_sale_url": "/img/bnr20210722/label-sale@2x.png",
+		"content_img_url" : "/product/img/content/gold.png",
+		"name": "クロワールゴールド",
+		"name_disp": "クロワールゴールド",
+		"desc_short": "アフリカ紅茶とメシマコブを1粒に凝縮",
+		"desc_long": "<strong>高い抗酸化力</strong>と<strong>豊富なβ-グルカン</strong>を1粒にギュッと凝縮。免疫力をサポート。",
+		"tag": [
+			{
+				"txt": "1袋30粒入",
+				"color": "light"
+			},
+			{
+				"txt": "1日2〜4粒目安",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "3,456",
+			"teiki1": "2,419",
+			"teiki2": "2,937",
+			"try": "3,110",
+			"diff": "8,300"
+		},
+		"disc_rate":["30","15"],
+		"coupon_code":"0526",
+		"url": {
+			"base": "/products/detail/25",
+			"teiki": "/products/detail/119",
+			"try": "/products/detail/27",
+			"line": "/products/detail/109"
+		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
+		"delivery_fee":"231"
+	},
+	{
+		"pcode": "3103518",
+		"pid": "20",
+		"slug": "wahaha",
+		"view":"onestop",
+		"slide_url": {
+			"pc": "/product/img/slide/518.jpg",
+			"sp": "/product/img/slide/518_sp.jpg",
+			"alt":""
+		},
+		"thumb_url": "/product/img/thumbnail/wahaha.png",
+		"label_url": "/product/img/label/label-wahaha.png",
+		"label_sale_url": "/img/bnr20210722/label-sale@2x.png",
+		"content_img_url" : "",
+		"name": "魔法のワハハ歯ブラシ（3本セット）",
+		"name_disp": "魔法のワハハ歯ブラシ<br /><i>（3本セット）</i>",
+		"desc_short": "磨き残しゼロを目指した歯ブラシ。",
+		"desc_long": "1本で４つの働き。ピラミッド構造でコンパクトなヘッド形状が歯の隙間の汚れを逃さない！",
+		"tag": [
+			{
+				"txt": "3本セット",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "1,650",
+			"teiki1": "",
+			"teiki2": "",
+			"try": "1,485",
+			"diff": ""
+		},
+		"coupon_code":"0518",
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/20",
+			"teiki": "",
+			"try": "/products/detail/43",
+			"line": "/products/detail/128"
+		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
+		"delivery_fee":"231"
+	},
+	{
+		"pcode": "3101535",
+		"pid": "42",
+		"slug": "croire-coat",
+		"view":"onestop",
+		"slide_url": {
+			"pc": "/product/img/slide/535.jpg",
+			"sp": "/product/img/slide/535_sp.jpg",
+			"alt":""
+		},
+		"thumb_url": "/product/img/thumbnail/coat65.png",
+		"label_url": "/product/img/label/label-coat.png",
+		"label_sale_url": "/img/bnr20210722/label-sale@2x.png",
+		"content_img_url" : "",
+		"name": "薬用はみがきクロワールコート65g",
+		"name_disp": "薬用はみがき<br />クロワールコート65g",
+		"desc_short": "発泡剤・研磨剤不使用。",
+		"desc_long": "全身の様々な病気と関係があるといわれている歯周病。3つの有効成分で口腔内をケア。",
+		"tag": [
+			{
+				"txt": "1本約130回分",
+				"color": "light"
+			}
+		],
+		"coupon_code":"0535",
+		"disc_rate":["30","15"],
+		"price": {
+			"base": "3,850",
+			"teiki1": "",
+			"teiki2": "",
+			"try": "3,465",
+			"diff": ""
+		},
+		"url": {
+			"base": "/products/detail/42",
+			"teiki": "",
+			"try": "/products/detail/127",
+			"line": "/products/detail/110"
+		},
+		"try_txt":"今ならさらに<i>10%OFF!!</i>",
+		"delivery_fee":"660"
+	}
+]

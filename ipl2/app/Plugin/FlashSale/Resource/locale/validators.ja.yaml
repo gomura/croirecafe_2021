@@ -1,0 +1,8 @@
+flash_sale.form.rule.require: '条件が必要です。'
+flash_sale.form.promotion.require: '値引き値が必要です。'
+flash_sale.form.condition.require: '条件が必要です。'
+flash_sale.form.time.from_to: '開始時間は終了時間より前でなければなりません。'
+flash_sale.form.multi: '現時点では違うイベントがあります。'
+flash_sale.form.promotion.value.integer: '値引きの入力値は正整数でなければなりません。'
+flash_sale.form.promotion.percentage: '割引率は0〜100でなければなりません。'
+flash_sale.form.promotion.amount.must.than.zero: '割引額は0より大きいでなければなりません。'

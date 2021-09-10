@@ -1,0 +1,51 @@
+{#
+RepeatCube for EC-CUBE4
+Copyright(c) 2019 IPLOGIC CO.,LTD. All Rights Reserved.
+
+http://www.iplogic.co.jp/
+
+This program is not free software.
+It applies to terms of service.
+#}
+{% block javascript %}
+<script type="text/javascript">
+    $(function(){
+        var periodic_sale_type_id = {{ periodic_sale_type_id }};
+
+        // ページ読み込み時
+        $("[id$=_sale_type]").each(function() {
+            var select_sale_type_id = $(this).val();
+            var index = $(this).attr('id').match(/\d+/);
+
+            if (select_sale_type_id == periodic_sale_type_id) {
+                enable_periodic_option(index);
+            } else {
+                disable_periodic_option(index);
+            }
+        });
+
+        // 選択変更時
+        $("[id$=_sale_type]").on("click change", function() {
+            var select_sale_type_id = $(this).val();
+            var index = $(this).attr('id').match(/\d+/);
+
+            if (select_sale_type_id == periodic_sale_type_id) {
+                enable_periodic_option(index);
+            } else {
+                disable_periodic_option(index);
+            }
+        })
+
+    });
+
+    function enable_periodic_option(index){
+        $("input[id^=product_class_matrix_product_classes_"+ index +"_Cycles_]").prop('disabled', false);
+        $("#product_class_matrix_product_classes_"+ index +"_PeriodicDiscount").prop('disabled', false);
+    }
+
+    function disable_periodic_option(index){
+        $("input[id^=product_class_matrix_product_classes_"+ index +"_Cycles_]").prop('disabled', true);
+        $("#product_class_matrix_product_classes_"+ index +"_PeriodicDiscount").prop('disabled', true);
+    }
+</script>
+{% endblock javascript %}

@@ -3,3 +3,4 @@ doc/
 var/
 croirecafe.com.zip
 croirecafe.com/node_modules/
+*.zip

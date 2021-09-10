@@ -1,0 +1,5 @@
+plugin.first_time_only.front.product.add_cart_error: '「%product%」は1回しか購入できません。'
+
+plugin.first_time_only.admin.title: '初回購入限定'
+plugin.first_time_only.admin.enabled_order_statut.sub_title: '対応状況設定'
+plugin.first_time_only.admin.enabled_order_statut.setting.title: '購入回数をカウントする対応状況を設定してください'
