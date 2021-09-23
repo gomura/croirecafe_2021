@@ -1,6 +1,5 @@
 
 doc/
 var/
-croirecafe.com.zip
-croirecafe.com/node_modules/
+node_modules/
 *.zip
