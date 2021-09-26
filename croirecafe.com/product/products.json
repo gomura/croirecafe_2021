@@ -184,23 +184,23 @@
 		"delivery_fee":"231"
 	},
 	{
-		"pcode": "3101570",
-		"pid": "117",
-		"slug": "na",
+		"pcode": "3101585",
+		"pid": "130",
+		"slug": "ndx",
 		"view":"subscription",
 		"slide_url": {
-			"pc": "/product/img/slide/570.jpg",
-			"sp": "/product/img/slide/570_sp.jpg",
+			"pc": "/product/img/slide/585.jpg",
+			"sp": "/product/img/slide/585_sp.jpg",
 			"alt":""
 		},
-		"thumb_url": "/product/img/thumbnail/na.png",
-		"label_url": "/product/img/label/label-Nase@2x.png",
+		"thumb_url": "/product/img/thumbnail/ndx.png",
+		"label_url": "/product/img/label/label-NDX@2x.png",
 		"label_sale_url": "",
 		"content_img_url" : "/product/img/content/NA.png",
-		"name": "Nアセチルグルコサミンロコモディ+B",
-		"name_disp": "Nアセチルグルコサミン<br />ロコモディ+B",
-		"desc_short": "関節・筋肉・骨のための成分を配合。",
-		"desc_long": "通常のグルコサミンの3倍吸収率。関節・筋肉・骨のためのサプリメント。",
+		"name": "N-アセチルグルコサミンロコモDX",
+		"name_disp": "N-アセチルグルコサミン<br />ロコモDX",
+		"desc_short": "軟骨成分と筋肉成分を配合した機能性表示食品",
+		"desc_long": "＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊",
 		"tag": [
 			{
 				"txt": "1袋90粒入",
@@ -212,19 +212,19 @@
 			}
 		],
 		"price": {
-			"base": "3,780",
+			"base": "4,410",
 			"teiki1": "2,646",
-			"teiki2": "3,213",
-			"try": "3,402",
-			"diff": "9,072"
+			"teiki2": "3,307",
+			"try": "3,969",
+			"diff": "15,880"
 		},
 		"coupon_code":"0570",
-		"disc_rate":["30","15"],
+		"disc_rate":["40","25"],
 		"url": {
-			"base": "/products/detail/29",
-			"teiki": "/products/detail/117",
-			"try": "/products/detail/36",
-			"line": "/products/detail/124"
+			"base": "/products/detail/129",
+			"teiki": "/products/detail/130",
+			"try": "/products/detail/131",
+			"line": "/products/detail/132"
 		},
 		"delivery_fee":"231"
 	},

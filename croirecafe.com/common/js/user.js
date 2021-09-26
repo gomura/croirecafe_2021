@@ -841,6 +841,10 @@ var generateProdInfo =( function generateProdInfo(data) {
 	else if(ttl.match("Nアセチルグルコサミンロコモディ")){
 		pcode = "3101570";
 	}
+
+	else if(ttl.match("N-アセチルグルコサミンロコモDX")){
+		pcode = "3101585";
+	}
 	else if(ttl.match("還元型コエンザイム")){
 		pcode = "3101554";
 	}

@@ -79,7 +79,7 @@ body.showBlk *:before {
 
 
 
-@mixin bg_3101570{
+@mixin bg_3101585{
   background : -moz-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(0, 132, 207, 1) 100%);
   background : -webkit-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(0, 132, 207, 1) 100%);
   background : -webkit-gradient(radial,50% 50% ,0 , 50% 50%, 64 ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(1,rgba(0, 132, 207, 1) ));

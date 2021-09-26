@@ -267,7 +267,7 @@ h2.sec{
 .img.bg[data-pcode='3101572']:before{@include bg_3101572;}
 .img.bg[data-pcode='3101581']:before{@include bg_3101581;}
 .img.bg[data-pcode='3101569']:before{@include bg_3101569;}
-.img.bg[data-pcode='3101570']:before{@include bg_3101570;}
+.img.bg[data-pcode='3101585']:before{@include bg_3101585;}
 .img.bg[data-pcode='3101526']:before{@include bg_3101526;}
 .img.bg[data-pcode='3101554']:before{@include bg_3101554;}
 
@@ -1333,7 +1333,7 @@ ul.category-nav{
 		//&[data-pcode='3101572']{@include bg_3101572;}
 		//&[data-pcode='3101581']{@include bg_3101581;}
 		&[data-pcode='3101569']{@include bg_3101569;}
-		&[data-pcode='3101570']{@include bg_3101570;}
+		&[data-pcode='3101585']{@include bg_3101585;}
 		&[data-pcode='3101526']{@include bg_3101526;}
 		&[data-pcode='3101554']{@include bg_3101554;}
 		
@@ -1478,7 +1478,7 @@ ul.category-nav{
 		&[data-pcode='3101572']:before{@include bg_3101572;}
 		&[data-pcode='3101581']:before{@include bg_3101581;}
 		&[data-pcode='3101569']:before{@include bg_3101569;}
-		&[data-pcode='3101570']:before{@include bg_3101570;}
+		&[data-pcode='3101585']:before{@include bg_3101585;}
 		&[data-pcode='3101526']:before{@include bg_3101526;}
 		&[data-pcode='3101554']:before{@include bg_3101554;}
 		
@@ -1486,7 +1486,7 @@ ul.category-nav{
 		&[data-pcode='3101572']:after{border-color: #00b7a8;}
 		&[data-pcode='3101581']:after{border-color: #fdb33c;}
 		&[data-pcode='3101569']:after{border-color: #0eb95b;}
-		&[data-pcode='3101570']:after{border-color: #fdd33c;}
+		&[data-pcode='3101585']:after{border-color: #fdd33c;}
 		&[data-pcode='3101526']:after{border-color: #fdd33c;}
 		&[data-pcode='3101554']:after{border-color: #fdd33c;}
 
@@ -3263,7 +3263,7 @@ main.payment{
 		&[data-pcode='3101572']:before{@include bg_3101572;}
 		&[data-pcode='3101581']:before{@include bg_3101581;}
 		&[data-pcode='3101569']:before{@include bg_3101569;}
-		&[data-pcode='3101570']:before{@include bg_3101570;}
+		&[data-pcode='3101585']:before{@include bg_3101585;}
 		&[data-pcode='3101526']:before{@include bg_3101526;}
 		&[data-pcode='3101554']:before{@include bg_3101554;}
 
