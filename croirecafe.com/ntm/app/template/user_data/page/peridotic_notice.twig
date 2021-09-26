@@ -1,0 +1,102 @@
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'croire' %}
+
+{% block main %}
+<div class="row">
+<div class="col-sm-12">
+	   				
+	   			
+<!-- !! include -->
+<!-- !! メイン -->    
+<!-- !! メイン -->    
+<style>	
+	#croire-index{
+		max-width: 660px;
+		width: auto;
+		margin: 0 auto;
+		padding: 0 15px !important;
+		box-sizing: border-box !important;
+	}
+	#croire-index h1{
+		margin: 2em 0px;
+		text-align: center;
+		letter-spacing: .1em;
+		padding: 0 15px !important;
+		line-height: 1.6;
+	}
+	
+	#croire-index h4{
+		margin: 1em 15px !important;
+		background: #eee;
+		line-height: 1;
+		padding: 10px 15px !important;
+		letter-spacing: .05em;
+		text-align: center;
+		line-height: 1.4;
+	}
+
+	#croire-index p{
+		line-height: 2;
+		padding: 0 15px !important;
+	}
+	
+
+	
+	#croire-index a.link{
+		margin: 15px auto ;text-align: center;
+		max-width: 300px;
+		background: #26b7bb;
+		display: block;
+		padding: 10px;
+		font-weight: bold;
+	}
+
+</style>
+
+<main id="croire-index" class="page product" >
+	
+	
+<h1>『定期購入の特典内容変更のお知らせ』</h1>
+
+<p>
+	いつも弊社クロワール商品をご愛顧いただき誠にありがとうございます。2020年11月20日より、定期購入を新しくお申し込みいただいたお客様の
+	定期購入特典の内容を下記の通り変更させていただいております。<br />
+	※現在ご継続いただいているお客様の定期購入の特典内容は従来通りで変更はございません。
+</p>
+
+<h4>変更点</h4>
+<p>
+	・初回購入はメーカー希望価格から30％OFF(プロバイオティクス12は45％OFF)<br />
+	・2回目以降は毎回15%OFF<br />　(プロバイオティクス12は30％OFF)<br />
+	・商品の定期購入3回毎に、次回のご購入時に30％OFF<br />　(プロバイオティクス12は45％OFF)<br />
+	・毎回送料無料
+</p>
+
+<h4>現在ご継続いただいているお客様の<br class="sp">定期購入の特典内容</h4>
+
+<p>・初回購入はメーカー希望価格から50％OFF<br />　(プロバイオティクス12は30％OFF)<br />
+・2回目以降は毎回15%OFF<br />　(プロバイオティクス12は30％OFF)<br />
+・商品の定期購入6回毎に同じ商品をプレゼント<br />
+・毎回送料無料</p>
+
+<h4>注意点</h4>
+<p>新しい定期購入特典への変更をご希望の方は、新規の定期購入となり<br />
+購入回数がリセットされますのでご了承ください。</p>
+
+<a href="/user_data/course" class="link">定期購入の案内はこちら</a>
+
+</main>
+
+{% if is_granted('ROLE_USER') %}
+<div id="user-logged-in-flag" data-user="{{ app.user.id }}"></div>
+{% endif %}
+			
+<section id="page-footer"></section>						
+
+<!-- !! /include -->
+
+
+</div>
+</div>
+{% endblock %}

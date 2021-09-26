@@ -1,0 +1,41 @@
+{#
+RepeatCube for EC-CUBE4
+Copyright(c) 2019 IPLOGIC CO.,LTD. All Rights Reserved.
+
+http://www.iplogic.co.jp/
+
+This program is not free software.
+It applies to terms of service.
+#}
+{% extends 'default_frame.twig' %}
+
+{% set mypageno = 'IplPeriodicPurchase' %}
+
+{% block main %}
+    <div class="ec-layoutRole__main">
+        <div class="ec-mypageRole">
+            <div class="ec-pageHeader">
+                <h1>{{ 'マイページ'|trans }}/{{ '定期受注編集(完了)'|trans }}</h1>
+            </div>
+            {% include 'Mypage/navi.twig' %}
+        </div>
+
+        {% include '@IplPeriodicPurchase/mypage/periodic_navi.twig' %}
+
+        <div class="ec-registerCompleteRole">
+            <div class="ec-off2Grid ec-text-ac">
+                <div class="ec-off2Grid__cell">
+                    <div class="ec-reportHeading">
+                        <h2>{{ '定期受注内容の変更が完了いたしました'|trans }}</h2>
+                    </div>
+                    <p class="ec-reportDescription">{{ 'それでは、引き続きショッピングをお楽しみください。'|trans }}</p>
+                    <div class="ec-off4Grid">
+                        <div class="ec-off4Grid__cell"><a class="ec-blockBtn--cancel"
+                                                          href="{{ url('ipl_periodic_purchase_history', {'periodic_purchase_id': PeriodicPurchase.id}) }}">{{ '戻る'|trans }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

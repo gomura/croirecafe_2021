@@ -1,0 +1,139 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Ropa+Sans");
+@import url("https://use.typekit.net/qne7ppa.css");
+@import url(../fonts/icomoon/style.css);
+body.showBlk *,
+body.showBlk *:after,
+body.showBlk *:before {
+  background: rgba(48, 210, 222, 0.13); }
+
+/* !! - - -  */
+/* !! グラデーション */
+/* !! - - -  */
+/* !! 描画 */
+/* !! - - -  */
+/* !! 構造 */
+/* !!------------------------------------ */
+/* !! 受注一覧 */
+td.itemlist {
+  padding: 0 10px !important; }
+
+.order-index-row.teiki {
+  background: rgba(255, 255, 0, 0.08); }
+
+.order-index-row.honsha-shukka {
+  background: #d5f8ff; }
+
+.order-index-row.bessou {
+  border: 2px solid rgba(255, 0, 0, 0.3) !important;
+  /*
+		&:after{
+			content: "別送";
+			color: #fff;
+			width: 90px;
+			font-size: 11px;
+			text-align: center;
+			line-height: 1;
+			height: auto;
+			position: absolute;
+			top: 0;left: 0;
+			background: #ff0000;					
+		}
+*/ }
+
+.order-index-row.kowake .order-index-itemlist {
+  background: rgba(255, 0, 0, 0.19); }
+
+.shipping-delivery-memo {
+  display: block;
+  background: #FF0000;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  padding: 6px 0;
+  border-radius: 50px;
+  margin-bottom: 10px; }
+
+.order-index-itemlist.small li {
+  font-size: 12px; }
+  .order-index-itemlist.small li i {
+    font-size: 10px;
+    height: 16px;
+    width: 16px; }
+
+.order-index-itemlist li {
+  font-size: 13px;
+  padding-right: 30px;
+  position: relative;
+  padding: 5px;
+  padding-right: 30px !important;
+  border-bottom: 1px dotted #ccc; }
+  .order-index-itemlist li:last-of-type {
+    border-bottom: 0 !important; }
+  .order-index-itemlist li.P {
+    background: rgba(255, 255, 0, 0.32); }
+  .order-index-itemlist li i {
+    background: #eee;
+    margin-left: 5px;
+    height: 20px;
+    width: 20px;
+    font-style: normal;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-radius: 99px;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%); }
+    .order-index-itemlist li i._2 {
+      background: rgba(253, 211, 60, 0.5); }
+    .order-index-itemlist li i._3 {
+      background: rgba(240, 101, 182, 0.5); }
+    .order-index-itemlist li i._4 {
+      background: rgba(0, 35, 255, 0.5); }
+
+/* !!------------------------------------ */
+/* !! 定期購入一覧 */
+.order-skip {
+  font-size: 11px;
+  display: block;
+  color: #f34c4c;
+  letter-spacing: 0;
+  line-height: 1; }
+
+/* !! 定期購入商品ID */
+.PeriodicPurchaseItem {
+  position: relative; }
+
+.PeriodicPurchaseItemId {
+  font-size: 11px;
+  line-height: 16px;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  background: #ffe896;
+  padding: 0 5px;
+  font-weight: normal !important; }
+
+/* !! 定期履歴 */
+.periodic_orderhistory td {
+  vertical-align: middle; }
+
+/*# sourceMappingURL=../css/admin.css.map */

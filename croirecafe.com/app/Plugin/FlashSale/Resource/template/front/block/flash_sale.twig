@@ -1,0 +1,56 @@
+{#
+/*
+ * This file is part of the Flash Sale plugin
+ *
+ * Copyright(c) ECCUBE VN LAB. All Rights Reserved.
+ *
+ * https://www.facebook.com/groups/eccube.vn
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+#}
+{% set flashSale = repository('Plugin\\FlashSale\\Entity\\FlashSale').getAvailableFlashSale %}
+{% set items = repository('Plugin\\FlashSale\\Entity\\Condition').getProductList %}
+
+<style type="text/css">
+    @media all and (-ms-high-contrast:none) {
+        #flash-sale ul.ec-shelfGrid li.ec-shelfGrid__item {
+            display: inline-block !important;
+        }
+    }
+</style>
+
+{% if flashSale and items %}
+    <div class="ec-shelfRole" id="flash-sale">
+        <div class="ec-secHeading">
+            <span class="ec-secHeading__en ec-color-red">{{ flashSale.getName }}</span>
+            <span class="ec-secHeading__line"></span>
+            <span class="ec-eyecatchRole__introEnTitle">{{ 'flash_sale.front.from_to'|trans({'%from%': flashSale.getFromTime|date_min, '%to%' : flashSale.getToTime|date_min }) }}</span>
+        </div>
+
+        <ul class="ec-shelfGrid">
+            {% for item in items %}
+                {% set Product = item.product %}
+                <li class="ec-shelfGrid__item">
+                    <a href="{{ url('product_detail', {'id': Product.id}) }}">
+                        <img src="{{ asset(Product.mainFileName|no_image_product, "save_image") }}">
+                        <dl>
+                            <dt class="item_name">{{ Product.name }}</dt>
+                            <dd class="item_price">
+                                {% if Product.price02_inc_tax_min == Product.price02_inc_tax_max %}
+                                    {{ Product.price02_inc_tax_min|price }}
+                                {% else %}
+                                    {{ Product.price02_inc_tax_min|price }}～{{ Product.price02_inc_tax_max|price }}
+                                {% endif %}
+                                <p class="ec-color-red ec-font-size-4">
+                                    {{ 'flash_sale.front.sale_up_to'|trans({'%percent%' :item.promotion}) }}
+                                </p>
+                            </dd>
+                        </dl>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

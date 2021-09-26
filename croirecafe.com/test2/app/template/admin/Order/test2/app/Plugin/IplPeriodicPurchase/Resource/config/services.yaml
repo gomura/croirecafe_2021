@@ -1,0 +1,96 @@
+parameters:
+  # 定期商品種別ID
+  SALE_TYPE_ID_PERIODIC: 8010
+
+  # 許可する決済方法
+  AUTHORIZED_PAYMENT_METHOD_PERIODIC:
+    Eccube\Service\Payment\Method\Cash: 1
+    Plugin\YamatoPayment4\Service\Method\Credit: 1
+
+  # 定期サイクルのタイプ詳細
+  PLG_IPLPERIODICPURCHASE_CYCLE_TYPE_MONTHLY: 1
+  PLG_IPLPERIODICPURCHASE_CYCLE_TYPE_MONTH: 2
+  PLG_IPLPERIODICPURCHASE_CYCLE_TYPE_WEEK: 3
+  PLG_IPLPERIODICPURCHASE_CYCLE_TYPE_DAY: 4
+  PLG_IPLPERIODICPURCHASE_CYCLE_TYPE_DAYOFWEEK: 5
+
+  # 定期サイクルのタイプ(1.間隔で指定、2.日付で指定、3.曜日で指定)
+  PLG_IPLPERIODICPURCHASE_CYCLE_SPECIFIED_TERM: 1
+  PLG_IPLPERIODICPURCHASE_CYCLE_SPECIFIED_DAY: 2
+  PLG_IPLPERIODICPURCHASE_CYCLE_SPECIFIED_DAYOFWEEK: 3
+
+  # 定期サイクル変更
+  PLG_IPLPERIODICPURCHASE_MYPAGE_CYCLE_CHANGE: 1
+  # 次回配送予定日変更
+  PLG_IPLPERIODICPURCHASE_MYPAGE_SHIPPING_DATE_CHANGE: 2
+  # 商品数変更
+  PLG_IPLPERIODICPURCHASE_MYPAGE_ITEM_QUANTITY_CHANGE: 3
+  # 解約
+  PLG_IPLPERIODICPURCHASE_MYPAGE_CANCEL: 4
+  # 休止・再開
+  PLG_IPLPERIODICPURCHASE_MYPAGE_SUSPEND: 5
+  # スキップ
+  PLG_IPLPERIODICPURCHASE_MYPAGE_SKIP: 6
+
+  # 解約可能定期回数上限
+  PERIODIC_CONFIG_CANCEL_OK_COUNT_UPPER: 10
+  # 次回配送予定日変更可能範囲上限
+  PERIODIC_CONFIG_SHIPPING_DATE_CHANGE_RANGE_UPPER: 45
+  # 定期ポイント倍率上限
+  PERIODIC_CONFIG_POINT_RATE_UPPER: 10
+  # 初回配送予定日上限
+  PERIODIC_CONFIG_FIRST_SHIPPING_DATE_UPPER: 30
+  # 再開時配送予定日上限
+  PERIODIC_CONFIG_RESUME_NEXT_SHIPPING_DATE_UPPER: 30
+  # 再決済時配送予定日上限
+  PERIODIC_CONFIG_RESETTLEMENT_NEXT_SHIPPING_DATE_UPPER: 30
+  # 締め日上限
+  PERIODIC_CONFIG_CUTOFF_DATE_UPPER: 30
+  # 定期回数別商品金額割引回数上限
+  PERIODIC_CONFIG_DISCOUNT_TIMES_UPPER: 10
+
+  # 定期サイクルでの上限値
+  CYCLE_CONFIG_MONTHLY_UPPER: 31
+  CYCLE_CONFIG_MONTH_UPPER: 12
+  CYCLE_CONFIG_WEEK_UPPER: 4
+  CYCLE_CONFIG_DAY_UPPER: 99
+
+  # バッチで扱うエラーコード
+  PLG_IPLPERIODICPURCHASE_PAYMENT_ERROR: 1
+  PLG_IPLPERIODICPURCHASE_SYSTEM_ERROR: 2
+
+  # ヤマト決済のカード情報登録/削除時のイベント名
+  YAMATO_MYPAGE_CARD_REGISTER: 'yamato.mypage.card.register'
+  YAMATO_MYPAGE_CARD_DELETE: 'yamato.mypage.card.delete'
+
+# logs('IplPeriodicPurchase')->info('メッセージ');
+# プラグイン用ログ
+monolog:
+    channels: ['IplPeriodicPurchase', 'IplPeriodicPurchaseBatch']
+    handlers:
+      IplPeriodicPurchase:
+          type: fingers_crossed
+          action_level: error
+          passthru_level: info
+          handler: IplPeriodicPurchase_rotating_file
+          channels: ['IplPeriodicPurchase']
+          channels: ['!event', '!doctrine']
+      IplPeriodicPurchaseBatch:
+          type: fingers_crossed
+          action_level: error
+          passthru_level: info
+          handler: IplPeriodicPurchaseBatch_rotating_file
+          channels: ['IplPeriodicPurchaseBatch']
+          channels: ['!event', '!doctrine']
+      IplPeriodicPurchase_rotating_file:
+          type: rotating_file
+          max_files: 60
+          path: '%kernel.logs_dir%/%kernel.environment%/IplPeriodicPurchase.log'
+          formatter: eccube.log.formatter.line
+          level: debug
+      IplPeriodicPurchaseBatch_rotating_file:
+          type: rotating_file
+          max_files: 60
+          path: '%kernel.logs_dir%/%kernel.environment%/IplPeriodicPurchaseBatch.log'
+          formatter: eccube.log.formatter.line
+          level: debug

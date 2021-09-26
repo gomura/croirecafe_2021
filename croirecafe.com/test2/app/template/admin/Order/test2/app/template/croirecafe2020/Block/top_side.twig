@@ -1,0 +1,76 @@
+
+<section id="top-side">
+
+<!-- /#top-_side -->
+{% if is_granted('ROLE_USER') %}
+
+	<div class="disp-user-name">
+		<p>ようこそ<b> {{ app.user.name01 }} {{ app.user.name02 }} </b>様</p>
+	</div>
+    
+    <div class="side-item">
+        <a class="mypage" href="{{ url('mypage') }}">
+            <i class="ec-headerNav__itemIcon fas fa-user fa-fw"></i>
+            <span class="ec-headerNav__itemLink">{{ 'マイページ'|trans }}</span>
+        </a>
+    </div>
+    {% if BaseInfo.option_favorite_product %}
+         <div class="side-item">
+            <a class="favorite" href="{{ url('mypage_favorite') }}">
+                <i class="ec-headerNav__itemIcon fas fa-heart fa-fw"></i>
+                <span class="ec-headerNav__itemLink">{{ 'お気に入り'|trans }}</span>
+            </a>
+        </div>
+    {% endif %}
+    <div class="side-item">
+        <a class="logout" href="{{ url('logout') }}">
+            <i class="ec-headerNav__itemIcon fas fa-lock fa-fw"></i>
+            <span class="ec-headerNav__itemLink">{{ 'ログアウト'|trans }}</span>
+        </a>
+    </div>
+{% else %}
+
+
+	<div class="disp-user-name">
+		<p>ようこそ<b>ゲスト</b>様</p>
+	</div>
+   
+	<div class="side-item">
+        <a class="login" href="{{ url('mypage_login') }}">
+            <i class="ec-headerNav__itemIcon fas fa-lock fa-fw"></i>
+            <span class="ec-headerNav__itemLink">{{ 'ログイン'|trans }}</span>
+        </a>
+    </div>
+    
+    <div class="side-item">
+        <a class="entry" href="{{ url('entry') }}">
+            <i class="ec-headerNav__itemIcon fas fa-user fa-fw"></i>
+            <span class="ec-headerNav__itemLink">{{ '新規会員登録'|trans }}</span>
+        </a>
+    </div>
+    {% if BaseInfo.option_favorite_product %}
+        <div class="side-item">
+            <a class="favorite" href="{{ url('mypage_favorite') }}">
+                <i class="ec-headerNav__itemIcon fas fa-heart fa-fw"></i>
+                <span class="ec-headerNav__itemLink">{{ 'お気に入り'|trans }}</span>
+            </a>
+        </div>
+    {% endif %}
+{% endif %}
+
+
+	{{ include('Block/cart.twig') }}
+	
+	<div class="about-delivery">
+		<p>
+			<span class="price">¥7,000</span>(税込)以上<br />お買い上げで<b>送料無料</b>
+		</p>
+		<a href="/help/tradelaw#about_shipping">送料について</a>
+	</div>
+	
+	<div class="about-subscription">
+		<img src="/common/img/bnr-teiki.png" alt="便利でお得な定期購入コース" width="" height="" />
+	</div>
+	<!-- /.about-subscription -->
+
+</section>

@@ -2236,6 +2236,29 @@
         }
     },
     {
+        "name": "ec-cube/FlashSale",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "dist": {
+            "type": "tar",
+            "url": "https://package-api.ec-cube.net/ec-cube/FlashSale/1.0.0/FlashSale-1.0.0.tgz"
+        },
+        "type": "eccube-plugin",
+        "extra": {
+            "code": "FlashSale",
+            "id": 1806
+        },
+        "installation-source": "dist",
+        "description": "FlashSale",
+        "transport-options": {
+            "http": {
+                "header": [
+                    "X-ECCUBE-KEY: 47a4dba0a9bed62511c27ac8347d4ad97a2b224e"
+                ]
+            }
+        }
+    },
+    {
         "name": "ec-cube/MailMagazine4",
         "version": "4.0.2",
         "version_normalized": "4.0.2.0",
@@ -2367,11 +2390,11 @@
     },
     {
         "name": "ec-cube/YamatoPayment4",
-        "version": "1.2.1",
-        "version_normalized": "1.2.1.0",
+        "version": "1.3.0",
+        "version_normalized": "1.3.0.0",
         "dist": {
             "type": "tar",
-            "url": "https://package-api.ec-cube.net/ec-cube/YamatoPayment4/1.2.1/YamatoPayment4-1.2.1.tgz"
+            "url": "https://package-api.ec-cube.net/ec-cube/YamatoPayment4/1.3.0/YamatoPayment4-1.3.0.tgz"
         },
         "require": {
             "ec-cube/plugin-installer": "~0.0.3"
@@ -5396,7 +5419,8 @@
             }
         ],
         "description": "Provides a list of PHP built-in functions that operate on resources",
-        "homepage": "https://www.github.com/sebastianbergmann/resource-operations"
+        "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
+        "abandoned": true
     },
     {
         "name": "sebastian/version",

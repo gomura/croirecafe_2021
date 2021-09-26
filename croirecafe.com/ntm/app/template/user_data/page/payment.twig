@@ -1,0 +1,181 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) 2000-2015 LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#}
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'croire' %}
+
+
+{% block main %}
+<div class="row">
+<div class="col-sm-12">
+	   				
+	   				
+	   				
+
+<!-- !! include -->
+<!-- !! メイン -->    
+<main class="page payment">
+
+
+
+<h1 class="hd">
+	<i>PAYMENT</i><br />送料・お支払い方法
+</h1>
+
+
+<h2>お届け日について</h2>
+<ul class="table-list">
+    
+    <li class="first">
+    	<span>配送会社・送料について</span>
+		<p class="hd">お届けは、佐川急便または日本郵便のゆうパケット</p>
+		<h3>佐川急便</h3>
+		<p>
+			<b>■ 送料　全国一律 660円（税込）　※7,000円(税込）以上購入で送料無料</b><br />
+			［北海道・沖縄・離島への送料］<br />
+			■ 7,000円（税込）以上のご注文　660円（税込）<br />
+			■ 7,000円（税込）未満のご注文　送料1,320円（税込）<br />
+			<b>■ 手数料　代引手数料　0円〜</b>
+		</p>
+		<p class="note"><i>※</i>ゆうパックでの配送になる場合がございます。ご注文後追ってご連絡をさせて頂きます。</p>
+		<p class="note"><i>※</i>キャンペーン企画にて、配送方法が異なる場合がございますので、あらかじめご了承ください。</p>
+		
+		<h3>日本郵便のゆうパケット</h3>
+
+		<p class="note"><i>■</i>送料　全国一律 231円（税込）</p>
+		<p class="note"><i>■</i>ポストに投函のお届けの為、不在時でもお届けが可能です。<br />※ポストに入らない場合は持ち帰ります。（不在票が入るので、日本郵便にお問合せ下さい）</p>
+		<p class="note"><i>■</i>ゆうパケットには、信書扱いの納品書・請求書が同梱できません。予め、ご了承下さい。</p>
+		<p class="note"><i>■</i>数量の大きさによってお受けできない場合もございます。</p>
+
+
+
+    </li>
+
+    <li>
+    	<span>お届けまでの流れ</span>
+    	
+    	<h3>平日にご注文された場合</h3>
+    	<p>13時までのご注文は、即日発送いたします。それ以降のご注文は翌日（土日祝を除く）の受付になります。</p>
+    	
+    	<h3>休業日にご注文された場合</h3>
+		<p>土日祝など、弊社休業日のご注文は場合、翌営業日の受付になります。</p>
+		<p>なお、銀行振込・郵便振替を選択されたお客様は、入金確認後に発送手配となります。</p>
+		<p>ご入金が確認されない場合、ご希望の日時にお届けできない場合がございます。</p>
+	</li>
+
+
+    <li class="last">
+    	<span>日時指定について</span>
+    	<h3>到着日について</h3>
+		<p>
+			以下の到着日の目安を参考に、余裕をもってご指定ください。<br />
+			［発送日より4日後］<br />
+			北海道<br />
+			［発送日より2日後］<br />
+			青森・秋田・山形・宮城・岩手・福岡・大分・宮崎・佐賀・熊本・長崎・鹿児島・沖縄<br />
+			［発送日より1.5日後（翌日の16時以降）］<br />
+			新潟・福島・茨城・千葉・栃木・群馬・埼玉・山梨・神奈川・東京<br />
+			［発送日より1日後（例：発送日が1日の場合、2日の9時以降）］<br />
+			富山・長野・岐阜・静岡・愛知・石川・福井・滋賀・三重・京都・奈良・大阪・和歌山・兵庫・鳥取・岡山・島根・広島・山口・香川・徳島・愛媛・高知<br />
+			その他離島：郵便小包（２kg以上別途送料計算）でお送りいたします。<br />
+		</p>
+
+    	<h3>時間指定について</h3>
+		<p class="img"><img src="/img/payment/img1.png" alt="img1" width="622"  /></p>
+<!--     	<p>※郡部（○○郡△△町など）の地域の方はご指定通りに配送されない場合がございます。予めご了承下さい。（日にち指定は問題ございません）</p> -->
+	</li>
+</ul>
+
+
+<h2>お支払いについて</h2>
+<ul class="table-list">
+    
+<!--
+    <li><span>商品代引（佐川急便）</span>
+		<h3>ご購入総額が税込8,000円（税込）以上で、送料・代引手数料無料</h3>
+		<p>■ 但し、沖縄・北海道・離島に関しましては送料は別料金となります。</p>
+		<p>■ 念のためご注文後にメールにてお支払総額をお知らせ致します。</p>
+		<p>■ 代金は商品配送時に佐川急便の配送員にお支払い下さい。</p>
+		<p>※沖縄県は、郵便小包でのお届けとなります。ご購入総額が税込8,000円（税込）以上で、送料・代引手数料無料</p>
+    </li>
+-->
+    
+ <!-- !!    
+    <li>
+    	<span>銀行振込・ゆうちょ振替</span>
+		<p class="note"><i>■</i>ご注文者様とお振込名が異なる場合は、予め備考欄にその旨をご記入ください。</p>
+		<p class="note"><i>■</i>ご入金が確認でき次第、商品を発送致します。なお、振込手数料はお客様負担でお願い致します。</p>
+		<p class="note"><i>■</i>振込手数料は、お振込み時にお確かめください。</p>
+		<p class="note"><i>■</i>念のため、ご注文後にメールにてお支払総額をお知らせ致します。<br />メールにて、振込先をご案内させていただきます。</p>
+		<p class="note"><i>■</i>10日以内にご入金のない場合、キャンセルとさせていただきます</p>
+    </li>
+  -->   
+    <li>
+		<span>クレジットカード</span>
+		<p class="img cresit"><img src="../img/payment/img2.png" alt="img2" width="524"  /></p>
+		
+		<p>ご注文の際に、クレジットカード情報をご記入いただきます。</p>
+		
+		<p>「次に進む」変更、カードの種類、カード番号、カード期限、ご名義人のお名前、セキュリティ番号を記載後し「確認する」をクリック</p>
+		
+<!-- !!  
+		<p class="note"><i>■</i>お支払いのご請求日は、クレジットカード各社指定の期日となります。</p>
+		<p class="note"><i>■</i>ご注文の確認メールをご請求先のメールアドレス宛にお送りします。</p>
+		<p class="note"><i>■</i>万が一このメールがお手元に届かない場合や、内容に間違い・不備などがございましたら、ご連絡をお願いします。</p>
+		<p class="note"><i>■</i>確認画面にてクレジットカードをご利用いただけないと表示された場合には、お手数ですがエーエルジャパン（0120-65-4541)までご連絡をお願いします。</p>
+		<p class="note"><i>■</i>お手続き完了後に発送手配を致しますので、予めご了承ください。</p>
+-->
+		
+		<p>［ご注意下さい］</p>
+		<p>ご本人様名義のカードのみ有効です。</p>
+		<p>ご注文者とカード名義人義が異なる場合は、クレジットカードのご利用ができません。</p>
+		<p>弊社とカード会社との契約上、海外で発行されたクレジットカードはご利用いただくことができません。ご注意下さい。</p>
+		<p>一括払いのみご利用いただけます。</p>
+		<p>何らかの理由で、カード決済にて承認が取れなかった場合は、当店よりお支払い方法の変更などについて、ご連絡をさせていただく場合がございます。予めご了承ください。</p>
+		<p>このショッピングカートはカード情報を暗号化するためにSSL認証を利用しています。</p>
+		<p>代金のお引き落としは翌月以降、各クレジット会員規約に基づく決済日となります。</p>
+		<p>★詳しくは各クレジットカード会社にお問い合わせください。</p>
+    </li>
+    
+    
+
+
+    <li>
+    	<span>後払い（コンビニ）<br></span>
+		<p class="note"><i>※</i>※後払い（コンビニ・郵便局・銀行）の請求書はネットプロテクションズより後日郵送。</p>
+		<p class="note"><i>※</i>請求書は、お荷物とは同梱することが出来ない為、後日、別送となります。</p>
+    </li>
+
+</ul>
+
+
+</main>
+
+
+<section id="page-footer"></section>						
+
+<!-- !! /include -->
+
+
+</div>
+</div>
+{% endblock %}

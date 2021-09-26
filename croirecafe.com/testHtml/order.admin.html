@@ -1,0 +1,2507 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="eccube-csrf-token" content="9VwPK7rciEwOtZk9k9ZqZmoSUU6W6hALMRzV7m_lymQ">
+    <title>受注管理 受注一覧 - クロワールカフェ</title>
+    <link rel="icon" href="/html/template/admin/assets/img/favicon.ico">
+    <link rel="stylesheet" href="/html/template/admin/assets/css/bootstrap.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/v4-shims.css">
+    <link rel="stylesheet" href="/html/template/admin/assets/css/ladda-themeless.min.css"></link>
+    <link rel="stylesheet" href="/html/template/admin/assets/css/app.css">
+        <link rel="stylesheet" href="/html/template/admin/assets/css/tempusdominus-bootstrap-4.min.css">
+    <style type="text/css">
+        .datepicker-days th.dow:first-child,
+        .datepicker-days td:first-child {
+            color: #f00;
+        }
+
+        .datepicker-days th.dow:last-child,
+        .datepicker-days td:last-child {
+            color: #00f;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $.ajaxSetup({
+                'headers': {
+                    'ECCUBE-CSRF-TOKEN': $('meta[name="eccube-csrf-token"]').attr('content')
+                }
+            });
+        });
+    </script>
+        </head>
+<body id="page_admin_order">
+<header class="c-headerBar">
+    <div class="c-headerBar__container">
+        <div class="c-headerBar__logo">
+            <h1><img src="/html/template/admin/assets/img/logo@2x.png"></h1>
+        </div>
+        <a class="c-headerBar__toggleBtn"><i class="fa fa-bars" aria-hidden="true"></i></a>
+        <a class="c-headerBar__shopTitle" href="https://croirecafe.com/" target="_blank"><span>クロワールカフェ</span><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        <a class="c-headerBar__userMenu"
+           data-container="body"
+           data-toggle="popover"
+           data-placement="bottom"
+           title="最終ログイン"
+           data-content="&lt;p&gt;2020/05/20 15:51&lt;/p&gt;&lt;a href='https://croirecafe.com/973dA/change_password' class='btn btn-ec-regular btn-block'&gt;パスワード変更&lt;/a&gt;&lt;a href='https://croirecafe.com/973dA/logout' class='btn btn-ec-sub btn-block'&gt;ログアウト&lt;/a&gt;"
+           data-html="true"><i class="fa fa-user-circle" aria-hidden="true"></i><span>管理者 様</span><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+    </div>
+</header>
+<div class="c-container">
+    <div class="c-mainNavArea">
+        <nav>
+    <ul class="c-mainNavArea__nav">
+        <!-- ホーム -->
+        <li class="c-mainNavArea__navItem">
+            <a class="c-mainNavArea__navItemTitle" href="https://croirecafe.com/973dA/">
+                <i class="fa fa-home fa-fw" aria-hidden="true"></i>
+                <span>ホーム</span>
+            </a>
+        </li>
+                    <li class="c-mainNavArea__navItem">
+                                    <a class="c-mainNavArea__navItemTitle collapsed"
+                       data-toggle="collapse" href="#nav-product"
+                       aria-expanded="false"
+                       aria-controls="nav-product">
+                        <i class="fa fa-cube fa-fw" aria-hidden="true"></i>
+                        <span>商品管理</span>
+                    </a>
+                    <ul class="collapse " id="nav-product">
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/product">
+                                        <span>商品一覧</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/product/product/new">
+                                        <span>商品登録</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/product/class_name">
+                                        <span>規格管理</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/product/category">
+                                        <span>カテゴリ管理</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/product/tag">
+                                        <span>タグ管理</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/product/product_csv_upload">
+                                        <span>商品CSV登録</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/product/category_csv_upload">
+                                        <span>カテゴリCSV登録</span>
+                                    </a>
+                                                            </li>
+                                            </ul>
+                            </li>
+                    <li class="c-mainNavArea__navItem">
+                                    <a class="c-mainNavArea__navItemTitle"
+                       data-toggle="collapse" href="#nav-order"
+                       aria-expanded="true"
+                       aria-controls="nav-order">
+                        <i class="fa fa-shopping-cart fa-fw" aria-hidden="true"></i>
+                        <span>受注管理</span>
+                    </a>
+                    <ul class="collapse  show" id="nav-order">
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/order" class="is-active">
+                                        <span>受注一覧</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/order/new">
+                                        <span>受注登録</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/order/shipping_csv_upload">
+                                        <span>出荷CSV登録</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/plugin/coupon">
+                                        <span>クーポン</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/yamato_payment4/payment_status">
+                                        <span>クロネコクレジットカード決済状況一覧</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/yamato_payment4/deferred_status">
+                                        <span>クロネコ代金後払い決済状況一覧</span>
+                                    </a>
+                                                            </li>
+                                            </ul>
+                            </li>
+                    <li class="c-mainNavArea__navItem">
+                                    <a class="c-mainNavArea__navItemTitle collapsed"
+                       data-toggle="collapse" href="#nav-customer"
+                       aria-expanded="false"
+                       aria-controls="nav-customer">
+                        <i class="fa fa-users fa-fw" aria-hidden="true"></i>
+                        <span>会員管理</span>
+                    </a>
+                    <ul class="collapse " id="nav-customer">
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/customer">
+                                        <span>会員一覧</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/customer/new">
+                                        <span>会員登録</span>
+                                    </a>
+                                                            </li>
+                                            </ul>
+                            </li>
+                    <li class="c-mainNavArea__navItem">
+                                    <a class="c-mainNavArea__navItemTitle collapsed"
+                       data-toggle="collapse" href="#nav-content"
+                       aria-expanded="false"
+                       aria-controls="nav-content">
+                        <i class="fa fa-file-text-o fa-fw" aria-hidden="true"></i>
+                        <span>コンテンツ管理</span>
+                    </a>
+                    <ul class="collapse " id="nav-content">
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/content/news">
+                                        <span>新着情報管理</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/content/file_manager">
+                                        <span>ファイル管理</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/content/layout">
+                                        <span>レイアウト管理</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/content/page">
+                                        <span>ページ管理</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/content/css">
+                                        <span>CSS管理</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/content/js">
+                                        <span>JavaScript管理</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/content/block">
+                                        <span>ブロック管理</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/content/cache">
+                                        <span>キャッシュ管理</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/content/maintenance">
+                                        <span>メンテナンス管理</span>
+                                    </a>
+                                                            </li>
+                                            </ul>
+                            </li>
+                    <li class="c-mainNavArea__navItem">
+                                    <a class="c-mainNavArea__navItemTitle collapsed"
+                       data-toggle="collapse" href="#nav-setting"
+                       aria-expanded="false"
+                       aria-controls="nav-setting">
+                        <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
+                        <span>設定</span>
+                    </a>
+                    <ul class="collapse " id="nav-setting">
+                                                    <li>
+                                                                    <a class="c-mainNavArea__navItemSubTitle collapsed"
+                                       data-toggle="collapse" href="#nav-shop"
+                                       aria-expanded="true"
+                                       aria-controls="nav-shop">
+                                        <span>店舗設定</span>
+                                    </a>
+                                    <ul class="collapse" id="nav-shop">
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/setting/shop">
+                                                    <span>基本設定</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/content/page/21/edit?return=tradelaw">
+                                                    <span>特定商取引法設定</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/content/page/19/edit?return=agreement">
+                                                    <span>利用規約設定</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/setting/shop/payment">
+                                                    <span>支払方法設定</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/setting/shop/delivery">
+                                                    <span>配送方法設定</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/setting/shop/tax">
+                                                    <span>税率設定</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/setting/shop/mail">
+                                                    <span>メール設定</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/setting/shop/csv">
+                                                    <span>CSV出力項目設定</span>
+                                                </a>
+                                            </li>
+                                                                            </ul>
+                                                            </li>
+                                                    <li>
+                                                                    <a class="c-mainNavArea__navItemSubTitle collapsed"
+                                       data-toggle="collapse" href="#nav-system"
+                                       aria-expanded="true"
+                                       aria-controls="nav-system">
+                                        <span>システム設定</span>
+                                    </a>
+                                    <ul class="collapse" id="nav-system">
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/setting/system/member">
+                                                    <span>メンバー管理</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/setting/system/authority">
+                                                    <span>権限管理</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/setting/system/security">
+                                                    <span>セキュリティ管理</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/setting/system/log">
+                                                    <span>ログ表示</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/setting/system/masterdata">
+                                                    <span>マスタデータ管理</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/setting/system/system">
+                                                    <span>システム情報</span>
+                                                </a>
+                                            </li>
+                                                                            </ul>
+                                                            </li>
+                                            </ul>
+                            </li>
+                    <li class="c-mainNavArea__navItem">
+                                    <a class="c-mainNavArea__navItemTitle collapsed"
+                       data-toggle="collapse" href="#nav-store"
+                       aria-expanded="false"
+                       aria-controls="nav-store">
+                        <i class="fa fa-plug fa-fw" aria-hidden="true"></i>
+                        <span>オーナーズストア</span>
+                    </a>
+                    <ul class="collapse " id="nav-store">
+                                                    <li>
+                                                                    <a class="c-mainNavArea__navItemSubTitle collapsed"
+                                       data-toggle="collapse" href="#nav-plugin"
+                                       aria-expanded="true"
+                                       aria-controls="nav-plugin">
+                                        <span>プラグイン</span>
+                                    </a>
+                                    <ul class="collapse" id="nav-plugin">
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/store/plugin/api/search">
+                                                    <span>プラグインを探す</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/store/plugin">
+                                                    <span>プラグイン一覧</span>
+                                                </a>
+                                            </li>
+                                                                            </ul>
+                                                            </li>
+                                                    <li>
+                                                                    <a class="c-mainNavArea__navItemSubTitle collapsed"
+                                       data-toggle="collapse" href="#nav-template"
+                                       aria-expanded="true"
+                                       aria-controls="nav-template">
+                                        <span>テンプレート</span>
+                                    </a>
+                                    <ul class="collapse" id="nav-template">
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/store/template">
+                                                    <span>テンプレート一覧</span>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://croirecafe.com/973dA/store/template/install">
+                                                    <span>アップロード</span>
+                                                </a>
+                                            </li>
+                                                                            </ul>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/store/plugin/authentication_setting">
+                                        <span>認証キー設定</span>
+                                    </a>
+                                                            </li>
+                                            </ul>
+                            </li>
+                    <li class="c-mainNavArea__navItem">
+                                    <a class="c-mainNavArea__navItemTitle collapsed"
+                       data-toggle="collapse" href="#nav-plugin_line_login_integration"
+                       aria-expanded="false"
+                       aria-controls="nav-plugin_line_login_integration">
+                        <i class="fa fa-commenting fa-fw" aria-hidden="true"></i>
+                        <span>LINE管理</span>
+                    </a>
+                    <ul class="collapse " id="nav-plugin_line_login_integration">
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/plugin_line_login_setting/">
+                                        <span>ログイン設定</span>
+                                    </a>
+                                                            </li>
+                                            </ul>
+                            </li>
+                    <li class="c-mainNavArea__navItem">
+                                    <a class="c-mainNavArea__navItemTitle collapsed"
+                       data-toggle="collapse" href="#nav-periodic_purchase"
+                       aria-expanded="false"
+                       aria-controls="nav-periodic_purchase">
+                        <i class="fa fa-calendar-alt fa-fw" aria-hidden="true"></i>
+                        <span>定期受注管理</span>
+                    </a>
+                    <ul class="collapse " id="nav-periodic_purchase">
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/periodic/order">
+                                        <span>定期受注管理</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/periodic/cycle">
+                                        <span>定期サイクル設定</span>
+                                    </a>
+                                                            </li>
+                                            </ul>
+                            </li>
+                    <li class="c-mainNavArea__navItem">
+                                    <a class="c-mainNavArea__navItemTitle collapsed"
+                       data-toggle="collapse" href="#nav-postcarrier"
+                       aria-expanded="false"
+                       aria-controls="nav-postcarrier">
+                        <i class="fa fa-envelope fa-fw" aria-hidden="true"></i>
+                        <span>ポストキャリア</span>
+                    </a>
+                    <ul class="collapse " id="nav-postcarrier">
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/plugin/post_carrier">
+                                        <span>配信</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/plugin/post_carrier/template">
+                                        <span>テンプレート設定</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/plugin/post_carrier/history">
+                                        <span>配信履歴</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/plugin/post_carrier/schedule">
+                                        <span>スケジュール</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/plugin/post_carrier/stepmail">
+                                        <span>ステップメール</span>
+                                    </a>
+                                                            </li>
+                                                    <li>
+                                                                    <a href="https://croirecafe.com/973dA/plugin/post_carrier/discard">
+                                        <span>配信除外アドレス</span>
+                                    </a>
+                                                            </li>
+                                            </ul>
+                            </li>
+                <!-- 情報 -->
+        <li class="c-mainNavArea__navItem">
+            <a class="c-mainNavArea__navItemTitle collapsed" data-toggle="collapse" href="#others" aria-expanded="false"
+               aria-controls="others">
+                <i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>
+                <span>情報</span>
+            </a>
+            <ul class="collapse" id="others">
+                <li>
+                    <a href="https://www.ec-cube.net" target="_blank">
+                        <span>公式サイト</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://xoops.ec-cube.net" target="_blank">
+                        <span>開発コミュニティ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://doc4.ec-cube.net" target="_blank">
+                        <span>ドキュメント</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+    </div>
+    <div class="c-curtain"></div>
+    <div class="c-contentsArea">
+        <div class="c-pageTitle">
+            <div class="c-pageTitle__titles">
+                <h2 class="c-pageTitle__title">受注一覧</h2><span class="c-pageTitle__subTitle">受注管理</span>
+            </div>
+        </div>
+
+        
+
+
+
+
+
+            <!--検索条件設定テーブルここから　変更-->
+    <div class="c-outsideBlock">
+        <form name="search_form" id="search_form" method="POST" action="https://croirecafe.com/973dA/order">
+            <div class="c-outsideBlock__contents">
+                <div class="row">
+                    <div class="col-12">
+                        <input type="hidden" id="admin_search_order__token" name="admin_search_order[_token]" value="bYAvj0JpnAOo3-68DxXccMXEhsvgE7kUpuGGBqM4ei8" />
+                        <div>
+                            <label class="col-form-label" data-tooltip="true" data-placement="top" title="情報を入力して一覧の絞り込み検索ができます。より詳細な条件を指定するには［詳細検索］を開いてください。">注文番号・お名前・会社名・メールアドレス・電話番号<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                            <input type="text" id="admin_search_order_multi" name="admin_search_order[multi]" class="form-control" />
+                            
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-12">
+                                <label class="col-form-label"  data-tooltip="true" data-placement="top" title="受注の対応状況による絞り込み検索ができます。カッコ内は対応すべき受注の件数が表示されています。">対応状況<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                <div id="admin_search_order_status">
+                                                                        <!-- 各対応状況の件数を表示する -->
+                                                                            <div class="form-check form-check-inline">
+                                            <input type="checkbox"
+                                                   id="admin_search_order_status_1"
+                                                   name="admin_search_order[status][]"
+                                                   class="form-check-input"
+                                                   value="1" checked="checked">
+                                            <label class="form-check-label" for="admin_search_order_status_1">新規受付</label>(<a href="https://croirecafe.com/973dA/order?order_status_id=1">12</a>)                                        </div>
+                                                                            <div class="form-check form-check-inline">
+                                            <input type="checkbox"
+                                                   id="admin_search_order_status_6"
+                                                   name="admin_search_order[status][]"
+                                                   class="form-check-input"
+                                                   value="6">
+                                            <label class="form-check-label" for="admin_search_order_status_6">入金済み</label>(<a href="https://croirecafe.com/973dA/order?order_status_id=6">0</a>)                                        </div>
+                                                                            <div class="form-check form-check-inline">
+                                            <input type="checkbox"
+                                                   id="admin_search_order_status_4"
+                                                   name="admin_search_order[status][]"
+                                                   class="form-check-input"
+                                                   value="4">
+                                            <label class="form-check-label" for="admin_search_order_status_4">対応中</label>(<a href="https://croirecafe.com/973dA/order?order_status_id=4">19</a>)                                        </div>
+                                                                            <div class="form-check form-check-inline">
+                                            <input type="checkbox"
+                                                   id="admin_search_order_status_3"
+                                                   name="admin_search_order[status][]"
+                                                   class="form-check-input"
+                                                   value="3">
+                                            <label class="form-check-label" for="admin_search_order_status_3">注文取消し</label>                                        </div>
+                                                                            <div class="form-check form-check-inline">
+                                            <input type="checkbox"
+                                                   id="admin_search_order_status_5"
+                                                   name="admin_search_order[status][]"
+                                                   class="form-check-input"
+                                                   value="5">
+                                            <label class="form-check-label" for="admin_search_order_status_5">発送済み</label>                                        </div>
+                                                                            <div class="form-check form-check-inline">
+                                            <input type="checkbox"
+                                                   id="admin_search_order_status_8"
+                                                   name="admin_search_order[status][]"
+                                                   class="form-check-input"
+                                                   value="8">
+                                            <label class="form-check-label" for="admin_search_order_status_8">購入処理中</label>                                        </div>
+                                                                            <div class="form-check form-check-inline">
+                                            <input type="checkbox"
+                                                   id="admin_search_order_status_7"
+                                                   name="admin_search_order[status][]"
+                                                   class="form-check-input"
+                                                   value="7">
+                                            <label class="form-check-label" for="admin_search_order_status_7">決済処理中</label>                                        </div>
+                                                                            <div class="form-check form-check-inline">
+                                            <input type="checkbox"
+                                                   id="admin_search_order_status_9"
+                                                   name="admin_search_order[status][]"
+                                                   class="form-check-input"
+                                                   value="9">
+                                            <label class="form-check-label" for="admin_search_order_status_9">返品</label>                                        </div>
+                                                                    </div>
+                                
+                            </div>
+                        </div>
+                        <div class="d-inline-block mb-3 collapsed" data-toggle="collapse" href="#searchDetail" aria-expanded="false" aria-controls="searchDetail">
+                            <a>
+                                <i class="fa font-weight-bold mr-1 fa-plus-square-o">
+                                    <span class="font-weight-bold">詳細検索</span>
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="c-subContents ec-collapse collapse" id="searchDetail">
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">注文者名</label>
+                        <input type="text" id="admin_search_order_name" name="admin_search_order[name]" class="form-control" />
+                        
+                    </div>
+                    <div class="col">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <p class="col-form-label">支払方法</p>
+                                <div id="admin_search_order_payment"><div class="form-check form-check-inline">        <input type="checkbox" id="admin_search_order_payment_6" name="admin_search_order[payment][]" class="form-check-input" value="6" />
+        <label class="form-check-label" for="admin_search_order_payment_6">後払い（コンビニ・郵便局・銀行）</label></div><div class="form-check form-check-inline">        <input type="checkbox" id="admin_search_order_payment_5" name="admin_search_order[payment][]" class="form-check-input" value="5" />
+        <label class="form-check-label" for="admin_search_order_payment_5">クレジットカード</label></div><div class="form-check form-check-inline">        <input type="checkbox" id="admin_search_order_payment_1" name="admin_search_order[payment][]" class="form-check-input" value="1" />
+        <label class="form-check-label" for="admin_search_order_payment_1">郵便振替</label></div><div class="form-check form-check-inline">        <input type="checkbox" id="admin_search_order_payment_2" name="admin_search_order[payment][]" class="form-check-input" value="2" />
+        <label class="form-check-label" for="admin_search_order_payment_2">現金書留</label></div><div class="form-check form-check-inline">        <input type="checkbox" id="admin_search_order_payment_3" name="admin_search_order[payment][]" class="form-check-input" value="3" />
+        <label class="form-check-label" for="admin_search_order_payment_3">銀行振込</label></div><div class="form-check form-check-inline">        <input type="checkbox" id="admin_search_order_payment_4" name="admin_search_order[payment][]" class="form-check-input" value="4" />
+        <label class="form-check-label" for="admin_search_order_payment_4">代金引換</label></div></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">注文者名(カナ)</label>
+                        <input type="text" id="admin_search_order_kana" name="admin_search_order[kana]" class="form-control" />
+                        
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">注文日</label>
+                        <div class="form-row align-items-center">
+                            <div class="col">
+                                <input type="date" id="admin_search_order_order_date_start" name="admin_search_order[order_date_start]" class="datetimepicker-input form-control" data-target="#admin_search_order_order_date_start" data-toggle="datetimepicker" />
+                                
+                            </div>
+                            <div class="col-auto text-center">〜</div>
+                            <div class="col">
+                                <input type="date" id="admin_search_order_order_date_end" name="admin_search_order[order_date_end]" class="datetimepicker-input form-control" data-target="#admin_search_order_order_date_end" data-toggle="datetimepicker" />
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">注文者会社名</label>
+                        <input type="text" id="admin_search_order_company_name" name="admin_search_order[company_name]" class="form-control" />
+                        
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">入金日</label>
+                        <div class="form-row align-items-center">
+                            <div class="col">
+                                <input type="date" id="admin_search_order_payment_date_start" name="admin_search_order[payment_date_start]" class="datetimepicker-input form-control" data-target="#admin_search_order_payment_date_start" data-toggle="datetimepicker" />
+                                
+                            </div>
+                            <div class="col-auto text-center">〜</div>
+                            <div class="col">
+                                <input type="date" id="admin_search_order_payment_date_end" name="admin_search_order[payment_date_end]" class="datetimepicker-input form-control" data-target="#admin_search_order_payment_date_end" data-toggle="datetimepicker" />
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">メールアドレス</label>
+                        <input type="text" id="admin_search_order_email" name="admin_search_order[email]" class="form-control" />
+                        
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">更新日</label>
+                        <div class="form-row align-items-center">
+                            <div class="col">
+                                <input type="date" id="admin_search_order_update_date_start" name="admin_search_order[update_date_start]" class="datetimepicker-input form-control" data-target="#admin_search_order_update_date_start" data-toggle="datetimepicker" />
+                                
+                            </div>
+                            <div class="col-auto text-center">〜</div>
+                            <div class="col">
+                                <input type="date" id="admin_search_order_update_date_end" name="admin_search_order[update_date_end]" class="datetimepicker-input form-control" data-target="#admin_search_order_update_date_end" data-toggle="datetimepicker" />
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">電話番号</label>
+                        <input type="text" id="admin_search_order_phone_number" name="admin_search_order[phone_number]" class="form-control" />
+                        
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">お届け日</label>
+                        <div class="form-row align-items-center">
+                            <div class="col">
+                                <div class="input-group">
+                                    <input type="date" id="admin_search_order_shipping_delivery_date_start" name="admin_search_order[shipping_delivery_date_start]" class="datetimepicker-input form-control" data-target="#admin_search_order_shipping_delivery_date_start" data-toggle="datetimepicker" />
+                                    
+                                </div>
+                            </div>
+                            <div class="col-auto text-center">〜</div>
+                            <div class="col">
+                                <div class="input-group">
+                                    <input type="date" id="admin_search_order_shipping_delivery_date_end" name="admin_search_order[shipping_delivery_date_end]" class="datetimepicker-input form-control" data-target="#admin_search_order_shipping_delivery_date_end" data-toggle="datetimepicker" />
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">注文番号</label>
+                        <input type="text" id="admin_search_order_order_no" name="admin_search_order[order_no]" class="form-control" />
+                        
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">購入金額</label>
+                        <div class="form-row align-items-center">
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group"><div class="input-group-prepend">
+                    <span class="input-group-text">￥ </span>
+                </div><input type="text" id="admin_search_order_payment_total_start" name="admin_search_order[payment_total_start]" class="form-control" /></div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-auto text-center">〜</div>
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group"><div class="input-group-prepend">
+                    <span class="input-group-text">￥ </span>
+                </div><input type="text" id="admin_search_order_payment_total_end" name="admin_search_order[payment_total_end]" class="form-control" /></div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <p class="col-form-label">お問い合わせ番号</p>
+                                <input type="text" id="admin_search_order_tracking_number" name="admin_search_order[tracking_number]" class="form-control" />
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">購入商品名</label>
+                        <input type="text" id="admin_search_order_buy_product_name" name="admin_search_order[buy_product_name]" class="form-control" />
+                        
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <p class="col-form-label">出荷メール</p>
+                                <div id="admin_search_order_shipping_mail"><div class="form-check form-check-inline">        <input type="checkbox" id="admin_search_order_shipping_mail_0" name="admin_search_order[shipping_mail][]" class="form-check-input" value="1" />
+        <label class="form-check-label" for="admin_search_order_shipping_mail_0">未送信</label></div><div class="form-check form-check-inline">        <input type="checkbox" id="admin_search_order_shipping_mail_1" name="admin_search_order[shipping_mail][]" class="form-check-input" value="2" />
+        <label class="form-check-label" for="admin_search_order_shipping_mail_1">送信済</label></div></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div>
+
+                                            </div>
+            <div class="c-outsideBlock__contents">
+                <div class="row">
+                    <div class="mb-4">
+                        <div class="col-12">
+                            <button class="btn btn-ec-conversion px-5" type="submit" id="search_submit">検索</button>
+                                                            <span class="font-weight-bold ml-2" id="search_total_count">検索結果：12件が該当しました</span>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="c-outsideBlock__contents mb-5">
+                <ul class="list-inline">
+            <li class="list-inline-item"><span class="font-weight-bold">対応状況:&nbsp;</span>新規受付</li>
+    </ul>
+
+            </div>
+        </form>
+    </div>
+    <!--検索条件設定テーブルここまで-->
+
+    <div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                
+                    <form id="form_bulk" method="POST" action="">
+                        <input type="hidden" name="_token" value="9VwPK7rciEwOtZk9k9ZqZmoSUU6W6hALMRzV7m_lymQ">
+                        <div class="row justify-content-between mb-2">
+                            <div class="col-7">
+                                <div class="row justify-content-between">
+                                    <div class="col-auto d-none btn-bulk-wrapper">
+                                        <label class="mr-2" data-tooltip="true" data-placement="top" title="チェックを入れた受注に対して、一括処理を行います。充分に確認をしてから実行してください。">一括操作<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <button id="bulkSendMail" type="button" class="btn btn-ec-regular mr-2" data-type="mail" data-bulk-update="true">
+                                            メールする
+                                        </button>
+                                        <button type="button" id="bulkExportPdf" class="btn btn-ec-regular mr-2">納品書出力</button>
+                                                                            </div>
+                                    <div class="col d-none btn-bulk-wrapper">
+                                        <div class="d-inline-block mr-2">
+                                            <select class="custom-select" id="option_bulk_status">
+                                                <option value="" selected>対応状況の変更</option>
+                                                                                                    <option value="1">新規受付</option>
+                                                                                                    <option value="6">入金済み</option>
+                                                                                                    <option value="4">対応中</option>
+                                                                                                    <option value="3">注文取消し</option>
+                                                                                                    <option value="5">発送済み</option>
+                                                                                                    <option value="8">購入処理中</option>
+                                                                                                    <option value="7">決済処理中</option>
+                                                                                                    <option value="9">返品</option>
+                                                                                            </select>
+                                        </div>
+                                        <button type="button" id="btn_bulk_status" class="btn btn-ec-regular mr-2 progressModal" data-type="status" data-bulk-update="true" data-submit="bulk">
+                                            決定
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5 text-right">
+                                <div class="d-inline-block">
+                                    <select class="custom-select" onchange="location = this.value;">
+                                                                                    <option                                                     value="/973dA/order/page/1?page_count=10">
+                                                10件</option>
+                                                                                    <option                                                     value="/973dA/order/page/1?page_count=20">
+                                                20件</option>
+                                                                                    <option                                                     value="/973dA/order/page/1?page_count=30">
+                                                30件</option>
+                                                                                    <option                                                     value="/973dA/order/page/1?page_count=40">
+                                                40件</option>
+                                                                                    <option  selected                                                     value="/973dA/order/page/1?page_count=50">
+                                                50件</option>
+                                                                                    <option                                                     value="/973dA/order/page/1?page_count=60">
+                                                60件</option>
+                                                                                    <option                                                     value="/973dA/order/page/1?page_count=70">
+                                                70件</option>
+                                                                                    <option                                                     value="/973dA/order/page/1?page_count=80">
+                                                80件</option>
+                                                                                    <option                                                     value="/973dA/order/page/1?page_count=90">
+                                                90件</option>
+                                                                                    <option                                                     value="/973dA/order/page/1?page_count=100">
+                                                100件</option>
+                                                                            </select>
+                                </div>
+                                <div class="d-inline-block">
+                                    <div class="btn-group" role="group">
+                                        <div class="btn-group" role="group">
+                                            <button type="button" class="btn btn-ec-regular" data-toggle="dropdown" id="csvDownloadDropDown">
+                                                <i class="fa fa-cloud-download mr-1 text-secondary"></i>
+                                                <span>CSVダウンロード</span>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="https://croirecafe.com/973dA/order/export/order" id="orderCsvDownload">
+                                                    受注CSV
+                                                </a>
+                                                <a class="dropdown-item" href="https://croirecafe.com/973dA/order/export/shipping" id="shippingCsvDownload">
+                                                    出荷CSV
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="btn-group" role="group">
+                                            <button type="button" class="btn btn-ec-regular" data-toggle="dropdown" id="csvSettingDropDown">
+                                                <i class="fa fa-cog mr-1 text-secondary"></i>
+                                                <span>CSV出力項目設定</span>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="https://croirecafe.com/973dA/setting/shop/csv" id="orderCsvSetting">
+                                                    受注CSV
+                                                </a>
+                                                <a class="dropdown-item" href="https://croirecafe.com/973dA/setting/shop/csv/4" id="shippingCsvSetting">
+                                                    出荷CSV
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card rounded border-0 mb-4 d-block">
+                            <div class="card-body p-0">
+                                <table class="table table-sm" id="search_result">
+                                    <thead>
+                                    <tr>
+                                        <th class="border-top-0 pt-2 pb-2 text-center pl-3">
+                                            <input type="checkbox" id="toggle_check_all" name="filter" value="open">
+                                        </th>
+                                        
+                                        <th class="border-top-0 pt-2 pb-2 text-center">注文者</th>
+                                        <th class="border-top-0 pt-2 pb-2 text-center">配送ID</th>
+                                        <th class="border-top-0 pt-2 pb-2 text-center">購入商品</th>
+                                        <th class="border-top-0 pt-2 pb-2 text-center">発送予定日</th>
+                                        <th class="border-top-0 pt-2 pb-2 text-center text-nowrap">支払方法</th>
+                                        <th class="border-top-0 pt-2 pb-2 text-center">対応状況</th>
+                                        <th class="border-top-0 pt-2 pb-2 text-center">購入金額</th>
+                                        <th class="border-top-0 pt-2 pb-2 text-center">お問合せ</th>
+                                        <th class="border-top-0 pt-2 pb-2 text-center text-nowrap">出荷状況</th>
+                                        <th class="border-top-0 pt-2 pb-2 text-center">お問い合わせ番号</th>
+                                        <th class="border-top-0 pt-2 pb-2 text-center">お届け先</th>
+                                        <th class="border-top-0 pt-2 pb-2 text-center pr-3"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                                                                                                        <tr>
+                                                <td class="align-middle text-center pl-3">
+                                                    <input type="checkbox" id="check_878" data-id="878" name="ids[]" value="878"
+                                                           data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/878"
+                                                           data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/878"
+                                                           data-update-status-url="https://croirecafe.com/973dA/shipping/878/order_status"
+                                                    />
+                                                </td>
+                                                
+                                                <td class="align-middle text-left">
+                                                    <a class="action-edit" href="https://croirecafe.com/973dA/order/111114218/edit">111114218<br>樋口朋子<br>2020/05/20 14:26</a>
+                                                </td>
+                                                
+                                                <!-- !! 配送ID -->
+                                                <td class="align-middle text-center">
+	                                                878
+                                                </td>
+                                                <td class="align-middle text-left">
+	                                                <ul class="order-index-itemlist">
+																											<li data-product_code="3101572" data-quantity="1">※[初回お試し価格]クロワールプロバイオティクス12<i>1</i></li>
+																										</ul>
+                                                </td>
+                                                
+                                                 <!-- !! お届け予定日 -->
+                                                <td class="align-middle text-center">
+	                                                
+	                                            </td>
+                                                
+                                                
+                                                
+                                                <td class="align-middle text-center">
+                                                    クレジットカード
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: #437ec4; border-color: #437ec4">新規受付</span>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    ￥5,658<br>
+                                                    未入金
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                                                                    </td>
+                                                <td class="align-middle text-center">
+                                                                                                            未出荷
+                                                                                                                                                        </td>
+                                                <td class="align-middle text-center">
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="text" id="tracking_number_878" class="form-control update_tracking_number" placeholder="お問い合わせ番号" value="" data-shipping_id="878" data-url="https://croirecafe.com/973dA/shipping/878/tracking_number" tabindex="1"/>
+                                                        <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default update_tracking_number" data-target="#tracking_number_878">
+                                                        <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                    </button>
+                                                </span>
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    樋口朋子<br>
+                                                    埼玉県
+                                                </td>
+                                                <td class="align-middle pr-3">
+                                                    <div class="text-right">
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal"
+                                                               data-type="mail" data-bulk-update="false"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/878"
+                                                               data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/878"
+                                                               data-tooltip="true" data-placement="top" title="出荷メール送信">
+                                                                <i class="fa fa-send fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon pdf-print" href="https://croirecafe.com/973dA/order/export/pdf?ids[]=878" data-tooltip="true" data-placement="top" title="納品書出力">
+                                                                <i class="fa fa-table fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal" href="javascript:;"
+                                                               data-id="878" data-type="status" data-bulk-update="false"
+                                                               data-update-status-id="5"
+                                                               data-update-status-url="https://croirecafe.com/973dA/shipping/878/order_status"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/878"
+                                                               data-tooltip="true" data-placement="top" title data-original-title="出荷済にする">
+                                                                <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                                                                                                                                <tr>
+                                                <td class="align-middle text-center pl-3">
+                                                    <input type="checkbox" id="check_872" data-id="872" name="ids[]" value="872"
+                                                           data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/872"
+                                                           data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/872"
+                                                           data-update-status-url="https://croirecafe.com/973dA/shipping/872/order_status"
+                                                    />
+                                                </td>
+                                                
+                                                <td class="align-middle text-left">
+                                                    <a class="action-edit" href="https://croirecafe.com/973dA/order/111114212/edit">111114212<br>奥森まゆみ<br>2020/05/17 14:56</a>
+                                                </td>
+                                                
+                                                <!-- !! 配送ID -->
+                                                <td class="align-middle text-center">
+	                                                872
+                                                </td>
+                                                <td class="align-middle text-left">
+	                                                <ul class="order-index-itemlist">
+																											<li data-product_code="3101572" data-quantity="1">[定期購入価格・30%OFF]クロワールプロバイオティクス12<i>1</i></li>
+																										</ul>
+                                                </td>
+                                                
+                                                 <!-- !! お届け予定日 -->
+                                                <td class="align-middle text-center">
+	                                                2020/06/01
+	                                            </td>
+                                                
+                                                
+                                                
+                                                <td class="align-middle text-center">
+                                                    後払い（コンビニ・郵便局・銀行）
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: #437ec4; border-color: #437ec4">新規受付</span>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    ￥3,888<br>
+                                                    未入金
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                                                                    </td>
+                                                <td class="align-middle text-center">
+                                                                                                            未出荷
+                                                                                                                                                        </td>
+                                                <td class="align-middle text-center">
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="text" id="tracking_number_872" class="form-control update_tracking_number" placeholder="お問い合わせ番号" value="" data-shipping_id="872" data-url="https://croirecafe.com/973dA/shipping/872/tracking_number" tabindex="1"/>
+                                                        <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default update_tracking_number" data-target="#tracking_number_872">
+                                                        <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                    </button>
+                                                </span>
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    奥森まゆみ<br>
+                                                    東京都
+                                                </td>
+                                                <td class="align-middle pr-3">
+                                                    <div class="text-right">
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal"
+                                                               data-type="mail" data-bulk-update="false"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/872"
+                                                               data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/872"
+                                                               data-tooltip="true" data-placement="top" title="出荷メール送信">
+                                                                <i class="fa fa-send fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon pdf-print" href="https://croirecafe.com/973dA/order/export/pdf?ids[]=872" data-tooltip="true" data-placement="top" title="納品書出力">
+                                                                <i class="fa fa-table fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal" href="javascript:;"
+                                                               data-id="872" data-type="status" data-bulk-update="false"
+                                                               data-update-status-id="5"
+                                                               data-update-status-url="https://croirecafe.com/973dA/shipping/872/order_status"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/872"
+                                                               data-tooltip="true" data-placement="top" title data-original-title="出荷済にする">
+                                                                <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                                                                                                                                <tr>
+                                                <td class="align-middle text-center pl-3">
+                                                    <input type="checkbox" id="check_866" data-id="866" name="ids[]" value="866"
+                                                           data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/866"
+                                                           data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/866"
+                                                           data-update-status-url="https://croirecafe.com/973dA/shipping/866/order_status"
+                                                    />
+                                                </td>
+                                                
+                                                <td class="align-middle text-left">
+                                                    <a class="action-edit" href="https://croirecafe.com/973dA/order/111114206/edit">111114206<br>田中優作<br>2020/05/16 21:01</a>
+                                                </td>
+                                                
+                                                <!-- !! 配送ID -->
+                                                <td class="align-middle text-center">
+	                                                866
+                                                </td>
+                                                <td class="align-middle text-left">
+	                                                <ul class="order-index-itemlist">
+																											<li data-product_code="3101572" data-quantity="1">[定期購入価格・30%OFF]クロワールプロバイオティクス12<i>1</i></li>
+																										</ul>
+                                                </td>
+                                                
+                                                 <!-- !! お届け予定日 -->
+                                                <td class="align-middle text-center">
+	                                                2020/06/01
+	                                            </td>
+                                                
+                                                
+                                                
+                                                <td class="align-middle text-center">
+                                                    クレジットカード
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: #437ec4; border-color: #437ec4">新規受付</span>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    ￥3,888<br>
+                                                    未入金
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                                                                    </td>
+                                                <td class="align-middle text-center">
+                                                                                                            未出荷
+                                                                                                                                                        </td>
+                                                <td class="align-middle text-center">
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="text" id="tracking_number_866" class="form-control update_tracking_number" placeholder="お問い合わせ番号" value="" data-shipping_id="866" data-url="https://croirecafe.com/973dA/shipping/866/tracking_number" tabindex="1"/>
+                                                        <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default update_tracking_number" data-target="#tracking_number_866">
+                                                        <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                    </button>
+                                                </span>
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    田中優作<br>
+                                                    山口県
+                                                </td>
+                                                <td class="align-middle pr-3">
+                                                    <div class="text-right">
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal"
+                                                               data-type="mail" data-bulk-update="false"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/866"
+                                                               data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/866"
+                                                               data-tooltip="true" data-placement="top" title="出荷メール送信">
+                                                                <i class="fa fa-send fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon pdf-print" href="https://croirecafe.com/973dA/order/export/pdf?ids[]=866" data-tooltip="true" data-placement="top" title="納品書出力">
+                                                                <i class="fa fa-table fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal" href="javascript:;"
+                                                               data-id="866" data-type="status" data-bulk-update="false"
+                                                               data-update-status-id="5"
+                                                               data-update-status-url="https://croirecafe.com/973dA/shipping/866/order_status"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/866"
+                                                               data-tooltip="true" data-placement="top" title data-original-title="出荷済にする">
+                                                                <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                                                                                                                                <tr>
+                                                <td class="align-middle text-center pl-3">
+                                                    <input type="checkbox" id="check_864" data-id="864" name="ids[]" value="864"
+                                                           data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/864"
+                                                           data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/864"
+                                                           data-update-status-url="https://croirecafe.com/973dA/shipping/864/order_status"
+                                                    />
+                                                </td>
+                                                
+                                                <td class="align-middle text-left">
+                                                    <a class="action-edit" href="https://croirecafe.com/973dA/order/111114204/edit">111114204<br>奥田千奈美<br>2020/05/16 8:53</a>
+                                                </td>
+                                                
+                                                <!-- !! 配送ID -->
+                                                <td class="align-middle text-center">
+	                                                864
+                                                </td>
+                                                <td class="align-middle text-left">
+	                                                <ul class="order-index-itemlist">
+																											<li data-product_code="3101572" data-quantity="1">[定期購入価格・30%OFF]クロワールプロバイオティクス12<i>1</i></li>
+																										</ul>
+                                                </td>
+                                                
+                                                 <!-- !! お届け予定日 -->
+                                                <td class="align-middle text-center">
+	                                                2020/06/15
+	                                            </td>
+                                                
+                                                
+                                                
+                                                <td class="align-middle text-center">
+                                                    クレジットカード
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: #437ec4; border-color: #437ec4">新規受付</span>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    ￥3,388<br>
+                                                    未入金
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                                                                    </td>
+                                                <td class="align-middle text-center">
+                                                                                                            未出荷
+                                                                                                                                                        </td>
+                                                <td class="align-middle text-center">
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="text" id="tracking_number_864" class="form-control update_tracking_number" placeholder="お問い合わせ番号" value="" data-shipping_id="864" data-url="https://croirecafe.com/973dA/shipping/864/tracking_number" tabindex="1"/>
+                                                        <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default update_tracking_number" data-target="#tracking_number_864">
+                                                        <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                    </button>
+                                                </span>
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    奥田千奈美<br>
+                                                    兵庫県
+                                                </td>
+                                                <td class="align-middle pr-3">
+                                                    <div class="text-right">
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal"
+                                                               data-type="mail" data-bulk-update="false"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/864"
+                                                               data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/864"
+                                                               data-tooltip="true" data-placement="top" title="出荷メール送信">
+                                                                <i class="fa fa-send fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon pdf-print" href="https://croirecafe.com/973dA/order/export/pdf?ids[]=864" data-tooltip="true" data-placement="top" title="納品書出力">
+                                                                <i class="fa fa-table fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal" href="javascript:;"
+                                                               data-id="864" data-type="status" data-bulk-update="false"
+                                                               data-update-status-id="5"
+                                                               data-update-status-url="https://croirecafe.com/973dA/shipping/864/order_status"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/864"
+                                                               data-tooltip="true" data-placement="top" title data-original-title="出荷済にする">
+                                                                <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                                                                                                                                <tr>
+                                                <td class="align-middle text-center pl-3">
+                                                    <input type="checkbox" id="check_859" data-id="859" name="ids[]" value="859"
+                                                           data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/859"
+                                                           data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/859"
+                                                           data-update-status-url="https://croirecafe.com/973dA/shipping/859/order_status"
+                                                    />
+                                                </td>
+                                                
+                                                <td class="align-middle text-left">
+                                                    <a class="action-edit" href="https://croirecafe.com/973dA/order/111114199/edit">111114199<br>石井千里<br>2020/05/13 9:49</a>
+                                                </td>
+                                                
+                                                <!-- !! 配送ID -->
+                                                <td class="align-middle text-center">
+	                                                859
+                                                </td>
+                                                <td class="align-middle text-left">
+	                                                <ul class="order-index-itemlist">
+																											<li data-product_code="3101572" data-quantity="1">[定期購入価格・30%OFF]クロワールプロバイオティクス12<i>1</i></li>
+																										</ul>
+                                                </td>
+                                                
+                                                 <!-- !! お届け予定日 -->
+                                                <td class="align-middle text-center">
+	                                                2020/06/01
+	                                            </td>
+                                                
+                                                
+                                                
+                                                <td class="align-middle text-center">
+                                                    クレジットカード
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: #437ec4; border-color: #437ec4">新規受付</span>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    ￥3,388<br>
+                                                    未入金
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                                                                    </td>
+                                                <td class="align-middle text-center">
+                                                                                                            未出荷
+                                                                                                                                                        </td>
+                                                <td class="align-middle text-center">
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="text" id="tracking_number_859" class="form-control update_tracking_number" placeholder="お問い合わせ番号" value="" data-shipping_id="859" data-url="https://croirecafe.com/973dA/shipping/859/tracking_number" tabindex="1"/>
+                                                        <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default update_tracking_number" data-target="#tracking_number_859">
+                                                        <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                    </button>
+                                                </span>
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    石井千里<br>
+                                                    京都府
+                                                </td>
+                                                <td class="align-middle pr-3">
+                                                    <div class="text-right">
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal"
+                                                               data-type="mail" data-bulk-update="false"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/859"
+                                                               data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/859"
+                                                               data-tooltip="true" data-placement="top" title="出荷メール送信">
+                                                                <i class="fa fa-send fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon pdf-print" href="https://croirecafe.com/973dA/order/export/pdf?ids[]=859" data-tooltip="true" data-placement="top" title="納品書出力">
+                                                                <i class="fa fa-table fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal" href="javascript:;"
+                                                               data-id="859" data-type="status" data-bulk-update="false"
+                                                               data-update-status-id="5"
+                                                               data-update-status-url="https://croirecafe.com/973dA/shipping/859/order_status"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/859"
+                                                               data-tooltip="true" data-placement="top" title data-original-title="出荷済にする">
+                                                                <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                                                                                                                                <tr>
+                                                <td class="align-middle text-center pl-3">
+                                                    <input type="checkbox" id="check_857" data-id="857" name="ids[]" value="857"
+                                                           data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/857"
+                                                           data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/857"
+                                                           data-update-status-url="https://croirecafe.com/973dA/shipping/857/order_status"
+                                                    />
+                                                </td>
+                                                
+                                                <td class="align-middle text-left">
+                                                    <a class="action-edit" href="https://croirecafe.com/973dA/order/111114197/edit">111114197<br>小松千秋<br>2020/05/11 21:25</a>
+                                                </td>
+                                                
+                                                <!-- !! 配送ID -->
+                                                <td class="align-middle text-center">
+	                                                857
+                                                </td>
+                                                <td class="align-middle text-left">
+	                                                <ul class="order-index-itemlist">
+																											<li data-product_code="3101572" data-quantity="1">[定期購入価格・30%OFF]クロワールプロバイオティクス12<i>1</i></li>
+																										</ul>
+                                                </td>
+                                                
+                                                 <!-- !! お届け予定日 -->
+                                                <td class="align-middle text-center">
+	                                                2020/06/01
+	                                            </td>
+                                                
+                                                
+                                                
+                                                <td class="align-middle text-center">
+                                                    クレジットカード
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: #437ec4; border-color: #437ec4">新規受付</span>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    ￥3,388<br>
+                                                    未入金
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                                                                    </td>
+                                                <td class="align-middle text-center">
+                                                                                                            未出荷
+                                                                                                                                                        </td>
+                                                <td class="align-middle text-center">
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="text" id="tracking_number_857" class="form-control update_tracking_number" placeholder="お問い合わせ番号" value="" data-shipping_id="857" data-url="https://croirecafe.com/973dA/shipping/857/tracking_number" tabindex="1"/>
+                                                        <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default update_tracking_number" data-target="#tracking_number_857">
+                                                        <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                    </button>
+                                                </span>
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    小松千秋<br>
+                                                    福島県
+                                                </td>
+                                                <td class="align-middle pr-3">
+                                                    <div class="text-right">
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal"
+                                                               data-type="mail" data-bulk-update="false"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/857"
+                                                               data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/857"
+                                                               data-tooltip="true" data-placement="top" title="出荷メール送信">
+                                                                <i class="fa fa-send fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon pdf-print" href="https://croirecafe.com/973dA/order/export/pdf?ids[]=857" data-tooltip="true" data-placement="top" title="納品書出力">
+                                                                <i class="fa fa-table fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal" href="javascript:;"
+                                                               data-id="857" data-type="status" data-bulk-update="false"
+                                                               data-update-status-id="5"
+                                                               data-update-status-url="https://croirecafe.com/973dA/shipping/857/order_status"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/857"
+                                                               data-tooltip="true" data-placement="top" title data-original-title="出荷済にする">
+                                                                <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                                                                                                                                <tr>
+                                                <td class="align-middle text-center pl-3">
+                                                    <input type="checkbox" id="check_773" data-id="773" name="ids[]" value="773"
+                                                           data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/773"
+                                                           data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/773"
+                                                           data-update-status-url="https://croirecafe.com/973dA/shipping/773/order_status"
+                                                    />
+                                                </td>
+                                                
+                                                <td class="align-middle text-left">
+                                                    <a class="action-edit" href="https://croirecafe.com/973dA/order/111114113/edit">111114113<br>黒澤由起<br>2020/04/25 14:17</a>
+                                                </td>
+                                                
+                                                <!-- !! 配送ID -->
+                                                <td class="align-middle text-center">
+	                                                773
+                                                </td>
+                                                <td class="align-middle text-left">
+	                                                <ul class="order-index-itemlist">
+																											<li data-product_code="3101581" data-quantity="1">[定期購入価格・初回50%OFF]クロワールアイ・Q<i>1</i></li>
+																											<li data-product_code="4101581" data-quantity="1">【リーフレット｜定期会員様】クロワールアイ・Q<i>1</i></li>
+																										</ul>
+                                                </td>
+                                                
+                                                 <!-- !! お届け予定日 -->
+                                                <td class="align-middle text-center">
+	                                                2020/05/15
+	                                            </td>
+                                                
+                                                
+                                                
+                                                <td class="align-middle text-center">
+                                                    クレジットカード
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: #437ec4; border-color: #437ec4">新規受付</span>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    ￥1,990<br>
+                                                    未入金
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                                                                    </td>
+                                                <td class="align-middle text-center">
+                                                                                                            未出荷
+                                                                                                                                                        </td>
+                                                <td class="align-middle text-center">
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="text" id="tracking_number_773" class="form-control update_tracking_number" placeholder="お問い合わせ番号" value="" data-shipping_id="773" data-url="https://croirecafe.com/973dA/shipping/773/tracking_number" tabindex="1"/>
+                                                        <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default update_tracking_number" data-target="#tracking_number_773">
+                                                        <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                    </button>
+                                                </span>
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    黒澤由起<br>
+                                                    東京都
+                                                </td>
+                                                <td class="align-middle pr-3">
+                                                    <div class="text-right">
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal"
+                                                               data-type="mail" data-bulk-update="false"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/773"
+                                                               data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/773"
+                                                               data-tooltip="true" data-placement="top" title="出荷メール送信">
+                                                                <i class="fa fa-send fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon pdf-print" href="https://croirecafe.com/973dA/order/export/pdf?ids[]=773" data-tooltip="true" data-placement="top" title="納品書出力">
+                                                                <i class="fa fa-table fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal" href="javascript:;"
+                                                               data-id="773" data-type="status" data-bulk-update="false"
+                                                               data-update-status-id="5"
+                                                               data-update-status-url="https://croirecafe.com/973dA/shipping/773/order_status"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/773"
+                                                               data-tooltip="true" data-placement="top" title data-original-title="出荷済にする">
+                                                                <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                                                                                                                                <tr>
+                                                <td class="align-middle text-center pl-3">
+                                                    <input type="checkbox" id="check_776" data-id="776" name="ids[]" value="776"
+                                                           data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/776"
+                                                           data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/776"
+                                                           data-update-status-url="https://croirecafe.com/973dA/shipping/776/order_status"
+                                                    />
+                                                </td>
+                                                
+                                                <td class="align-middle text-left">
+                                                    <a class="action-edit" href="https://croirecafe.com/973dA/order/111114116/edit">111114116<br>黒澤由起<br>2020/04/25 15:02</a>
+                                                </td>
+                                                
+                                                <!-- !! 配送ID -->
+                                                <td class="align-middle text-center">
+	                                                776
+                                                </td>
+                                                <td class="align-middle text-left">
+	                                                <ul class="order-index-itemlist">
+																											<li data-product_code="3101569" data-quantity="1">[定期購入価格・初回50%OFF]緑のDHA&amp;EPA+ゴールデンユーグレナ<i>1</i></li>
+																											<li data-product_code="4101569" data-quantity="1">【リーフレット｜定期会員様】緑のDHA＆EPA＋ｺﾞｰﾙﾃﾞﾝﾕｰｸﾞﾚﾅ<i>1</i></li>
+																										</ul>
+                                                </td>
+                                                
+                                                 <!-- !! お届け予定日 -->
+                                                <td class="align-middle text-center">
+	                                                2020/05/15
+	                                            </td>
+                                                
+                                                
+                                                
+                                                <td class="align-middle text-center">
+                                                    クレジットカード
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: #437ec4; border-color: #437ec4">新規受付</span>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    ￥1,350<br>
+                                                    未入金
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                                                                    </td>
+                                                <td class="align-middle text-center">
+                                                                                                            未出荷
+                                                                                                                                                        </td>
+                                                <td class="align-middle text-center">
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="text" id="tracking_number_776" class="form-control update_tracking_number" placeholder="お問い合わせ番号" value="" data-shipping_id="776" data-url="https://croirecafe.com/973dA/shipping/776/tracking_number" tabindex="1"/>
+                                                        <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default update_tracking_number" data-target="#tracking_number_776">
+                                                        <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                    </button>
+                                                </span>
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    黒澤由起<br>
+                                                    東京都
+                                                </td>
+                                                <td class="align-middle pr-3">
+                                                    <div class="text-right">
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal"
+                                                               data-type="mail" data-bulk-update="false"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/776"
+                                                               data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/776"
+                                                               data-tooltip="true" data-placement="top" title="出荷メール送信">
+                                                                <i class="fa fa-send fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon pdf-print" href="https://croirecafe.com/973dA/order/export/pdf?ids[]=776" data-tooltip="true" data-placement="top" title="納品書出力">
+                                                                <i class="fa fa-table fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal" href="javascript:;"
+                                                               data-id="776" data-type="status" data-bulk-update="false"
+                                                               data-update-status-id="5"
+                                                               data-update-status-url="https://croirecafe.com/973dA/shipping/776/order_status"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/776"
+                                                               data-tooltip="true" data-placement="top" title data-original-title="出荷済にする">
+                                                                <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                                                                                                                                <tr>
+                                                <td class="align-middle text-center pl-3">
+                                                    <input type="checkbox" id="check_808" data-id="808" name="ids[]" value="808"
+                                                           data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/808"
+                                                           data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/808"
+                                                           data-update-status-url="https://croirecafe.com/973dA/shipping/808/order_status"
+                                                    />
+                                                </td>
+                                                
+                                                <td class="align-middle text-left">
+                                                    <a class="action-edit" href="https://croirecafe.com/973dA/order/111114148/edit">111114148<br>青柳匡宣<br>2020/05/06 16:53</a>
+                                                </td>
+                                                
+                                                <!-- !! 配送ID -->
+                                                <td class="align-middle text-center">
+	                                                808
+                                                </td>
+                                                <td class="align-middle text-left">
+	                                                <ul class="order-index-itemlist">
+																											<li data-product_code="3101569" data-quantity="1">[定期購入価格・初回50%OFF]緑のDHA&amp;EPA+ゴールデンユーグレナ<i>1</i></li>
+																											<li data-product_code="4101569" data-quantity="1">【リーフレット｜定期会員様】緑のDHA＆EPA＋ｺﾞｰﾙﾃﾞﾝﾕｰｸﾞﾚﾅ<i>1</i></li>
+																										</ul>
+                                                </td>
+                                                
+                                                 <!-- !! お届け予定日 -->
+                                                <td class="align-middle text-center">
+	                                                2020/06/01
+	                                            </td>
+                                                
+                                                
+                                                
+                                                <td class="align-middle text-center">
+                                                    クレジットカード
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: #437ec4; border-color: #437ec4">新規受付</span>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    ￥1,350<br>
+                                                    未入金
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                                                                            <a class="btn btn-ec-actionIcon" href="https://croirecafe.com/973dA/order/111114148/edit#order_note" data-tooltip="true" data-placement="top" title="" data-original-title="ポイント　194／メルマガ受信　受信しない" aria-describedby="tooltip819464">
+                                                            <i class="fa fa-commenting fa-lg text-secondary" aria-hidden="true"></i>
+                                                        </a>
+                                                                                                    </td>
+                                                <td class="align-middle text-center">
+                                                                                                            未出荷
+                                                                                                                                                        </td>
+                                                <td class="align-middle text-center">
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="text" id="tracking_number_808" class="form-control update_tracking_number" placeholder="お問い合わせ番号" value="" data-shipping_id="808" data-url="https://croirecafe.com/973dA/shipping/808/tracking_number" tabindex="1"/>
+                                                        <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default update_tracking_number" data-target="#tracking_number_808">
+                                                        <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                    </button>
+                                                </span>
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    青柳匡宣<br>
+                                                    栃木県
+                                                </td>
+                                                <td class="align-middle pr-3">
+                                                    <div class="text-right">
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal"
+                                                               data-type="mail" data-bulk-update="false"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/808"
+                                                               data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/808"
+                                                               data-tooltip="true" data-placement="top" title="出荷メール送信">
+                                                                <i class="fa fa-send fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon pdf-print" href="https://croirecafe.com/973dA/order/export/pdf?ids[]=808" data-tooltip="true" data-placement="top" title="納品書出力">
+                                                                <i class="fa fa-table fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal" href="javascript:;"
+                                                               data-id="808" data-type="status" data-bulk-update="false"
+                                                               data-update-status-id="5"
+                                                               data-update-status-url="https://croirecafe.com/973dA/shipping/808/order_status"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/808"
+                                                               data-tooltip="true" data-placement="top" title data-original-title="出荷済にする">
+                                                                <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                                                                                                                                <tr>
+                                                <td class="align-middle text-center pl-3">
+                                                    <input type="checkbox" id="check_516" data-id="516" name="ids[]" value="516"
+                                                           data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/516"
+                                                           data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/516"
+                                                           data-update-status-url="https://croirecafe.com/973dA/shipping/516/order_status"
+                                                    />
+                                                </td>
+                                                
+                                                <td class="align-middle text-left">
+                                                    <a class="action-edit" href="https://croirecafe.com/973dA/order/111113855/edit">111113855<br>樫山郁代<br>2020/03/24 18:51</a>
+                                                </td>
+                                                
+                                                <!-- !! 配送ID -->
+                                                <td class="align-middle text-center">
+	                                                516
+                                                </td>
+                                                <td class="align-middle text-left">
+	                                                <ul class="order-index-itemlist">
+																											<li data-product_code="3101572" data-quantity="1">[定期購入価格・30%OFF]クロワールプロバイオティクス12<i>1</i></li>
+																										</ul>
+                                                </td>
+                                                
+                                                 <!-- !! お届け予定日 -->
+                                                <td class="align-middle text-center">
+	                                                2020/04/01
+	                                            </td>
+                                                
+                                                
+                                                
+                                                <td class="align-middle text-center">
+                                                    クレジットカード
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: #437ec4; border-color: #437ec4">新規受付</span>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    ￥3,888<br>
+                                                    2020/02/03
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                                                                            <a class="btn btn-ec-actionIcon" href="https://croirecafe.com/973dA/order/111113855/edit#order_note" data-tooltip="true" data-placement="top" title="" data-original-title="ポイント　0（6809）／定期購入　D(23) N(21)／支払い方法　CC／メルマガ受信　受信する" aria-describedby="tooltip819464">
+                                                            <i class="fa fa-commenting fa-lg text-secondary" aria-hidden="true"></i>
+                                                        </a>
+                                                                                                    </td>
+                                                <td class="align-middle text-center">
+                                                                                                            未出荷
+                                                                                                                                                        </td>
+                                                <td class="align-middle text-center">
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="text" id="tracking_number_516" class="form-control update_tracking_number" placeholder="お問い合わせ番号" value="" data-shipping_id="516" data-url="https://croirecafe.com/973dA/shipping/516/tracking_number" tabindex="1"/>
+                                                        <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default update_tracking_number" data-target="#tracking_number_516">
+                                                        <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                    </button>
+                                                </span>
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    樫山郁代<br>
+                                                    神奈川県
+                                                </td>
+                                                <td class="align-middle pr-3">
+                                                    <div class="text-right">
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal"
+                                                               data-type="mail" data-bulk-update="false"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/516"
+                                                               data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/516"
+                                                               data-tooltip="true" data-placement="top" title="出荷メール送信">
+                                                                <i class="fa fa-send fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon pdf-print" href="https://croirecafe.com/973dA/order/export/pdf?ids[]=516" data-tooltip="true" data-placement="top" title="納品書出力">
+                                                                <i class="fa fa-table fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal" href="javascript:;"
+                                                               data-id="516" data-type="status" data-bulk-update="false"
+                                                               data-update-status-id="5"
+                                                               data-update-status-url="https://croirecafe.com/973dA/shipping/516/order_status"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/516"
+                                                               data-tooltip="true" data-placement="top" title data-original-title="出荷済にする">
+                                                                <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                                                                                                                                <tr>
+                                                <td class="align-middle text-center pl-3">
+                                                    <input type="checkbox" id="check_463" data-id="463" name="ids[]" value="463"
+                                                           data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/463"
+                                                           data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/463"
+                                                           data-update-status-url="https://croirecafe.com/973dA/shipping/463/order_status"
+                                                    />
+                                                </td>
+                                                
+                                                <td class="align-middle text-left">
+                                                    <a class="action-edit" href="https://croirecafe.com/973dA/order/111113801/edit">111113801<br>下村彩紗<br>2020/03/05 4:24</a>
+                                                </td>
+                                                
+                                                <!-- !! 配送ID -->
+                                                <td class="align-middle text-center">
+	                                                463
+                                                </td>
+                                                <td class="align-middle text-left">
+	                                                <ul class="order-index-itemlist">
+																											<li data-product_code="3101561" data-quantity="1">[定期購入価格・継続価格1]プレミアムクロワール茶<i>1</i></li>
+																										</ul>
+                                                </td>
+                                                
+                                                 <!-- !! お届け予定日 -->
+                                                <td class="align-middle text-center">
+	                                                2020/07/15
+	                                            </td>
+                                                
+                                                
+                                                
+                                                <td class="align-middle text-center">
+                                                    クレジットカード
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: #437ec4; border-color: #437ec4">新規受付</span>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    ￥1,950<br>
+                                                    未入金
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                                                                            <a class="btn btn-ec-actionIcon" href="https://croirecafe.com/973dA/order/111113801/edit#order_note" data-tooltip="true" data-placement="top" title="" data-original-title="ポイント　1865／定期購入　T(6)／支払い方法　CC／メルマガ受信　受信しない
+2019/12/18　2020年1月.2月.3月お休み" aria-describedby="tooltip819464">
+                                                            <i class="fa fa-commenting fa-lg text-secondary" aria-hidden="true"></i>
+                                                        </a>
+                                                                                                    </td>
+                                                <td class="align-middle text-center">
+                                                                                                            未出荷
+                                                                                                                                                        </td>
+                                                <td class="align-middle text-center">
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="text" id="tracking_number_463" class="form-control update_tracking_number" placeholder="お問い合わせ番号" value="" data-shipping_id="463" data-url="https://croirecafe.com/973dA/shipping/463/tracking_number" tabindex="1"/>
+                                                        <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default update_tracking_number" data-target="#tracking_number_463">
+                                                        <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                    </button>
+                                                </span>
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    下村彩紗<br>
+                                                    和歌山県
+                                                </td>
+                                                <td class="align-middle pr-3">
+                                                    <div class="text-right">
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal"
+                                                               data-type="mail" data-bulk-update="false"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/463"
+                                                               data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/463"
+                                                               data-tooltip="true" data-placement="top" title="出荷メール送信">
+                                                                <i class="fa fa-send fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon pdf-print" href="https://croirecafe.com/973dA/order/export/pdf?ids[]=463" data-tooltip="true" data-placement="top" title="納品書出力">
+                                                                <i class="fa fa-table fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal" href="javascript:;"
+                                                               data-id="463" data-type="status" data-bulk-update="false"
+                                                               data-update-status-id="5"
+                                                               data-update-status-url="https://croirecafe.com/973dA/shipping/463/order_status"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/463"
+                                                               data-tooltip="true" data-placement="top" title data-original-title="出荷済にする">
+                                                                <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                                                                                                                                <tr>
+                                                <td class="align-middle text-center pl-3">
+                                                    <input type="checkbox" id="check_414" data-id="414" name="ids[]" value="414"
+                                                           data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/414"
+                                                           data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/414"
+                                                           data-update-status-url="https://croirecafe.com/973dA/shipping/414/order_status"
+                                                    />
+                                                </td>
+                                                
+                                                <td class="align-middle text-left">
+                                                    <a class="action-edit" href="https://croirecafe.com/973dA/order/111113749/edit">111113749<br>葉狩達也<br>2020/02/24 13:59</a>
+                                                </td>
+                                                
+                                                <!-- !! 配送ID -->
+                                                <td class="align-middle text-center">
+	                                                414
+                                                </td>
+                                                <td class="align-middle text-left">
+	                                                <ul class="order-index-itemlist">
+																											<li data-product_code="3101558" data-quantity="2">[定期購入価格・継続価格1]クロワールアイ・プロ<i>2</i></li>
+																										</ul>
+                                                </td>
+                                                
+                                                 <!-- !! お届け予定日 -->
+                                                <td class="align-middle text-center">
+	                                                2020/06/01
+	                                            </td>
+                                                
+                                                
+                                                
+                                                <td class="align-middle text-center">
+                                                    クレジットカード
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: #437ec4; border-color: #437ec4">新規受付</span>
+                                                </td>
+                                                <td class="align-middle text-right">
+                                                    ￥5,572<br>
+                                                    未入金
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                                                                            <a class="btn btn-ec-actionIcon" href="https://croirecafe.com/973dA/order/111113749/edit#order_note" data-tooltip="true" data-placement="top" title="" data-original-title="ポイント　797（6369）／定期購入　T(5)　P(14)／支払い方法　CC／メルマガ受信　受信しない
+2019/10/1  お茶解約の連絡あり/￥1755返金処理
+66515695　　クレジット決済会員ＩＤ
+11月12月1月お休み" aria-describedby="tooltip819464">
+                                                            <i class="fa fa-commenting fa-lg text-secondary" aria-hidden="true"></i>
+                                                        </a>
+                                                                                                    </td>
+                                                <td class="align-middle text-center">
+                                                                                                            未出荷
+                                                                                                                                                        </td>
+                                                <td class="align-middle text-center">
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="text" id="tracking_number_414" class="form-control update_tracking_number" placeholder="お問い合わせ番号" value="" data-shipping_id="414" data-url="https://croirecafe.com/973dA/shipping/414/tracking_number" tabindex="1"/>
+                                                        <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default update_tracking_number" data-target="#tracking_number_414">
+                                                        <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                    </button>
+                                                </span>
+                                                    </div>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    葉狩達也<br>
+                                                    兵庫県
+                                                </td>
+                                                <td class="align-middle pr-3">
+                                                    <div class="text-right">
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal"
+                                                               data-type="mail" data-bulk-update="false"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/414"
+                                                               data-notify-mail-url="https://croirecafe.com/973dA/shipping/notify_mail/414"
+                                                               data-tooltip="true" data-placement="top" title="出荷メール送信">
+                                                                <i class="fa fa-send fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon pdf-print" href="https://croirecafe.com/973dA/order/export/pdf?ids[]=414" data-tooltip="true" data-placement="top" title="納品書出力">
+                                                                <i class="fa fa-table fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="px-1 d-inline-block">
+                                                            <a class="btn btn-ec-actionIcon confirmationModal" href="javascript:;"
+                                                               data-id="414" data-type="status" data-bulk-update="false"
+                                                               data-update-status-id="5"
+                                                               data-update-status-url="https://croirecafe.com/973dA/shipping/414/order_status"
+                                                               data-preview-notify-mail-url="https://croirecafe.com/973dA/shipping/preview_notify_mail/414"
+                                                               data-tooltip="true" data-placement="top" title data-original-title="出荷済にする">
+                                                                <i class="fa fa-check fa-lg text-secondary" aria-hidden="true"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                                                                                                </tbody>
+                                </table>
+                                <div class="row justify-content-md-center mb-4"></div>
+                            </div>
+                            <div class="row justify-content-md-center mb-4">
+                                                                                                                                </div>
+                        </div>
+                    </form>
+                                    
+                <!-- 出荷済にする確認モーダル -->
+                <div class="modal fade" id="sentUpdateModal" tabindex="-1" role="dialog" aria-labelledby="sentUpdateModal" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title font-weight-bold"><!--confirmationModal_js.twig--></h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="modal-message"></p>
+                                <ul id="bulkErrors"></ul>
+                                <div id="bulk-options">
+                                    <div class="font-weight-bold mb-2 notificationMail">メールの送信</div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="notificationMail">
+                                        <label class="form-check-label notificationMail">
+                                            出荷お知らせメールを同時に送る
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <div class="d-inline-block" data-toggle="collapse" href="#viewEmail" aria-expanded="false" aria-controls="viewEmail"><a><i class="fa fa-plus-square-o font-weight-bold mr-1"></i><span class="font-weight-bold">メールの文面を確認</span></a></div>
+                                        <div class="collapse bg-light p-4 ec-collapse bg-ec-formGray" id="viewEmail" style="word-wrap: break-word; word-break:break-all">
+                                            <pre></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="progress" style="display: none">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-ec-sub" type="button" data-dismiss="modal">キャンセル</button>
+                                <button id="bulkChange" class="btn btn-ec-conversion" type="button"><!--confirmationModal_js.twig--></button>
+                                <button id="bulkChangeComplete" class="btn btn-ec-regular" style="display: none" type="button">閉じる</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 一括削除の確認モーダル -->
+                <div class="modal fade" id="bulkDeleteModal" tabindex="-1" role="dialog" aria-labelledby="discontinuance" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title font-weight-bold">注文情報を削除します</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body text-left">
+                                <p class="text-left">注文情報を削除してよろしいですか？</p>
+                                <ul id="bulkErrors"></ul>
+                                <div class="progress" style="display: none">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-ec-sub" type="button" data-dismiss="modal">キャンセル</button>
+                                <button class="btn btn-ec-delete" type="button" id="btn_bulk_delete">削除</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+	<!-- !! add -->
+	<link rel="stylesheet" href="/common/css/admin.css" type="text/css">
+	<script src="/common/js/order_custom.js"></script>
+
+
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="/html/template/admin/assets/js/vendor/spin.min.js"></script>
+<script src="/html/template/admin/assets/js/vendor/ladda.min.js"></script>
+<script>
+var eccube_lang = {
+    "common.delete_confirm":"削除してもよろしいですか?"
+}
+</script><script src="/html/template/admin/assets/js/function.js"></script>
+    <script>
+        $(function() {
+            if ($('[type="date"]').prop('type') != 'date') {
+                // input type属性でdateが利用できるかどうか(カレンダー表示できないブラウザ対応)
+                $.when(
+                    $.getScript("/html/template/admin/assets/js/vendor/moment.min.js"),
+                    $.getScript("/html/template/admin/assets/js/vendor/moment-with-locales.min.js"),
+                    $.getScript("/html/template/admin/assets/js/vendor/tempusdominus-bootstrap-4.min.js")
+                ).done(function() {
+                    $('input[id$=_date_start]').datetimepicker({
+                        locale: 'ja',
+                        format: 'YYYY-MM-DD',
+                        useCurrent: false,
+                        buttons: {
+                            showToday: true,
+                            showClose: true
+                        }
+                    });
+
+                    $('input[id$=_date_end]').datetimepicker({
+                        locale: 'ja',
+                        format: 'YYYY-MM-DD',
+                        useCurrent: false,
+                        buttons: {
+                            showToday: true,
+                            showClose: true
+                        }
+                    });
+                });
+            }
+
+            toggleBtnBulk('input[id^="check_"]', '.btn-bulk-wrapper');
+            $('input[id^="check_"]').on('change', function() {
+                $('#toggle_check_all').prop('checked', false);
+                toggleBtnBulk('input[id^="check_"]', '.btn-bulk-wrapper');
+            });
+
+            // 登録チェックボックス
+            $('#toggle_check_all').on('change', function() {
+                var checked = $(this).prop('checked');
+                if (checked) {
+                    $('input[id^="check_"]').prop('checked', true);
+                } else {
+                    $('input[id^="check_"]').prop('checked', false);
+                }
+                toggleBtnBulk('input[id^="check_"]', '.btn-bulk-wrapper');
+            });
+
+            $('#btn_bulk_delete').on('click', function(event) {
+                event.preventDefault();
+                $('#form_bulk').attr('action', "https://croirecafe.com/973dA/order/bulk_delete").submit();
+                return false;
+            });
+
+            // PDF出力(複数)
+            $('#bulkExportPdf').on('click', function(event) {
+                window.open('', 'newwin', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=700, height=700');
+                $('#form_bulk').attr('action', "https://croirecafe.com/973dA/order/export/pdf");
+                $('#form_bulk').attr('target', 'newwin');
+                $('#form_bulk').submit();
+                return false;
+            });
+
+            // PDF出力(単一)
+            $('.pdf-print').click(function() {
+                window.open(this.href, 'newwin', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=700, height=700');
+                return false;
+            });
+
+            // 送り状番号
+            var updateTrackingNumber = function(id, url, tracking_number, callback) {
+                $.ajax({
+                    type: 'PUT',
+                    url: url,
+                    data: {'tracking_number': tracking_number}
+                }).done(function(data, textStatus, jqXHR) {
+                    if (data['status'] == 'OK') {
+                        $('#tracking_number_' + id).val(data['tracking_number']);
+                        if (typeof callback == 'function') {
+                            callback();
+                        }
+                    } else {
+                        alert('Update failed.');
+                    }
+                    return true;
+                }).fail(function(jqXHR, textStatus, errorThrown) {
+                    var response = JSON.parse(jqXHR.responseText);
+                    var messages = '';
+                    for (var i = 0; i < response.messages.length; i++) {
+                        messages += response.messages[i] + "\n";
+                    }
+                    alert(messages);
+                    return false;
+                });
+            };
+
+            $('button.update_tracking_number').prop('disabled', true);
+            // フォームに変更があったら更新ボタンを有効にする
+            $('input.update_tracking_number').on('keyup', function(event) {
+                var $tracking_number = $(this);
+                var $button = $("button[data-target='#" + $tracking_number.attr('id') + "']");
+                $button.prop('disabled', false);
+                $button.children('i')
+                    .removeClass('text-secondary')
+                    .addClass('text-success');
+            });
+            // enter キーで更新し、次のフォームへフォーカスを移動する
+            $('input.update_tracking_number').on('keypress', function(event) {
+                var $tracking_number = $(this);
+                var $button = $("button[data-target='#" + $tracking_number.attr('id') + "']");
+
+                var code = event.which ? event.which : event.keyCode;
+
+                if (code == 13) { // on press to enter
+                    var index = $('input.update_tracking_number').index(this);
+                    var callback = function() {
+                        $button.prop('disabled', true);
+                        $button.children('i')
+                            .removeClass('text-success')
+                            .addClass('text-secondary');
+                        $('input.update_tracking_number:gt(' + index + '):first').focus();
+                    };
+                    updateTrackingNumber($tracking_number.data('shipping_id'), $tracking_number.data('url'), $tracking_number.val(), callback);
+                    event.preventDefault();
+                }
+            });
+            // 更新ボタンの制御
+            $('button.update_tracking_number').on('click', function(event) {
+                event.preventDefault();
+                var $button = $(this);
+                var $target = $($(this).data('target'));
+                var tracking_number = $target.val();
+                var callback = function() {
+                    $button.prop('disabled', true);
+                    $button.children('i')
+                        .removeClass('text-success')
+                        .addClass('text-secondary');
+                };
+
+        updateTrackingNumber($target.data('shipping_id'), $target.data('url'), tracking_number, callback);
+    });
+
+    // 完了ボタン
+    $('#bulkChangeComplete').on('click', function() {
+        location.href = 'https://croirecafe.com/973dA/order?resume=1';
+    });
+
+});
+</script>
+
+<script>
+    $(function() {
+        var updater;
+        // モーダルの表示を制御
+        $('#bulkSendMail, .confirmationModal').on('click', function (e) {
+            var modal = $('#sentUpdateModal');
+            modal.modal();
+            var eventTarget = $(e.currentTarget);
+            var type = eventTarget.data('type');
+            switch (type) {
+                case 'mail':
+                    updater = eventTarget.data('bulk-update') ? new BulkSendMail(modal, eventTarget) : new SimpleSendMail(modal, eventTarget);
+                    $('#notificationMail').attr('type', 'hidden');
+                    $('.notificationMail').hide();
+                    $('#viewEmail').removeClass('collapsed').addClass('collapsed');
+                    ;
+                    break;
+                default:
+                case 'status':
+                    updater = new SimpleStatusUpdate(modal, eventTarget); // bulk-update is always false
+                    $('#notificationMail').attr('type', 'checkbox');
+                    $('.notificationMail').show();
+                    $('#viewEmail').removeClass('collapsed').addClass('collapsed');
+            }
+            $.ajax(updater.getPreviewUrl()).done(function (res) {
+                $('#viewEmail').html(res);
+            });
+            $('.modal-title', modal).text(updater.modalTitle);
+            $('.modal-body > p.modal-message', modal).text(updater.modalMessage);
+            $('#bulkChange')
+                .attr({
+                    'data-bulk-update': eventTarget.data('bulk-update'),
+                    'data-type': eventTarget.data('type'),
+                    'data-update-status-url': eventTarget.data('update-status-url'),
+                    'data-notify-mail-url': eventTarget.data('notify-mail-url'),
+                    'data-update-status-id': eventTarget.data('update-status-id')
+                })
+                .text(updater.modalButton);
+        });
+        // プログレスバーの表示を制御
+        $('#bulkChange, .progressModal').on('click', function (e) {
+            //alert(1119);
+            var eventTarget = $(e.currentTarget);
+            var type = eventTarget.data('type');
+            var modal = $('#sentUpdateModal');
+            switch (type) {
+                case 'mail':
+                    updater = eventTarget.data('bulk-update') ? new BulkSendMail(modal, eventTarget) : new SimpleSendMail(modal, eventTarget);
+                    break;
+                default:
+                case 'status':
+                    if (eventTarget.data('bulk-update')) {
+                        if ($('#option_bulk_status').val() == '') {
+                            alert('対応状況を選択してください');
+                            return;
+                        }
+                        updater = new BulkStatusUpdate(modal, eventTarget);
+                        modal.modal();
+                    } else {
+                        updater = new SimpleStatusUpdate(modal, eventTarget);
+                    }
+            }
+            $('.modal-title', modal).text(updater.modalTitle);
+            $('.modal-body > p.modal-message', modal).text("処理中...");
+            $('button', modal).hide();
+            $('#bulk-options').hide();
+            $('.progress', modal).show();
+            updater.totalCount = updater.getTotalCount();
+            var progress = new $.Deferred();
+            progress.progress(function () {
+                updater.progress(this, progress);
+            }).fail(function () {
+                updater.fail(this);
+            }).always(function () {
+                updater.always(this);
+            });
+            updater.getPromises(progress);
+        });
+
+    });
+
+    /*
+     * Super class
+     */
+    function ConfirmationModal(modal) {
+        this.modal = modal;
+        this.mailCount = 0;
+        this.currentCount = 0;
+        this.totalCount = 0;
+    }
+    ConfirmationModal.prototype = {
+        modalTitle: "出荷済に更新します",
+        modalMessage: "出荷情報を出荷済みにします。同時におこなう操作を選択してから［実行］ボタンを押してください。この操作は取り消すことができません。ご注意ください。",
+        modalButton: "実行",
+        getPreviewUrl: function () {
+            return null;
+        },
+        getTotalCount: function () {
+            return 1;
+        },
+        progress: function (result, progress) {
+            $('.progress-bar', this.modal).css('width', (++this.currentCount / this.totalCount * 100) + '%');
+            if (result['message']) {
+                $('<li><span class="badge badge-warning">NOTICE</span> </li>')
+                    .append($('<span></span>').text(result['message']))
+                    .appendTo('#bulkErrors');
+            }
+            if (this.currentCount >= this.totalCount) {
+                progress.resolve();
+            }
+        },
+        fail: function (result) {
+            $('<li><span class="badge badge-danger">ERROR</span> </li>')
+                .append($('<span></span>').text("システムエラーが発生しました"))
+                .appendTo('#bulkErrors');
+        },
+        always: function (result) {
+            $('.progress', this.modal).hide();
+            $('.modal-body > p.modal-message', this.modal).text("完了しました。");
+            $('#bulkChangeComplete').show();
+        },
+        getPromises: function (progress, url, data) {
+            if (data == undefined) {
+                data = {'notificationMail': $('input#notificationMail:checked').val()};
+            }
+            return $.ajax({
+                'url': url,
+                'type': 'PUT',
+                'data': data
+            })
+                .fail(function () {
+                    progress.reject();
+                    ConfirmationModal.prototype.fail.call(this);
+                })
+                .always(function (data) {
+                    progress.notifyWith(data);
+                });
+        }
+    };
+    /*
+     * ステータス一括更新
+     */
+    function BulkStatusUpdate(modal, eventTarget) {
+        ConfirmationModal.call(this, modal);
+        this.eventTarget = eventTarget;
+    }
+    // extend super class
+    BulkStatusUpdate.prototype = Object.create(ConfirmationModal.prototype, {
+        constructor: {
+            value: ConfirmationModal
+        },
+        modalTitle: {
+            value: "対応状況の変更"
+        },
+        getTotalCount: {
+            value: function () {
+                return $('input[data-id]:checked').length;
+            }
+        },
+        getPromises: {
+            value: function (progress) {
+                return $('input[data-id]:checked').map(function () {
+                    var url = $(this).data('update-status-url');
+                    var data = {'order_status': $('#option_bulk_status').val()};
+                    return ConfirmationModal.prototype.getPromises.call(this, progress, url, data);
+                });
+            }
+        }
+    });
+    /*
+     * ステータス個別更新
+     */
+    function SimpleStatusUpdate(modal, eventTarget) {
+        ConfirmationModal.call(this, modal);
+        this.eventTarget = eventTarget;
+        this.notifierCompleteMessage = '';
+    }
+    // extend super class
+    SimpleStatusUpdate.prototype = Object.create(ConfirmationModal.prototype, {
+        constructor: {
+            value: ConfirmationModal
+        },
+        getPreviewUrl: {
+            value: function () {
+                return this.eventTarget.data('preview-notify-mail-url');
+            }
+        },
+        progress: {
+            value: function (result, progress) {
+                if (result.mail) {
+                    this.mailCount++;
+                    this.notifierCompleteMessage = '%count%件のメールを送信しました。'.replace(/%count%/, this.mailCount);
+                }
+                ConfirmationModal.prototype.progress.call(this, result, progress);
+            }
+        },
+        always: {
+            value: function (result) {
+                ConfirmationModal.prototype.always.call(this, result);
+                $('.modal-body > p.modal-message', this.modal).text("完了しました。" + this.notifierCompleteMessage);
+            }
+        },
+        getPromises: {
+            value: function (progress) {
+                var url = this.eventTarget.data('update-status-url');
+                var data = {
+                    'order_status': this.eventTarget.data('update-status-id'),
+                    'notificationMail': $('input#notificationMail:checked').val()
+                };
+                return ConfirmationModal.prototype.getPromises.call(this, progress, url, data);
+            }
+        }
+    });
+    /*
+     * メール一括送信
+     */
+    function BulkSendMail(modal) {
+        SimpleStatusUpdate.call(this, modal);
+    }
+    // extend BulkUpdate
+    BulkSendMail.prototype = Object.create(SimpleStatusUpdate.prototype, {
+        constructor: {
+            value: SimpleStatusUpdate
+        },
+        modalTitle: {
+            value: "出荷お知らせメールを送信します"
+        },
+        modalMessage: {
+            value: "出荷お知らせメールを送信します。メールの文面を確認してから［送信］ボタンを押してください。この操作は取り消すことができません。ご注意ください。"
+        },
+        modalButton: {
+            value: "送信"
+        },
+        getPreviewUrl: {
+            value: function () {
+                return $('input[data-preview-notify-mail-url]:checked').data('preview-notify-mail-url');
+            }
+        },
+        getTotalCount: {
+            value: function () {
+                return $('input[data-preview-notify-mail-url]:checked').length;
+            }
+        },
+        getPromises: {
+            value: function (progress) {
+                return $('input[data-notify-mail-url]:checked').map(function () {
+                    var url = $(this).data('notify-mail-url');
+                    return ConfirmationModal.prototype.getPromises.call(this, progress, url);
+                });
+            }
+        }
+    });
+    /*
+     * 個別メール送信
+     */
+    function SimpleSendMail(modal, relatedTarget) {
+        SimpleStatusUpdate.call(this, modal, relatedTarget);
+    }
+    // extends SimpleUpdate
+    SimpleSendMail.prototype = Object.create(SimpleStatusUpdate.prototype, {
+        constructor: {
+            value: SimpleStatusUpdate
+        },
+        modalTitle: {
+            value: "出荷お知らせメールを送信します"
+        },
+        modalMessage: {
+            value: "出荷お知らせメールを送信します。メールの文面を確認してから［送信］ボタンを押してください。この操作は取り消すことができません。ご注意ください。"
+        },
+        modalButton: {
+            value: "送信"
+        },
+        getPromises: {
+            value: function (progress) {
+                var url = this.eventTarget.data('notify-mail-url');
+                return ConfirmationModal.prototype.getPromises.call(this, progress, url);
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,160 @@
+@mixin flex{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+@mixin flex-centering{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+@mixin flex-start{
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: center;
+}
+
+@mixin flex-end{
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+
+/* !!------------------------------------ */
+/* !! 受注一覧 */
+td.itemlist{
+	padding: 0 10px !important;
+}
+
+.order-index-row{
+	&.teiki{
+		background: rgba(255, 255, 0, 0.08);
+	}
+	&.bessou{
+		border: 2px solid rgba(255, 0, 0, 0.3) !important;
+/*
+		&:after{
+			content: "別送";
+			color: #fff;
+			width: 90px;
+			font-size: 11px;
+			text-align: center;
+			line-height: 1;
+			height: auto;
+			position: absolute;
+			top: 0;left: 0;
+			background: #ff0000;					
+		}
+*/
+	}
+	&.kowake{
+		.order-index-itemlist{
+			background: rgba(255, 0, 0, 0.19);
+		}
+	}
+}
+
+.order-index-itemlist{
+	&.small {
+		li{
+			font-size: 12px;
+			i{
+				font-size: 10px;
+				height: 16px;width: 16px;
+			}
+		}
+	}
+	li{
+		font-size: 13px;
+		padding-right: 30px;
+		position: relative;
+		padding: 5px;
+		padding-right: 30px !important;
+		border-bottom: 1px dotted #ccc;
+		&:last-of-type{
+			border-bottom: 0 !important;
+		}
+		&.P{
+			background: rgba(255, 255, 0, 0.32);
+		}
+		i{
+			background: #eee;
+			margin-left: 5px;
+			height: 20px;width: 20px;
+			font-style: normal;
+			@include flex-centering;
+			border-radius: 99px;
+			position: absolute;
+			top: 50%;
+			right: 5px;
+			transform: translateY(-50%);
+			&._2{
+				background: rgba(253, 211, 60, 0.5);
+			}
+			&._3{
+				background: rgba(240, 101, 182, 0.5);
+			}
+			&._4{
+				background: rgba(0, 35, 255, 0.5);
+			}
+		}
+		
+	}
+}
+
+
+/* !!------------------------------------ */
+/* !! 定期購入一覧 */
+
+
+
+.order-skip{
+	//display: inline-block;
+	font-size: 11px;
+	display: block;
+	//margin: 0 auto;
+	//width: 100px;
+	color: #f34c4c;
+	//color: #FFF;
+	//padding: 2px;
+	letter-spacing: 0;
+	line-height: 1;
+}
+
+/* !! 定期購入商品ID */
+.PeriodicPurchaseItem{
+	position: relative;
+	//padding:.6rem .3rem !important;
+}
+.PeriodicPurchaseItemId{
+	font-size: 11px;
+	line-height: 16px;
+	//position: absolute;
+	display: inline-block;
+	top: 0;left: 0;
+	background: #ffe896;
+	padding:0 5px ;
+	font-weight: normal !important;
+	//border-radius: 55px;
+}
+
+
+/* !! 定期履歴 */
+.periodic_orderhistory td{
+	vertical-align: middle;
+}

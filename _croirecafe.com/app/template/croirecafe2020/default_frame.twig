@@ -1,0 +1,310 @@
+<!doctype html>
+{#
+This file is part of EC-CUBE
+
+Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+
+http://www.ec-cube.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+<html lang="{{ eccube_config.locale }}">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# product: http://ogp.me/ns/product#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="eccube-csrf-token" content="{{ csrf_token(constant('Eccube\\Common\\Constant::TOKEN_NAME')) }}">
+    <title>{{ BaseInfo.shop_name }}{% if subtitle is defined and subtitle is not empty %} / {{ subtitle }}{% elseif title is defined and title is not empty %} / {{ title }}{% endif %}</title>
+    {% if Page.author is not empty %}
+        <meta name="author" content="{{ Page.author }}">
+    {% endif %}
+    {% if Page.description is not empty %}
+        <meta name="description" content="{{ Page.description }}">
+    {% endif %}
+    {% if Page.keyword is not empty %}
+        <meta name="keywords" content="{{ Page.keyword }}">
+    {% endif %}
+    {% if Page.meta_robots is not empty %}
+        <meta name="robots" content="{{ Page.meta_robots }}">
+    {% endif %}
+    {% if Page.meta_tags is not empty %}
+        {{ include(template_from_string(Page.meta_tags)) }}
+    {% endif %}
+ 
+ 
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MHMSLFK');</script>
+
+   
+    <link rel="icon" href="{{ asset('assets/img/common/favicon.ico', 'user_data') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    {% block stylesheet %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $.ajaxSetup({
+                'headers': {
+                    'ECCUBE-CSRF-TOKEN': $('meta[name="eccube-csrf-token"]').attr('content')
+                }
+            });
+        });
+    </script>
+    {# Layout: HEAD #}
+    {% if Layout.Head %}
+        {{ include('block.twig', {'Blocks': Layout.Head}) }}
+    {% endif %}
+    {# プラグイン用styleseetやmetatagなど #}
+    {% if plugin_assets is defined %}{{ include('@admin/snippet.twig', { snippets: plugin_assets }) }}{% endif %}
+    <link rel="stylesheet" href="{{ asset('assets/css/customize.css', 'user_data') }}">
+
+	<!-- !! add -->
+	<link rel="stylesheet" href="/common/css/products.css?v={{ 'now'|date('YmdHis') }}" type="text/css">
+	<link rel="stylesheet" href="/common/css/main.css?v={{ 'now'|date('YmdHis') }}" type="text/css">
+	<link rel="stylesheet" href="/common/fonts/icomoon/style.css?v={{ 'now'|date('YmdHis') }}" type="text/css">
+	<script src="/common/js/user.js?v={{ 'now'|date('YmdHis') }}"></script>
+	<script src="/common/js/cart_custom.js?v={{ 'now'|date('YmdHis') }}"></script>
+	<script src="/common/js/mypage_custom.js?v={{ 'now'|date('YmdHis') }}"></script>
+	<script src="/common/js/jquery.inview.js"></script>
+	
+	<!-- LINE Tag Base Code -->
+	<!-- Do Not Modify -->
+	<script>
+	(function(g,d,o){
+	  g._ltq=g._ltq||[];g._lt=g._lt||function(){g._ltq.push(arguments)};
+	  var h=location.protocol==='https:'?'https://d.line-scdn.net':'http://d.line-cdn.net';
+	  var s=d.createElement('script');s.async=1;
+	  s.src=o||h+'/n/line_tag/public/release/v1/lt.js';
+	  var t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);
+	    })(window, document);
+	_lt('init', {
+	  customerType: 'account',
+	  tagId: 'fd580f51-f71d-45dc-a7e5-3bcdb310cce8'
+	});
+	_lt('send', 'pv', ['fd580f51-f71d-45dc-a7e5-3bcdb310cce8']);
+	</script>
+	<noscript>
+	  <img height="1" width="1" style="display:none"
+	       src="https://tr.line.me/tag.gif?c_t=lap&t_id=fd580f51-f71d-45dc-a7e5-3bcdb310cce8&e=pv&noscript=1" />
+	</noscript>
+	<!-- End LINE Tag Base Code -->
+
+</head>
+
+
+<body id="page_{{ app.request.get('_route') }}" class="{{ body_class|default('other_page') }} {% if is_granted('ROLE_USER') %}user_granted{% endif %}">
+{# Layout: BODY_AFTER #}
+{% if Layout.BodyAfter %}
+    {{ include('block.twig', {'Blocks': Layout.BodyAfter}) }}
+{% endif %}
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHMSLFK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div id="path" class="product">
+	<ul>
+		<li><a href="/">トップページ</a></li>
+		<li><a href="/user_data/croire">商品一覧</a></li>
+		<li id="currentPage"><span class="cart-title"></span></li>
+	</ul>
+</div>
+
+
+
+<div class="ec-layoutRole">
+	
+    {# Layout: HEADER #}
+    {% if Layout.Header %}
+        <div class="ec-layoutRole__header">
+            {{ include('block.twig', {'Blocks': Layout.Header}) }}
+        </div>
+    {% endif %}
+
+    {# Layout: CONTENTS_TOP #}
+    {% if Layout.ContentsTop %}
+        <div class="ec-layoutRole__contentTop">
+            {{ include('block.twig', {'Blocks': Layout.ContentsTop}) }}
+        </div>
+    {% endif %}
+
+    <div class="ec-layoutRole__contents">
+	    {{ include('Block/top_side.twig') }}
+        {# Layout: SIDE_LEFT #}
+        {% if Layout.SideLeft %}
+            <div class="ec-layoutRole__left">
+                {{ include('block.twig', {'Blocks': Layout.SideLeft}) }}
+            </div>
+        {% endif %}
+
+        {% set layoutRoleMain = 'ec-layoutRole__main' %}
+        {% if Layout.ColumnNum == 2 %}
+            {% set layoutRoleMain = 'ec-layoutRole__mainWithColumn' %}
+        {% elseif Layout.ColumnNum == 3 %}
+            {% set layoutRoleMain = 'ec-layoutRole__mainBetweenColumn' %}
+        {% endif %}
+
+        <div class="{{ layoutRoleMain }}">
+            {# Layout: MAIN_TOP #}
+            {% if Layout.MainTop %}
+                <div class="ec-layoutRole__mainTop">
+                    {{ include('block.twig', {'Blocks': Layout.MainTop}) }}
+                </div>
+            {% endif %}
+
+            {# MAIN AREA #}
+            {% block main %}{% endblock %}
+
+            {# Layout: MAIN_Bottom #}
+            {% if Layout.MainBottom %}
+                <div class="ec-layoutRole__mainBottom">
+                    {{ include('block.twig', {'Blocks': Layout.MainBottom}) }}
+                </div>
+            {% endif %}
+        </div>
+
+        {# Layout: SIDE_RIGHT #}
+        {% if Layout.SideRight %}
+            <div class="ec-layoutRole__right">
+                {{ include('block.twig', {'Blocks': Layout.SideRight}) }}
+            </div>
+        {% endif %}
+    </div>
+
+    {# Layout: CONTENTS_BOTTOM #}
+    {% if Layout.ContentsBottom %}
+        <div class="ec-layoutRole__contentBottom">
+            {{ include('block.twig', {'Blocks': Layout.ContentsBottom}) }}
+        </div>
+    {% endif %}
+
+    {# Layout: CONTENTS_FOOTER #}
+    {% if Layout.Footer %}
+        <div class="ec-layoutRole__footer">
+            {{ include('block.twig', {'Blocks': Layout.Footer}) }}
+        </div>
+    {% endif %}
+</div><!-- ec-layoutRole -->
+
+<div class="ec-overlayRole"></div>
+<div class="ec-drawerRoleClose"><i class="fas fa-times"></i></div>
+<div class="ec-drawerRole">
+    {# Layout: DRAWER #}
+    {% if Layout.Drawer %}
+        {{ include('block.twig', {'Blocks': Layout.Drawer}) }}
+    {% endif %}
+</div>
+<div class="ec-blockTopBtn pagetop">{{'ページトップへ'|trans}}</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+{% include('@common/lang.twig') %}
+<script src="{{ asset('assets/js/function.js') }}"></script>
+<script src="{{ asset('assets/js/eccube.js') }}"></script>
+{% block javascript %}{% endblock %}
+{# Layout: CLOSE_BODY_BEFORE #}
+{% if Layout.CloseBodyBefore %}
+    {{ include('block.twig', {'Blocks': Layout.CloseBodyBefore}) }}
+{% endif %}
+{# プラグイン用Snippet #}
+{% if plugin_snippets is defined %}
+    {{ include('snippet.twig', { snippets: plugin_snippets }) }}
+{% endif %}
+<script src="{{ asset('assets/js/customize.js', 'user_data') }}"></script>
+
+
+<div id="shade"></div>
+
+<div id="popup">
+	<div class="close"></div>
+	<div id="popup-inner">
+		
+		<div class="teiki">
+			<h2>定期購入について</h2>
+			<ul class="idx">
+				<li>発送日は<br />毎月1日・15日<br />から選べます<br />※発送日が土日祝日の場合、<br />前営業日に発送</li>
+				<li>初回は30〜45％OFF<br />2回目以降から<br />ずっと15〜30％OFF</li>
+				<li>3回購入毎に<br />次回購入が<br />30〜45％OFF</li>
+			</ul>
+			<h3><i>●</i>変更・解約が可能</h3>
+			<p>※お届け4回目以降、変更・解約が可能となります。※3ヶ月以内（隔月の場合は6ヶ月以内）の解約はできません。</p>
+			<h3><i>●</i>一時お休み制度</h3>
+			<p>
+				定期購入頂いてから4回目以降より一時お休み制度をご利用頂けます。<br />
+				お休み頂く場合は、発送日の１週間前までにマイページよりご登録下さい。<br />
+				一時お休み制度は最長３回までとなります。3ヶ月（隔月の場合は6ヶ月）経ってもご連絡のない場合は解約となりますのでご注意ください。
+			</p>
+			<h3><i>●</i>お支払方法</h3>
+			<p>
+				・クレジットカード ・後払い（コンビニ・郵便局・銀行）<br />
+				※請求書は、お荷物とは同梱することが出来ない為、後日、別送となります。<br />
+				※後払い（コンビニ・郵便局・銀行）の請求書はネットプロテクションズより後日郵送。
+			</p>
+			<h3><i>●</i>お届け方法について</h3>
+			<p>●ポストに投函のメール便でお届け<br />
+			●クロワールプロバイオティクス１２をお届けの場合は佐川急便でのお届け<br /></p>
+			<h4>◎クロワールプロバイオティクス12のお届けについて</h4>
+			<p>※メール便対応サイズ（厚さ2.5cm）外のため、佐川急便でのお届けとなります。<br />
+			※代金お引替えでのお支払いはお受けできません。<br />
+			※商品ご到着の日にち指定不可。時間指定のみ可。<br />
+			※他の定期購入商品を同梱してお届けする場合、佐川急便での配送となります。</p>
+
+			<a href="#" id="teiki-link-btn">さらに詳しく</a>
+			<p class="note"><i>※</i>定期購入のお知らせについて、info@al-japan.comより送信させて頂きます。</p>
+		</div>
+		<!-- /.teiki -->
+		
+		<div class="onestop">
+			
+			<div class="_1">
+				<div class="hd">初回お試し購入<span class="note"><i>※</i>他の商品でお試し購入をされた方は不可となります</span></div>
+				<p class="txt">おひとりさま1個限り</p>
+				<p class="price">
+					<span><img src="/img/top/10poff@2x.png" alt="10poff@2x" width="109" ></span>
+					<span class="price_1"><i>1,000</i>円(税込)</span>
+					<a href="#"  class="btn2 _1">さらに詳しく</a>
+				</p>
+			</div>
+			<div class="_2">
+				<div class="hd">今回のみご注文</div>
+				<p class="price">
+					<span><img src="/img/top/10poff@2x.png" alt="10poff@2x" width="109" ></span>
+					<span class="price_2"><b class="comm_1"></b><i>1,000</i>円(税込)</span>
+					<a href="#"  class="btn2 _2">さらに詳しく</a>
+				</p>
+				<p class="price price3_row">
+					<span><img src="/img/top/10poff@2x.png" alt="10poff@2x" width="109" ></span>
+					<span class="price_3"><b class="comm_2"></b><i>1,000</i>円(税込)</span>
+					<a href="#"  class="btn2 _3">さらに詳しく</a>
+				</p>
+			</div>
+			
+		</div>
+		<!-- /.onestop -->
+		
+	</div>
+</div>
+
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'jip7amx',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+</body>
+</html>

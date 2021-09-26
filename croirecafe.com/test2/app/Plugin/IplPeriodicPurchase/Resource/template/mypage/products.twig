@@ -1,0 +1,97 @@
+{#
+RepeatCube for EC-CUBE4
+Copyright(c) 2019 IPLOGIC CO.,LTD. All Rights Reserved.
+
+http://www.iplogic.co.jp/
+
+This program is not free software.
+It applies to terms of service.
+#}
+{% extends 'default_frame.twig' %}
+
+{% form_theme form 'Form/form_div_layout.twig' %}
+
+{% set mypageno = 'IplPeriodicPurchase' %}
+
+{% block javascript %}
+    <script src="//yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+{% endblock javascript %}
+
+{% block main %}
+    <div class="ec-layoutRole__main">
+        <div class="ec-mypageRole">
+            <div class="ec-pageHeader">
+                <h1>{{ 'マイページ'|trans }}/{{ 'お届け先変更'|trans }}</h1>
+            </div>
+            {{ include('Mypage/navi.twig') }}
+        </div>
+
+        {% include '@IplPeriodicPurchase/mypage/periodic_navi.twig' %}
+
+        <div class="ec-mypageRole">
+            <form method="post" action="?" novalidate class="h-adr">
+                {{ form_widget(form._token) }}
+                <div class="ec-editRole">
+                    <div class="ec-cartRole__cart">
+                        <div class="ec-cartTable">
+                            <ol class="ec-cartHeader">
+                                <li class="ec-cartHeader__label">{{ '商品内容'|trans }}</li>
+                                <li class="ec-cartHeader__label">{{ '数量'|trans }}</li>
+                                <li class="ec-cartHeader__label">{{ '小計'|trans }}</li>
+                            </ol>
+                            {% for index, PeriodicPurchaseItem in PeriodicPurchase.ProductPeriodicItems %}
+                                {% set ProductClass = PeriodicPurchaseItem.ProductClass %}
+                                {% set Product = ProductClass.Product %}
+                                <ul class="ec-cartRow">
+                                    <li class="ec-cartRow__contentColumn">
+                                        <div class="ec-cartRow__img">
+                                            <a target="_blank" href="{{ url('product_detail', {id : Product.id} ) }}">
+                                                <img src="{{ asset(Product.MainListImage|no_image_product, 'save_image') }}" alt="{{ Product.name }}"/>
+                                            </a>
+                                        </div>
+                                        <div class="ec-cartRow__summary">
+                                            <div class="ec-cartRow__name">
+                                                <a target="_blank" href="{{ url('product_detail', {id : Product.id} ) }}">{{ Product.name }}</a>
+                                                {% if ProductClass.ClassCategory1 and ProductClass.ClassCategory1.id %}
+                                                    <br>{{ ProductClass.ClassCategory1.ClassName.name }}：{{ ProductClass.ClassCategory1 }}
+                                                {% endif %}
+                                                {% if ProductClass.ClassCategory2 and ProductClass.ClassCategory2.id %}
+                                                    <br>{{ ProductClass.ClassCategory2.ClassName.name }}：{{ ProductClass.ClassCategory2 }}
+                                                {% endif %}
+                                            </div>
+                                            <div class="ec-cartRow__unitPrice">{{ PeriodicPurchaseItem.price|price }}</div>
+                                            <div class="ec-cartRow__sutbtotalSP">{{ '小計：'|trans }}{{ PeriodicPurchaseItem.total_price|price }}</div>
+                                        </div>
+                                    </li>
+                                    <li class="ec-cartRow__amountColumn">
+                                        <div class="ec-birth">
+                                            {{ form_widget(form.products[index].quantity) }}
+                                        </div>
+                                        <div class="ec-cartRow__amountSP">
+                                            {{ '数量：'|trans }}{{ PeriodicPurchaseItem.quantity|number_format }}
+                                        </div>
+                                    </li>
+                                    <li class="ec-cartRow__subtotalColumn">
+                                        <div class="ec-cartRow__sutbtotal">{{ PeriodicPurchaseItem.total_price|price }}</div>
+                                    </li>
+                                </ul>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="ec-cartRole">
+                        <div class="ec-cartRole__total">{{ '合計：'|trans }}<span class="ec-cartRole__totalAmount">{{ PeriodicPurchase.total|price }}</span>
+                        </div>
+                    </div>
+                    <div class="ec-RegisterRole__actions">
+                        <div class="ec-off4Grid">
+                            <div class="ec-off4Grid__cell">
+                                <button type="submit"
+                                        class="ec-blockBtn--cancel">{{ '登録する'|trans }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

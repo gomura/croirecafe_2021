@@ -1,0 +1,34 @@
+{#
+RepeatCube for EC-CUBE4
+Copyright(c) 2019 IPLOGIC CO.,LTD. All Rights Reserved.
+
+http://www.iplogic.co.jp/
+
+This program is not free software.
+It applies to terms of service.
+#}
+<script>
+$(function() {
+    $("a[href$={{ periodic_cart_key }}]").parent().prepend($('#periodic_discount'));
+
+    {% if is_not_duplicate_cycle is defined or is_not_duplicate_periodic_discount is defined %}
+        $("a[href$={{ periodic_cart_key }}]").hide();
+    {% endif %}
+})
+</script>
+
+<style type="text/css">
+#periodic_discount{
+    padding-top: 15px;
+    font-weight: bold;
+}
+@media screen and (min-width: 768px){
+    .ec-cartRole__actions{
+        width: 25% !important;
+    }
+}
+</style>
+
+<div id="periodic_discount">
+    {{ '定期初回割引：'|trans }}<span class="ec-cartRole__totalAmount" style="color: #525263; margin-left: 20px;">-{{ periodic_discount|price }}</span>
+</div>

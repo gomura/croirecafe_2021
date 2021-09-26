@@ -1,0 +1,879 @@
+{#
+RepeatCube for EC-CUBE4
+Copyright(c) 2019 IPLOGIC CO.,LTD. All Rights Reserved.
+
+http://www.iplogic.co.jp/
+
+This program is not free software.
+It applies to terms of service.
+#}
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['periodic_purchase', 'periodic_admin_order'] %}
+
+{% block title %}{{ 'ipl_periodic_purchase.admin.order.title'|trans }}{% endblock %}
+{% block sub_title %}{{ 'ipl_periodic_purchase.admin.order.sub_title'|trans }}{% endblock %}
+
+{% form_theme searchForm '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block stylesheet %}
+    <style type="text/css">
+    .bg-load-overlay {
+        background: rgba(255, 255, 255, 0.4);
+        box-sizing: border-box;
+        position: fixed;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2147483647;
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; }
+    </style>
+{% endblock stylesheet %}
+
+{% block javascript %}
+    <script>
+        $(function() {
+            if ($('[type="date"]').prop('type') != 'date') {
+                // input type属性でdateが利用できるかどうか(カレンダー表示できないブラウザ対応)
+                $.when(
+                    $.getScript("{{ asset('assets/js/vendor/moment.min.js', 'admin') }}"),
+                    $.getScript("{{ asset('assets/js/vendor/moment-with-locales.min.js', 'admin') }}"),
+                    $.getScript("{{ asset('assets/js/vendor/tempusdominus-bootstrap-4.min.js', 'admin') }}")
+                ).done(function() {
+                    $('input[id$=_date_start]').datetimepicker({
+                        locale: '{{ eccube_config.locale }}',
+                        format: 'YYYY-MM-DD',
+                        useCurrent: false,
+                        buttons: {
+                            showToday: true,
+                            showClose: true
+                        }
+                    });
+
+                    $('input[id$=_date_end]').datetimepicker({
+                        locale: '{{ eccube_config.locale }}',
+                        format: 'YYYY-MM-DD',
+                        useCurrent: false,
+                        buttons: {
+                            showToday: true,
+                            showClose: true
+                        }
+                    });
+                });
+            }
+
+            toggleBtnBulk('input[id^="check_"]', '.btn-bulk-wrapper');
+            $('input[id^="check_"]').on('change', function() {
+                $('#toggle_check_all').prop('checked', false);
+                toggleBtnBulk('input[id^="check_"]', '.btn-bulk-wrapper');
+            });
+
+            // 登録チェックボックス
+            $('#toggle_check_all').on('change', function() {
+                var checked = $(this).prop('checked');
+                if (checked) {
+                    $('input[id^="check_"]').prop('checked', true);
+                } else {
+                    $('input[id^="check_"]').prop('checked', false);
+                }
+                toggleBtnBulk('input[id^="check_"]', '.btn-bulk-wrapper');
+            });
+
+            var updater;
+            // モーダルの表示を制御
+            $('#bulkSendMail, .confirmationModal').on('click', function (e) {
+                var modal = $('#sentUpdateModal');
+                modal.modal();
+                var eventTarget = $(e.currentTarget);
+                var type = eventTarget.data('type');
+                switch (type) {
+                    case 'mail':
+                        updater = eventTarget.data('bulk-update') ? new BulkSendMail(modal, eventTarget) : new SimpleSendMail(modal, eventTarget);
+                        $('#cardchangeMail').attr('type', 'hidden');
+                        $('.cardchangeMail').hide();
+                        $('#viewEmail').removeClass('collapsed').addClass('collapsed');
+                        ;
+                        break;
+                    default:
+                    case 'status':
+                        updater = new SimpleStatusUpdate(modal, eventTarget); // bulk-update is always false
+                        $('#cardchangeMail').attr('type', 'checkbox');
+                        $('.cardchangeMail').show();
+                        $('#viewEmail').removeClass('collapsed').addClass('collapsed');
+                }
+                $.ajax(updater.getPreviewUrl()).done(function (res) {
+                    $('#viewEmail').html(res);
+                });
+                $('.modal-title', modal).text(updater.modalTitle);
+                $('.modal-body > p.modal-message', modal).text(updater.modalMessage);
+                $('#bulkChange')
+                    .attr({
+                        'data-bulk-update': eventTarget.data('bulk-update'),
+                        'data-type': eventTarget.data('type'),
+                        'data-update-status-url': eventTarget.data('update-status-url'),
+                        'data-card-change-mail-url': eventTarget.data('card-change-mail-url'),
+                        'data-update-status-id': eventTarget.data('update-status-id')
+                    })
+                    .text(updater.modalButton);
+            });
+            // プログレスバーの表示を制御
+            $('#bulkChange, .progressModal').on('click', function (e) {
+                //alert(1119);
+                var eventTarget = $(e.currentTarget);
+                var type = eventTarget.data('type');
+                var modal = $('#sentUpdateModal');
+                switch (type) {
+                    case 'mail':
+                        updater = eventTarget.data('bulk-update') ? new BulkSendMail(modal, eventTarget) : new SimpleSendMail(modal, eventTarget);
+                        break;
+                    default:
+                    case 'status':
+                        if (eventTarget.data('bulk-update')) {
+                            if ($('#option_bulk_status').val() == '') {
+                                alert('対応状況を選択してください');
+                                return;
+                            }
+                            updater = new BulkStatusUpdate(modal, eventTarget);
+                            modal.modal();
+                        } else {
+                            updater = new SimpleStatusUpdate(modal, eventTarget);
+                        }
+                }
+                $('.modal-title', modal).text(updater.modalTitle);
+                $('.modal-body > p.modal-message', modal).text("{{ 'admin.order.bulk_action__in_progress_message'|trans }}");
+                $('button', modal).hide();
+                $('#bulk-options').hide();
+                $('.progress', modal).show();
+                updater.totalCount = updater.getTotalCount();
+                var progress = new $.Deferred();
+                progress.progress(function () {
+                    updater.progress(this, progress);
+                }).fail(function () {
+                    updater.fail(this);
+                }).always(function () {
+                    updater.always(this);
+                });
+                updater.getPromises(progress);
+            });
+
+            // 完了ボタン
+            $('#bulkChangeComplete').on('click', function() {
+                location.href = '{{ url('periodic_admin_order', { 'resume': 1 }) }}';
+            });
+
+            // 登録チェックボックス
+            $('#action_periodic_batch_button').on('click', function() {
+                var text = $('#action_periodic_batch_text').val();
+                if (!isYYYYMMDD(text)) {
+                    alert('日付をYYYYMMDD形式(例:20190101)で入力して下さい。');
+                } else {
+                    if (confirm('OKボタンを押すとバッチが実行されます。\n完了後に送信される実行結果メールを確認してください。')) {
+
+                        loadingOverlay();
+
+                        $.post({
+                            url:    '{{ url('periodic_admin_order_exec_periodic_batch') }}',
+                            data:   {'run_date' : text},
+                        }).done(function(data, textStatus, jqXHR){
+
+                        }).fail(function(jqXHR, textStatus, errorThrown){
+                            alert('バッチ実行リクエスト中にエラーが発生しました。\n結果メールやログを確認してバッチが正常に終了したか確認して下さい。');
+                        }).always(function(data) {
+                            // overlayを無効
+                            loadingOverlay('hide');
+                        });
+                    }
+                }
+            });
+        });
+    /*
+     * Super class
+     */
+    function ConfirmationModal(modal) {
+        this.modal = modal;
+        this.mailCount = 0;
+        this.currentCount = 0;
+        this.totalCount = 0;
+    }
+    ConfirmationModal.prototype = {
+        modalTitle: "{{ 'admin.order.to_shipped__confirm_title'|trans }}",
+        modalMessage: "{{ 'admin.order.to_shipped__confirm_message'|trans }}",
+        modalButton: "{{ 'admin.common.execute'|trans }}",
+        getPreviewUrl: function () {
+            return null;
+        },
+        getTotalCount: function () {
+            return 1;
+        },
+        progress: function (result, progress) {
+            $('.progress-bar', this.modal).css('width', (++this.currentCount / this.totalCount * 100) + '%');
+            if (result['message']) {
+                $('<li><span class="badge badge-warning">NOTICE</span> </li>')
+                    .append($('<span></span>').text(result['message']))
+                    .appendTo('#bulkErrors');
+            }
+            if (this.currentCount >= this.totalCount) {
+                progress.resolve();
+            }
+        },
+        fail: function (result) {
+            $('<li><span class="badge badge-danger">ERROR</span> </li>')
+                .append($('<span></span>').text("{{ 'admin.common.system_error'|trans }}"))
+                .appendTo('#bulkErrors');
+        },
+        always: function (result) {
+            $('.progress', this.modal).hide();
+            $('.modal-body > p.modal-message', this.modal).text("{{ 'admin.order.bulk_action__complete_message'|trans }}");
+            $('#bulkChangeComplete').show();
+        },
+        getPromises: function (progress, url, data) {
+            if (data == undefined) {
+                data = {'cardchangeMail': $('input#cardchangeMail:checked').val()};
+            }
+            return $.ajax({
+                'url': url,
+                'type': 'PUT',
+                'data': data
+            })
+                .fail(function () {
+                    progress.reject();
+                    ConfirmationModal.prototype.fail.call(this);
+                })
+                .always(function (data) {
+                    progress.notifyWith(data);
+                });
+        }
+    };
+    /*
+     * ステータス一括更新
+     */
+    function BulkStatusUpdate(modal, eventTarget) {
+        ConfirmationModal.call(this, modal);
+        this.eventTarget = eventTarget;
+    }
+    // extend super class
+    BulkStatusUpdate.prototype = Object.create(ConfirmationModal.prototype, {
+        constructor: {
+            value: ConfirmationModal
+        },
+        modalTitle: {
+            value: "{{ 'admin.order.change_status'|trans }}"
+        },
+        getTotalCount: {
+            value: function () {
+                return $('input[data-id]:checked').length;
+            }
+        },
+        getPromises: {
+            value: function (progress) {
+                return $('input[data-id]:checked').map(function () {
+                    var url = $(this).data('update-status-url');
+                    var data = {'order_status': $('#option_bulk_status').val()};
+                    return ConfirmationModal.prototype.getPromises.call(this, progress, url, data);
+                });
+            }
+        }
+    });
+    /*
+     * ステータス個別更新
+     */
+    function SimpleStatusUpdate(modal, eventTarget) {
+        ConfirmationModal.call(this, modal);
+        this.eventTarget = eventTarget;
+        this.notifierCompleteMessage = '';
+    }
+    // extend super class
+    SimpleStatusUpdate.prototype = Object.create(ConfirmationModal.prototype, {
+        constructor: {
+            value: ConfirmationModal
+        },
+        getPreviewUrl: {
+            value: function () {
+                return this.eventTarget.data('preview-card-change-mail-url');
+            }
+        },
+        progress: {
+            value: function (result, progress) {
+                if (result.mail) {
+                    this.mailCount++;
+                    this.notifierCompleteMessage = '{{ 'ipl_periodic_purchase.admin.order.card_change_mail_send__complete_message'|trans }}'.replace(/%count%/, this.mailCount);
+                }
+                ConfirmationModal.prototype.progress.call(this, result, progress);
+            }
+        },
+        always: {
+            value: function (result) {
+                ConfirmationModal.prototype.always.call(this, result);
+                $('.modal-body > p.modal-message', this.modal).text("{{ 'admin.order.bulk_action__complete_message'|trans }}" + this.notifierCompleteMessage);
+            }
+        },
+        getPromises: {
+            value: function (progress) {
+                var url = this.eventTarget.data('update-status-url');
+                var data = {
+                    'order_status': this.eventTarget.data('update-status-id'),
+                    'cardchangeMail': $('input#cardchangeMail:checked').val()
+                };
+                return ConfirmationModal.prototype.getPromises.call(this, progress, url, data);
+            }
+        }
+    });
+    /*
+     * メール一括送信
+     */
+    function BulkSendMail(modal) {
+        SimpleStatusUpdate.call(this, modal);
+    }
+    // extend BulkUpdate
+    BulkSendMail.prototype = Object.create(SimpleStatusUpdate.prototype, {
+        constructor: {
+            value: SimpleStatusUpdate
+        },
+        modalTitle: {
+            value: "{{ 'ipl_periodic_purchase.admin.order.card_change_mail_send__confirm_title'|trans }}"
+        },
+        modalMessage: {
+            value: "{{ 'ipl_periodic_purchase.admin.order.card_change_mail_send__confirm_message'|trans }}"
+        },
+        modalButton: {
+            value: "{{ 'admin.common.send'|trans }}"
+        },
+        getPreviewUrl: {
+            value: function () {
+                return $('input[data-preview-card-change-mail-url]:checked').data('preview-card-change-mail-url');
+            }
+        },
+        getTotalCount: {
+            value: function () {
+                return $('input[data-preview-card-change-mail-url]:checked').length;
+            }
+        },
+        getPromises: {
+            value: function (progress) {
+                return $('input[data-card-change-mail-url]:checked').map(function () {
+                    var url = $(this).data('card-change-mail-url');
+                    return ConfirmationModal.prototype.getPromises.call(this, progress, url);
+                });
+            }
+        }
+    });
+
+    function isYYYYMMDD(str){
+        var match = str.match(/^\d{8}$/);
+        // 8桁数値以外はfalse
+        if(str == null || match == null || isNaN(str)){
+            return false;
+        }
+
+        // 年,月,日を取得する
+        var y = parseInt(str.substr(0,4));
+        var m = parseInt(str.substr(4,2)) -1;
+        var d = parseInt(str.substr(6,2));
+        var dt = new Date(y, m, d);
+
+        // 判定
+        return (y == dt.getFullYear() && m == dt.getMonth() && d == dt.getDate());
+    }
+
+    function loadingOverlay(action) {
+
+        if (action == 'hide') {
+            $('.bg-load-overlay').remove();
+        } else {
+            $overlay = $('<div class="bg-load-overlay"><i style="font-size:48px;" class="fas fa-circle-notch fa-spin"></i></div>');
+            $('body').append($overlay);
+        }
+    }
+    </script>
+{% endblock javascript %}
+{% block main %}
+<link rel="stylesheet" href="/common/css/admin.css" type="text/css">
+    <!--検索条件設定テーブルここから-->
+    <div class="c-outsideBlock">
+        <form name="search_form" id="search_form" method="POST" action="{{ url('periodic_admin_order') }}">
+            <div class="c-outsideBlock__contents">
+                <div class="row">
+                    <div class="col-12">
+                        {{ form_widget(searchForm._token) }}
+                        <div>
+                            <label class="col-form-label" data-tooltip="true" data-placement="top" title="{{ 'ipl_periodic_purchase.admin.order.multi_search_label'|trans }}">{{ 'ipl_periodic_purchase.admin.order.multi_search_label'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                            {{ form_widget(searchForm.multi) }}
+                            {{ form_errors(searchForm.multi) }}
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-12">
+                                <label class="col-form-label"  data-tooltip="true" data-placement="top" title="{{ 'ipl_periodic_purchase.admin.order.periodic_status'|trans }}">{{ 'ipl_periodic_purchase.admin.order.periodic_status'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                <div id="admin_search_periodic_status">
+                                    {% set statusForm = searchForm.periodic_status %}
+                                    <!-- 各対応状況の件数を表示する -->
+                                    {% for status_id, child in statusForm.children %}
+                                        <div class="form-check form-check-inline">
+                                            <input type="checkbox"
+                                                   id="{{ child.vars.id }}"
+                                                   name="{{ child.vars.full_name }}"
+                                                   class="form-check-input"
+                                                   value="{{ child.vars.value }}"{{ child.vars.checked ? ' checked="checked"' }}>
+                                            <label class="form-check-label" for="{{ child.vars.id }}">{{ child.vars.label }}</label>
+                                            {%- if statusForm.vars.order_count[status_id].display -%}
+                                                (<a href="{{ url('periodic_admin_order', { 'periodic_status_id': status_id }) }}">{{ statusForm.vars.order_count[status_id].count }}</a>)
+                                            {%- endif %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                {{ form_errors(searchForm.periodic_status) }}
+                            </div>
+                        </div>
+                        <div class="d-inline-block mb-3 collapsed" data-toggle="collapse" href="#searchDetail" aria-expanded="false" aria-controls="searchDetail">
+                            <a>
+                                <i class="fa font-weight-bold mr-1 fa-plus-square-o">
+                                    <span class="font-weight-bold">{{ 'admin.common.search_detail'|trans }}</span>
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="c-subContents ec-collapse collapse{{ has_errors ? ' show' }}" id="searchDetail">
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">{{ 'admin.order.orderer_name'|trans }}</label>
+                        {{ form_widget(searchForm.name) }}
+                        {{ form_errors(searchForm.name) }}
+                    </div>
+                    <div class="col">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <p class="col-form-label">{{ 'admin.common.payment_method'|trans }}</p>
+                                {{ form_widget(searchForm.payment, { 'label_attr': { 'class': 'checkbox-inline'}}) }}
+                                {{ form_errors(searchForm.payment) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">{{ 'admin.order.orderer_kana'|trans }}</label>
+                        {{ form_widget(searchForm.kana) }}
+                        {{ form_errors(searchForm.kana) }}
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">{{ 'ipl_periodic_purchase.admin.order.first_order_date'|trans }}</label>
+                        <div class="form-row align-items-center">
+                            <div class="col">
+                                {{ form_widget(searchForm.first_order_date_start) }}
+                                {{ form_errors(searchForm.first_order_date_start) }}
+                            </div>
+                            <div class="col-auto text-center">{{ 'admin.common.separator__range'|trans }}</div>
+                            <div class="col">
+                                {{ form_widget(searchForm.first_order_date_end) }}
+                                {{ form_errors(searchForm.first_order_date_end) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">{{ 'admin.order.orderer_company_name'|trans }}</label>
+                        {{ form_widget(searchForm.company_name) }}
+                        {{ form_errors(searchForm.company_name) }}
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">{{ 'ipl_periodic_purchase.admin.order.next_shipping_date'|trans }}</label>
+                        <div class="form-row align-items-center">
+                            <div class="col">
+                                {{ form_widget(searchForm.next_shipping_date_start) }}
+                                {{ form_errors(searchForm.next_shipping_date_start) }}
+                            </div>
+                            <div class="col-auto text-center">{{ 'admin.common.separator__range'|trans }}</div>
+                            <div class="col">
+                                {{ form_widget(searchForm.next_shipping_date_end) }}
+                                {{ form_errors(searchForm.next_shipping_date_end) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">{{ 'admin.common.mail_address'|trans }}</label>
+                        {{ form_widget(searchForm.email) }}
+                        {{ form_errors(searchForm.email) }}
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">{{ 'ipl_periodic_purchase.admin.order.last_order_status'|trans }}</label>
+                        {{ form_widget(searchForm.last_order_status) }}
+                        {{ form_errors(searchForm.last_order_status) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">{{ 'admin.common.phone_number'|trans }}</label>
+                        {{ form_widget(searchForm.phone_number) }}
+                        {{ form_errors(searchForm.phone_number) }}
+                    </div>
+                    <div class="col">
+                        <label>{{ 'ipl_periodic_purchase.admin.order.periodic_count'|trans }}</label>
+                        <div class="form-row align-items-center">
+                            <div class="col">
+                                {{ form_widget(searchForm.periodic_count_start) }}
+                                {{ form_errors(searchForm.periodic_count_start) }}
+                            </div>
+                            <div class="col-auto text-center"><span>{{ 'admin.common.separator__range'|trans }}</span></div>
+                            <div class="col">
+                                {{ form_widget(searchForm.periodic_count_end) }}
+                                {{ form_errors(searchForm.periodic_count_end) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">{{ 'ipl_periodic_purchase.admin.order.periodic_id'|trans }}</label>
+                        {{ form_widget(searchForm.periodic_id) }}
+                        {{ form_errors(searchForm.periodic_id) }}
+                    </div>
+                    <div class="col">
+                        <label>商品毎の定期回数</label>
+                        <div class="form-row align-items-center">
+                            <div class="col">
+                                {{ form_widget(searchForm.periodic_count_item_start) }}
+                                {{ form_errors(searchForm.periodic_count_item_start) }}
+                            </div>
+                            <div class="col-auto text-center"><span>{{ 'admin.common.separator__range'|trans }}</span></div>
+                            <div class="col">
+                                {{ form_widget(searchForm.periodic_count_item_end) }}
+                                {{ form_errors(searchForm.periodic_count_item_end) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">{{ 'ipl_periodic_purchase.admin.order.order_no'|trans }}</label>
+                        {{ form_widget(searchForm.order_no) }}
+                        {{ form_errors(searchForm.order_no) }}
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">{{ 'ipl_periodic_purchase.admin.order.product_id'|trans }}</label>
+                        {{ form_widget(searchForm.product_id) }}
+                        {{ form_errors(searchForm.product_id) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label">{{ 'admin.order.purchase_price'|trans }}</label>
+                        <div class="form-row align-items-center">
+                            <div class="col">
+                                <div class="input-group">
+                                    {{ form_widget(searchForm.payment_total_start) }}
+                                    {{ form_errors(searchForm.payment_total_start) }}
+                                </div>
+                            </div>
+                            <div class="col-auto text-center">{{ 'admin.common.separator__range'|trans }}</div>
+                            <div class="col">
+                                <div class="input-group">
+                                    {{ form_widget(searchForm.payment_total_end) }}
+                                    {{ form_errors(searchForm.payment_total_end) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <p class="col-form-label">{{ 'ipl_periodic_purchase.admin.order.card_change_mail_status'|trans }}</p>
+                                {{ form_widget(searchForm.card_change_mail_status,  { 'label_attr': { 'class': 'checkbox-inline' }}) }}
+                                {{ form_errors(searchForm.card_change_mail_status) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label">{{ 'ipl_periodic_purchase.admin.order.product_name'|trans }}</label>
+                        {{ form_widget(searchForm.product_name) }}
+                        {{ form_errors(searchForm.product_name) }}
+                    </div>
+                </div>
+            </div>
+            <div class="c-outsideBlock__contents">
+                <div class="row">
+                    <div class="mb-4">
+                        <div class="col-12">
+                            <button class="btn btn-ec-conversion px-5" type="submit" id="search_submit">{{ 'admin.common.search'|trans }}</button>
+                            {% if pagination %}
+                                <span class="font-weight-bold ml-2" id="search_total_count">{{ 'admin.common.search_result'|trans({"%count%":pagination.totalItemCount})|raw }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="c-outsideBlock__contents mb-5">
+                {{ include('@admin/search_items.twig', { 'form': searchForm }, ignore_missing = true) }}
+            </div>
+        </form>
+    </div>
+
+    <!--検索条件設定テーブルここまで-->
+
+    <div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                {% if pagination and pagination.totalItemCount %}
+                    <form id="form_bulk" method="POST" action="">
+                        <input type="hidden" name="{{ constant('Eccube\\Common\\Constant::TOKEN_NAME') }}" value="{{ csrf_token(constant('Eccube\\Common\\Constant::TOKEN_NAME')) }}">
+                            <div class="row justify-content-between mb-2">
+                                <div class="col-7">
+                                    <div class="row">
+                                        <div class="col-auto form-inline">
+                                            <div class="input-group">
+                                                <label class="mr-2" data-tooltip="true" data-placement="top" title="{{ 'ipl_periodic_purchase.admin.order.action_periodic_batch_info'|trans }}">{{ 'ipl_periodic_purchase.admin.order.action_periodic_batch'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                                <input class="col-4" id="action_periodic_batch_text" type="text" class="form-control" aria-describedby="tooltip819464" maxlength="8">
+                                                <div class="input-group-append">
+                                                    <button id="action_periodic_batch_button" type="button" class="btn btn-ec-regular mr-2">
+                                                        {{ 'admin.common.execute'|trans }}
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-auto d-none btn-bulk-wrapper">
+                                            <label class="mr-2" data-tooltip="true" data-placement="top" title="{{ 'tooltip.order.bulk_actions'|trans }}">{{ 'admin.common.bulk_actions'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                            <button id="bulkSendMail" type="button" class="btn btn-ec-regular mr-2" data-type="mail" data-bulk-update="true">
+                                                {{ 'ipl_periodic_purchase.admin.order.toolchip.card_change_mail'|trans }}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5 text-right">
+                                    <div class="d-inline-block">
+                                        <select class="custom-select" onchange="location = this.value;">
+                                            {% for pageMax in pageMaxis %}
+                                                <option {% if pageMax.name == page_count %} selected {% endif %}
+                                                        value="{{ path('periodic_admin_order_page', {'page_no': 1, 'page_count': pageMax.name}) }}">
+                                                    {{ 'admin.common.count'|trans({ '%count%': pageMax.name }) }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card rounded border-0 mb-4 d-block">
+                                <div class="card-body p-0">
+                                    <table class="table table-sm" id="search_result">
+                                        <thead>
+                                        <tr>
+                                            <th class="border-top-0 pt-2 pb-2 text-center pl-3">
+                                                <input type="checkbox" id="toggle_check_all" name="filter" value="open">
+                                            </th>
+                                            
+                                            <th class="border-top-0 pt-2 pb-2 text-center">{{ 'admin.order.orderer'|trans }}</th>
+                                            <th class="border-top-0 pt-2 pb-2 text-center">購入商品</th>
+                                           
+                                            <th class="border-top-0 pt-2 pb-2 text-center">定期サイクル</th>
+                                            <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.periodic_status'|trans }}</th>
+                                            <th class="border-top-0 pt-2 pb-2 text-center text-nowrap">{{ 'admin.common.mail_address'|trans }}</th>
+                                            <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.periodic_purchase_count'|trans }}</th>
+                                            <!-- !! <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.next_shipping_date'|trans }}</th> -->
+                                            <th class="border-top-0 pt-2 pb-2 text-center">次回発送予定日</th>
+                                            <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.card_change_date'|trans }}</th>
+                                            <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.first_order_id'|trans }}</th>
+                                            <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.last_order_id'|trans }}</th>
+                                            <th class="border-top-0 pt-2 pb-2 text-center">{{ 'ipl_periodic_purchase.admin.order.last_order_status'|trans }}</th>
+                                            <th class="border-top-0 pt-2 pb-2 text-center pr-3"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+ 
+ 
+                                        {% for PeriodicPurchase in pagination %}
+                                            {% set FirstOrder = "" %}
+                                            {% set LastOrder = "" %}
+                                            {% for Order in PeriodicPurchase.Orders.getValues %}
+                                                {% if Order.id == PeriodicPurchase.first_order_id %}
+                                                    {% set FirstOrder = Order %}
+                                                {% endif %}
+                                                {% if Order.id == PeriodicPurchase.last_order_id %}
+                                                    {% set LastOrder = Order %}
+                                                {% endif %}
+                                                
+                                            {% endfor %}
+                                            <tr data-skipflg="{{PeriodicPurchase.skip_flg}}">
+                                                <td class="align-middle text-center pl-3">
+                                                    {% if PeriodicPurchase.PeriodicStatus.id == constant('Plugin\\IplPeriodicPurchase\\Entity\\PeriodicStatus::PLG_IPLPERIODICPURCHASE_STATUS_PAYMENT_ERROR') %}
+                                                        <input type="checkbox" id="check_{{ PeriodicPurchase.id }}" data-id="{{ PeriodicPurchase.id }}" name="ids[]" value="{{ PeriodicPurchase.id }}"
+                                                               data-preview-card-change-mail-url="{{ url('periodic_admin_order_preview_card_change_mail', { id: PeriodicPurchase.id}) }}"
+                                                               data-card-change-mail-url="{{ url('periodic_admin_order_card_change_mail', { id: PeriodicPurchase.id}) }}"
+                                                        />
+                                                    {% endif %}
+                                                </td>
+                                                
+                                                {# 購入者 #}
+                                                <td class="align-middle text-left">
+                                                    <a class="action-edit" href="{{ url('periodic_admin_order_edit', { id : PeriodicPurchase.id }) }}">{{ PeriodicPurchase.id }}</br>{{ PeriodicPurchase.name01 ~ PeriodicPurchase.name02 }}</a>
+                                                </td>
+                                                {# 購入商品 #}
+                                                <td>
+                                                    {% for PeriodicPurchaseItem in PeriodicPurchase.PeriodicPurchaseItems %}
+                                                        {% if PeriodicPurchaseItem.isProduct %}
+                                                            
+                                                            <a href="{{ url('admin_product_product_edit', {id: PeriodicPurchaseItem.ProductClass.Product.id}) }}" target="_blank">
+                                                                {{ PeriodicPurchaseItem.product_name }}
+                                                            </a><br/>
+                                                            <span>
+                                                                定期回数：{{ PeriodicPurchaseItem.periodic_purchase_count_by_item }}
+                                                                <!-- !! <span>商品番号：{{ PeriodicPurchaseItem.product_code }}</span> -->
+                                                                
+                                                            </span><br />
+                                                           
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </td>
+                                              
+                                                {# 定期サイクル #}
+                                                <td class="align-middle text-center">{{ PeriodicPurchase.Cycle.display_name }}</td>
+                                                
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: {{ PeriodicPurchase.PeriodicStatusColor }}; border-color: {{ PeriodicPurchase.PeriodicStatusColor }}">{{ PeriodicPurchase.PeriodicStatus }}</span>
+                                                </td>
+                                                <td class="align-middle text-left">
+                                                    {{ PeriodicPurchase.email }}
+                                                </td>
+                                                
+                                                <td class="align-middle text-center">
+                                                    {{ PeriodicPurchase.periodic_purchase_count }}
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    {{ PeriodicPurchase.next_shipping_date|date_day|default('-'|trans) }}
+                                                    {% if PeriodicPurchase.skip_flg > 0 %}<span class="order-skip">購入者スキップあり</span>{% endif %}
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    {{ PeriodicPurchase.card_change_date|date_day|default('-'|trans) }}
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <a class="action-edit" href="{{ url('admin_order_edit', { id : PeriodicPurchase.first_order_id }) }}">{{ FirstOrder.id }}</a>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <a class="action-edit" href="{{ url('admin_order_edit', { id : PeriodicPurchase.last_order_id }) }}">{{ LastOrder.id }}</a>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge badge-ec-blue" style="background-color: #fff; color: {{ LastOrder.OrderStatusColor }}; border-color: {{ LastOrder.OrderStatusColor }}">{{ LastOrder.OrderStatus }}</span>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                    <div class="row justify-content-md-center mb-4"></div>
+                                </div>
+                                <div class="row justify-content-md-center mb-4">
+                                    {% if pagination.totalItemCount > 0 %}
+                                        {% include "@admin/pager.twig" with { 'pages' : pagination.paginationData, 'routes' : 'periodic_admin_order_page' } %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                    </form>
+                    {# 検索条件エラー時 #}
+                {% elseif has_errors %}
+                    <div class="row justify-content-between mb-2">
+                        <div class="col-7">
+                            <div class="row">
+                                <div class="col-auto form-inline">
+                                    <div class="input-group">
+                                        <label class="mr-2" data-tooltip="true" data-placement="top" title="{{ 'ipl_periodic_purchase.admin.order.action_periodic_batch_info'|trans }}">{{ 'ipl_periodic_purchase.admin.order.action_periodic_batch'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <input class="col-4" id="action_periodic_batch_text" type="text" class="form-control" aria-describedby="tooltip819464" maxlength="8">
+                                        <div class="input-group-append">
+                                            <button id="action_periodic_batch_button" type="button" class="btn btn-ec-regular mr-2">
+                                                {{ 'admin.common.execute'|trans }}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card rounded border-0">
+                        <div class="card-body p-4">
+                            <div class="text-center text-muted mb-4 h5">{{ 'admin.common.search_invalid_condition'|trans }}</div>
+                            <div class="text-center text-muted">{{ 'admin.common.search_try_change_condition'|trans }}</div>
+                        </div>
+                    </div>
+                    {# 検索結果なし #}
+                {% else %}
+                    <div class="row justify-content-between mb-2">
+                        <div class="col-7">
+                            <div class="row">
+                                <div class="col-auto form-inline">
+                                    <div class="input-group">
+                                        <label class="mr-2" data-tooltip="true" data-placement="top" title="{{ 'ipl_periodic_purchase.admin.order.action_periodic_batch_info'|trans }}">{{ 'ipl_periodic_purchase.admin.order.action_periodic_batch'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                                        <input class="col-4" id="action_periodic_batch_text" type="text" class="form-control" aria-describedby="tooltip819464" maxlength="8">
+                                        <div class="input-group-append">
+                                            <button id="action_periodic_batch_button" type="button" class="btn btn-ec-regular mr-2">
+                                                {{ 'admin.common.execute'|trans }}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card rounded border-0">
+                        <div class="card-body p-4">
+                            <div class="text-center text-muted mb-4 h5">{{ 'admin.common.search_no_result'|trans }}</div>
+                            <div class="text-center text-muted">{{ 'admin.common.search_try_change_condition'|trans }}</div>
+                            <div class="text-center text-muted">{{ 'admin.common.search_try_advanced_search'|trans }}</div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <!-- メール送信確認モーダル -->
+                <div class="modal fade" id="sentUpdateModal" tabindex="-1" role="dialog" aria-labelledby="sentUpdateModal" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title font-weight-bold"><!--confirmationModal_js.twig--></h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="modal-message" style="white-space:pre-wrap"></p>
+                                <ul id="bulkErrors"></ul>
+                                <div id="bulk-options">
+                                    <div class="font-weight-bold mb-2 cardchangeMail">{{ 'admin.order.to_shipped__confirm_send_mail'|trans }}</div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="cardchangeMail">
+                                        <label class="form-check-label cardchangeMail">
+                                            {{ 'admin.order.to_shipped__confirm_send_mail_in_same_time'|trans }}
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <div class="d-inline-block" data-toggle="collapse" href="#viewEmail" aria-expanded="false" aria-controls="viewEmail"><a><i class="fa fa-plus-square-o font-weight-bold mr-1"></i><span class="font-weight-bold">{{ 'admin.order.bulk_action__confirm_view_mail_body'|trans }}</span></a></div>
+                                        <div class="collapse bg-light p-4 ec-collapse bg-ec-formGray" id="viewEmail" style="word-wrap: break-word; word-break:break-all; white-space:pre-wrap;">
+                                            <pre></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="progress" style="display: none">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-ec-sub" type="button" data-dismiss="modal">{{ 'admin.common.cancel'|trans }}</button>
+                                <button id="bulkChange" class="btn btn-ec-conversion" type="button"><!--confirmationModal_js.twig--></button>
+                                <button id="bulkChangeComplete" class="btn btn-ec-regular" style="display: none" type="button">{{ 'admin.common.close'|trans }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
