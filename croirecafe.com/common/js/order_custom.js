@@ -53,6 +53,18 @@ shopMemo.each(function(){
 });
 
 
+//!! 通常購入お届け日
+var shippingDeliveryDate = $("td.shipping-delivery-date");
+shippingDeliveryDate.each(function(){
+	var This = $(this);
+	var row = This.closest(".order-index-row");
+	var txt = This.text();
+	if(!row.is(".teiki") && txt.match("20")){
+		This.prepend('<span class="shipping-delivery-memo">お届け指定日</span>');
+	}
+});
+
+
 
 var orderRow = $(".order-index-row");
 

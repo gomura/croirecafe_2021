@@ -520,7 +520,7 @@ file that was distributed with this source code.
                                         <th class="border-top-0 pt-2 pb-2 text-center">配送ID</th>
                                         <th class="border-top-0 pt-2 pb-2 text-center">購入商品</th>
                                         <th class="border-top-0 pt-2 pb-2 text-center">配送方法</th>
-                                        <th class="border-top-0 pt-2 pb-2 text-center">発送予定日</th>
+                                        <th class="border-top-0 pt-2 pb-2 text-center">発送予定日<span style="font-size: .8em;color: red;white-space: nowrap">※通常購入の場合はお届け日</span></th>
                                         <th class="border-top-0 pt-2 pb-2 text-center text-nowrap">{{ 'admin.common.payment_method'|trans }}</th>
                                         <th class="border-top-0 pt-2 pb-2 text-center">{{ 'admin.order.order_status'|trans }}</th>
                                         <th class="border-top-0 pt-2 pb-2 text-center">{{ 'admin.order.purchase_price'|trans }}</th>
@@ -576,7 +576,7 @@ file that was distributed with this source code.
                                                 </td>
                                                 
                                                 <!-- !! お届け予定日 -->
-                                                <td class="align-middle text-center">
+                                                <td class="align-middle text-center shipping-delivery-date">
 	                                                {{ Shipping.shipping_delivery_date|date_day }}
 	                                            </td>
                                                 
@@ -763,6 +763,6 @@ file that was distributed with this source code.
     
 	<!-- !! add -->
 	<link rel="stylesheet" href="/common/css/admin.css?v={{ 'now'|date('YmdHis') }}" type="text/css">
-	<script src="/common/js/order_custom.js?v={{ 'now'|date('YmdHis') }}"></script>
+	<script src="/common/js/order_custom.js?v={{ 'now'|date('YmdH') }}"></script>
 
 {% endblock %}
