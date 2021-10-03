@@ -1,1 +1,0 @@
-{"name":"ec-cube\/ProductOnlyCustomerB","version":"1.0.0","description":"\u4f1a\u54e1\u9650\u5b9a\u8ca9\u58f2\uff08\u30ed\u30b0\u30a4\u30f3\u30e6\u30fc\u30b6\u30fc\u9650\u5b9a\u8ca9\u58f2\uff09 for EC-CUBE4","type":"eccube-plugin","require":{"ec-cube\/plugin-installer":"~0.0.6"},"extra":{"code":"ProductOnlyCustomerB","id":1813}}
