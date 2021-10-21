@@ -305,7 +305,8 @@ h2.sec, .ec-pageHeader {
 a.ec-blockBtn--cancel,
 a.ec-blockBtn--primary,
 .ec-inlineBtn,
-.cart-in-section-disabled a, .ec-inlineBtn.btn-L, #top-side .side-item > a, .ec-login__actions .ec-blockBtn--cancel, .cart-in-section-disabled .btn-grp a, .ec-blockBtn--cancel {
+.cart-in-section-disabled a, .ec-inlineBtn.btn-L,
+.cta, #top-side .side-item > a, .ec-login__actions .ec-blockBtn--cancel, .cart-in-section-disabled .btn-grp a, .ec-blockBtn--cancel {
   background-color: none;
   width: 100%;
   height: 54px !important;
@@ -321,13 +322,15 @@ a.ec-blockBtn--primary,
   
   a.ec-blockBtn--primary:hover,
   .ec-inlineBtn:hover,
-  .cart-in-section-disabled a:hover, #top-side .side-item > a:hover, .ec-blockBtn--cancel:hover {
+  .cart-in-section-disabled a:hover,
+  .cta:hover, #top-side .side-item > a:hover, .ec-blockBtn--cancel:hover {
     -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
             box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4); }
   
   a.ec-blockBtn--primary:active,
   .ec-inlineBtn:active,
-  .cart-in-section-disabled a:active, #top-side .side-item > a:active, .ec-blockBtn--cancel:active {
+  .cart-in-section-disabled a:active,
+  .cta:active, #top-side .side-item > a:active, .ec-blockBtn--cancel:active {
     -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); }
 
@@ -497,7 +500,8 @@ a.ec-blockBtn--primary,
 button {
   outline: none !important; }
 
-.ec-inlineBtn.btn-L {
+.ec-inlineBtn.btn-L,
+.cta {
   font-size: 16px !important;
   letter-spacing: .1em;
   text-decoration: none !important;
@@ -7911,6 +7915,35 @@ select[id$=_shippingDeliveryDate] span {
     background-image: url(/html/upload/save_image/0126235955_5e2da96bf3a84.png); }
   #teikiRepurchase-inner #_67 a:before, #teikiRepurchase-inner #_71 a:before {
     background-image: url(/html/upload/save_image/0127000109_5e2da9b51430e.png); }
+
+/* !! - - -  */
+/* !! 再開 */
+.mypageNotice {
+  border-radius: 12px;
+  border: 2px dashed rgba(0, 0, 0, 0.53);
+  max-width: 908px;
+  margin: 0 auto;
+  padding: 2em;
+  text-align: center; }
+  .mypageNotice .ec-off3Grid__cell > div {
+    height: auto !important;
+    font-size: 0 !important; }
+  .mypageNotice .ec-off3Grid__cell {
+    width: auto;
+    margin: 0;
+    width: 100%; }
+    .mypageNotice .ec-off3Grid__cell p {
+      margin-bottom: 0;
+      margin-top: 1em; }
+      @media screen and (min-width: 768px) {
+        .mypageNotice .ec-off3Grid__cell p {
+          text-align: center; } }
+    .mypageNotice .ec-off3Grid__cell .ec-withdrawRole__title {
+      font-size: 20px; }
+  .mypageNotice .ec-icon {
+    height: auto !important; }
+    .mypageNotice .ec-icon img {
+      height: 50px !important; }
 
 /* !!------------------------------------ */
 /* !! お届けコース */

@@ -397,7 +397,8 @@ button{
 	outline: none !important;
 }
 
-.ec-inlineBtn.btn-L{
+.ec-inlineBtn.btn-L,
+.cta{
 	@extend %btn_L;
 	font-size: 16px !important;
 	letter-spacing: .1em;
@@ -7140,6 +7141,44 @@ body.type_teiki,body.otameshi_10{
 	}
 }
 
+/* !! - - -  */
+/* !! 再開 */
+.mypageNotice{
+	//background: rgba(255, 0, 0, 0.1);
+	border-radius: 12px;
+	border: 2px dashed rgba(0, 0, 0, 0.53);
+	max-width: 908px;
+	margin: 0 auto;
+	padding: 2em;
+	text-align: center;
+	.ec-off3Grid__cell > div{
+		height: auto !important;
+		font-size: 0 !important;
+	}
+	.ec-off3Grid__cell{
+		width: auto;
+		margin: 0;
+		width: 100%;
+		p{
+			margin-bottom: 0;
+			margin-top: 1em;	
+			@include pc{
+				text-align: center;
+			}//@pc
+			
+		}
+		.ec-withdrawRole__title{
+			font-size: 20px;
+		}
+	}
+	.ec-icon{
+		height: auto !important;
+		img{
+			height: 50px !important;
+		}
+	}
+	
+}
 
 /* !!------------------------------------ */
 /* !! お届けコース */
