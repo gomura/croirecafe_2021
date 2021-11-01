@@ -3948,6 +3948,7 @@ $col_na: #072E95;
 	
 	h3{color: $col_na;}
 	
+	
 }//.about-NDX-seibun
 
 /* !! ブラックジンジャー由来　ポリメトキシフラボン */
@@ -3960,6 +3961,18 @@ $col_na: #072E95;
 
 .about-NDX-PF,.about-NDX-NA{
 	h3{
+		img{
+			margin-right: 10px;
+		}
+		span{
+			display: -webkit-flex !important;
+			display: -moz-flex !important;
+			display: -ms-flex !important;
+			display: -o-flex !important;
+			display: flex !important;
+			align-items: center;
+			align-content: center;
+		}
 		@include sp{
 			@include flex-centering;
 			.label-tag{
@@ -3972,10 +3985,6 @@ $col_na: #072E95;
 				@include flex-centering;
 				margin: 0 !important;
 				margin-bottom: 10px !important;
-			}
-			img{
-				position: absolute;
-				top: -15px;right: -0px;
 			}
 		}//@sp
 	}
