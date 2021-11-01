@@ -23,6 +23,9 @@ body {
 #loadedContent + #page-footer {
   margin-top: 0 !important; }
 
+.nw {
+  white-space: nowrap; }
+
 p {
   word-break: break; }
 
@@ -39,6 +42,8 @@ p {
   /* !! テキスト */
   /* !! - - -  */
   /* !! INDEX */
+  /* !! - - -  */
+  /* !! 届出番号 */
   /* !! - - -  */
   /* !! セクション */
   /* !! - - -  */
@@ -94,7 +99,7 @@ p {
     #content-detail.new p.reference.cen {
       text-align: center; }
     #content-detail.new p.reference.left {
-      text-align: left; }
+      text-align: justify; }
   #content-detail.new h2.index {
     font-family: 'Noto Sans JP', sans-serif !important;
     font-weight: 900;
@@ -406,6 +411,8 @@ p {
           padding: 5.34vw;
           font-size: 8.544vw !important;
           text-align: center; }
+          #content-detail.new h2.sec-2 strong.fz-mid {
+            font-size: 6.942vw !important; }
           #content-detail.new h2.sec-2 strong b {
             display: inline-block; } }
   #content-detail.new h3 {
@@ -575,6 +582,18 @@ p {
           #content-detail.new #index-list li span {
             width: 50px !important;
             height: 50px !important; } }
+  #content-detail.new .app_number {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: right;
+    font-weight: bold;
+    font-size: 20px !important; }
+    @media screen and (min-width: 768px) {
+      #content-detail.new .app_number {
+        margin-bottom: -50px !important; } }
+    @media screen and (max-width: 767px) {
+      #content-detail.new .app_number {
+        padding: 0 4.005vw; } }
   @media screen and (max-width: 767px) {
     #content-detail.new #onayami {
       padding: 0; } }
@@ -4643,6 +4662,408 @@ main.Q10 #sec03 {
     padding: 15px; }
   #content-detail.NA #sec02 .profile .img {
     margin-top: 6px; }
+
+/* !!------------------------------------ */
+/* !! NアセチルグルコサミンロコモDX */
+#content-detail.NDX {
+  /* !! 機能性関与成分 */
+  /* !! N-アセチルグルコサミン */
+  /* !! ブラックジンジャー由来　ポリメトキシフラボン */
+  /* !! - - -  */
+  /* !! こだわりの成分をぜいたくに独自配合 */
+  /* !! 注目の関節成分を配合 */ }
+  #content-detail.NDX #sec01 {
+    background: #E5F5FF !important; }
+  #content-detail.NDX #sec02 {
+    background: #FFE6E7; }
+  #content-detail.NDX .NDX-seibun .seibun {
+    background: #eee;
+    border-radius: 8px;
+    padding: 15px; }
+    #content-detail.NDX .NDX-seibun .seibun.NA {
+      background: #A6DAF5; }
+      #content-detail.NDX .NDX-seibun .seibun.NA h4 {
+        color: #072E95; }
+    #content-detail.NDX .NDX-seibun .seibun.PF {
+      background: #F9E4ED; }
+      #content-detail.NDX .NDX-seibun .seibun.PF h4 {
+        color: #E75613; }
+    #content-detail.NDX .NDX-seibun .seibun h4 {
+      font-size: 30px;
+      text-align: center;
+      white-space: nowrap;
+      line-height: 1;
+      text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      @media screen and (min-width: 768px) {
+        #content-detail.NDX .NDX-seibun .seibun h4 {
+          height: 60px; } }
+      @media screen and (max-width: 767px) {
+        #content-detail.NDX .NDX-seibun .seibun h4 {
+          font-size: 5.874vw !important; } }
+      #content-detail.NDX .NDX-seibun .seibun h4 span {
+        font-size: .8em;
+        display: block;
+        margin-bottom: 5px; }
+    #content-detail.NDX .NDX-seibun .seibun .img {
+      margin: 20px 0; }
+      @media screen and (min-width: 768px) {
+        #content-detail.NDX .NDX-seibun .seibun .img {
+          padding: 0 15px; } }
+    #content-detail.NDX .NDX-seibun .seibun .desc {
+      font-size: 18px !important;
+      line-height: 1.4;
+      background: #fff;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 0; }
+      @media screen and (max-width: 767px) {
+        #content-detail.NDX .NDX-seibun .seibun .desc {
+          font-size: 16px !important; } }
+      #content-detail.NDX .NDX-seibun .seibun .desc strong {
+        font-size: 1em !important;
+        color: #FF0000;
+        white-space: nowrap;
+        font-weight: bold !important; }
+  #content-detail.NDX .about-NDX-NA h3 {
+    color: #072E95; }
+  #content-detail.NDX .about-NDX-PF h3 {
+    color: #E75613; }
+  @media screen and (max-width: 767px) {
+    #content-detail.NDX .about-NDX-PF h3, #content-detail.NDX .about-NDX-NA h3 {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      #content-detail.NDX .about-NDX-PF h3 .label-tag, #content-detail.NDX .about-NDX-NA h3 .label-tag {
+        width: 100px;
+        display: -webkit-flex !important;
+        display: -moz-flex !important;
+        display: -ms-flex !important;
+        display: -o-flex !important;
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        margin: 0 !important;
+        margin-bottom: 10px !important; }
+      #content-detail.NDX .about-NDX-PF h3 img, #content-detail.NDX .about-NDX-NA h3 img {
+        position: absolute;
+        top: -15px;
+        right: -0px; } }
+  #content-detail.NDX .about-material.NDX .inner.material-list {
+    margin-top: 0 !important; }
+    #content-detail.NDX .about-material.NDX .inner.material-list .bg-img {
+      text-align: center; }
+      @media screen and (max-width: 767px) {
+        #content-detail.NDX .about-material.NDX .inner.material-list .bg-img {
+          margin-bottom: 0 !important; } }
+      #content-detail.NDX .about-material.NDX .inner.material-list .bg-img img.height {
+        height: 100% !important;
+        width: auto !important; }
+        @media screen and (max-width: 767px) {
+          #content-detail.NDX .about-material.NDX .inner.material-list .bg-img img.height {
+            width: 60% !important;
+            height: auto !important; } }
+    @media screen and (max-width: 767px) {
+      #content-detail.NDX .about-material.NDX .inner.material-list > ul {
+        width: 100%; }
+        #content-detail.NDX .about-material.NDX .inner.material-list > ul li {
+          width: 100%; } }
+  #content-detail.NDX .about-material.NDX .main-seibun.rect {
+    position: relative;
+    z-index: 2;
+    background: #666;
+    border-radius: 8px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-right: 0 !important;
+    color: #FFF; }
+    @media screen and (min-width: 768px) {
+      #content-detail.NDX .about-material.NDX .main-seibun.rect {
+        width: 270px;
+        height: 106px; } }
+    @media screen and (max-width: 767px) {
+      #content-detail.NDX .about-material.NDX .main-seibun.rect {
+        width: 100% !important;
+        padding: 15px 0; } }
+    #content-detail.NDX .about-material.NDX .main-seibun.rect p {
+      margin-bottom: 0 !important;
+      white-space: nowrap; }
+      #content-detail.NDX .about-material.NDX .main-seibun.rect p span {
+        width: 100% !important;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        text-align: center; }
+        #content-detail.NDX .about-material.NDX .main-seibun.rect p span span {
+          display: block !important;
+          width: 100%;
+          text-align: center;
+          font-size: .8em;
+          margin-bottom: 5px; }
+      #content-detail.NDX .about-material.NDX .main-seibun.rect p .kana {
+        font-size: 20px; }
+    #content-detail.NDX .about-material.NDX .main-seibun.rect.NA {
+      background: #072E95 !important; }
+    #content-detail.NDX .about-material.NDX .main-seibun.rect.PF {
+      background: #E75613 !important; }
+  #content-detail.NDX .about-material.NDX ul.rect {
+    margin-top: 10px; }
+    @media screen and (max-width: 767px) {
+      #content-detail.NDX .about-material.NDX ul.rect {
+        width: 100%; } }
+    #content-detail.NDX .about-material.NDX ul.rect li {
+      width: 270px;
+      height: 60px;
+      background: #ccc;
+      border-radius: 8px;
+      margin-top: 10px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      white-space: nowrap;
+      font-size: 20px;
+      color: #fff; }
+      @media screen and (max-width: 767px) {
+        #content-detail.NDX .about-material.NDX ul.rect li {
+          width: 100% !important; } }
+      #content-detail.NDX .about-material.NDX ul.rect li span {
+        font-size: .8em; }
+      #content-detail.NDX .about-material.NDX ul.rect li.red {
+        color: #FF0000;
+        text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff; }
+    #content-detail.NDX .about-material.NDX ul.rect.NA li {
+      background: rgba(7, 46, 149, 0.6); }
+    #content-detail.NDX .about-material.NDX ul.rect.PF li {
+      background: rgba(231, 86, 19, 0.6); }
+  #content-detail.NDX .about-material.NDX .ft.rect {
+    background: #009844;
+    border-radius: 8px;
+    margin-top: 10px; }
+    #content-detail.NDX .about-material.NDX .ft.rect:before {
+      content: "";
+      display: none; }
+    #content-detail.NDX .about-material.NDX .ft.rect .rect-wrap {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      -o-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      height: 60px;
+      font-size: 20px;
+      color: #fff;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      @media screen and (max-width: 767px) {
+        #content-detail.NDX .about-material.NDX .ft.rect .rect-wrap {
+          padding: 15px;
+          -webkit-box-pack: justify;
+          -webkit-justify-content: space-between;
+              -ms-flex-pack: justify;
+                  justify-content: space-between;
+          height: auto;
+          font-size: 18px; } }
+      #content-detail.NDX .about-material.NDX .ft.rect .rect-wrap li {
+        white-space: nowrap;
+        margin: 0 .8em;
+        font-weight: bold; }
+        #content-detail.NDX .about-material.NDX .ft.rect .rect-wrap li i {
+          font-size: .6em; }
+        @media screen and (max-width: 767px) {
+          #content-detail.NDX .about-material.NDX .ft.rect .rect-wrap li {
+            margin: 0; } }
+  #content-detail.NDX .about-joint-seibun h3.sec {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    @media screen and (max-width: 767px) {
+      #content-detail.NDX .about-joint-seibun h3.sec {
+        white-space: nowrap; } }
+    #content-detail.NDX .about-joint-seibun h3.sec strong {
+      font-size: 1.2em;
+      color: #072E95 !important; }
+    #content-detail.NDX .about-joint-seibun h3.sec img {
+      margin-left: 10px; }
+      @media screen and (max-width: 767px) {
+        #content-detail.NDX .about-joint-seibun h3.sec img {
+          width: 60px;
+          margin-left: 5px; } }
+  #content-detail.NDX .about-joint-seibun .inner > div {
+    background: rgba(7, 46, 149, 0.06);
+    padding: 20px 15px;
+    margin-top: 30px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    border-radius: 8px;
+    border: 2px solid #072E95; }
+    #content-detail.NDX .about-joint-seibun .inner > div .txt {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      -o-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff; }
+    #content-detail.NDX .about-joint-seibun .inner > div h4 {
+      height: 100%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      width: 294px;
+      margin-bottom: 0 !important;
+      color: #072E95;
+      font-size: 24px; }
+      @media screen and (max-width: 767px) {
+        #content-detail.NDX .about-joint-seibun .inner > div h4 {
+          width: 100%;
+          height: auto;
+          font-size: 20px !important;
+          margin-bottom: 15px !important; } }
+    #content-detail.NDX .about-joint-seibun .inner > div p {
+      margin-bottom: 0 !important;
+      text-align: justify; }
+      @media screen and (min-width: 768px) {
+        #content-detail.NDX .about-joint-seibun .inner > div p {
+          font-size: 20px;
+          width: 554px; } }
+    #content-detail.NDX .about-joint-seibun .inner > div .img {
+      border-radius: 4px;
+      background: #fff;
+      padding: 15px;
+      margin-top: 15px; }
+      @media screen and (max-width: 767px) {
+        #content-detail.NDX .about-joint-seibun .inner > div .img {
+          padding: 10px; } }
 
 /* !!------------------------------------ */
 /* !! クロワールコート */

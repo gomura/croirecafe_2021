@@ -39,6 +39,9 @@ body{
 
 }
 
+.nw{
+	white-space: nowrap;
+}
 
 p{
 	word-break:break;
@@ -121,7 +124,7 @@ p.reference{
 		text-align: center;
 	}
 	&.left{
-		text-align: left;
+		text-align: justify;
 	}
 }
 
@@ -348,6 +351,9 @@ h2.sec-2{
 			padding: 20*$px;
 			font-size: 32*$px !important;	
 			text-align: center;
+			&.fz-mid{
+				font-size: 26*$px !important;
+			}
 			b{
 				display: inline-block;
 			}
@@ -494,9 +500,28 @@ h3.sec{
 	}
 }
 
+/* !! - - -  */
+/* !! 届出番号 */
+.app_number{
+	max-width: 960px;
+	margin: 0 auto;
+	text-align: right;
+	font-weight: bold;
+	font-size: 20px !important;
+	@include pc{
+		margin-bottom: -50px !important;	
+	}//@pc
+	@include sp{
+		padding: 0 15*$px;	
+	}//@sp
+}
+
+
 
 /* !! - - -  */
 /* !! セクション */
+
+
 
 //!! - #onayami
 
@@ -3841,6 +3866,335 @@ span.label-tag{
 }
 	
 }//#content-detail.NA
+
+
+/* !!------------------------------------ */
+/* !! NアセチルグルコサミンロコモDX */
+
+
+#content-detail.NDX{
+
+$col_na: #072E95;
+
+#sec01{
+	background: #E5F5FF !important;
+}
+
+#sec02{
+	background: #FFE6E7;
+}
+
+/* !! 機能性関与成分 */
+.NDX-seibun{
+	.seibun{
+		background: #eee;
+		border-radius: 8px;
+		padding: 15px;
+		&.NA{
+			background : #A6DAF5;
+			h4{color: $col_na;}
+		}
+		&.PF{
+			background : #F9E4ED;
+			h4{color: $orange;}
+		}
+		h4{
+			font-size: 30px;
+			text-align: center;
+			white-space: nowrap;
+			line-height: 1;
+			@include textshadow(#fff);
+			@include flex-centering;
+			@include pc{
+				height: 60px;
+			}//@pc
+			@include sp{
+				font-size: 22*$px !important;	
+			}//@sp
+			span{
+				font-size: .8em;
+				display: block;
+				margin-bottom: 5px;
+			}
+		}
+		.img{
+			margin: 20px 0;
+			@include pc{
+				padding: 0 15px;	
+			}//@pc
+		}
+		.desc{
+			font-size: 18px !important;
+			line-height: 1.4;
+			background: #fff;
+			padding: 10px;border-radius: 4px;
+			margin-bottom: 0;
+			@include sp{
+				font-size: 16px !important;	
+			}//@sp
+			strong{
+				font-size: 1em !important;
+				color: $red;
+				white-space: nowrap;
+				font-weight: bold !important;
+			}
+		}
+	}
+}
+
+
+/* !! N-アセチルグルコサミン */
+.about-NDX-NA{
+	
+	h3{color: $col_na;}
+	
+}//.about-NDX-seibun
+
+/* !! ブラックジンジャー由来　ポリメトキシフラボン */
+
+.about-NDX-PF{
+	
+	h3{color: $orange;}
+	
+}//.about-NDX-PF
+
+.about-NDX-PF,.about-NDX-NA{
+	h3{
+		@include sp{
+			@include flex-centering;
+			.label-tag{
+				width: 100px;
+				display: -webkit-flex !important;
+				display: -moz-flex !important;
+				display: -ms-flex !important;
+				display: -o-flex !important;
+				display: flex !important;
+				@include flex-centering;
+				margin: 0 !important;
+				margin-bottom: 10px !important;
+			}
+			img{
+				position: absolute;
+				top: -15px;right: -0px;
+			}
+		}//@sp
+	}
+}
+
+
+/* !! - - -  */
+/* !! こだわりの成分をぜいたくに独自配合 */
+
+.about-material.NDX{
+	.inner.material-list{
+		margin-top: 0 !important;
+		.bg-img{
+			text-align: center;
+			@include sp{
+				margin-bottom: 0 !important;	
+			}//@sp
+			img.height{
+				height: 100% !important;
+				width: auto !important;
+				@include sp{
+					width: 60% !important;
+					height: auto !important;
+					
+				}//@sp
+			}
+		}
+		>ul{
+			@include sp{
+				width: 100%;
+				li{
+					width: 100%;
+				}		
+			}//@sp
+			
+		}
+	}
+	.main-seibun.rect{
+		position: relative;
+		z-index: 2;
+		
+		@include pc{
+			width: 270px;
+			height: 106px;
+		}//@pc
+		@include sp{
+			width: 100% !important;
+			padding: 15px 0;	
+		}//@sp
+		background: #666;
+		border-radius: 8px;
+		@include flex-centering;
+		margin-right: 0 !important;
+		color: #FFF;
+		p{
+			margin-bottom: 0 !important;
+			white-space: nowrap;
+			span{
+				width: 100% !important;
+				justify-content: center;
+				text-align: center;
+				span{
+					display: block !important;
+					width: 100%;
+					text-align: center;
+					font-size: .8em;
+					margin-bottom: 5px;
+				}
+			}
+			.kana{
+				font-size: 20px;
+			}
+		}
+		&.NA{background: $col_na !important;}
+		&.PF{background: $orange !important;}
+	}
+	ul.rect{
+		margin-top: 10px;
+		@include sp{
+			width: 100%;	
+		}//@sp
+		li{
+			width: 270px;
+			@include sp{
+				width: 100% !important;	
+			}//@sp
+			height: 60px;
+			background: #ccc;
+			border-radius: 8px;
+			margin-top: 10px;
+			@include flex-centering;
+			white-space: nowrap;
+			font-size: 20px;
+			color: #fff;
+			span{
+				font-size: .8em;
+			}
+			&.red{
+				color: $red;
+				@include textshadow;
+			}
+		}
+		&.NA li{
+			background: rgba($col_na,0.6);
+		}
+		&.PF li{
+			background: rgba($orange,0.6);
+		}
+	}
+	.ft.rect{
+		background : #009844;
+		border-radius: 8px;
+		margin-top: 10px;
+		&:before{
+			content:"";
+			display: none;
+		}
+		.rect-wrap{
+			@include flex;
+			justify-content: center;
+			height: 60px;
+			font-size: 20px;
+			color: #fff;
+			align-items: center;
+			@include sp{
+				padding: 15px;
+				justify-content: space-between;	
+				height: auto;
+				font-size: 18px;
+			}//@sp
+			li{
+				white-space: nowrap;
+				margin: 0 .8em;
+				font-weight: bold ;
+				i{
+					font-size: .6em;
+				}
+				@include sp{
+					margin: 0;	
+				}//@sp
+			}
+		}
+	}
+}
+	
+
+/* !! 注目の関節成分を配合 */
+.about-joint-seibun{
+	
+	h3.sec{
+		@include sp{
+			white-space: nowrap;	
+		}//@sp
+		strong{
+			font-size: 1.2em;
+			color:$col_na !important;
+		}
+		align-items: center;
+		img{
+			margin-left: 10px;
+			@include sp{
+				width: 60px;
+				margin-left: 5px;	
+			}//@sp
+		}
+	}
+	.inner > div{
+		background:rgba($col_na, .06); 
+		padding:20px 15px;
+		margin-top: 30px;
+		@include flex;
+		justify-content: flex-start;
+		border-radius: 8px;
+		border: 2px solid $col_na;
+		.txt{
+			@include flex;
+			@include textshadow;
+		}
+		h4{
+			height: 100%;
+			@include flex-centering;
+			width: 294px;
+			margin-bottom: 0 !important;
+			color: $col_na;
+			font-size: 24px;
+			@include sp{
+				width: 100%;
+				height: auto;
+				font-size: 20px !important;
+				margin-bottom: 15px !important;
+			}//@sp
+		}
+		p{
+			margin-bottom: 0 !important;
+			
+			text-align: justify;
+			
+			@include pc{
+				font-size: 20px;
+				width: 554px;
+			}//@pc
+		}
+		.img{
+			border-radius: 4px;
+			background: #fff;
+			padding: 15px;
+			margin-top: 15px;
+			@include sp{
+				padding: 10px;	
+			}//@sp
+		}
+	}
+	
+}//.about-joint-seibun
+
+
+
+
+}//#content-detail.NDX
 
 
 /* !!------------------------------------ */
