@@ -27,15 +27,18 @@ It applies to terms of service.
         <div class="ec-withdrawRole">
             <form method="post" action="?">
                 {{ form_widget(form._token) }}
-                <div class="ec-off3Grid">
+                
+                <div class="ec-off3Grid mypageNotice">
                     <div class="ec-off3Grid__cell">
                         <div style="font-size:100px;text-align:center;">
                             <div class="ec-icon"><img src="{{ asset('assets/icon/exclamation.svg') }}" alt=""></div>
                         </div>
-                        <p class="ec-withdrawRole__title">{{ '休止手続きの前にご確認ください'|trans }}
-                        </p>
-                        <p class="ec-withdrawRole__description">{{ '休止した場合にはお客様が「定期を再開する」リンクをクリックするまで商品がお届けされません。'|trans }}
-                        </p>
+                        <p class="ec-withdrawRole__title">休止手続きの前に<wbr>ご確認ください</p>
+                        <p class="ec-withdrawRole__description">
+	                        休止した場合にはお客様が「定期を再開する」リンクをクリックするまで商品がお届けされません。<br />
+	                        また、本日休止した場合、お届け予定日が{{ today|date_modify("+7 day")|date('Y/m/d')}}以前のご注文については<br />
+	                        通常通りご発送させていただきますのでご了承ください。
+	                    </p>
                     </div>
                 </div>
                 <div class="ec-off4Grid">
