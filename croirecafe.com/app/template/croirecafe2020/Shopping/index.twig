@@ -12,6 +12,7 @@ file that was distributed with this source code.
 
 {% form_theme form 'Form/form_div_layout.twig' %}
 
+
 {% block javascript %}
     <script>
         $(function() {
@@ -360,6 +361,9 @@ file that was distributed with this source code.
                         {% endfor %}
                     </div>
                     <div class="ec-input {{ has_errors(form.Payment) ? ' error' }}">{{ form_errors(form.Payment) }}</div>
+                    <div class="shopping-payment-notice">
+	                  <p>定期購入継続中のお支払い方法の変更はできませんのでご了承ください。<br />※クレジットカードのご登録情報のみ変更可</p>
+                    </div>
                 </div>
                 {% if BaseInfo.isOptionPoint and Order.Customer is not null %}
                     <div class="ec-orderPayment">

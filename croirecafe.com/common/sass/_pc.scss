@@ -6415,6 +6415,19 @@ main.Q10{
 .ec-orderPayment{
 	.ec-radio{
 		padding: 0 20px;
+		
+	}
+}
+
+.shopping-payment-notice{
+	color: $red;
+	display: none;
+	.type_teiki & {
+		display: block;
+	}
+	p{
+		padding-top: 0 !important;
+		font-size: 14px;
 	}
 }
 

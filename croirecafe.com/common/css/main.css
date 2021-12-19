@@ -731,7 +731,7 @@ button {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: transparent; }
   @media screen and (min-width: 768px) {
     #btn-toggle-menu {
       display: none; } }
@@ -7275,6 +7275,15 @@ main.Q10 .sec.gyoushuku {
 
 .ec-orderPayment .ec-radio {
   padding: 0 20px; }
+
+.shopping-payment-notice {
+  color: #FF0000;
+  display: none; }
+  .type_teiki .shopping-payment-notice {
+    display: block; }
+  .shopping-payment-notice p {
+    padding-top: 0 !important;
+    font-size: 14px; }
 
 .ec-orderCoupon {
   margin-bottom: 30px !important; }

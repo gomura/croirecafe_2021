@@ -58,7 +58,8 @@ p {
   #content-detail.new > section {
     padding: 50px 0;
     display: block; }
-  #content-detail.new div.flx, #content-detail.new ul.flx {
+  #content-detail.new div.flx,
+  #content-detail.new ul.flx {
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -78,7 +79,8 @@ p {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center; }
-    #content-detail.new div.flx.c, #content-detail.new ul.flx.c {
+    #content-detail.new div.flx.c,
+    #content-detail.new ul.flx.c {
       -webkit-box-pack: center;
       -webkit-justify-content: center;
           -ms-flex-pack: center;
@@ -165,12 +167,12 @@ p {
         display: inline-block;
         white-space: nowrap; }
         #content-detail.new h2.index strong .name > i {
-          font-size: .7em;
+          font-size: 0.7em;
           font-weight: 900; }
       #content-detail.new h2.index strong > i {
         position: relative;
         z-index: 3;
-        letter-spacing: .05em;
+        letter-spacing: 0.05em;
         line-height: 1; }
         @media screen and (min-width: 768px) {
           #content-detail.new h2.index strong > i {
@@ -193,12 +195,12 @@ p {
         font-family: 'Playfair Display', serif;
         line-height: 1;
         font-size: 2em;
-        line-height: .1; }
+        line-height: 0.1; }
         @media screen and (max-width: 767px) {
           #content-detail.new h2.index strong .num {
             font-size: 2.4em; } }
       #content-detail.new h2.index strong:before {
-        content: "";
+        content: '';
         width: 100%;
         height: 100%;
         background: #ccc;
@@ -210,7 +212,7 @@ p {
             -ms-transform: skew(-25deg);
                 transform: skew(-25deg); }
       #content-detail.new h2.index strong:after {
-        content: "";
+        content: '';
         width: 100%;
         height: 100%;
         background: #ccc;
@@ -224,7 +226,7 @@ p {
       #content-detail.new h2.index strong:before {
         background: rgba(250, 190, 0, 0.6) !important; }
       #content-detail.new h2.index strong:after {
-        background: #FABE00 !important; }
+        background: #fabe00 !important; }
   #content-detail.new h2.sec-2 {
     font-family: 'Noto Sans JP', sans-serif !important;
     font-weight: 900;
@@ -297,8 +299,8 @@ p {
           height: 100%;
           position: absolute; }
           #content-detail.new h2.sec-2 .line .line-inner .bg:before {
-            content: "";
-            background: #FABE00;
+            content: '';
+            background: #fabe00;
             width: 100%;
             height: 100%;
             position: absolute;
@@ -386,7 +388,7 @@ p {
         -webkit-align-items: center;
             -ms-flex-align: center;
                 align-items: center;
-        text-shadow: 0px 2px 1px #FABE00, 0px 1px 1px #FABE00, 1px 1px 1px #FABE00, 1px 0px 1px #FABE00, 2px 0px 1px #FABE00, 1px -1px 1px #FABE00, 1px -2px 1px #FABE00, 0px -2px 1px #FABE00, -1px -2px 1px #FABE00, -2px -2px 1px #FABE00, -2px -1px 1px #FABE00, -2px 0px 1px #FABE00, -2px 1px 1px #FABE00, -1px 1px 1px #FABE00; }
+        text-shadow: 0px 2px 1px #fabe00, 0px 1px 1px #fabe00, 1px 1px 1px #fabe00, 1px 0px 1px #fabe00, 2px 0px 1px #fabe00, 1px -1px 1px #fabe00, 1px -2px 1px #fabe00, 0px -2px 1px #fabe00, -1px -2px 1px #fabe00, -2px -2px 1px #fabe00, -2px -1px 1px #fabe00, -2px 0px 1px #fabe00, -2px 1px 1px #fabe00, -1px 1px 1px #fabe00; }
         @media screen and (max-width: 767px) {
           #content-detail.new h2.sec-2 .line .num {
             top: 20px;
@@ -405,7 +407,7 @@ p {
       display: block;
       padding: 15px 0;
       line-height: 1.3;
-      letter-spacing: .1em; }
+      letter-spacing: 0.1em; }
       @media screen and (max-width: 767px) {
         #content-detail.new h2.sec-2 strong {
           padding: 5.34vw;
@@ -431,7 +433,7 @@ p {
         position: absolute;
         bottom: -5px;
         left: 0;
-        font-size: .6em;
+        font-size: 0.6em;
         width: 100%;
         text-align: center;
         -webkit-transform: translateY(100%);
@@ -448,18 +450,18 @@ p {
     display: inline; }
   #content-detail.new .kw {
     font-size: 1.5em;
-    color: #FF0000;
+    color: #ff0000;
     font-weight: 900; }
     #content-detail.new .kw.x1 {
       font-size: 1em !important; }
     #content-detail.new .kw.x2 {
       font-size: 2em !important; }
     #content-detail.new .kw.x08 {
-      font-size: .8em !important; }
+      font-size: 0.8em !important; }
     #content-detail.new .kw.kon {
       color: #1c2585; }
   #content-detail.new .co_red {
-    color: #FF0000; }
+    color: #ff0000; }
   #content-detail.new h3.sec .kw {
     -webkit-align-self: flex-end !important;
         -ms-flex-item-align: end !important;
@@ -528,7 +530,7 @@ p {
         font-size: 32px;
         white-space: nowrap;
         padding-left: 20px;
-        letter-spacing: .1em;
+        letter-spacing: 0.1em;
         font-family: 'Noto Sans JP', sans-serif !important;
         font-weight: 900;
         text-align: left; }
@@ -544,7 +546,7 @@ p {
         height: 80px;
         width: 80px;
         border-radius: 100px;
-        background: #FABE00;
+        background: #fabe00;
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -601,7 +603,7 @@ p {
     font-family: 'Noto Sans JP', sans-serif !important;
     font-weight: 900;
     font-size: 32px;
-    left: .05em;
+    left: 0.05em;
     text-align: center;
     border: 0; }
     #content-detail.new #onayami h2 strong {
@@ -666,7 +668,7 @@ p {
         #content-detail.new #onayami .osusume-list.column-3 li {
           width: calc((100% - 15px) / 2); } }
     #content-detail.new #onayami .osusume-list li {
-      background: #ECF6FC;
+      background: #ecf6fc;
       border-radius: 12px;
       font-size: 20px;
       font-family: 'Noto Sans JP', sans-serif !important;
@@ -711,7 +713,7 @@ p {
           height: 50px;
           margin-bottom: 15px; } }
       #content-detail.new #onayami .osusume-list li:before {
-        content: "";
+        content: '';
         width: 33px;
         height: 29px;
         margin-right: 10px;
@@ -742,7 +744,7 @@ p {
           #content-detail.new #onayami .osusume-list li.nobg p img {
             margin-right: 10px; }
         #content-detail.new #onayami .osusume-list li.nobg:before {
-          content: "";
+          content: '';
           display: none; }
   #content-detail.new #onayami .osusume-list-2 {
     display: -webkit-flex;
@@ -776,7 +778,7 @@ p {
       #content-detail.new #onayami .osusume-list-2 li p {
         font-family: 'Noto Sans JP', sans-serif !important;
         font-weight: 900;
-        margin-top: .5em;
+        margin-top: 0.5em;
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -830,7 +832,7 @@ p {
       max-width: 960px; }
     #content-detail.new section.sec:nth-of-type(2n) {
       background: #efefef; }
-    #content-detail.new section.sec div[class*="about-"] {
+    #content-detail.new section.sec div[class*='about-'] {
       background: #fff;
       position: relative;
       padding: 30px;
@@ -839,39 +841,39 @@ p {
       margin: 0 auto;
       margin-top: 50px; }
       @media screen and (max-width: 767px) {
-        #content-detail.new section.sec div[class*="about-"] {
+        #content-detail.new section.sec div[class*='about-'] {
           margin: 0 4.005vw;
           padding: 4.005vw;
           margin-bottom: 8.01vw; } }
-      #content-detail.new section.sec div[class*="about-"].idx {
+      #content-detail.new section.sec div[class*='about-'].idx {
         background: none;
         padding: 0; }
         @media screen and (max-width: 767px) {
-          #content-detail.new section.sec div[class*="about-"].idx {
+          #content-detail.new section.sec div[class*='about-'].idx {
             -webkit-flex-wrap: wrap;
                 -ms-flex-wrap: wrap;
                     flex-wrap: wrap; } }
-        #content-detail.new section.sec div[class*="about-"].idx > div {
+        #content-detail.new section.sec div[class*='about-'].idx > div {
           background: #fff;
           padding: 30px;
           border-radius: 12px;
           width: 465px;
           position: relative; }
           @media screen and (max-width: 767px) {
-            #content-detail.new section.sec div[class*="about-"].idx > div {
+            #content-detail.new section.sec div[class*='about-'].idx > div {
               padding: 3.204vw;
               width: 100%; } }
-          #content-detail.new section.sec div[class*="about-"].idx > div.nobg {
+          #content-detail.new section.sec div[class*='about-'].idx > div.nobg {
             padding: 0;
             background: none !important; }
-      #content-detail.new section.sec div[class*="about-"] .inner {
+      #content-detail.new section.sec div[class*='about-'] .inner {
         padding: 0 !important; }
         @media screen and (min-width: 768px) {
-          #content-detail.new section.sec div[class*="about-"] .inner {
+          #content-detail.new section.sec div[class*='about-'] .inner {
             margin-top: 30px !important; } }
     #content-detail.new section.sec > h3 {
       text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff;
-      letter-spacing: .1em; }
+      letter-spacing: 0.1em; }
       @media screen and (min-width: 768px) {
         #content-detail.new section.sec > h3 {
           width: 960px;
@@ -891,13 +893,13 @@ p {
       font-family: 'Noto Sans JP', sans-serif !important;
       font-weight: 900;
       font-size: 24px;
-      margin-bottom: .5em; }
+      margin-bottom: 0.5em; }
       #content-detail.new section.sec h3 strong {
         font-weight: 900 !important; }
       #content-detail.new section.sec h3 .kw {
         font-size: 1.2em !important; }
       #content-detail.new section.sec h3 .s {
-        font-size: .8em; }
+        font-size: 0.8em; }
       @media screen and (max-width: 767px) {
         #content-detail.new section.sec h3 {
           font-size: 20px !important; } }
@@ -966,10 +968,10 @@ p {
                   justify-content: flex-start;
           text-align: center; } }
       #content-detail.new section.sec h3.sec .label-tag {
-        background: #FF0000;
+        background: #ff0000;
         font-size: 16px;
         text-shadow: none;
-        color: #FFF;
+        color: #fff;
         height: 30px;
         border-radius: 50px;
         display: -webkit-box;
@@ -1008,26 +1010,26 @@ p {
               display: block; } }
       #content-detail.new section.sec h3.sec .sub {
         text-align: left;
-        font-size: .6em !important;
+        font-size: 0.6em !important;
         line-height: 1.2;
         margin-left: 0;
         margin-right: 40px; }
         #content-detail.new section.sec h3.sec .sub i {
-          font-size: .9em; }
+          font-size: 0.9em; }
         @media screen and (max-width: 767px) {
           #content-detail.new section.sec h3.sec .sub {
-            font-size: .8em !important; }
+            font-size: 0.8em !important; }
             #content-detail.new section.sec h3.sec .sub br {
               display: none; } }
       #content-detail.new section.sec h3.sec .s {
-        font-size: .8em; }
+        font-size: 0.8em; }
       #content-detail.new section.sec h3.sec strong {
-        color: #FF0000;
-        letter-spacing: .05em;
+        color: #ff0000;
+        letter-spacing: 0.05em;
         -webkit-transform: translateY(-0.1em);
         -ms-transform: translateY(-0.1em);
         transform: translateY(-0.1em);
-        margin: 0 .1em; }
+        margin: 0 0.1em; }
         #content-detail.new section.sec h3.sec strong i {
           font-size: 1.3em; }
       #content-detail.new section.sec h3.sec .tubu {
@@ -1040,7 +1042,7 @@ p {
       font-weight: 900 !important;
       font-family: 'Noto Sans JP', sans-serif !important;
       font-weight: 900;
-      margin-bottom: .5em;
+      margin-bottom: 0.5em;
       line-height: 1.5; }
       #content-detail.new section.sec h4 strong {
         font-weight: 900 !important; }
@@ -1173,7 +1175,8 @@ p {
         @media screen and (max-width: 767px) {
           #content-detail.new .desc-rutein .logo .logo-txt, #content-detail.new .desc-zeakisantin .logo .logo-txt {
             height: auto !important; } }
-  #content-detail.new .desc-rutein, #content-detail.new .desc-zeakisantin {
+  #content-detail.new .desc-rutein,
+  #content-detail.new .desc-zeakisantin {
     border: 4px solid #ccc;
     padding: 15px;
     display: -webkit-flex;
@@ -1192,33 +1195,42 @@ p {
         -ms-flex-pack: justify;
             justify-content: space-between; }
     @media screen and (max-width: 767px) {
-      #content-detail.new .desc-rutein, #content-detail.new .desc-zeakisantin {
+      #content-detail.new .desc-rutein,
+      #content-detail.new .desc-zeakisantin {
         width: 48%; }
-        #content-detail.new .desc-rutein.sp-vertical, #content-detail.new .desc-zeakisantin.sp-vertical {
+        #content-detail.new .desc-rutein.sp-vertical,
+        #content-detail.new .desc-zeakisantin.sp-vertical {
           width: 100%; } }
-    #content-detail.new .desc-rutein._2, #content-detail.new .desc-zeakisantin._2 {
+    #content-detail.new .desc-rutein._2,
+    #content-detail.new .desc-zeakisantin._2 {
       -webkit-box-align: center !important;
       -webkit-align-items: center !important;
           -ms-flex-align: center !important;
               align-items: center !important;
       height: 170px; }
-      #content-detail.new .desc-rutein._2 .logo, #content-detail.new .desc-zeakisantin._2 .logo {
+      #content-detail.new .desc-rutein._2 .logo,
+      #content-detail.new .desc-zeakisantin._2 .logo {
         position: relative;
         top: 0;
         right: 15px; }
         @media screen and (max-width: 767px) {
-          #content-detail.new .desc-rutein._2 .logo, #content-detail.new .desc-zeakisantin._2 .logo {
+          #content-detail.new .desc-rutein._2 .logo,
+          #content-detail.new .desc-zeakisantin._2 .logo {
             width: 100%;
             right: 0 !important;
             margin-top: 15px; }
-            #content-detail.new .desc-rutein._2 .logo img.logo-txt, #content-detail.new .desc-zeakisantin._2 .logo img.logo-txt {
+            #content-detail.new .desc-rutein._2 .logo img.logo-txt,
+            #content-detail.new .desc-zeakisantin._2 .logo img.logo-txt {
               height: auto !important; } }
-      #content-detail.new .desc-rutein._2 h4, #content-detail.new .desc-zeakisantin._2 h4 {
+      #content-detail.new .desc-rutein._2 h4,
+      #content-detail.new .desc-zeakisantin._2 h4 {
         margin-bottom: 0; }
       @media screen and (min-width: 768px) {
-        #content-detail.new .desc-rutein._2.L, #content-detail.new .desc-zeakisantin._2.L {
+        #content-detail.new .desc-rutein._2.L,
+        #content-detail.new .desc-zeakisantin._2.L {
           height: auto; }
-          #content-detail.new .desc-rutein._2.L h4, #content-detail.new .desc-zeakisantin._2.L h4 {
+          #content-detail.new .desc-rutein._2.L h4,
+          #content-detail.new .desc-zeakisantin._2.L h4 {
             display: -webkit-box;
             display: -webkit-flex;
             display: -ms-flexbox;
@@ -1239,13 +1251,16 @@ p {
             font-size: 36px !important;
             margin-right: 50px;
             width: 250px; }
-            #content-detail.new .desc-rutein._2.L h4 .nat, #content-detail.new .desc-zeakisantin._2.L h4 .nat {
-              margin-top: .8em; }
-          #content-detail.new .desc-rutein._2.L .logo img + img, #content-detail.new .desc-zeakisantin._2.L .logo img + img {
+            #content-detail.new .desc-rutein._2.L h4 .nat,
+            #content-detail.new .desc-zeakisantin._2.L h4 .nat {
+              margin-top: 0.8em; }
+          #content-detail.new .desc-rutein._2.L .logo img + img,
+          #content-detail.new .desc-zeakisantin._2.L .logo img + img {
             width: 120px;
             height: auto; } }
       @media screen and (max-width: 767px) {
-        #content-detail.new .desc-rutein._2, #content-detail.new .desc-zeakisantin._2 {
+        #content-detail.new .desc-rutein._2,
+        #content-detail.new .desc-zeakisantin._2 {
           height: auto;
           display: -webkit-box;
           display: -webkit-flex;
@@ -1266,9 +1281,11 @@ p {
                   justify-content: center;
           justify-content: center;
           align-items: center; }
-          #content-detail.new .desc-rutein._2 h4, #content-detail.new .desc-zeakisantin._2 h4 {
+          #content-detail.new .desc-rutein._2 h4,
+          #content-detail.new .desc-zeakisantin._2 h4 {
             display: block; } }
-  #content-detail.new .rutein-zeakisantin, #content-detail.new .main-seibun-ttl {
+  #content-detail.new .rutein-zeakisantin,
+  #content-detail.new .main-seibun-ttl {
     font-size: 24px !important;
     font-family: 'Noto Sans JP', sans-serif !important;
     font-weight: 900;
@@ -1299,23 +1316,29 @@ p {
             align-items: flex-end;
     margin-bottom: 0;
     text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff; }
-    #content-detail.new .rutein-zeakisantin strong, #content-detail.new .main-seibun-ttl strong {
+    #content-detail.new .rutein-zeakisantin strong,
+    #content-detail.new .main-seibun-ttl strong {
       font-weight: 900 !important; }
-    #content-detail.new .rutein-zeakisantin .label-tag, #content-detail.new .main-seibun-ttl .label-tag {
+    #content-detail.new .rutein-zeakisantin .label-tag,
+    #content-detail.new .main-seibun-ttl .label-tag {
       text-shadow: none;
       margin-bottom: 10px;
-      background: #FF0000; }
-    #content-detail.new .rutein-zeakisantin._2, #content-detail.new .main-seibun-ttl._2 {
+      background: #ff0000; }
+    #content-detail.new .rutein-zeakisantin._2,
+    #content-detail.new .main-seibun-ttl._2 {
       -webkit-box-align: center;
       -webkit-align-items: center;
           -ms-flex-align: center;
               align-items: center; }
       @media screen and (max-width: 767px) {
-        #content-detail.new .rutein-zeakisantin._2, #content-detail.new .main-seibun-ttl._2 {
+        #content-detail.new .rutein-zeakisantin._2,
+        #content-detail.new .main-seibun-ttl._2 {
           padding: 10px !important; } }
-    #content-detail.new .rutein-zeakisantin .kana, #content-detail.new .main-seibun-ttl .kana {
+    #content-detail.new .rutein-zeakisantin .kana,
+    #content-detail.new .main-seibun-ttl .kana {
       font-size: 1em; }
-    #content-detail.new .rutein-zeakisantin .nat, #content-detail.new .main-seibun-ttl .nat {
+    #content-detail.new .rutein-zeakisantin .nat,
+    #content-detail.new .main-seibun-ttl .nat {
       font-size: 1em;
       height: 1em;
       display: -webkit-flex;
@@ -1339,28 +1362,33 @@ p {
               align-items: center;
       position: relative;
       margin-left: 5px; }
-      #content-detail.new .rutein-zeakisantin .nat i, #content-detail.new .main-seibun-ttl .nat i {
+      #content-detail.new .rutein-zeakisantin .nat i,
+      #content-detail.new .main-seibun-ttl .nat i {
         font-size: 1.6em;
         font-family: 'Roboto Mono', monospace;
         letter-spacing: -3px;
-        margin-right: .1em;
-        height: .3em;
+        margin-right: 0.1em;
+        height: 0.3em;
         -webkit-transform: translateY(-0.5em);
         -ms-transform: translateY(-0.5em);
         transform: translateY(-0.5em); }
     @media screen and (max-width: 767px) {
-      #content-detail.new .rutein-zeakisantin, #content-detail.new .main-seibun-ttl {
+      #content-detail.new .rutein-zeakisantin,
+      #content-detail.new .main-seibun-ttl {
         font-size: 20px !important; }
-        #content-detail.new .rutein-zeakisantin .kana, #content-detail.new .main-seibun-ttl .kana {
+        #content-detail.new .rutein-zeakisantin .kana,
+        #content-detail.new .main-seibun-ttl .kana {
           font-size: 4.806vw;
           white-space: nowrap; }
-        #content-detail.new .rutein-zeakisantin .nat, #content-detail.new .main-seibun-ttl .nat {
+        #content-detail.new .rutein-zeakisantin .nat,
+        #content-detail.new .main-seibun-ttl .nat {
           -webkit-box-pack: center;
           -webkit-justify-content: center;
               -ms-flex-pack: center;
                   justify-content: center;
           margin-top: 15px; } }
-    #content-detail.new .rutein-zeakisantin.vertical, #content-detail.new .main-seibun-ttl.vertical {
+    #content-detail.new .rutein-zeakisantin.vertical,
+    #content-detail.new .main-seibun-ttl.vertical {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -1382,14 +1410,15 @@ p {
       -webkit-align-items: flex-start;
           -ms-flex-align: start;
               align-items: flex-start; }
-      #content-detail.new .rutein-zeakisantin.vertical .nat, #content-detail.new .main-seibun-ttl.vertical .nat {
+      #content-detail.new .rutein-zeakisantin.vertical .nat,
+      #content-detail.new .main-seibun-ttl.vertical .nat {
         margin-top: 18px; }
   #content-detail.new .desc-rutein {
     background-color: rgba(250, 190, 0, 0.2);
-    border-color: #E75613; }
+    border-color: #e75613; }
   #content-detail.new .desc-zeakisantin {
     background-color: rgba(255, 0, 0, 0.2);
-    border-color: #C10F23; }
+    border-color: #c10f23; }
   #content-detail.new section.static {
     padding: 50px 0;
     background: #eee;
@@ -1436,7 +1465,7 @@ p {
         border-radius: 50px;
         line-height: 1;
         font-weight: bold;
-        letter-spacing: .1em; }
+        letter-spacing: 0.1em; }
         @media screen and (max-width: 767px) {
           #content-detail.new section.static > h3 span {
             width: 100%;
@@ -1446,13 +1475,13 @@ p {
     #content-detail.new section.static .inner {
       padding: 0; }
   #content-detail.new #sec-howto {
-    background: #F5F2E8; }
+    background: #f5f2e8; }
     #content-detail.new #sec-howto .inner p {
       margin-top: 20px;
       font-size: 16px !important;
       line-height: 2;
       font-weight: bold;
-      letter-spacing: .1em; }
+      letter-spacing: 0.1em; }
       @media screen and (min-width: 768px) {
         #content-detail.new #sec-howto .inner p {
           text-align: center !important; } }
@@ -1462,7 +1491,7 @@ p {
           #content-detail.new #sec-howto .inner p br {
             display: none; } }
   #content-detail.new #sec-voice {
-    background: #FEE68B; }
+    background: #fee68b; }
     #content-detail.new #sec-voice .voice-wrap {
       max-width: 600px;
       margin: 0 auto;
@@ -1560,7 +1589,7 @@ p {
             #content-detail.new #sec-voice .voice-wrap .voice br {
               display: none; } }
         #content-detail.new #sec-voice .voice-wrap .voice:after {
-          content: "";
+          content: '';
           display: inline-block;
           width: 0;
           height: 0;
@@ -1587,7 +1616,7 @@ p {
               margin-right: 70px;
               margin-left: 0; } }
           #content-detail.new #sec-voice .voice-wrap .voice:nth-of-type(2n):after {
-            content: "";
+            content: '';
             left: auto;
             right: 25px;
             -webkit-transform: translateX(100%);
@@ -1619,7 +1648,7 @@ p {
             #content-detail.new #sec-voice .voice-wrap .voice p {
               font-size: 14px; } }
   #content-detail.new #sec-ingredients {
-    background: #E1F3FB; }
+    background: #e1f3fb; }
     #content-detail.new #sec-ingredients .nutrient {
       max-width: 960px;
       margin: 0 auto;
@@ -1642,7 +1671,7 @@ p {
       #content-detail.new #sec-ingredients table th {
         text-align: center;
         vertical-align: middle;
-        border: 2px solid #E1F3FB;
+        border: 2px solid #e1f3fb;
         background: rgba(253, 211, 60, 0.29); }
         @media screen and (min-width: 768px) {
           #content-detail.new #sec-ingredients table th {
@@ -1653,14 +1682,17 @@ p {
       #content-detail.new #sec-ingredients table td {
         text-align: left; }
         #content-detail.new #sec-ingredients table td i {
-          font-size: .8em; }
-      #content-detail.new #sec-ingredients table th, #content-detail.new #sec-ingredients table td {
+          font-size: 0.8em; }
+      #content-detail.new #sec-ingredients table th,
+      #content-detail.new #sec-ingredients table td {
         padding: 10px;
-        border: 2px solid #E1F3FB; }
-        #content-detail.new #sec-ingredients table th i, #content-detail.new #sec-ingredients table td i {
-          font-size: .8em; }
+        border: 2px solid #e1f3fb; }
+        #content-detail.new #sec-ingredients table th i,
+        #content-detail.new #sec-ingredients table td i {
+          font-size: 0.8em; }
         @media screen and (max-width: 767px) {
-          #content-detail.new #sec-ingredients table th, #content-detail.new #sec-ingredients table td {
+          #content-detail.new #sec-ingredients table th,
+          #content-detail.new #sec-ingredients table td {
             font-size: 12px; } }
       #content-detail.new #sec-ingredients table._2 th {
         white-space: nowrap; }
@@ -1763,10 +1795,10 @@ p {
           display: block;
           margin: 0 auto; } }
       #content-detail.new .summary-block .txt:before {
-        content: "";
+        content: '';
         width: 100%;
         height: 100%;
-        background: #FFF;
+        background: #fff;
         border-radius: 100%;
         position: absolute;
         z-index: 0;
@@ -1775,15 +1807,21 @@ p {
 
 /* !! - - -  */
 /* !! 配合 */
-.about-material, .about-material.hand, .about-material.box {
+.about-material,
+.about-material.hand,
+.about-material.box {
   max-width: 960px;
   margin: 0 auto;
   border-radius: 12px;
   position: relative;
   min-height: 376px; }
-  .about-material.sub, .about-material.hand.sub, .about-material.box.sub {
+  .about-material.sub,
+  .about-material.hand.sub,
+  .about-material.box.sub {
     min-height: 0; }
-  .about-material .bg-img, .about-material.hand .bg-img, .about-material.box .bg-img {
+  .about-material .bg-img,
+  .about-material.hand .bg-img,
+  .about-material.box .bg-img {
     border-radius: 12px;
     overflow: hidden;
     position: absolute;
@@ -1793,13 +1831,19 @@ p {
     width: 100%;
     height: 100%; }
     @media screen and (max-width: 767px) {
-      .about-material .bg-img, .about-material.hand .bg-img, .about-material.box .bg-img {
+      .about-material .bg-img,
+      .about-material.hand .bg-img,
+      .about-material.box .bg-img {
         position: static;
         margin-bottom: 20px; }
-        .about-material .bg-img img.st, .about-material.hand .bg-img img.st, .about-material.box .bg-img img.st {
+        .about-material .bg-img img.st,
+        .about-material.hand .bg-img img.st,
+        .about-material.box .bg-img img.st {
           width: 40%;
           height: auto; } }
-    .about-material .bg-img.flx, .about-material.hand .bg-img.flx, .about-material.box .bg-img.flx {
+    .about-material .bg-img.flx,
+    .about-material.hand .bg-img.flx,
+    .about-material.box .bg-img.flx {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -1819,23 +1863,33 @@ p {
               justify-content: center;
       align-items: center;
       justify-content: center !important; }
-    .about-material .bg-img img:not(.st), .about-material.hand .bg-img img:not(.st), .about-material.box .bg-img img:not(.st) {
+    .about-material .bg-img img:not(.st),
+    .about-material.hand .bg-img img:not(.st),
+    .about-material.box .bg-img img:not(.st) {
       width: 100% !important;
       height: auto !important;
       position: relative;
       z-index: 0; }
-  .about-material ul.normal, .about-material.hand ul.normal, .about-material.box ul.normal {
+  .about-material ul.normal,
+  .about-material.hand ul.normal,
+  .about-material.box ul.normal {
     font-weight: bold;
     line-height: 28px;
     font-family: 'Noto Sans JP', sans-serif !important;
     font-weight: 900;
     font-weight: 900;
     text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff; }
-    .about-material ul.normal strong, .about-material.hand ul.normal strong, .about-material.box ul.normal strong {
+    .about-material ul.normal strong,
+    .about-material.hand ul.normal strong,
+    .about-material.box ul.normal strong {
       font-weight: 900 !important; }
-    .about-material ul.normal + .normal, .about-material.hand ul.normal + .normal, .about-material.box ul.normal + .normal {
+    .about-material ul.normal + .normal,
+    .about-material.hand ul.normal + .normal,
+    .about-material.box ul.normal + .normal {
       margin-left: 1em; }
-    .about-material ul.normal li, .about-material.hand ul.normal li, .about-material.box ul.normal li {
+    .about-material ul.normal li,
+    .about-material.hand ul.normal li,
+    .about-material.box ul.normal li {
       line-height: 1;
       display: -webkit-flex;
       display: -moz-flex;
@@ -1857,11 +1911,15 @@ p {
           -ms-flex-pack: start;
               justify-content: flex-start;
       margin-top: 10px; }
-      .about-material ul.normal li strong, .about-material.hand ul.normal li strong, .about-material.box ul.normal li strong {
+      .about-material ul.normal li strong,
+      .about-material.hand ul.normal li strong,
+      .about-material.box ul.normal li strong {
         font-size: 1.4em; }
-      .about-material ul.normal li:before, .about-material.hand ul.normal li:before, .about-material.box ul.normal li:before {
-        content: "●";
-        font-size: .3em;
+      .about-material ul.normal li:before,
+      .about-material.hand ul.normal li:before,
+      .about-material.box ul.normal li:before {
+        content: '●';
+        font-size: 0.3em;
         width: 20px;
         display: -webkit-box;
         display: -webkit-flex;
@@ -1890,8 +1948,10 @@ p {
         -webkit-align-content: center;
             -ms-flex-line-pack: center;
                 align-content: center; }
-  .about-material .ft:before, .about-material.hand .ft:before, .about-material.box .ft:before {
-    content: "";
+  .about-material .ft:before,
+  .about-material.hand .ft:before,
+  .about-material.box .ft:before {
+    content: '';
     height: 38px;
     width: 38px;
     display: block;
@@ -1900,7 +1960,9 @@ p {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center center; }
-  .about-material .ft .hd, .about-material.hand .ft .hd, .about-material.box .ft .hd {
+  .about-material .ft .hd,
+  .about-material.hand .ft .hd,
+  .about-material.box .ft .hd {
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -1925,12 +1987,18 @@ p {
         -ms-flex-align: center;
             align-items: center; }
     @media screen and (max-width: 767px) {
-      .about-material .ft .hd, .about-material.hand .ft .hd, .about-material.box .ft .hd {
+      .about-material .ft .hd,
+      .about-material.hand .ft .hd,
+      .about-material.box .ft .hd {
         margin-top: 15px; } }
-    .about-material .ft .hd p, .about-material.hand .ft .hd p, .about-material.box .ft .hd p {
+    .about-material .ft .hd p,
+    .about-material.hand .ft .hd p,
+    .about-material.box .ft .hd p {
       line-height: 1;
       margin: 0 !important; }
-  .about-material .ft ul.normal, .about-material.hand .ft ul.normal, .about-material.box .ft ul.normal {
+  .about-material .ft ul.normal,
+  .about-material.hand .ft ul.normal,
+  .about-material.box .ft ul.normal {
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -1952,20 +2020,28 @@ p {
         -ms-flex-pack: center;
             justify-content: center; }
     @media screen and (max-width: 767px) {
-      .about-material .ft ul.normal, .about-material.hand .ft ul.normal, .about-material.box .ft ul.normal {
+      .about-material .ft ul.normal,
+      .about-material.hand .ft ul.normal,
+      .about-material.box .ft ul.normal {
         -webkit-box-pack: center;
         -webkit-justify-content: center;
             -ms-flex-pack: center;
                 justify-content: center; } }
-    .about-material .ft ul.normal li, .about-material.hand .ft ul.normal li, .about-material.box .ft ul.normal li {
+    .about-material .ft ul.normal li,
+    .about-material.hand .ft ul.normal li,
+    .about-material.box .ft ul.normal li {
       margin: 0 15px; }
-      .about-material .ft ul.normal li i, .about-material.hand .ft ul.normal li i, .about-material.box .ft ul.normal li i {
-        font-size: .8em;
+      .about-material .ft ul.normal li i,
+      .about-material.hand .ft ul.normal li i,
+      .about-material.box .ft ul.normal li i {
+        font-size: 0.8em;
         -webkit-align-self: flex-end;
             -ms-flex-item-align: end;
                 align-self: flex-end; }
       @media screen and (max-width: 767px) {
-        .about-material .ft ul.normal li, .about-material.hand .ft ul.normal li, .about-material.box .ft ul.normal li {
+        .about-material .ft ul.normal li,
+        .about-material.hand .ft ul.normal li,
+        .about-material.box .ft ul.normal li {
           margin: 0 10px;
           margin-top: 10px;
           -webkit-flex-wrap: nowrap;
@@ -2002,7 +2078,7 @@ p {
     margin: 0 15px;
     margin-top: 15px; }
     .about-material.sub ul.normal li i {
-      font-size: .8em; }
+      font-size: 0.8em; }
     @media screen and (max-width: 767px) {
       .about-material.sub ul.normal li {
         margin: 0;
@@ -2046,7 +2122,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
             justify-content: space-between; }
     ul.vitaminB li .name, main.Q10 #sec03 ul.vitaminB li .name {
       width: 160px;
-      border: 2px solid #C10F23;
+      border: 2px solid #c10f23;
       border-radius: 6px;
       height: 50px;
       display: -webkit-flex;
@@ -2077,10 +2153,10 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
               align-items: center;
       font-size: 13px;
       font-weight: bold;
-      color: #C10F23;
+      color: #c10f23;
       white-space: nowrap; }
       ul.vitaminB li .name i, main.Q10 #sec03 ul.vitaminB li .name i {
-        font-size: .8em; }
+        font-size: 0.8em; }
     ul.vitaminB li p, main.Q10 #sec03 ul.vitaminB li p {
       font-size: 14px; }
       @media screen and (min-width: 768px) {
@@ -2088,7 +2164,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
           width: 260px;
           font-size: 16px; } }
       ul.vitaminB li p i, main.Q10 #sec03 ul.vitaminB li p i {
-        font-size: .8em; }
+        font-size: 0.8em; }
     @media screen and (max-width: 767px) {
       ul.vitaminB li, main.Q10 #sec03 ul.vitaminB li {
         width: calc(50% - 5px);
@@ -2130,7 +2206,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
 
 .label-tag {
   background: #333;
-  color: #FFf;
+  color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2163,17 +2239,17 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
     display: -ms-inline-flexbox;
     display: inline-flex; }
   .label-tag.co1 {
-    background: #FF0000; }
+    background: #ff0000; }
   .label-tag.co2 {
-    background: #6A068B; }
+    background: #6a068b; }
   .label-tag.co3 {
     background: #0027ff; }
   .label-tag.co_bifi {
-    background: #ED672B; }
+    background: #ed672b; }
   .label-tag.co_nyu {
-    background: #3987C6; }
+    background: #3987c6; }
   .label-tag.co_prebiotics {
-    background: #01B9A2; }
+    background: #01b9a2; }
   .label-tag.h24 {
     height: 24px;
     font-size: 15px;
@@ -2182,17 +2258,17 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
     height: 30px;
     font-size: 16px; }
   .label-tag.orange {
-    background: #E75613 !important; }
+    background: #e75613 !important; }
   .label-tag.green {
     background: #2e9b3e; }
   .label-tag.red {
-    background: #FF0000; }
+    background: #ff0000; }
   .label-tag.purple {
-    background: #831D87; }
+    background: #831d87; }
   .label-tag.pink {
-    background: #E4007F !important; }
+    background: #e4007f !important; }
   .label-tag.blue2 {
-    background: #072E95 !important; }
+    background: #072e95 !important; }
 
 .material-list {
   position: relative;
@@ -2395,7 +2471,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
     padding: 0; }
   .about-material.sub .label-tag {
     display: inline-block;
-    background: #FF007C; }
+    background: #ff007c; }
   .about-material.sub ul:not(.normal) {
     display: -webkit-flex;
     display: -moz-flex;
@@ -2441,7 +2517,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
       .about-material.sub ul:not(.normal) li .img {
         width: 80px;
         height: 80px;
-        background: #EEE;
+        background: #eee;
         border-radius: 100px;
         position: absolute;
         top: 0px;
@@ -2457,7 +2533,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
       .about-material.sub ul:not(.normal) li .name {
         font-size: 14px; }
         .about-material.sub ul:not(.normal) li .name i {
-          font-size: .6em;
+          font-size: 0.6em;
           line-height: 1; }
       .about-material.sub ul:not(.normal) li .food {
         margin-top: auto;
@@ -2474,46 +2550,46 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
   @media screen and (max-width: 767px) {
     #sec0 {
       margin-bottom: 30px; } }
-  #sec0 div[class*="about-"] {
+  #sec0 div[class*='about-'] {
     padding: 10px;
     margin: 0 auto; }
     @media screen and (max-width: 767px) {
-      #sec0 div[class*="about-"] {
+      #sec0 div[class*='about-'] {
         margin: 0 4.005vw; } }
-    #sec0 div[class*="about-"] .wrap {
-      background: #FFF;
+    #sec0 div[class*='about-'] .wrap {
+      background: #fff;
       padding: 30px;
       border-radius: 6px; }
       @media screen and (max-width: 767px) {
-        #sec0 div[class*="about-"] .wrap {
+        #sec0 div[class*='about-'] .wrap {
           padding: 4.005vw;
           -webkit-box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
                   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1); } }
-      #sec0 div[class*="about-"] .wrap h3 {
+      #sec0 div[class*='about-'] .wrap h3 {
         font-size: 40px !important;
-        letter-spacing: .1em; }
+        letter-spacing: 0.1em; }
         @media screen and (max-width: 767px) {
-          #sec0 div[class*="about-"] .wrap h3 {
+          #sec0 div[class*='about-'] .wrap h3 {
             text-align: center;
             font-size: 8.544vw !important; } }
-        #sec0 div[class*="about-"] .wrap h3 i {
-          font-size: .8em; }
+        #sec0 div[class*='about-'] .wrap h3 i {
+          font-size: 0.8em; }
       @media screen and (min-width: 768px) {
-        #sec0 div[class*="about-"] .wrap p {
+        #sec0 div[class*='about-'] .wrap p {
           font-size: 18px !important;
           line-height: 1.8; } }
-      #sec0 div[class*="about-"] .wrap p b.enh {
+      #sec0 div[class*='about-'] .wrap p b.enh {
         font-weight: 900;
         font-family: 'Noto Sans JP', sans-serif !important;
         font-weight: 900;
         font-size: 1.4em;
-        color: #E4007F; }
-        #sec0 div[class*="about-"] .wrap p b.enh strong {
+        color: #e4007f; }
+        #sec0 div[class*='about-'] .wrap p b.enh strong {
           font-weight: 900 !important; }
       @media screen and (max-width: 767px) {
-        #sec0 div[class*="about-"] .wrap p {
+        #sec0 div[class*='about-'] .wrap p {
           font-size: 16px !important; } }
-    #sec0 div[class*="about-"] .img {
+    #sec0 div[class*='about-'] .img {
       background: rgba(34, 139, 175, 0.1);
       padding: 15px;
       border-radius: 6px; }
@@ -2548,7 +2624,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
   -webkit-transform: translateY(200%);
   -ms-transform: translateY(200%);
   transform: translateY(200%);
-  background: #E75613;
+  background: #e75613;
   z-index: 10; }
   @media screen and (min-width: 768px) {
     #btn-to-cart-wrap {
@@ -2598,7 +2674,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
     font-weight: 900;
     font-weight: 900;
     font-size: 16px;
-    letter-spacing: .1em; }
+    letter-spacing: 0.1em; }
     #btn-to-cart-wrap a strong {
       font-weight: 900 !important; }
     @media screen and (min-width: 768px) {
@@ -2609,10 +2685,10 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
     @media screen and (max-width: 767px) {
       #btn-to-cart-wrap a {
         height: 70px;
-        color: #E75613; } }
+        color: #e75613; } }
   #btn-to-cart-wrap a {
     text-align: center;
-    color: #FFF; }
+    color: #fff; }
   .cart-btn-grp_passed #btn-to-cart-wrap {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
@@ -2635,7 +2711,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
 
 #content-detail.new.premium-croire .about-SOD2 h4 {
   font-size: 20px;
-  color: #C10F23;
+  color: #c10f23;
   font-weight: bold;
   font-family: 'Noto Sans JP', sans-serif !important;
   font-weight: 900;
@@ -2662,13 +2738,15 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.46);
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.46); }
 
-#content-detail.new.premium-croire .about-SOD2 ._2 .txt, #content-detail.new.premium-croire .about-SOD2 ._3 .txt {
+#content-detail.new.premium-croire .about-SOD2 ._2 .txt,
+#content-detail.new.premium-croire .about-SOD2 ._3 .txt {
   border-radius: 6px;
   background: rgba(193, 15, 35, 0.1);
   padding: 10px;
   min-height: 80px;
   margin-top: 10px; }
-  #content-detail.new.premium-croire .about-SOD2 ._2 .txt p, #content-detail.new.premium-croire .about-SOD2 ._3 .txt p {
+  #content-detail.new.premium-croire .about-SOD2 ._2 .txt p,
+  #content-detail.new.premium-croire .about-SOD2 ._3 .txt p {
     font-size: 14px;
     margin-top: -0.25em;
     margin-bottom: -0.25em; }
@@ -2747,7 +2825,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
   margin-top: 1em; }
 
 #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div {
-  background: #D3EDFB !important;
+  background: #d3edfb !important;
   border-radius: 6px; }
   @media screen and (min-width: 768px) {
     #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div {
@@ -2783,7 +2861,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
             justify-content: center;
     white-space: nowrap; }
     #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div h4.blue {
-      color: #228BAF; }
+      color: #228baf; }
     #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div h4 span {
       background: #fff;
       font-size: 16px;
@@ -2807,7 +2885,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
               justify-content: center;
       border-radius: 50px;
       padding: 0px 20px;
-      letter-spacing: .1em; }
+      letter-spacing: 0.1em; }
     @media screen and (max-width: 767px) {
       #content-detail.new.premium-croire .about-SOD4 .sod-hataraki > div h4 {
         font-size: 16px !important; } }
@@ -2930,7 +3008,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
       #content-detail.new.premium-croire .about-SOD1 .graf .idx .sod i {
         font-size: 1.8em;
         display: inline-block;
-        margin: 0 .1em;
+        margin: 0 0.1em;
         -webkit-transform: translateY(0.05em);
         -ms-transform: translateY(0.05em);
         transform: translateY(0.05em); }
@@ -2976,7 +3054,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         text-align: center;
         font-size: 20px;
         line-height: 1.1;
-        margin-top: .5em;
+        margin-top: 0.5em;
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -3009,7 +3087,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         #content-detail.new.premium-croire .about-SOD-900000 ul li p span {
           display: block;
           font-size: 12px;
-          margin-top: .5em; }
+          margin-top: 0.5em; }
   #content-detail.new.premium-croire .about-SOD-900000 .note {
     padding-left: 1em;
     font-size: 14px;
@@ -3073,15 +3151,15 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
             margin: 4.005vw;
             border-radius: 6px; } }
         #content-detail.new.premium-croire #sec02 .about-material ul.idx li:after {
-          content: "";
+          content: '';
           display: block;
           position: absolute; }
         @media screen and (max-width: 767px) {
           #content-detail.new.premium-croire #sec02 .about-material ul.idx li:after {
-            content: "";
+            content: '';
             display: none; } }
         #content-detail.new.premium-croire #sec02 .about-material ul.idx li:nth-of-type(1):after {
-          content: "";
+          content: '';
           bottom: 0;
           right: 0;
           width: 0;
@@ -3092,7 +3170,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
           -ms-transform: translateX(70%);
           transform: translateX(70%); }
         #content-detail.new.premium-croire #sec02 .about-material ul.idx li:nth-of-type(2):after {
-          content: "";
+          content: '';
           bottom: 0;
           left: 0;
           width: 0;
@@ -3103,7 +3181,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
           -ms-transform: translateX(-70%);
           transform: translateX(-70%); }
         #content-detail.new.premium-croire #sec02 .about-material ul.idx li:nth-of-type(3):after {
-          content: "";
+          content: '';
           top: 0;
           right: 0;
           width: 0;
@@ -3114,7 +3192,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
           -ms-transform: translateX(70%);
           transform: translateX(70%); }
         #content-detail.new.premium-croire #sec02 .about-material ul.idx li:nth-of-type(4):after {
-          content: "";
+          content: '';
           top: 0;
           left: 0;
           width: 0;
@@ -3131,7 +3209,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
             #content-detail.new.premium-croire #sec02 .about-material ul.idx li:nth-of-type(2n) .img {
               left: auto;
               right: 15px; }
-          #content-detail.new.premium-croire #sec02 .about-material ul.idx li:nth-last-of-type(-n+2) {
+          #content-detail.new.premium-croire #sec02 .about-material ul.idx li:nth-last-of-type(-n + 2) {
             margin-top: 30px; } }
         #content-detail.new.premium-croire #sec02 .about-material ul.idx li h4 {
           font-size: 18px;
@@ -3163,9 +3241,9 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
           margin-bottom: 10px;
           text-align: left; }
           #content-detail.new.premium-croire #sec02 .about-material ul.idx li h4 i {
-            font-size: .7em; }
+            font-size: 0.7em; }
           #content-detail.new.premium-croire #sec02 .about-material ul.idx li h4 .label-tag {
-            background: #F5DC62;
+            background: #f5dc62;
             height: 20px;
             border-radius: 30px;
             font-size: 12px;
@@ -3289,16 +3367,16 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
           #content-detail.new.premium-croire #sec02 .about-katekin ._1 .desc p._1 strong strong {
             font-weight: 900 !important; }
           #content-detail.new.premium-croire #sec02 .about-katekin ._1 .desc p._1 strong > i {
-            font-size: .8em; }
+            font-size: 0.8em; }
           #content-detail.new.premium-croire #sec02 .about-katekin ._1 .desc p._1 strong .s {
-            font-size: .7em;
+            font-size: 0.7em;
             display: block; }
             #content-detail.new.premium-croire #sec02 .about-katekin ._1 .desc p._1 strong .s i {
-              font-size: .8em; }
+              font-size: 0.8em; }
       #content-detail.new.premium-croire #sec02 .about-katekin ._1 .desc .mk1 {
         color: #009950; }
       #content-detail.new.premium-croire #sec02 .about-katekin ._1 .desc .mk2 {
-        color: #DF3621; }
+        color: #df3621; }
     #content-detail.new.premium-croire #sec02 .about-katekin ._2 {
       border-radius: 6px;
       background: rgba(255, 255, 255, 0.85);
@@ -3334,7 +3412,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
   background: #fff; }
   #content-detail.new.premium-croire #sec03 > h3 {
     text-align: center;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
     line-height: 1; }
     #content-detail.new.premium-croire #sec03 > h3 span {
       font-size: 32px;
@@ -3437,7 +3515,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         font-family: 'Noto Sans JP', sans-serif !important;
         font-weight: 900;
         line-height: 1;
-        color: #E4007F;
+        color: #e4007f;
         font-size: 24px; }
         #content-detail.new.premium-croire #sec03 .zero-list li .num strong {
           font-weight: 900 !important; }
@@ -3473,21 +3551,21 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
       margin: 0 auto; }
 
 #content-detail.new.premium-croire #sec-howto {
-  background: #F5F2E8; }
+  background: #f5f2e8; }
   #content-detail.new.premium-croire #sec-howto .inner p {
     margin-top: 20px;
     font-size: 16px !important;
     text-align: center !important;
     line-height: 2;
     font-weight: bold;
-    letter-spacing: .1em; }
+    letter-spacing: 0.1em; }
 
 /* !!------------------------------------ */
 /* !! ★クロワールアイ・プロ・Q */
 #content-detail.eye-Q {
   /* !! - 1粒にルテインとゼアキサンチンを配合 */ }
   #content-detail.eye-Q #sec01 {
-    background: #FFEDE5 !important; }
+    background: #ffede5 !important; }
     @media screen and (max-width: 767px) {
       #content-detail.eye-Q #sec01 h3.sec {
         padding-right: 40px !important; }
@@ -3557,7 +3635,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
       #content-detail.eye-Q .about-rutein2 .idx ._3 {
         width: 300px !important; } }
     #content-detail.eye-Q .about-rutein2 .idx ._3:after {
-      content: "";
+      content: '';
       width: 0;
       height: 0;
       border: 30px solid;
@@ -3580,7 +3658,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
     position: relative;
     z-index: 1; }
     #content-detail.eye-Q .eyeball:after {
-      content: "";
+      content: '';
       width: 151px;
       height: 192px;
       position: absolute;
@@ -3643,7 +3721,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
       margin-bottom: 0 !important; }
   #content-detail.eye-Q .about-brain ._3 {
     width: 255px;
-    background: #FFF;
+    background: #fff;
     border-radius: 6px;
     position: absolute;
     top: 15px;
@@ -3662,13 +3740,13 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         font-weight: 900 !important;
         font-family: 'Noto Sans JP', sans-serif !important;
         font-weight: 900;
-        color: #E75613; }
+        color: #e75613; }
         #content-detail.eye-Q .about-brain ._3 ul.normal span strong {
           font-weight: 900 !important; }
       #content-detail.eye-Q .about-brain ._3 ul.normal span.c2 {
-        color: #C10F23; }
+        color: #c10f23; }
   #content-detail.eye-Q .about-brain .label-tag {
-    background: #E75613;
+    background: #e75613;
     font-size: 16px !important;
     height: 30px;
     border-radius: 50px;
@@ -3690,28 +3768,28 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         -ms-flex-pack: center;
             justify-content: center;
     line-height: 1em;
-    color: #FFF;
+    color: #fff;
     white-space: nowrap; }
     #content-detail.eye-Q .about-brain .label-tag span {
       position: relative;
       top: -1px; }
-  #content-detail.eye-Q span[class^="kana-"] {
+  #content-detail.eye-Q span[class^='kana-'] {
     font-weight: bold;
     display: inline-block;
-    line-height: .9;
+    line-height: 0.9;
     padding: 9px 10px;
-    letter-spacing: .05em;
+    letter-spacing: 0.05em;
     font-family: 'Noto Sans JP', sans-serif !important;
     font-weight: 900;
     text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff; }
-    #content-detail.eye-Q span[class^="kana-"] strong {
+    #content-detail.eye-Q span[class^='kana-'] strong {
       font-weight: 900 !important; }
   #content-detail.eye-Q .kana-rutein {
-    background: #E75613; }
+    background: #e75613; }
   #content-detail.eye-Q .kana-zeakisantin {
-    background: #C10F23; }
+    background: #c10f23; }
   #content-detail.eye-Q #sec02 {
-    background: #FFFFD2; }
+    background: #ffffd2; }
   #content-detail.eye-Q .about-material.hand {
     background: #fff;
     height: 376px; }
@@ -3743,7 +3821,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         #content-detail.eye-Q .about-material.hand .inner.material-list {
           padding: 4.005vw !important; } }
   #content-detail.eye-Q #sec03 {
-    background: #E4F5FF !important; }
+    background: #e4f5ff !important; }
     @media screen and (max-width: 767px) {
       #content-detail.eye-Q #sec03 .about-seibun h3.sec {
         padding-right: 30px !important; } }
@@ -3765,9 +3843,9 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         #content-detail.eye-Q #sec03 .label-tag {
           font-size: 14px !important; } }
       #content-detail.eye-Q #sec03 .label-tag.eye {
-        background: #E75613; }
+        background: #e75613; }
       #content-detail.eye-Q #sec03 .label-tag.brain {
-        background: #C10F23; }
+        background: #c10f23; }
     #content-detail.eye-Q #sec03 .about-todokedehyouji {
       text-align: center; }
       @media screen and (max-width: 767px) {
@@ -3778,7 +3856,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
       #content-detail.eye-Q #sec03 .about-todokedehyouji ._2 {
         height: auto !important; }
         #content-detail.eye-Q #sec03 .about-todokedehyouji ._2 strong {
-          color: #C10F23; }
+          color: #c10f23; }
       @media screen and (min-width: 768px) {
         #content-detail.eye-Q #sec03 .about-todokedehyouji .idx > div {
           width: 50% !important; }
@@ -3842,7 +3920,7 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         text-align: center;
         font-size: 28px; }
         #content-detail.eye-Q #sec03 .about-todokedehyouji h4 span {
-          font-size: .8em; }
+          font-size: 0.8em; }
       #content-detail.eye-Q #sec03 .about-todokedehyouji .desc1 {
         border: 2px solid #ccc;
         padding: 15px;
@@ -3853,16 +3931,16 @@ ul.vitaminB, main.Q10 #sec03 ul.vitaminB {
         #content-detail.eye-Q #sec03 .about-todokedehyouji .desc1 p {
           margin-bottom: 0 !important; }
         #content-detail.eye-Q #sec03 .about-todokedehyouji .desc1.ru {
-          border-color: #E75613;
+          border-color: #e75613;
           background: rgba(231, 86, 19, 0.1); }
         #content-detail.eye-Q #sec03 .about-todokedehyouji .desc1.ze {
-          border-color: #C10F23;
+          border-color: #c10f23;
           background: rgba(193, 15, 35, 0.1); }
       #content-detail.eye-Q #sec03 .about-todokedehyouji p {
         font-size: 16px; }
         #content-detail.eye-Q #sec03 .about-todokedehyouji p strong {
           font-size: 1em;
-          color: #E75613; }
+          color: #e75613; }
       @media screen and (max-width: 767px) {
         #content-detail.eye-Q #sec03 .about-todokedehyouji .desc2 {
           margin-top: 20px; } }
@@ -3907,7 +3985,7 @@ p.plus {
 /* !!------------------------------------ */
 /* !! プロバイオティクス12 */
 main.probiotics12 #sec01 {
-  background: #FAEEF4 !important; }
+  background: #faeef4 !important; }
 
 main.probiotics12 .about-probiotics2 {
   margin-top: 30px !important; }
@@ -3981,7 +4059,7 @@ main.probiotics12 .about-cryotechnology h3 {
   main.probiotics12 .about-cryotechnology h3 span {
     line-height: 1; }
     main.probiotics12 .about-cryotechnology h3 span i {
-      font-size: .9em;
+      font-size: 0.9em;
       line-height: 1;
       display: block;
       margin-bottom: 5px; }
@@ -4010,7 +4088,7 @@ main.probiotics12 .about-cryotechnology ._2 {
           align-items: flex-start;
   text-align: left; }
   main.probiotics12 .about-cryotechnology ._2 .label-tag {
-    background: #C10F23; }
+    background: #c10f23; }
   main.probiotics12 .about-cryotechnology ._2 p {
     font-weight: bold; }
     main.probiotics12 .about-cryotechnology ._2 p .kw {
@@ -4043,9 +4121,9 @@ main.probiotics12 #sec04 {
             justify-content: center; }
 
 main.probiotics12 #sec03 {
-  background: #E5F5FF !important; }
+  background: #e5f5ff !important; }
   main.probiotics12 #sec03 ._2 {
-    background: #CDE5F4;
+    background: #cde5f4;
     padding: 30px;
     border-radius: 6px; }
     @media screen and (max-width: 767px) {
@@ -4061,7 +4139,7 @@ main.probiotics12 .about-bottle {
 /* !!------------------------------------ */
 /* !! コエンザイムQ10 */
 main.Q10 #sec01 {
-  background: #FFEDE5 !important; }
+  background: #ffede5 !important; }
 
 main.Q10 .about-Q10-1 .idx {
   -webkit-box-pack: center;
@@ -4113,15 +4191,15 @@ main.Q10 .about-Q10-2 ul {
           -ms-flex-pack: justify;
               justify-content: space-between; } }
   main.Q10 .about-Q10-2 ul li:before {
-    content: "● ";
-    color: #C10F23; }
+    content: '● ';
+    color: #c10f23; }
   @media screen and (max-width: 767px) {
     main.Q10 .about-Q10-2 ul li {
       position: relative;
       padding-left: 1.2em;
       position: relative; }
       main.Q10 .about-Q10-2 ul li:before {
-        content: "● ";
+        content: '● ';
         position: absolute;
         top: 0;
         left: 0; } }
@@ -4156,16 +4234,16 @@ main.Q10 .about-Q10-3 p {
   word-break: break-word; }
 
 main.Q10 #sec03 {
-  background: #FFFFD2 !important; }
+  background: #ffffd2 !important; }
   main.Q10 #sec03 .lead {
     font-size: 20px !important;
     font-weight: 900 !important;
     font-family: 'Noto Sans JP', sans-serif !important;
     font-weight: 900;
-    color: #C10F23;
+    color: #c10f23;
     padding: 0 !important;
     line-height: 2 !important;
-    letter-spacing: .1em; }
+    letter-spacing: 0.1em; }
     main.Q10 #sec03 .lead strong {
       font-weight: 900 !important; }
     @media screen and (max-width: 767px) {
@@ -4315,7 +4393,7 @@ main.Q10 #sec03 {
 /* !!------------------------------------ */
 /* !! クロワールゴールド */
 #content-detail.gold #sec01 {
-  background: #FCEFEB !important; }
+  background: #fcefeb !important; }
 
 #content-detail.gold .about-material {
   overflow: visible; }
@@ -4367,13 +4445,16 @@ main.Q10 #sec03 {
         #content-detail.gold .about-material .txt .label-tag {
           margin-bottom: 6px; } }
 
-#content-detail.gold .about-cameria h3, #content-detail.gold .about-meshimakobu h3 {
+#content-detail.gold .about-cameria h3,
+#content-detail.gold .about-meshimakobu h3 {
   position: relative;
   padding-left: 80px; }
   @media screen and (min-width: 768px) {
-    #content-detail.gold .about-cameria h3, #content-detail.gold .about-meshimakobu h3 {
+    #content-detail.gold .about-cameria h3,
+    #content-detail.gold .about-meshimakobu h3 {
       white-space: nowrap; } }
-  #content-detail.gold .about-cameria h3 .img-dec, #content-detail.gold .about-meshimakobu h3 .img-dec {
+  #content-detail.gold .about-cameria h3 .img-dec,
+  #content-detail.gold .about-meshimakobu h3 .img-dec {
     width: 90px;
     position: absolute;
     top: 0;
@@ -4396,13 +4477,16 @@ main.Q10 #sec03 {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center; }
-    #content-detail.gold .about-cameria h3 .img-dec img, #content-detail.gold .about-meshimakobu h3 .img-dec img {
+    #content-detail.gold .about-cameria h3 .img-dec img,
+    #content-detail.gold .about-meshimakobu h3 .img-dec img {
       height: 100% !important;
       width: auto !important; }
-  #content-detail.gold .about-cameria h3 + p, #content-detail.gold .about-meshimakobu h3 + p {
+  #content-detail.gold .about-cameria h3 + p,
+  #content-detail.gold .about-meshimakobu h3 + p {
     font-size: 18px !important; }
 
-#content-detail.gold .about-cameria ._2 .label-tag, #content-detail.gold .about-meshimakobu ._2 .label-tag {
+#content-detail.gold .about-cameria ._2 .label-tag,
+#content-detail.gold .about-meshimakobu ._2 .label-tag {
   display: -webkit-inline-flex;
   display: -moz-inline-flex;
   display: -ms-inline-flex;
@@ -4411,63 +4495,78 @@ main.Q10 #sec03 {
   display: -ms-inline-flexbox;
   display: inline-flex; }
 
-#content-detail.gold .about-cameria ._2 p, #content-detail.gold .about-meshimakobu ._2 p {
+#content-detail.gold .about-cameria ._2 p,
+#content-detail.gold .about-meshimakobu ._2 p {
   margin: 1em 0px; }
 
-#content-detail.gold .about-cameria ._2 .img.bd p, #content-detail.gold .about-meshimakobu ._2 .img.bd p {
+#content-detail.gold .about-cameria ._2 .img.bd p,
+#content-detail.gold .about-meshimakobu ._2 .img.bd p {
   margin: 0 0 1em 0 !important;
   font-weight: bold;
   font-family: 'Noto Sans JP', sans-serif !important;
   font-weight: 900;
   font-weight: 900; }
-  #content-detail.gold .about-cameria ._2 .img.bd p strong, #content-detail.gold .about-meshimakobu ._2 .img.bd p strong {
+  #content-detail.gold .about-cameria ._2 .img.bd p strong,
+  #content-detail.gold .about-meshimakobu ._2 .img.bd p strong {
     font-weight: 900 !important; }
 
 #content-detail.gold #sec02 {
-  background: #EFF9FE !important; }
+  background: #eff9fe !important; }
 
-#content-detail.gold .about-mineral h4, #content-detail.gold .about-mineral-2 h4 {
+#content-detail.gold .about-mineral h4,
+#content-detail.gold .about-mineral-2 h4 {
   display: inline-block; }
 
-#content-detail.gold .about-mineral .table p, #content-detail.gold .about-mineral-2 .table p {
+#content-detail.gold .about-mineral .table p,
+#content-detail.gold .about-mineral-2 .table p {
   font-family: 'Noto Sans JP', sans-serif !important;
   font-weight: 900; }
-  #content-detail.gold .about-mineral .table p strong, #content-detail.gold .about-mineral-2 .table p strong {
+  #content-detail.gold .about-mineral .table p strong,
+  #content-detail.gold .about-mineral-2 .table p strong {
     font-weight: 900 !important; }
 
-#content-detail.gold .about-mineral .table table, #content-detail.gold .about-mineral-2 .table table {
+#content-detail.gold .about-mineral .table table,
+#content-detail.gold .about-mineral-2 .table table {
   width: 100%;
   line-height: 1;
   table-layout: fixed;
   border-collapse: collapse; }
-  #content-detail.gold .about-mineral .table table.sp, #content-detail.gold .about-mineral-2 .table table.sp {
+  #content-detail.gold .about-mineral .table table.sp,
+  #content-detail.gold .about-mineral-2 .table table.sp {
     display: table !important; }
   @media screen and (min-width: 768px) {
-    #content-detail.gold .about-mineral .table table.pc, #content-detail.gold .about-mineral-2 .table table.pc {
+    #content-detail.gold .about-mineral .table table.pc,
+    #content-detail.gold .about-mineral-2 .table table.pc {
       display: table !important; }
-    #content-detail.gold .about-mineral .table table.sp, #content-detail.gold .about-mineral-2 .table table.sp {
+    #content-detail.gold .about-mineral .table table.sp,
+    #content-detail.gold .about-mineral-2 .table table.sp {
       display: none !important; } }
-  #content-detail.gold .about-mineral .table table td, #content-detail.gold .about-mineral-2 .table table td {
+  #content-detail.gold .about-mineral .table table td,
+  #content-detail.gold .about-mineral-2 .table table td {
     font-size: 12px;
     width: 50%;
     white-space: nowrap; }
     @media screen and (max-width: 767px) {
-      #content-detail.gold .about-mineral .table table td, #content-detail.gold .about-mineral-2 .table table td {
+      #content-detail.gold .about-mineral .table table td,
+      #content-detail.gold .about-mineral-2 .table table td {
         font-size: 11px;
         vertical-align: middle; } }
-    #content-detail.gold .about-mineral .table table td span, #content-detail.gold .about-mineral-2 .table table td span {
-      background: #EFE9C6;
+    #content-detail.gold .about-mineral .table table td span,
+    #content-detail.gold .about-mineral-2 .table table td span {
+      background: #efe9c6;
       padding: 5px;
       display: inline-block;
       height: 100%;
       min-width: 50%;
       margin-right: 10px; }
 
-#content-detail.gold .about-mineral .table tr.sp td, #content-detail.gold .about-mineral-2 .table tr.sp td {
+#content-detail.gold .about-mineral .table tr.sp td,
+#content-detail.gold .about-mineral-2 .table tr.sp td {
   width: 100%; }
 
-#content-detail.gold .about-mineral .yasai, #content-detail.gold .about-mineral-2 .yasai {
-  background: #EfEfEf;
+#content-detail.gold .about-mineral .yasai,
+#content-detail.gold .about-mineral-2 .yasai {
+  background: #efefef;
   border-radius: 6px;
   padding: 20px;
   display: -webkit-box;
@@ -4495,13 +4594,13 @@ main.Q10 #sec03 {
 /* !!------------------------------------ */
 /* !! Nアセチルグルコサミンロコモ+B */
 #content-detail.NA #sec01 {
-  background: #E5F5FF !important; }
+  background: #e5f5ff !important; }
 
 #content-detail.NA .kw._1 {
-  color: #072E95; }
+  color: #072e95; }
 
 #content-detail.NA .kw._2 {
-  color: #E75613; }
+  color: #e75613; }
 
 #content-detail.NA .lead-txt.cen {
   text-align: center;
@@ -4551,7 +4650,7 @@ main.Q10 #sec03 {
     text-align: center;
     line-height: 1.2;
     width: 222px;
-    color: #E4007F;
+    color: #e4007f;
     font-weight: 900;
     font-family: 'Noto Sans JP', sans-serif !important;
     font-weight: 900; }
@@ -4568,7 +4667,7 @@ main.Q10 #sec03 {
   text-align: justify; }
 
 #content-detail.NA .about-imida .imida {
-  background: #FFEEE4;
+  background: #ffeee4;
   border-radius: 6px;
   display: -webkit-flex;
   display: -moz-flex;
@@ -4653,11 +4752,11 @@ main.Q10 #sec03 {
           left: -30%; } }
 
 #content-detail.NA #sec02 {
-  background: #FFEDE5 !important; }
+  background: #ffede5 !important; }
   #content-detail.NA #sec02 ._1 p br {
     display: none; }
   #content-detail.NA #sec02 ._2 {
-    background: #EAF7FF;
+    background: #eaf7ff;
     border-radius: 6px;
     padding: 15px; }
   #content-detail.NA #sec02 .profile .img {
@@ -4673,21 +4772,21 @@ main.Q10 #sec03 {
   /* !! こだわりの成分をぜいたくに独自配合 */
   /* !! 注目の関節成分を配合 */ }
   #content-detail.NDX #sec01 {
-    background: #E5F5FF !important; }
+    background: #e5f5ff !important; }
   #content-detail.NDX #sec02 {
-    background: #FFE6E7; }
+    background: #ffe6e7; }
   #content-detail.NDX .NDX-seibun .seibun {
     background: #eee;
     border-radius: 8px;
     padding: 15px; }
     #content-detail.NDX .NDX-seibun .seibun.NA {
-      background: #A6DAF5; }
+      background: #a6daf5; }
       #content-detail.NDX .NDX-seibun .seibun.NA h4 {
-        color: #072E95; }
+        color: #072e95; }
     #content-detail.NDX .NDX-seibun .seibun.PF {
-      background: #F9E4ED; }
+      background: #f9e4ed; }
       #content-detail.NDX .NDX-seibun .seibun.PF h4 {
-        color: #E75613; }
+        color: #e75613; }
     #content-detail.NDX .NDX-seibun .seibun h4 {
       font-size: 30px;
       text-align: center;
@@ -4718,7 +4817,7 @@ main.Q10 #sec03 {
         #content-detail.NDX .NDX-seibun .seibun h4 {
           font-size: 5.874vw !important; } }
       #content-detail.NDX .NDX-seibun .seibun h4 span {
-        font-size: .8em;
+        font-size: 0.8em;
         display: block;
         margin-bottom: 5px; }
     #content-detail.NDX .NDX-seibun .seibun .img {
@@ -4738,16 +4837,18 @@ main.Q10 #sec03 {
           font-size: 16px !important; } }
       #content-detail.NDX .NDX-seibun .seibun .desc strong {
         font-size: 1em !important;
-        color: #FF0000;
+        color: #ff0000;
         white-space: nowrap;
         font-weight: bold !important; }
   #content-detail.NDX .about-NDX-NA h3 {
-    color: #072E95; }
+    color: #072e95; }
   #content-detail.NDX .about-NDX-PF h3 {
-    color: #E75613; }
-  #content-detail.NDX .about-NDX-PF h3 img, #content-detail.NDX .about-NDX-NA h3 img {
+    color: #e75613; }
+  #content-detail.NDX .about-NDX-PF h3 img,
+  #content-detail.NDX .about-NDX-NA h3 img {
     margin-right: 10px; }
-  #content-detail.NDX .about-NDX-PF h3 span, #content-detail.NDX .about-NDX-NA h3 span {
+  #content-detail.NDX .about-NDX-PF h3 span,
+  #content-detail.NDX .about-NDX-NA h3 span {
     display: -webkit-flex !important;
     display: -moz-flex !important;
     display: -ms-flex !important;
@@ -4763,7 +4864,8 @@ main.Q10 #sec03 {
         -ms-flex-line-pack: center;
             align-content: center; }
   @media screen and (max-width: 767px) {
-    #content-detail.NDX .about-NDX-PF h3, #content-detail.NDX .about-NDX-NA h3 {
+    #content-detail.NDX .about-NDX-PF h3,
+    #content-detail.NDX .about-NDX-NA h3 {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -4781,7 +4883,8 @@ main.Q10 #sec03 {
       -webkit-justify-content: center;
           -ms-flex-pack: center;
               justify-content: center; }
-      #content-detail.NDX .about-NDX-PF h3 .label-tag, #content-detail.NDX .about-NDX-NA h3 .label-tag {
+      #content-detail.NDX .about-NDX-PF h3 .label-tag,
+      #content-detail.NDX .about-NDX-NA h3 .label-tag {
         width: 100px;
         display: -webkit-flex !important;
         display: -moz-flex !important;
@@ -4848,7 +4951,7 @@ main.Q10 #sec03 {
         -ms-flex-pack: center;
             justify-content: center;
     margin-right: 0 !important;
-    color: #FFF; }
+    color: #fff; }
     @media screen and (min-width: 768px) {
       #content-detail.NDX .about-material.NDX .main-seibun.rect {
         width: 270px;
@@ -4871,14 +4974,14 @@ main.Q10 #sec03 {
           display: block !important;
           width: 100%;
           text-align: center;
-          font-size: .8em;
+          font-size: 0.8em;
           margin-bottom: 5px; }
       #content-detail.NDX .about-material.NDX .main-seibun.rect p .kana {
         font-size: 20px; }
     #content-detail.NDX .about-material.NDX .main-seibun.rect.NA {
-      background: #072E95 !important; }
+      background: #072e95 !important; }
     #content-detail.NDX .about-material.NDX .main-seibun.rect.PF {
-      background: #E75613 !important; }
+      background: #e75613 !important; }
   #content-detail.NDX .about-material.NDX ul.rect {
     margin-top: 10px; }
     @media screen and (max-width: 767px) {
@@ -4914,9 +5017,9 @@ main.Q10 #sec03 {
         #content-detail.NDX .about-material.NDX ul.rect li {
           width: 100% !important; } }
       #content-detail.NDX .about-material.NDX ul.rect li span {
-        font-size: .8em; }
+        font-size: 0.8em; }
       #content-detail.NDX .about-material.NDX ul.rect li.red {
-        color: #FF0000;
+        color: #ff0000;
         text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff; }
     #content-detail.NDX .about-material.NDX ul.rect.NA li {
       background: rgba(7, 46, 149, 0.6); }
@@ -4927,7 +5030,7 @@ main.Q10 #sec03 {
     border-radius: 8px;
     margin-top: 10px; }
     #content-detail.NDX .about-material.NDX .ft.rect:before {
-      content: "";
+      content: '';
       display: none; }
     #content-detail.NDX .about-material.NDX .ft.rect .rect-wrap {
       display: -webkit-flex;
@@ -4967,10 +5070,10 @@ main.Q10 #sec03 {
           font-size: 18px; } }
       #content-detail.NDX .about-material.NDX .ft.rect .rect-wrap li {
         white-space: nowrap;
-        margin: 0 .8em;
+        margin: 0 0.8em;
         font-weight: bold; }
         #content-detail.NDX .about-material.NDX .ft.rect .rect-wrap li i {
-          font-size: .6em; }
+          font-size: 0.6em; }
         @media screen and (max-width: 767px) {
           #content-detail.NDX .about-material.NDX .ft.rect .rect-wrap li {
             margin: 0; } }
@@ -4984,7 +5087,7 @@ main.Q10 #sec03 {
         white-space: nowrap; } }
     #content-detail.NDX .about-joint-seibun h3.sec strong {
       font-size: 1.2em;
-      color: #072E95 !important; }
+      color: #072e95 !important; }
     #content-detail.NDX .about-joint-seibun h3.sec img {
       margin-left: 10px; }
       @media screen and (max-width: 767px) {
@@ -5015,7 +5118,7 @@ main.Q10 #sec03 {
         -ms-flex-pack: start;
             justify-content: flex-start;
     border-radius: 8px;
-    border: 2px solid #072E95; }
+    border: 2px solid #072e95; }
     #content-detail.NDX .about-joint-seibun .inner > div .txt {
       display: -webkit-flex;
       display: -moz-flex;
@@ -5054,7 +5157,7 @@ main.Q10 #sec03 {
               justify-content: center;
       width: 294px;
       margin-bottom: 0 !important;
-      color: #072E95;
+      color: #072e95;
       font-size: 24px; }
       @media screen and (max-width: 767px) {
         #content-detail.NDX .about-joint-seibun .inner > div h4 {
@@ -5115,7 +5218,7 @@ main.Q10 #sec03 {
         font-size: 13px !important;
         padding: 0 10px; }
         #content-detail.coat #onayami .idx ul li:before {
-          content: "";
+          content: '';
           width: 20px;
           height: 20px; }
       #content-detail.coat #onayami .idx ul .nobg img {
@@ -5123,7 +5226,7 @@ main.Q10 #sec03 {
         height: 50px; } }
 
 #content-detail.coat #sec01 {
-  background: #E5F4EC !important; }
+  background: #e5f4ec !important; }
 
 #content-detail.coat .about-coating1 .img {
   background: #eee;
@@ -5179,19 +5282,19 @@ main.Q10 #sec03 {
     margin-bottom: 0; }
 
 #content-detail.coat .about-coating2 ._2.img {
-  background: #E8F6FD;
+  background: #e8f6fd;
   padding: 30px;
   border-radius: 6px; }
 
 #content-detail.coat #sec02 {
-  background: #FFEDE5 !important; }
+  background: #ffede5 !important; }
 
 #content-detail.coat #sec03 {
-  background: #FFFFD2 !important; }
+  background: #ffffd2 !important; }
 
 #content-detail.coat .img-wrap {
   padding: 30px;
-  background: #E8F6FD !important;
+  background: #e8f6fd !important;
   border-radius: 6px; }
   #content-detail.coat .img-wrap img {
     width: 100% !important;
@@ -5205,7 +5308,7 @@ main.Q10 #sec03 {
   text-shadow: 0px 2px 1px #fff, 0px 1px 1px #fff, 1px 1px 1px #fff, 1px 0px 1px #fff, 2px 0px 1px #fff, 1px -1px 1px #fff, 1px -2px 1px #fff, 0px -2px 1px #fff, -1px -2px 1px #fff, -2px -2px 1px #fff, -2px -1px 1px #fff, -2px 0px 1px #fff, -2px 1px 1px #fff, -1px 1px 1px #fff; }
 
 #content-detail.wahaha #sec01 {
-  background: #E5F4FF !important; }
+  background: #e5f4ff !important; }
 
 @media screen and (max-width: 767px) {
   #content-detail.wahaha .about-wahaha2 ._1 {
@@ -5222,7 +5325,7 @@ main.Q10 #sec03 {
   border-radius: 6px; }
 
 #content-detail.wahaha #sec02 {
-  background: #FCEEF3 !important; }
+  background: #fceef3 !important; }
 
 #content-detail.wahaha ul.feature {
   display: -webkit-flex;
@@ -5275,7 +5378,7 @@ main.Q10 #sec03 {
     #content-detail.wahaha ul.feature li.dec {
       padding-bottom: 5px; }
     #content-detail.wahaha ul.feature li .label-tag {
-      background: #2DA6DF;
+      background: #2da6df;
       height: 32px;
       font-size: 16px;
       font-weight: 900;
@@ -5298,7 +5401,8 @@ main.Q10 #sec03 {
     #content-detail.wahaha div.cen {
       margin-bottom: 30px; } }
 
-#content-detail.wahaha .about-feature1 .idx ._1, #content-detail.wahaha .about-feature1 .idx ._3 {
+#content-detail.wahaha .about-feature1 .idx ._1,
+#content-detail.wahaha .about-feature1 .idx ._3 {
   position: relative;
   z-index: 0; }
 
@@ -5422,7 +5526,7 @@ main.Q10 #sec03 {
     margin-bottom: 0; }
 
 #content-detail.DHA #sec01 {
-  background: #E4F5FF !important; }
+  background: #e4f5ff !important; }
 
 #content-detail.DHA .lead-txt {
   text-align: center; }
@@ -5531,7 +5635,7 @@ main.Q10 #sec03 {
 #content-detail.DHA .about-DHA-EPA-4 ._3 .img {
   border-radius: 6px;
   background: rgba(255, 0, 0, 0.1);
-  border: 1px solid #E4007F;
+  border: 1px solid #e4007f;
   position: relative;
   overflow: hidden; }
   #content-detail.DHA .about-DHA-EPA-4 ._3 .img img {
@@ -5549,7 +5653,7 @@ main.Q10 #sec03 {
             order: 3; } }
 
 #content-detail.DHA #sec02 {
-  background: #FFEEE4 !important; }
+  background: #ffeee4 !important; }
 
 #content-detail.DHA .about-safety > .img {
   position: relative; }
@@ -5614,7 +5718,7 @@ main.Q10 #sec03 {
     #content-detail.DHA .about-safety .safety2 .txt p {
       font-size: 20px; }
     #content-detail.DHA .about-safety .safety2 .txt strong {
-      color: #E4007F;
+      color: #e4007f;
       display: block;
       line-height: 1; }
       #content-detail.DHA .about-safety .safety2 .txt strong i {
