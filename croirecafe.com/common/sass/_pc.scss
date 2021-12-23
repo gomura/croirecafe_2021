@@ -1942,11 +1942,20 @@ ul.magazine{
 
 /* !! - - -  */
 /* !! ニュース */
+section#news{
+	@include sp{
+		padding:0 15*$px;
+		height: auto !important;	
+	}//@sp
+}
 ul.news{
 	padding: 30px 30px;
 	border: 1px solid #ccc;
 	margin: 50px auto;
 	border-radius: 12px;
+	@include sp{
+		height: auto !important;	
+	}//@sp
 	li{
 		position: relative;
 		padding-left: 248px;
@@ -1980,9 +1989,27 @@ ul.news{
 		margin-bottom: 10px;
 	}
 	.desc{
-		font-size: 14px;
+		font-size: 16px;
 		line-height: 1.6;
 		@include pfix(.6em);
+		a{
+			color: $blue;
+			text-decoration: underline;
+			font-weight: bold;
+		}
+	}
+	li{
+		@include sp{
+			@include flex;
+			.date,.cat{
+				position: relative;
+			}
+			.ttl,.desc{
+				width: 100%;
+				
+			}
+		}//@sp
+		
 	}
 }
 

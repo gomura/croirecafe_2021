@@ -2417,11 +2417,19 @@ ul.magazine {
 
 /* !! - - -  */
 /* !! ニュース */
+@media screen and (max-width: 767px) {
+  section#news {
+    padding: 0 4.005vw;
+    height: auto !important; } }
+
 ul.news {
   padding: 30px 30px;
   border: 1px solid #ccc;
   margin: 50px auto;
   border-radius: 12px; }
+  @media screen and (max-width: 767px) {
+    ul.news {
+      height: auto !important; } }
   ul.news li {
     position: relative;
     padding-left: 248px;
@@ -2451,10 +2459,35 @@ ul.news {
     line-height: 1;
     margin-bottom: 10px; }
   ul.news .desc {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     margin-top: -0.3em;
     margin-bottom: -0.3em; }
+    ul.news .desc a {
+      color: #228BAF;
+      text-decoration: underline;
+      font-weight: bold; }
+  @media screen and (max-width: 767px) {
+    ul.news li {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      -o-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+      ul.news li .date, ul.news li .cat {
+        position: relative; }
+      ul.news li .ttl, ul.news li .desc {
+        width: 100%; } }
 
 /* !! - - -  */
 /* !! 送料・お支払い方法について */
