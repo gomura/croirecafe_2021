@@ -21,32 +21,35 @@ It applies to terms of service.
             <br>
             <!-- 600px container (white background) -->
             <table id="html-mail-table1" border="0" width="600px" cellpadding="10" cellspacing="0" class="container" style="border-spacing:0;mso-table-lspace:0pt;mso-table-rspace:0pt;">
-
-
-                <tr>
-	               
-					
-					<p>
-							お得な割引情報を配信中！クロワールカフェのLINE公式アカウントができました。<br />
-							お友達登録はこちらから！
-						</p>	
-	               <p><a href="https://lin.ee/equtE5c"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a></p>
-                </tr>
-                
                 <tr>
                     <td class="container-padding content" align="left" style="border-collapse:collapse;padding-left:24px;padding-right:24px;padding-top:12px;padding-bottom:12px;background-color:#ffffff;">
-                        <br>
+                        
                         <div class="body-text" style="font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;color:#333333;">
+                            
+                            
+                            
+                            
                             {{ Order.name01 }} {{ Order.name02 }} 様<br/>
+                            
+                            
+							<p style="">いつもクロワール商品をご愛用いただき誠にありがとうございます。<br />
+                            定期購入内容の事前お知らせメールにつきまして、一部の方より、メールが届いていないとご連絡がございました。
+                            その為、再度事前確認メールを送信させていただいております。<br />
+                            メールが2通届いた方は、誠に恐れ入りますが、ご容赦いただきますようお願い申し上げます。</p>
+                            
                             <br/>
-                            こちらは定期購入内容の事前お知らせメールとなります。<br/>
+                            <!-- !! こちらは定期購入内容の事前お知らせメールとなります。<br/>  -->
+                            
                             下記ご注文内容にお間違えがないかご確認下さい。<br/>
                             <br/>
-							ご注文のスキップ・休止等のご変更は下記の日付までとなっております。<br />
+							今回のご注文のスキップ・休止等のご変更は下記の日付までとなっております。<br />
 							何卒ご了承ください。<br /><br />
                             {% for Shipping in Order.Shippings %}
-	                            ご変更締め切り日時：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-8 day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 23時59分まで<br/>
-                            {% endfor %}
+								<!-- !! ご変更締め切り日時：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-8 day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 23時59分まで<br/> -->
+								
+								ご変更締め切り日時：<b>{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-8day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 23時59分まで</b><br/>
+	                            
+                           {% endfor %}
                             <br />
                             <hr style="border-top: 3px double #8c8b8b;">
                             　ご請求金額<br/>
@@ -75,6 +78,8 @@ It applies to terms of service.
                             <hr style="border-top: 1px dotted #8c8b8b;">
                             合　計：{{ Order.payment_total|price }}<br/>
                             <br/>
+
+                            <br />
                             <hr style="border-top: 3px double #8c8b8b;">
                             ご注文者情報<br/>
                             <hr style="border-top: 3px double #8c8b8b;">
@@ -125,9 +130,7 @@ It applies to terms of service.
 							※商品点数によっては、配送を複数個口にお分けする場合がございます。<br />
 							<br />
                             <hr style="border-top: 2px dotted #8c8b8b;">
-                            このメッセージはお客様へのお知らせ専用ですので、<br/>
-                            このメッセージへの返信としてご質問をお送りいただいても回答できません。<br/>
-                            ご了承ください。<br/>
+                            このメッセージはお客様へのお知らせ専用です。<br/>
                         </div>
                     </td>
                 </tr>
