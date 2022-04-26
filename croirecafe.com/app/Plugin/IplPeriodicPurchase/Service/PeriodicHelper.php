@@ -439,11 +439,13 @@ class PeriodicHelper
                 } else {
                     $periodic_discount_rate = $PeriodicDiscount->getDiscountRate2();
                 }
+				
 
                 //$discount_amount += floor($PeriodicItem->getPrice() * ($periodic_discount_rate / 100));
                 //$discount_amount += ceil($PeriodicItem->getPrice() * $PeriodicItem->getQuantity() * ($periodic_discount_rate / 100));
                 //$discount_amount += ceil($PeriodicItem->getPrice() * $PeriodicItem->getQuantity() * ($periodic_discount_rate / 100));
-                $discount_amount += round($PeriodicItem->getPrice() * $PeriodicItem->getQuantity() * ($periodic_discount_rate / 100));
+                //$discount_amount += round($PeriodicItem->getPrice() * $PeriodicItem->getQuantity() * ($periodic_discount_rate / 100));
+                $discount_amount += round( $PeriodicItem->getPrice() * ($periodic_discount_rate / 100) ) * $PeriodicItem->getQuantity() ;
             }
 
             return $discount_amount;
