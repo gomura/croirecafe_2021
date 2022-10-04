@@ -837,6 +837,9 @@ var generateProdInfo =( function generateProdInfo(data) {
   else if(ttl.match("クロワールアイ・Q")){
     pcode = "3101581";
   }
+  else if(ttl.match("中性脂肪減少サポート")){
+    pcode = "3101590";
+  }
   else if(ttl.match("緑のDHA&EPA")){
     pcode = "3101569";
   }

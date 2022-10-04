@@ -1863,7 +1863,7 @@ main.single{
 
 	.mv{
 		height: auto;
-		@include fitW(20*$px)
+		@include fitW(20*$px);
 
 		padding: 0;
 		background-size: auto 200px !important;
