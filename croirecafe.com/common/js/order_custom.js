@@ -42,15 +42,16 @@ itemlist.each(function(){
 
 
 //!! 定期購入本社出荷
-var shopMemo = $("a[data-original-title]");
+var shopMemo = $("a[data-shopmemo]");
 shopMemo.each(function(){
 	var This = $(this);
-	var title = This.data("original-title");
+	var title = This.data("shopmemo");
 	if(title.match("定期本社出荷")){
-		This.closest(".order-index-row").addClass("honsha-shukka")
+		This.closest(".order-index-row").addClass("honsha-shukka shopmemo")
 		.find(".shipping-delivery").prepend('<span class="shipping-delivery-memo">定期本社出荷</span>');
 	}
 });
+
 
 
 //!! 通常購入お届け日

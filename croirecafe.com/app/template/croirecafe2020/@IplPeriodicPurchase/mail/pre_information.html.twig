@@ -25,29 +25,15 @@ It applies to terms of service.
                     <td class="container-padding content" align="left" style="border-collapse:collapse;padding-left:24px;padding-right:24px;padding-top:12px;padding-bottom:12px;background-color:#ffffff;">
                         
                         <div class="body-text" style="font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;color:#333333;">
-                            
-                            
-                            
-                            
                             {{ Order.name01 }} {{ Order.name02 }} 様<br/>
-                            
-                            
-							<p style="">いつもクロワール商品をご愛用いただき誠にありがとうございます。<br />
-                            定期購入内容の事前お知らせメールにつきまして、一部の方より、メールが届いていないとご連絡がございました。
-                            その為、再度事前確認メールを送信させていただいております。<br />
-                            メールが2通届いた方は、誠に恐れ入りますが、ご容赦いただきますようお願い申し上げます。</p>
-                            
                             <br/>
-                            <!-- !! こちらは定期購入内容の事前お知らせメールとなります。<br/>  -->
-                            
+                            こちらは定期購入内容の事前お知らせメールとなります。<br/>
                             下記ご注文内容にお間違えがないかご確認下さい。<br/>
                             <br/>
 							今回のご注文のスキップ・休止等のご変更は下記の日付までとなっております。<br />
 							何卒ご了承ください。<br /><br />
                             {% for Shipping in Order.Shippings %}
-								<!-- !! ご変更締め切り日時：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-8 day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 23時59分まで<br/> -->
-								
-								ご変更締め切り日時：<b>{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-8day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 23時59分まで</b><br/>
+	                            ご変更締め切り日時：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-8 day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 23時59分まで<br/>
 	                            
                            {% endfor %}
                             <br />
