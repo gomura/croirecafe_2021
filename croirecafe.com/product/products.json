@@ -183,6 +183,51 @@
 		},
 		"delivery_fee":"231"
 	},
+  {
+		"pcode": "3101590",
+		"pid": "118",
+		"slug": "midori-no-dhaepa-support",
+		"view":"subscription",
+		"slide_url": {
+			"pc": "",
+			"sp": "",
+			"alt":""
+		},
+		"thumb_url": "/product/img/thumbnail/midori-support.png",
+		"label_url": "/product/img/label/label-midori-support.png",
+		"label_sale_url": "",
+		"content_img_url" : "/product/img/content/midori.png",
+		"name": "緑のDHA&EPA+中性脂肪減少サポート",
+		"name_disp": "緑のDHA&EPA<br /><i>+中性脂肪減少サポート</i>",
+		"desc_short": "時代は魚由来から植物由来へ。",
+		"desc_long": "植物由来（藻）のDHA・EPA。血中の中性脂肪値を下げる機能性表示食品。",
+		"tag": [
+			{
+				"txt": "1袋90粒入",
+				"color": "light"
+			},
+			{
+				"txt": "1日3〜4粒目安",
+				"color": "light"
+			}
+		],
+		"price": {
+			"base": "3,890",
+			"teiki1": "",
+			"teiki2": "",
+			"try": "",
+			"diff": ""
+		},
+		"coupon_code":"0569",
+		"disc_rate":["30","15"],
+		"url": {
+			"base": "/products/detail/26",
+			"teiki": "",
+			"try": "",
+			"line": ""
+		},
+		"delivery_fee":"231"
+	},
 	{
 		"pcode": "3101585",
 		"pid": "130",
