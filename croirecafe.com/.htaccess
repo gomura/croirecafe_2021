@@ -58,6 +58,48 @@
     RewriteRule "^codeception/" - [F]
     RewriteRule "^bin/" - [F]
     RewriteRule "^dockerbuild/" - [F]
+    
+    # +BをNDXに301リダイレクト
+    RewriteRule ^products/detail/(36|112|124|29|70|117|47|66|112)$ https://%{HTTP_HOST}/products/detail/130 [L,R=301]
+  	
+  	# 商品情報のソースページをリダイレクト	
+    #クロワール茶
+    RewriteCond %{HTTP_REFERER} !^https://(croirecafe2021|test\.croirecafe\.com|croirecafe\.com)
+  	RewriteRule ^product/premium-croire/index.html$ https://%{HTTP_HOST}/products/detail/120 [L,R=301]
+  	
+  	#プロバイオティクス
+  	RewriteCond %{HTTP_REFERER} !^https://(croirecafe2021|test\.croirecafe\.com|croirecafe\.com)
+  	RewriteRule ^product/PB12/index.html$ https://%{HTTP_HOST}/products/detail/122 [L,R=301]
+  	
+  	#アイQ
+  	RewriteCond %{HTTP_REFERER} !^https://(croirecafe2021|test\.croirecafe\.com|croirecafe\.com)
+  	RewriteRule ^product/(croire-eye-q|croire-eye-pro|croire-eye-lutein)/index.html$ https://%{HTTP_HOST}/products/detail/121 [L,R=301]
+  	
+  	#緑のDHAEPA
+  	RewriteCond %{HTTP_REFERER} !^https://(croirecafe2021|test\.croirecafe\.com|croirecafe\.com)
+  	RewriteRule ^product/DHA-EPA/index.html$ https://%{HTTP_HOST}/products/detail/118 [L,R=301]
+
+  	#NDX
+  	RewriteCond %{HTTP_REFERER} !^https://(croirecafe2021|test\.croirecafe\.com|croirecafe\.com)
+  	RewriteRule ^product/(NA|NDX)/index.html$ https://%{HTTP_HOST}/products/detail/130 [L,R=301]
+  	
+  	#コエンザイムQ10
+  	RewriteCond %{HTTP_REFERER} !^https://(croirecafe2021|test\.croirecafe\.com|croirecafe\.com)
+  	RewriteRule ^product/Q10/index.html$ https://%{HTTP_HOST}/products/detail/116 [L,R=301]
+  	
+  	#ゴールド
+  	RewriteCond %{HTTP_REFERER} !^https://(croirecafe2021|test\.croirecafe\.com|croirecafe\.com)
+  	RewriteRule ^product/croire-gold/index.html$ https://%{HTTP_HOST}/products/detail/119 [L,R=301]
+  	
+  	#魔法のワハハ歯ブラシ
+  	RewriteCond %{HTTP_REFERER} !^https://(croirecafe2021|test\.croirecafe\.com|croirecafe\.com)
+  	RewriteRule ^product/wahaha-haburashi/index.html$ https://%{HTTP_HOST}/products/detail/20 [L,R=301]
+  	
+  	#コート65
+  	RewriteCond %{HTTP_REFERER} !^https://(croirecafe2021|test\.croirecafe\.com|croirecafe\.com)
+  	RewriteRule ^product/croire-coat65/index.html$ https://%{HTTP_HOST}/products/detail/42 [L,R=301]
+
+
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !^(.*)\.(gif|png|jpe?g|css|ico|js|svg|map)$ [NC]

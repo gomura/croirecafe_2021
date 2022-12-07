@@ -4885,6 +4885,9 @@ body[data-type=onestop] #product-wrap .product-cart-inner > div.product-cart-one
 body[data-type=onestop] #product-wrap p.note {
   opacity: 1;
 }
+body[data-pcode="3101590"] #product-wrap p.note.onestop {
+  display: none;
+}
 #product-wrap .row-banner {
   display: -webkit-flex;
   display: -moz-flex;

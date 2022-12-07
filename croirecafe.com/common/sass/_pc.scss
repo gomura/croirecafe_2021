@@ -3996,6 +3996,11 @@ main.payment{
     body[data-type="onestop"] & {
       opacity: 1;
     }
+    &.onestop{
+      body[data-pcode="3101590"] & {
+        display: none;
+      }
+    }
   }
   
   .row-banner{
