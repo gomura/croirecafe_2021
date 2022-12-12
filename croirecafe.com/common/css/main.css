@@ -299,6 +299,15 @@ h2.sec .ja, h2.ec-pageHeader .ja {
   background: -ms-radial-gradient(50% 50%, circle farthest-corner, white 0%, #41b69b 100%);
 }
 
+.img.bg[data-pcode="3101999"]:before {
+  background: -moz-radial-gradient(50% 50%, circle farthest-corner, white 0%, #ff8700 100%);
+  background: -webkit-radial-gradient(50% 50%, circle farthest-corner, white 0%, #ff8700 100%);
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 64, color-stop(0, white), color-stop(1, #ff8700));
+  background: -o-radial-gradient(50% 50%, circle farthest-corner, white 0%, #ff8700 100%);
+  background: -ms-radial-gradient(50% 50%, circle farthest-corner, white 0%, #ff8700 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Stlye=2);";
+}
+
 .img.bg[data-pcode="3101581"]:before {
   background: -moz-radial-gradient(50% 50%, circle farthest-corner, white 0%, #ff8700 100%);
   background: -webkit-radial-gradient(50% 50%, circle farthest-corner, white 0%, #ff8700 100%);
@@ -3874,6 +3883,14 @@ body.popup #popup {
   background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 131.87, color-stop(0, white), color-stop(1, #41b69b));
   background: -o-radial-gradient(50% 50%, circle farthest-corner, white 0%, #41b69b 100%);
   background: -ms-radial-gradient(50% 50%, circle farthest-corner, white 0%, #41b69b 100%);
+}
+#product-wrap .product-img[data-pcode="3101999"]:before {
+  background: -moz-radial-gradient(50% 50%, circle farthest-corner, white 0%, #ff8700 100%);
+  background: -webkit-radial-gradient(50% 50%, circle farthest-corner, white 0%, #ff8700 100%);
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 64, color-stop(0, white), color-stop(1, #ff8700));
+  background: -o-radial-gradient(50% 50%, circle farthest-corner, white 0%, #ff8700 100%);
+  background: -ms-radial-gradient(50% 50%, circle farthest-corner, white 0%, #ff8700 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Stlye=2);";
 }
 #product-wrap .product-img[data-pcode="3101581"]:before {
   background: -moz-radial-gradient(50% 50%, circle farthest-corner, white 0%, #ff8700 100%);

@@ -4558,3 +4558,133 @@ main.Q10 {
 		}
 	}
 } //#content-detail.DHA
+
+
+//!! @map (共通)内容量・成分
+$line_col : #bbb;
+#sec-spec-detail{
+  background: #fff!important;
+  border-top: 1px solid $line_col;
+  font-size: 16px;
+  @include sp{
+    font-size: 14px !important;
+  }
+  h2{
+    //background: $blue;
+    border: 1px solid $line_col !important;
+    @include gothic;
+    font-size: 1.5em;
+    padding: 0;
+    color: #666;
+    height: 50px;
+    @include flex-centering;
+    letter-spacing: 0.1em;
+    @include sp{
+      height: 40px !important;
+    }
+  }
+
+  h3{
+    margin-bottom: .66em;
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid $line_col !important;
+    padding-bottom: 0.3em !important;
+  }
+
+  h4{
+    background: #eee;
+    border-radius: 50px;
+    height: 36px;
+    @include flex-centering;
+    width: 200px;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    margin: 1em 0;
+  }
+  p{
+    font-size: 1em !important;
+  }
+  ul{
+    li{
+      padding-left: 1.2em;
+      text-align: justify;
+      @include flex;
+      position: relative;
+      font-size: 1em;
+      &:before{
+        content: "■";
+        position: absolute;
+        top: 0;left: 0;
+      }
+    }
+  }
+
+  .product-name{
+    font-size: 1.6em !important;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  table{
+    width: 100%;
+    border: 1px solid $line_col;
+    table-layout: fixed;
+    th{
+      background: #eee;
+    }
+    th,td{
+      padding: 10px;
+      p{
+        text-align: center;
+      }
+      .flx{
+        justify-content: center !important;
+        gap: 20px;
+        p{
+          text-align: justify;
+        }
+      }
+      .img{
+        width: 50px;
+        height: 50px;
+        @include flex-centering;
+        overflow: hidden;
+        img{
+          width: 200px;
+          height: auto;
+        }
+      }
+    }
+    @include sp{
+      tr{
+        @include flex;
+        flex-wrap: wrap;
+        th,td{
+          width: 50% !important;
+          &:first-of-type{
+            border-bottom: 1px solid $line_col;
+          }
+          span{
+            display: block;
+          }
+        }
+        th{
+          @include flex-centering;
+        }
+        .flx{
+          gap: 10px;
+        }
+        .img{
+          img{
+            max-width: 1000px;
+            width: 200px !important;
+            height: auto !important;
+          }
+        }
+      }
+    }
+  }
+}

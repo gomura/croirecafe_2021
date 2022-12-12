@@ -834,6 +834,9 @@ var generateProdInfo =( function generateProdInfo(data) {
   else if(ttl.match("クロワールプロバイオティクス12")){
     pcode = "3101572";
   }
+  else if(ttl.match("クロワールアイ・Q+")){
+    pcode = "3101999";
+  }
   else if(ttl.match("クロワールアイ・Q")){
     pcode = "3101581";
   }

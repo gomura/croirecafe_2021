@@ -265,6 +265,7 @@ h2.sec{
 }
 .img.bg[data-pcode='3101561']:before{@include bg_3101561;}
 .img.bg[data-pcode='3101572']:before{@include bg_3101572;}
+.img.bg[data-pcode='3101999']:before{@include bg_3101999;}
 .img.bg[data-pcode='3101581']:before{@include bg_3101581;}
 .img.bg[data-pcode='3101569']:before{@include bg_3101569;}
 .img.bg[data-pcode='3101590']:before{@include bg_3101590;}
@@ -3290,6 +3291,7 @@ main.payment{
     }
     &[data-pcode='3101561']:before{@include bg_3101561;}
     &[data-pcode='3101572']:before{@include bg_3101572;}
+    &[data-pcode='3101999']:before{@include bg_3101999;}
     &[data-pcode='3101581']:before{@include bg_3101581;}
     &[data-pcode='3101569']:before{@include bg_3101569;}
     &[data-pcode='3101590']:before{@include bg_3101590;}

@@ -139,6 +139,55 @@
     "delivery_fee":"231"
   },
   {
+    "pcode": "3101999",
+    "pid": "138",
+    "slug": "",
+    "view":"onestop",
+    "slide_url": {
+      "pc": "",
+      "sp": "",
+      "alt":""
+    },
+    "thumb_url": "/product/img/thumbnail/eye-q-plus.png",
+    "label_url": "/product/img/label/label-eye-q-plus.png",
+    "label_sale_url": "",
+    "content_img_url" : "/product/img/content/Q.png",
+    "name": "クロワールアイ・Q+",
+    "name_disp": "クロワールアイ・Q+",
+    "desc_short": "目と脳の健康をWサポートする機能性表示食品。",
+    "desc_long": "１粒で目のかすみやぼやけの改善と注意力や思考の柔軟性の維持をWサポート",
+    "tag": [
+      {
+        "txt": "機能性表示食品",
+        "color": "heavy"
+      },
+      {
+        "txt": "1袋30粒入",
+        "color": "light"
+      },
+      {
+        "txt": "1日1粒目安",
+        "color": "light"
+      }
+    ],
+    "price": {
+      "base": "4,290",
+      "teiki1": "",
+      "teiki2": "",
+      "try": "3,582",
+      "diff": "9,552"
+    },
+    "coupon_code":"0581",
+    "disc_rate":["30","15"],
+    "url": {
+      "base": "/products/detail/138",
+      "teiki": "",
+      "try": "/products/detail/139",
+      "line": "/products/detail/111"
+    },
+    "delivery_fee":"231"
+  },
+  {
     "pcode": "3101569",
     "pid": "118",
     "slug": "midori-no-dhaepa",

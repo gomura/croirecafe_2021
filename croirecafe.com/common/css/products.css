@@ -5495,4 +5495,159 @@ main.Q10 #sec03 .lead strong {
 #content-detail.DHA .about-material ._2 {
   padding: 0 !important;
 }
+
+#sec-spec-detail {
+  background: #fff !important;
+  border-top: 1px solid #bbb;
+  font-size: 16px;
+}
+@media screen and (max-width: 767px) {
+  #sec-spec-detail {
+    font-size: 14px !important;
+  }
+}
+#sec-spec-detail h2 {
+  border: 1px solid #bbb !important;
+  font-family: "Hiragino Kaku Gothic ProN", "YuGothic", Meiryo, "メイリオ", sans-serif !important;
+  font-size: 1.5em;
+  padding: 0;
+  color: #666;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  letter-spacing: 0.1em;
+}
+@media screen and (max-width: 767px) {
+  #sec-spec-detail h2 {
+    height: 40px !important;
+  }
+}
+#sec-spec-detail h3 {
+  margin-bottom: 0.66em;
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid #bbb !important;
+  padding-bottom: 0.3em !important;
+}
+#sec-spec-detail h4 {
+  background: #eee;
+  border-radius: 50px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  margin: 1em 0;
+}
+#sec-spec-detail p {
+  font-size: 1em !important;
+}
+#sec-spec-detail ul li {
+  padding-left: 1.2em;
+  text-align: justify;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  font-size: 1em;
+}
+#sec-spec-detail ul li:before {
+  content: "■";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#sec-spec-detail .product-name {
+  font-size: 1.6em !important;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+#sec-spec-detail table {
+  width: 100%;
+  border: 1px solid #bbb;
+  table-layout: fixed;
+}
+#sec-spec-detail table th {
+  background: #eee;
+}
+#sec-spec-detail table th, #sec-spec-detail table td {
+  padding: 10px;
+}
+#sec-spec-detail table th p, #sec-spec-detail table td p {
+  text-align: center;
+}
+#sec-spec-detail table th .flx, #sec-spec-detail table td .flx {
+  justify-content: center !important;
+  gap: 20px;
+}
+#sec-spec-detail table th .flx p, #sec-spec-detail table td .flx p {
+  text-align: justify;
+}
+#sec-spec-detail table th .img, #sec-spec-detail table td .img {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+#sec-spec-detail table th .img img, #sec-spec-detail table td .img img {
+  width: 200px;
+  height: auto;
+}
+@media screen and (max-width: 767px) {
+  #sec-spec-detail table tr {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  #sec-spec-detail table tr th, #sec-spec-detail table tr td {
+    width: 50% !important;
+  }
+  #sec-spec-detail table tr th:first-of-type, #sec-spec-detail table tr td:first-of-type {
+    border-bottom: 1px solid #bbb;
+  }
+  #sec-spec-detail table tr th span, #sec-spec-detail table tr td span {
+    display: block;
+  }
+  #sec-spec-detail table tr th {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #sec-spec-detail table tr .flx {
+    gap: 10px;
+  }
+  #sec-spec-detail table tr .img img {
+    max-width: 1000px;
+    width: 200px !important;
+    height: auto !important;
+  }
+}
 /*# sourceMappingURL=products.css.map */

@@ -63,7 +63,7 @@ const cssSass = () => {
  */
 const html = () => {
   return gulp.src(srcPath.html)
-    .pipe(gulp.dest(distPath.html))
+   // .pipe(gulp.dest(distPath.html))
 }
 
 /**
@@ -107,8 +107,8 @@ const browserSyncReload = (done) => {
 const watchFiles = () => {
   gulp.watch(srcPath.scss, gulp.series(cssSass))
   //gulp.watch(srcPath.html, gulp.series(html, browserSyncReload))
-  //gulp.watch(srcPath.php, gulp.series(php, browserSyncReload))
-  //gulp.watch(srcPath.js, gulp.series(js, browserSyncReload))
+  // gulp.watch(srcPath.php, gulp.series(php, browserSyncReload))
+  // gulp.watch(srcPath.js, gulp.series(js, browserSyncReload))
 }
 
 /**
