@@ -264,6 +264,9 @@ h2.sec .ja, h2.ec-pageHeader .ja {
   margin: 0;
   padding: 0;
   border: none;
+  font-size: 1.6em;
+  text-align: center;
+  padding-bottom: 1.6em;
 }
 
 /* !! - - -  */
