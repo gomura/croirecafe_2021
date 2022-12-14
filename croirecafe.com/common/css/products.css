@@ -5507,11 +5507,12 @@ main.Q10 #sec03 .lead strong {
   }
 }
 #sec-spec-detail h2 {
-  border: 1px solid #bbb !important;
+  background: #F1881A !important;
+  border: none !important;
   font-family: "Hiragino Kaku Gothic ProN", "YuGothic", Meiryo, "メイリオ", sans-serif !important;
   font-size: 1.5em;
   padding: 0;
-  color: #666;
+  color: #fff;
   height: 50px;
   display: flex;
   align-items: center;

@@ -828,14 +828,15 @@ var generateProdInfo =( function generateProdInfo(data) {
 
   var ttl = $("title").text();
   var pcode = "";
+  let q_plus_regex = /クロワールアイ・Qプラス\.$/;
   if(ttl.match("プレミアムクロワール茶")){
     pcode = "3101561";
   }
   else if(ttl.match("クロワールプロバイオティクス12")){
     pcode = "3101572";
   }
-  else if(ttl.match("クロワールアイ・Q+")){
-    pcode = "3101999";
+  else if(ttl.match(q_plus_regex)){
+    pcode = "3101591";
   }
   else if(ttl.match("クロワールアイ・Q")){
     pcode = "3101581";

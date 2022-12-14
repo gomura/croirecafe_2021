@@ -4571,11 +4571,14 @@ $line_col : #bbb;
   }
   h2{
     //background: $blue;
-    border: 1px solid $line_col !important;
+    //border: 1px solid $line_col !important;
+    background : #F1881A !important;
+    border: none !important;
     @include gothic;
     font-size: 1.5em;
     padding: 0;
-    color: #666;
+    //color: #666;
+    color: #fff;
     height: 50px;
     @include flex-centering;
     letter-spacing: 0.1em;

@@ -30,6 +30,8 @@ $mypage:#f36c6c;
 $btn:#c7e0f7;
 $favorite:$yellow;
 
+
+
 $px : 0.267vw;
 
 
@@ -59,12 +61,8 @@ body.showBlk *:before {
   background : -ms-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(65, 182, 155, 1) 100%);
 }
 
-@mixin bg_3101999{
-  background : -moz-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(255, 135, 0, 1) 100%);
-  background : -webkit-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(255, 135, 0, 1) 100%);
-  background : -webkit-gradient(radial,50% 50% ,0 , 50% 50%, 64 ,color-stop(0,rgba(255, 255, 255, 1) ),color-stop(1,rgba(255, 135, 0, 1) ));
-  background : -o-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(255, 135, 0, 1) 100%);
-  background : -ms-radial-gradient(50% 50%, circle farthest-corner, rgba(255, 255, 255, 1) 0%, rgba(255, 135, 0, 1) 100%);
+@mixin bg_3101591{
+  background-image: radial-gradient(rgba(178, 103, 250, 0.58), rgba(95, 0, 221, 0.56));
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Stlye=2);"
 }
 
