@@ -1822,6 +1822,10 @@ body.product_page #path {
   background: -ms-radial-gradient(50% 50%, circle farthest-corner, white 0%, #ff8700 100%);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Stlye=2);";
 }
+.main_visual_nav .item_thumb[data-pcode="3101591"]:before {
+  background-image: radial-gradient(rgba(178, 103, 250, 0.58), rgba(95, 0, 221, 0.56));
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Stlye=2);";
+}
 .main_visual_nav .item_thumb[data-pcode="3101569"]:before {
   background: -moz-radial-gradient(50% 50%, circle farthest-corner, white 0%, #00a547 100%);
   background: -webkit-radial-gradient(50% 50%, circle farthest-corner, white 0%, #00a547 100%);
@@ -1862,6 +1866,9 @@ body.product_page #path {
 }
 .main_visual_nav .item_thumb[data-pcode="3101581"]:after {
   border-color: #fdb33c;
+}
+.main_visual_nav .item_thumb[data-pcode="3101591"]:after {
+  border-color: #b93cfd;
 }
 .main_visual_nav .item_thumb[data-pcode="3101569"]:after {
   border-color: #0eb95b;

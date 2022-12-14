@@ -1483,6 +1483,7 @@ ul.category-nav{
     &[data-pcode='3101561']:before{@include bg_3101561;}
     &[data-pcode='3101572']:before{@include bg_3101572;}
     &[data-pcode='3101581']:before{@include bg_3101581;}
+    &[data-pcode='3101591']:before{@include bg_3101591;}
     &[data-pcode='3101569']:before{@include bg_3101569;}
     &[data-pcode='3101585']:before{@include bg_3101585;}
     &[data-pcode='3101526']:before{@include bg_3101526;}
@@ -1491,6 +1492,7 @@ ul.category-nav{
     &[data-pcode='3101561']:after{border-color: #fdd33c;}
     &[data-pcode='3101572']:after{border-color: #00b7a8;}
     &[data-pcode='3101581']:after{border-color: #fdb33c;}
+    &[data-pcode='3101591']:after{border-color: #b93cfd;}
     &[data-pcode='3101569']:after{border-color: #0eb95b;}
     &[data-pcode='3101585']:after{border-color: #fdd33c;}
     &[data-pcode='3101526']:after{border-color: #fdd33c;}
