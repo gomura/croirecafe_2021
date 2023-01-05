@@ -56,24 +56,48 @@ class PerodicDiscountType extends AbstractType
                 'expanded' => false,
                 'placeholder' => 'ipl_periodic_purchase.admin.config.select.default'
             ])
-            ->add('discount_rate_1',ChoiceType::class, [
-                'choices' => $this->getListChoiceArray(0,100, 5),
-                'multiple' => false,
-                'expanded' => false,
-                'placeholder' => 'ipl_periodic_purchase.admin.config.select.default'
+            // ->add('discount_rate_1',ChoiceType::class, [
+            //     'choices' => $this->getListChoiceArray(0,100, 5),
+            //     'multiple' => false,
+            //     'expanded' => false,
+            //     'placeholder' => 'ipl_periodic_purchase.admin.config.select.default'
+            // ])
+            // ->add('discount_rate_2',ChoiceType::class, [
+            //     'choices' => $this->getListChoiceArray(0,100, 5),
+            //     'multiple' => false,
+            //     'expanded' => false,
+            //     'placeholder' => 'ipl_periodic_purchase.admin.config.select.default'
+            // ])
+            // ->add('discount_rate_3',ChoiceType::class, [
+            //     'choices' => $this->getListChoiceArray(0,100, 5),
+            //     'multiple' => false,
+            //     'expanded' => false,
+            //     'placeholder' => 'ipl_periodic_purchase.admin.config.select.default'
+            // ])
+            ->add('discount_rate_1', TextType::class, [
+              'attr' => ['style' => 'width:60px'],
+              'constraints' =>[
+                  new Assert\NotBlank(),
+                  new Assert\Length(['max' => 100]),
+              ]
             ])
-            ->add('discount_rate_2',ChoiceType::class, [
-                'choices' => $this->getListChoiceArray(0,100, 5),
-                'multiple' => false,
-                'expanded' => false,
-                'placeholder' => 'ipl_periodic_purchase.admin.config.select.default'
+            ->add('discount_rate_2', TextType::class, [
+              'attr' => ['style' => 'width:60px'],
+              'constraints' =>[
+                  new Assert\NotBlank(),
+                  new Assert\Length(['max' => 100]),
+                  'placeholder' => 0
+              ]
             ])
-            ->add('discount_rate_3',ChoiceType::class, [
-                'choices' => $this->getListChoiceArray(0,100, 5),
-                'multiple' => false,
-                'expanded' => false,
-                'placeholder' => 'ipl_periodic_purchase.admin.config.select.default'
-            ]);
+            ->add('discount_rate_3', TextType::class, [
+              'attr' => ['style' => 'width:60px'],
+              'constraints' =>[
+                  new Assert\NotBlank(),
+                  new Assert\Length(['max' => 100]),
+                  'placeholder' => 0
+              ]
+            ])
+            ;
     }
 
     private function getListChoiceArray($start, $end, $step = 1){

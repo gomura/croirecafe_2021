@@ -61,21 +61,21 @@ class PeriodicDiscount extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="discount_rate_1", type="integer", nullable=true, options={"unsigned":true})
+     * @ORM\Column(name="discount_rate_1", type="decimal", nullable=true, options={"unsigned":true})
      */
     private $discount_rate_1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="discount_rate_2", type="integer", nullable=true, options={"unsigned":true})
+     * @ORM\Column(name="discount_rate_2", type="decimal", nullable=true, options={"unsigned":true})
      */
     private $discount_rate_2;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="discount_rate_3", type="integer", nullable=true, options={"unsigned":true})
+     * @ORM\Column(name="discount_rate_3", type="decimal", nullable=true, options={"unsigned":true})
      */
     private $discount_rate_3;
 
