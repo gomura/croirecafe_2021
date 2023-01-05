@@ -13,6 +13,7 @@ It applies to terms of service.
 
 {{ Order.name01 }} {{ Order.name02 }} 様
 
+
 こちらは定期購入内容の事前お知らせメールとなります。
 下記ご注文内容にお間違えがないかご確認下さい。
 
@@ -20,7 +21,8 @@ It applies to terms of service.
 何卒ご了承ください。
 {% for Shipping in Order.Shippings %}
 -----
-ご変更締め切り日時：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-8 day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 23時59分まで
+{# ご変更締め切り日時：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-8 day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 23時59分まで #}
+ご変更締め切り日時：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-6 day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 23時59分までまで
 {% endfor %}
 
 ************************************************
