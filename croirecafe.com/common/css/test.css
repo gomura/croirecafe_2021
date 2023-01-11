@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/* !! @note ------------------------------------ */
+/* !! テスト環境の表示 */
+html[data-host="croirecafe2021:8890"] .c-headerBar,
+html[data-host="localhost:3000"] .c-headerBar {
+  background: #d67f28 !important;
+}
+html[data-host="croirecafe2021:8890"] .ec-headerNaviRole,
+html[data-host="localhost:3000"] .ec-headerNaviRole {
+  background: #eee;
+}
+html[data-host="croirecafe2021:8890"] .ec-headerNaviRole:after,
+html[data-host="localhost:3000"] .ec-headerNaviRole:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  content: "LOCAL";
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  padding: 3px 6px;
+  color: #fff;
+  background: #ff0000;
+}
+
+html[data-host="test.croirecafe.com"] .c-headerBar {
+  background: #19635a !important;
+}
+html[data-host="test.croirecafe.com"] .ec-headerNaviRole:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  content: "TEST";
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  padding: 3px 6px;
+  color: #fff;
+  background: #ff0000;
+}
+/*# sourceMappingURL=test.css.map */

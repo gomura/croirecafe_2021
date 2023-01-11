@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+@mixin flex{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+@mixin flex-centering{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+@mixin flex-start{
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: center;
+}
+
+@mixin flex-end{
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* !! @note ------------------------------------ */
+/* !! テスト環境の表示 */
+html[data-host="croirecafe2021:8890"],
+html[data-host="localhost:3000"]{
+  .c-headerBar{
+    background: rgb(214, 127, 40) !important;
+  }
+  .ec-headerNaviRole{
+    background: #eee;
+    &:after{
+      position: absolute;
+      top: 0;left: 0;
+      z-index: 1;
+      content: "LOCAL";
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      padding:3px 6px;
+      //border-radius: 5px;
+      color: #fff;
+      background: #ff0000;
+    }
+  }
+}
+
+html[data-host="test.croirecafe.com"]{
+  .c-headerBar{
+    background: rgb(25, 99, 90) !important;
+  }
+  .ec-headerNaviRole{
+    //background: #eee;
+    &:after{
+      position: absolute;
+      top: 0;left: 0;
+      z-index: 1;
+      content: "TEST";
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      padding:3px 6px;
+      //border-radius: 5px;
+      color: #fff;
+      background: #ff0000;
+    }
+  }
+}

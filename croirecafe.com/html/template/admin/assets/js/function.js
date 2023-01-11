@@ -208,3 +208,9 @@ var searchWord = function (searchText, el) {
         }
     });
 };
+
+
+
+//!! @note テスト環境の判別
+$('html').attr('data-host',location.host);
+$('body').append('<link rel="stylesheet" href="/common/css/test.css">');
