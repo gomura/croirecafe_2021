@@ -74,6 +74,7 @@ class PerodicDiscountType extends AbstractType
             //     'expanded' => false,
             //     'placeholder' => 'ipl_periodic_purchase.admin.config.select.default'
             // ])
+            
             ->add('discount_rate_1', TextType::class, [
               'attr' => ['style' => 'width:60px'],
               'constraints' =>[

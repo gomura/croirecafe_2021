@@ -185,7 +185,6 @@ class PeriodicDiscount extends AbstractEntity
     {
         return $this->discount_rate_1;
     }
-
     /**
      * Set discount_rate_2.
      *
