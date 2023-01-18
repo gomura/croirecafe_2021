@@ -48,7 +48,7 @@
     "pcode": "3101572",
     "pid": "122",
     "slug": "probiotics12",
-    "view":"subscription",
+    "view":"onestop",
     "slide_url": {
       "pc": "/product/img/slide/572.jpg",
       "sp": "/product/img/slide/572_sp.jpg",
@@ -74,8 +74,8 @@
     ],
     "price": {
       "base": "5,554",
-      "teiki1": "3,054",
-      "teiki2": "3,888",
+      "teiki1": "",
+      "teiki2": "",
       "try": "4,998",
       "diff": "11,664"
     },
@@ -83,7 +83,7 @@
     "coupon_code":"0572",
     "url": {
       "base": "/products/detail/58",
-      "teiki": "/products/detail/122",
+      "teiki": "",
       "try": "/products/detail/59",
       "line": "/products/detail/113"
     },
@@ -94,7 +94,7 @@
     "pcode": "3101591",
     "pid": "138",
     "slug": "",
-    "view":"onestop",
+    "view":"subscription",
     "slide_url": {
       "pc": "/product/img/slide/591.jpg",
       "sp": "/product/img/slide/591_sp.jpg",
@@ -124,16 +124,16 @@
     ],
     "price": {
       "base": "4,290",
-      "teiki1": "",
-      "teiki2": "",
+      "teiki1": "2,786",
+      "teiki2": "3,383",
       "try": "3,582",
-      "diff": "9,552"
+      "diff": "13,272"
     },
     "coupon_code":"0581",
-    "disc_rate":["30","15"],
+    "disc_rate":["35","21"],
     "url": {
       "base": "/products/detail/138",
-      "teiki": "",
+      "teiki": "/products/detail/140",
       "try": "/products/detail/139",
       "line": ""
     },
