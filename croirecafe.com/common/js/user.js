@@ -989,7 +989,11 @@ var generateProdInfo =( function generateProdInfo(data) {
     if(item.url.try[0]){
       $(".cart-url-try").attr("data-url",item.url.try);
     }else{
-      $(".note.onestop").remove(0);
+      if(pcode == '3101572'){
+        $(".note.onestop").html("<i>※</i>賞味期限:2023年7月となります。");
+      }else{
+        $(".note.onestop").remove(0);
+      }
     }
   }//for
   
