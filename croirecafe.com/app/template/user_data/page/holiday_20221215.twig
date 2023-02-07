@@ -1,0 +1,139 @@
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'croire' %}
+
+{% block main %}
+<div class="row">
+<div class="col-sm-12">
+	   				
+	   			
+<!-- !! include -->
+<!-- !! メイン -->    
+<!-- !! メイン -->    
+<style>	
+	#croire-index{
+		max-width: 660px;
+		width: auto;
+		margin: 0 auto;
+		padding: 0 15px !important;
+		box-sizing: border-box !important;
+	}
+	#croire-index h1{
+		margin: 2em 0px;
+		text-align: center;
+		letter-spacing: .1em;
+		padding: 0 15px !important;
+		line-height: 1.6;
+	}
+	
+	#croire-index h4{
+		margin: 1em 15px !important;
+		background: #eee;
+		line-height: 1;
+		padding: 10px 15px !important;
+		letter-spacing: .05em;
+		text-align: center;
+		line-height: 1.4;
+	}
+
+	#croire-index p{
+		line-height: 2;
+		padding: 0 15px !important;
+	}
+	#croire-index div{
+		line-height: 2;
+		padding: 0 15px !important;
+    margin-bottom: 1em;
+	}
+	
+	#croire-index b {
+		color: #ff0707;
+	}
+	
+	h1{
+		white-space: nowrap;
+	}
+	
+	#croire-index a.link{
+		margin: 15px auto ;text-align: center;
+		max-width: 300px;
+		background: #26b7bb;
+		display: block;
+		padding: 10px;
+		font-weight: bold;
+	}
+
+  #croire-index table{
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    font-size: 12px;
+    width: 100%;
+    white-space : nowrap ;
+    text-align: center;
+  }
+
+  #croire-index th,#croire-index td{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+  }
+	
+
+</style>
+
+<main id="croire-index" class="page product" >
+	
+
+<h1>夏季休業の<wbr>お知らせ</h1>
+
+<p>
+  誠に勝手ながら、【2022年8月11日(木)-8月15日(月)】の期間は夏季休業となります。<br class="pc">
+  お問い合わせ、発送業務を下記の通りとさせて頂きます。
+
+</p>
+
+
+<h4>お問い合わせについて</h4>
+<p>8月11日(木)以降のメールでのお問い合わせは、8月16日(火)より順次回答させて頂きます。</p>
+<p>お急ぎの方は、8月10日(水)9:30-18:00までにお電話（0120-76-4541）にてお問合せ下さい。</p>
+
+<h4>配送について</h4>
+<div>
+  <table >
+    <tr>
+      <th>ご注文日時</th><th>発送日</th>
+    </tr>
+    <tr>
+      <td>8月9日(火)14:00～<wbr>8月10日(水)13:00まで</td><td>8月10日(水)</td>
+    </tr>
+    <tr>
+      <td>8月10日(水)14:00～<wbr>8月16日(火)13:00まで</td><td>8月16日(火)</td>
+    </tr>
+  </table>
+</div>
+
+<p>【2022年8月11日(木)-8月15日(月)】の期間は、発送業務を休業とさせて頂きます。</p>
+<p>なお、道路状況により配達までお時間を頂く場合がございます。</p>
+<p>何卒ご理解頂きますようお願いいたします。</p>
+<p>今後とも変わらぬご愛顧を賜りますよう、スタッフ一同、心よりお願い申し上げます。</p>
+<p>&nbsp;</p>
+<div class="cart-back-wrap">
+    <a class="ec-blockBtn--cancel" href="/">トップページに戻る</a>
+</div>
+
+</main>
+
+
+{% if is_granted('ROLE_USER') %}
+<div id="user-logged-in-flag" data-user="{{ app.user.id }}"></div>
+{% endif %}
+			
+						
+
+<!-- !! /include -->
+
+
+</div>
+</div>
+{% endblock %}
