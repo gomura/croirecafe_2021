@@ -76,7 +76,7 @@
       "base": "5,554",
       "teiki1": "",
       "teiki2": "",
-      "try": "4,998",
+      "try": "",
       "diff": "11,664"
     },
     "disc_rate":["45","30"],
@@ -84,7 +84,7 @@
     "url": {
       "base": "/products/detail/58",
       "teiki": "",
-      "try": "/products/detail/59",
+      "try": "",
       "line": "/products/detail/113"
     },
     "delivery_fee":"660"

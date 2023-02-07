@@ -988,6 +988,8 @@ var generateProdInfo =( function generateProdInfo(data) {
     }
     if(item.url.try[0]){
       $(".cart-url-try").attr("data-url",item.url.try);
+    }else{
+      $(".note.onestop").remove(0);
     }
   }//for
   
