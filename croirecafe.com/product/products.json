@@ -3,16 +3,16 @@
     "pcode": "3101561",
     "pid": "120",
     "slug": "premium-croiretea",
-    "view": "subscription",
+    "view":"subscription",
     "slide_url": {
       "pc": "/product/img/slide/561.jpg",
       "sp": "/product/img/slide/561_sp.jpg",
-      "alt": ""
+      "alt":""
     },
     "thumb_url": "/product/img/thumbnail/croiretea.png",
     "label_url": "/product/img/label/label-croiretea.png",
     "label_sale_url": "",
-    "content_img_url": "/product/img/content/tea.png",
+    "content_img_url" : "/product/img/content/tea.png",
     "name": "プレミアムクロワール茶",
     "name_disp": "プレミアムクロワール茶",
     "desc_short": "お子様からご年配の方までご安心して飲める健康茶。",
@@ -34,33 +34,30 @@
       "try": "2,507",
       "diff": "6,688"
     },
-    "disc_rate": [
-      "30",
-      "15"
-    ],
-    "coupon_code": "",
+    "disc_rate":["30","15"],
+    "coupon_code":"",
     "url": {
       "base": "/products/detail/56",
       "teiki": "/products/detail/120",
       "try": "/products/detail/21",
       "line": "/products/detail/108"
     },
-    "delivery_fee": "231"
+    "delivery_fee":"231"
   },
   {
     "pcode": "3101572",
     "pid": "122",
     "slug": "probiotics12",
-    "view": "onestop",
+    "view":"onestop",
     "slide_url": {
       "pc": "/product/img/slide/572.jpg",
       "sp": "/product/img/slide/572_sp.jpg",
-      "alt": ""
+      "alt":""
     },
     "thumb_url": "/product/img/thumbnail/pb12.png",
     "label_url": "/product/img/label/label-pb12.png",
     "label_sale_url": "",
-    "content_img_url": "/product/img/content/pb12.png",
+    "content_img_url" : "/product/img/content/pb12.png",
     "name": "クロワールプロバイオティクス12",
     "name_disp": "クロワール<br />プロバイオティクス12",
     "desc_short": "全12種類の生きた善玉菌を1粒に250億個配合",
@@ -82,33 +79,31 @@
       "try": "",
       "diff": "11,664"
     },
-    "disc_rate": [
-      "45",
-      "30"
-    ],
-    "coupon_code": "0572",
+    "disc_rate":["45","30"],
+    "coupon_code":"0572",
     "url": {
       "base": "/products/detail/58",
       "teiki": "",
       "try": "",
       "line": "/products/detail/113"
     },
-    "delivery_fee": "660"
+    "delivery_fee":"660"
   },
+ 
   {
     "pcode": "3101591",
     "pid": "138",
     "slug": "",
-    "view": "subscription",
+    "view":"subscription",
     "slide_url": {
       "pc": "/product/img/slide/591.jpg",
       "sp": "/product/img/slide/591_sp.jpg",
-      "alt": ""
+      "alt":""
     },
     "thumb_url": "/product/img/thumbnail/eye-q-plus.png",
     "label_url": "/product/img/label/label-eye-q-plus.png",
     "label_sale_url": "",
-    "content_img_url": "/product/img/content/Q.png",
+    "content_img_url" : "/product/img/content/Q.png",
     "name": "クロワールアイ・Qプラス.",
     "name_disp": "クロワールアイ・Qプラス.",
     "desc_short": "目と脳の健康をWサポートする機能性表示食品。",
@@ -134,33 +129,30 @@
       "try": "3,582",
       "diff": "13,272"
     },
-    "coupon_code": "0581",
-    "disc_rate": [
-      "35",
-      "21"
-    ],
+    "coupon_code":"0581",
+    "disc_rate":["35","21"],
     "url": {
       "base": "/products/detail/138",
       "teiki": "/products/detail/140",
       "try": "/products/detail/139",
       "line": ""
     },
-    "delivery_fee": "231"
+    "delivery_fee":"231"
   },
   {
     "pcode": "3101569",
     "pid": "118",
     "slug": "midori-no-dhaepa",
-    "view": "subscription",
+    "view":"subscription",
     "slide_url": {
       "pc": "/product/img/slide/569.jpg",
       "sp": "/product/img/slide/569_sp.jpg",
-      "alt": ""
+      "alt":""
     },
     "thumb_url": "/product/img/thumbnail/midori.png",
     "label_url": "/product/img/label/label-midori.png",
     "label_sale_url": "",
-    "content_img_url": "/product/img/content/midori.png",
+    "content_img_url" : "/product/img/content/midori.png",
     "name": "緑のDHA&EPA+ゴールデンユーグレナ",
     "name_disp": "緑のDHA&EPA<br /><i>+ゴールデンユーグレナ</i>",
     "desc_short": "時代は魚由来から植物由来へ。",
@@ -182,33 +174,30 @@
       "try": "2,430",
       "diff": "6,480"
     },
-    "coupon_code": "0569",
-    "disc_rate": [
-      "30",
-      "15"
-    ],
+    "coupon_code":"0569",
+    "disc_rate":["30","15"],
     "url": {
       "base": "/products/detail/26",
       "teiki": "/products/detail/118",
       "try": "/products/detail/22",
       "line": "/products/detail/115"
     },
-    "delivery_fee": "231"
+    "delivery_fee":"231"
   },
   {
     "pcode": "3101590",
     "pid": "137",
     "slug": "midori-no-dhaepa-support",
-    "view": "onestop",
+    "view":"onestop",
     "slide_url": {
       "pc": "",
       "sp": "",
-      "alt": ""
+      "alt":""
     },
     "thumb_url": "/product/img/thumbnail/midori-support.png",
     "label_url": "/product/img/label/label-midori-support.png",
     "label_sale_url": "",
-    "content_img_url": "/product/img/content/midori.png",
+    "content_img_url" : "/product/img/content/midori.png",
     "name": "緑のDHA&EPA 中性脂肪減少サポート",
     "name_disp": "緑のDHA&EPA<br /><i>中性脂肪減少サポート</i>",
     "desc_short": "血中の中性脂肪値を下げる機能性表示食品。",
@@ -234,33 +223,30 @@
       "try": "",
       "diff": ""
     },
-    "coupon_code": "0569",
-    "disc_rate": [
-      "30",
-      "15"
-    ],
+    "coupon_code":"0569",
+    "disc_rate":["30","15"],
     "url": {
       "base": "/products/detail/137",
       "teiki": "",
       "try": "",
       "line": ""
     },
-    "delivery_fee": "231"
+    "delivery_fee":"231"
   },
   {
     "pcode": "3101585",
     "pid": "130",
     "slug": "ndx",
-    "view": "subscription",
+    "view":"subscription",
     "slide_url": {
       "pc": "/product/img/slide/585.jpg",
       "sp": "/product/img/slide/585_sp.jpg",
-      "alt": ""
+      "alt":""
     },
     "thumb_url": "/product/img/thumbnail/ndx.png",
     "label_url": "/product/img/label/label-NDX@2x.png",
     "label_sale_url": "",
-    "content_img_url": "/product/img/content/NA.png",
+    "content_img_url" : "/product/img/content/NA.png",
     "name": "N-アセチルグルコサミンロコモDX",
     "name_disp": "N-アセチルグルコサミン<br />ロコモDX",
     "desc_short": "軟骨成分と筋肉成分を配合した機能性表示食品",
@@ -282,33 +268,30 @@
       "try": "3,969",
       "diff": "15,880"
     },
-    "coupon_code": "0570",
-    "disc_rate": [
-      "40",
-      "25"
-    ],
+    "coupon_code":"0570",
+    "disc_rate":["40","25"],
     "url": {
       "base": "/products/detail/129",
       "teiki": "/products/detail/130",
       "try": "/products/detail/131",
       "line": "/products/detail/132"
     },
-    "delivery_fee": "231"
+    "delivery_fee":"231"
   },
   {
     "pcode": "3101554",
     "pid": "118",
     "slug": "q10",
-    "view": "subscription",
+    "view":"subscription",
     "slide_url": {
       "pc": "/product/img/slide/554.jpg",
       "sp": "/product/img/slide/554_sp.jpg",
-      "alt": ""
+      "alt":""
     },
     "thumb_url": "/product/img/thumbnail/q10.png",
     "label_url": "/product/img/label/label-q10@2x.png",
     "label_sale_url": "",
-    "content_img_url": "/product/img/content/Q10.png",
+    "content_img_url" : "/product/img/content/Q10.png",
     "name": "クロワール 還元型コエンザイムQ10",
     "name_disp": "クロワール<br />還元型コエンザイムQ10",
     "desc_short": "1粒に5つの元気成分をぎゅっと凝縮。",
@@ -330,33 +313,30 @@
       "try": "3,061",
       "diff": "9,072"
     },
-    "coupon_code": "0554",
-    "disc_rate": [
-      "30",
-      "15"
-    ],
+    "coupon_code":"0554",
+    "disc_rate":["30","15"],
     "url": {
       "base": "/products/detail/34",
       "teiki": "/products/detail/116",
       "try": "/products/detail/35",
       "line": "/products/detail/114"
     },
-    "delivery_fee": "231"
+    "delivery_fee":"231"
   },
   {
     "pcode": "3101526",
     "pid": "119",
     "slug": "gold",
-    "view": "subscription",
+    "view":"subscription",
     "slide_url": {
       "pc": "/product/img/slide/526.jpg",
       "sp": "/product/img/slide/526_sp.jpg",
-      "alt": ""
+      "alt":""
     },
     "thumb_url": "/product/img/thumbnail/gold.png",
     "label_url": "/product/img/label/label-gold.png",
     "label_sale_url": "",
-    "content_img_url": "/product/img/content/gold.png",
+    "content_img_url" : "/product/img/content/gold.png",
     "name": "クロワールゴールド",
     "name_disp": "クロワールゴールド",
     "desc_short": "アフリカ紅茶とメシマコブを1粒に凝縮",
@@ -378,33 +358,30 @@
       "try": "3,110",
       "diff": "8,300"
     },
-    "disc_rate": [
-      "30",
-      "15"
-    ],
-    "coupon_code": "0526",
+    "disc_rate":["30","15"],
+    "coupon_code":"0526",
     "url": {
       "base": "/products/detail/25",
       "teiki": "/products/detail/119",
       "try": "/products/detail/27",
       "line": "/products/detail/109"
     },
-    "delivery_fee": "231"
+    "delivery_fee":"231"
   },
   {
     "pcode": "3103518",
     "pid": "20",
     "slug": "wahaha",
-    "view": "onestop",
+    "view":"onestop",
     "slide_url": {
       "pc": "/product/img/slide/518.jpg",
       "sp": "/product/img/slide/518_sp.jpg",
-      "alt": ""
+      "alt":""
     },
     "thumb_url": "/product/img/thumbnail/wahaha.png",
     "label_url": "/product/img/label/label-wahaha.png",
     "label_sale_url": "",
-    "content_img_url": "",
+    "content_img_url" : "",
     "name": "魔法のワハハ歯ブラシ（3本セット）",
     "name_disp": "魔法のワハハ歯ブラシ<br /><i>（3本セット）</i>",
     "desc_short": "磨き残しゼロを目指した歯ブラシ。",
@@ -422,33 +399,30 @@
       "try": "1,485",
       "diff": ""
     },
-    "coupon_code": "0518",
-    "disc_rate": [
-      "30",
-      "15"
-    ],
+    "coupon_code":"0518",
+    "disc_rate":["30","15"],
     "url": {
       "base": "/products/detail/20",
       "teiki": "",
       "try": "/products/detail/43",
       "line": "/products/detail/128"
     },
-    "delivery_fee": "231"
+    "delivery_fee":"231"
   },
   {
     "pcode": "3101535",
     "pid": "42",
     "slug": "croire-coat",
-    "view": "onestop",
+    "view":"onestop",
     "slide_url": {
       "pc": "/product/img/slide/535.jpg",
       "sp": "/product/img/slide/535_sp.jpg",
-      "alt": ""
+      "alt":""
     },
     "thumb_url": "/product/img/thumbnail/coat65.png",
     "label_url": "/product/img/label/label-coat.png",
     "label_sale_url": "",
-    "content_img_url": "",
+    "content_img_url" : "",
     "name": "薬用はみがきクロワールコート65g",
     "name_disp": "薬用はみがき<br />クロワールコート65g",
     "desc_short": "発泡剤・研磨剤不使用。",
@@ -459,11 +433,8 @@
         "color": "light"
       }
     ],
-    "coupon_code": "0535",
-    "disc_rate": [
-      "30",
-      "15"
-    ],
+    "coupon_code":"0535",
+    "disc_rate":["30","15"],
     "price": {
       "base": "3,850",
       "teiki1": "",
@@ -477,6 +448,6 @@
       "try": "/products/detail/127",
       "line": "/products/detail/110"
     },
-    "delivery_fee": "660"
+    "delivery_fee":"660"
   }
 ]
