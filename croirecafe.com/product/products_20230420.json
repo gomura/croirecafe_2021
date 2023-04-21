@@ -143,7 +143,7 @@
     "pcode": "3101569",
     "pid": "118",
     "slug": "midori-no-dhaepa",
-    "view":"onestop",
+    "view":"subscription",
     "slide_url": {
       "pc": "/product/img/slide/569.jpg",
       "sp": "/product/img/slide/569_sp.jpg",
@@ -169,8 +169,8 @@
     ],
     "price": {
       "base": "2,700",
-      "teiki1": "",
-      "teiki2": "",
+      "teiki1": "1,890",
+      "teiki2": "2,295",
       "try": "2,430",
       "diff": "6,480"
     },
