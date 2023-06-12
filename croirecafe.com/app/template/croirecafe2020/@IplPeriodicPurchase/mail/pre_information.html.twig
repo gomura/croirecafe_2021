@@ -25,15 +25,28 @@ It applies to terms of service.
                     <td class="container-padding content" align="left" style="border-collapse:collapse;padding-left:24px;padding-right:24px;padding-top:12px;padding-bottom:12px;background-color:#ffffff;">
                         
                         <div class="body-text" style="font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;color:#333333;">
+                            
+
+                            
                             {{ Order.name01 }} {{ Order.name02 }} 様<br/>
-                            <br/>
-                            こちらは定期購入内容の事前お知らせメールとなります。<br/>
+                            
+                            
+							
+                            !! こちらは定期購入内容の事前お知らせメールとなります。<br/>  
+                            
                             下記ご注文内容にお間違えがないかご確認下さい。<br/>
                             <br/>
-							今回のご注文のスキップ・休止等のご変更は下記の日付までとなっております。<br />
-							何卒ご了承ください。<br /><br />
+                            今回のご注文のスキップ・休止等のご変更は下記の日付までとなっております。<br />
+                            何卒ご了承ください。<br /><br />
                             {% for Shipping in Order.Shippings %}
-	                            ご変更締め切り日時：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-8 day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 23時59分まで<br/>
+								
+								
+                            {#
+                              ご変更締め切り日時：<b>{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-8day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 23時59分まで</b><br/>
+                            #}
+            								ご変更締め切り日時：<b>{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_modify("-11day")|localizeddate('medium', 'short', 'Japanese', null, 'YYYY/MM/dd') }} 23時59分まで</b><br/>
+            								※2022/12/29～2023/1/4まで年末年始休業となります。2023/1/1発送分は2022/12/28発送に変更となります。
+            								<br />
 	                            
                            {% endfor %}
                             <br />
@@ -111,7 +124,7 @@ It applies to terms of service.
                                 {{ Order.complete_mail_message|nl2br }}<br/>
                             {% endif %}
                             
-							※発送予定日が土日祝日の場合は、前営業日の発送となります。<br />
+							※発送予定日が土日の場合は、前営業日の発送となります。<br />
 							※同日出荷複数個口のお荷物をおまとめさせていただく場合がございます。<br />
 							※商品点数によっては、配送を複数個口にお分けする場合がございます。<br />
 							<br />

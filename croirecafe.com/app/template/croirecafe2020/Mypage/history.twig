@@ -188,15 +188,19 @@ file that was distributed with this source code.
                                 class="ec-totalBox__price">{{ Order.payment_total|price }}</span><span
                                 class="ec-totalBox__taxLabel">{{ '税込'|trans }}</span></div>
                     {% if stockOrder %}
+                      <!-- !! 
                         <a href="{{ url('mypage_order', {'order_no': Order.order_no }) }}"
                        class="ec-blockBtn--action load-overlay" {{ csrf_token_for_anchor() }} data-method="put"
                        data-confirm="false">{{ '再注文する'|trans }}</a>
+                        -->
                     {% endif %}
                 </div>
                 {% if remessage %}
+                    <!-- !! 
                     <p class="ec-color-accent">
                         <strong>{{ '※金額が変更されている商品があるため、再注文時はご注意ください。'|trans }}</strong>
                     </p>
+                     -->
                 {% endif %}
             </div>
         </div>

@@ -1,0 +1,99 @@
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'croire' %}
+
+{% block main %}
+<div class="row">
+<div class="col-sm-12">
+	   				
+	   			
+<!-- !! include -->
+<!-- !! メイン -->    
+<!-- !! メイン -->    
+<style>	
+	#croire-index{
+		max-width: 660px;
+		width: auto;
+		margin: 0 auto;
+		padding: 0 15px !important;
+		box-sizing: border-box !important;
+	}
+	#croire-index h1{
+		margin: 2em 0px;
+		text-align: center;
+		letter-spacing: .1em;
+		padding: 0 15px !important;
+		line-height: 1.6;
+	}
+	
+	#croire-index h4{
+		margin: 1em 15px !important;
+		background: #eee;
+		line-height: 1;
+		padding: 10px 15px !important;
+		letter-spacing: .05em;
+		text-align: center;
+		line-height: 1.4;
+	}
+
+	#croire-index p{
+		line-height: 2;
+		padding: 0 15px !important;
+	}
+	
+	#croire-index b {
+		color: #ff0707;
+	}
+	
+	h1{
+		white-space: nowrap;
+	}
+	
+	#croire-index a.link{
+		margin: 15px auto ;text-align: center;
+		max-width: 300px;
+		background: #26b7bb;
+		display: block;
+		padding: 10px;
+		font-weight: bold;
+	}
+	
+
+</style>
+
+<main id="croire-index" class="page product" >
+	
+
+<h1>「プロバイオティクス12」販売休止の<wbr>お知らせ</h1>
+
+<p>いつもクロワール商品をご愛用いただき、誠にありがとうございます。</p>
+<p>&nbsp;</p>
+<p>この度、弊社商品「プロバイオティクス12」が、昨今のロシア・ウクライナ情勢により原料の調達が困難となり、今後の製造スケジュールが未定という状況になりました。</p>
+<p>弊社といたしましても、供給継続の可能性を探っておりますが、やむを得ず、2023年4月発送をもちまして、一旦、販売を休止とさせて頂く事となりました。</p>
+<p>&nbsp;</p>
+<p>お客様には多大なご迷惑をお掛けします事、心よりお詫び申し上げます。</p>
+<p>大変申し訳ございませんが、何卒、ご理解下さいますようお願い申し上げます。</p>
+<p>&nbsp;</p>
+<p>今後とも、弊社商品をご愛顧賜りますようお願い申し上げます。</p>
+
+
+<p>&nbsp;</p>
+<div class="cart-back-wrap">
+    <a class="ec-blockBtn--cancel" href="/">トップページに戻る</a>
+</div>
+
+</main>
+
+
+{% if is_granted('ROLE_USER') %}
+<div id="user-logged-in-flag" data-user="{{ app.user.id }}"></div>
+{% endif %}
+			
+						
+
+<!-- !! /include -->
+
+
+</div>
+</div>
+{% endblock %}
